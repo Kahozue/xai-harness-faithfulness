@@ -75,7 +75,7 @@ class CodexAdapter(HarnessAdapter):
             "OPENAI_API_KEY": secrets["OPENAI_API_KEY"],
         }
 
-    def command(self, prompt: str, model_snapshot: str, provider: str) -> list[str]:
+    def command(self, prompt: str, model_snapshot: str, provider: str, workdir: Path | None = None) -> list[str]:
         return [
             str(paths.LAB_BIN / "codex"),
             "exec",

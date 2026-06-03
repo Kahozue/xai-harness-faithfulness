@@ -43,6 +43,12 @@ They are also plaintext and private.
 - for Codex and Hermes, copy the session artifact from the current run's
   isolated HOME into the workdir before normalization; adapters must not fall
   back to "latest" session files under the shared lab HOME;
+- for OpenCode, pass `--dir <workdir>` explicitly; subprocess `cwd` alone is
+  not sufficient to constrain OpenCode's project root;
+- check protected repo baseline paths after harness execution and before
+  grading; if a harness modifies `tasks/target_repo` or `tasks/benchmark`,
+  save the repo-escape status/diff/untracked files under that run's workdir,
+  restore the protected baseline, and treat the run as invalid/error;
 - write a private plaintext audit under `/data/harness-lab/private-audits/...`;
 - write the committed summary trace under `traces/...`;
 - refuse to overwrite an existing summary trace by default;

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import subprocess
 from types import SimpleNamespace
 
 import pytest
@@ -17,7 +18,7 @@ class _MockAdapter:
     def env(self, secrets, model_snapshot):
         return {"HOME": "/shared/template-home"}
 
-    def command(self, prompt, model_snapshot, provider):
+    def command(self, prompt, model_snapshot, provider, workdir=None):
         return ["/bin/sh", "-c", "printf raw > mock.raw; printf launch; printf \"$HOME\" > seen_home"]
 
     def raw_artifacts(self, workdir):
@@ -211,3 +212,36 @@ def test_cli_phase2_run_streams_progress(monkeypatch, tmp_path, capsys):
     ]
     assert events[2]["success"] is True
     assert events[3]["completed"] == 1
+
+
+def test_repo_escape_guard_preserves_and_restores(monkeypatch, tmp_path):
+    repo = tmp_path / "repo"
+    protected = repo / "tasks" / "target_repo"
+    protected.mkdir(parents=True)
+    tracked = protected / "money.py"
+    tracked.write_text("baseline\n")
+    subprocess.run(["git", "init"], cwd=repo, check=True, capture_output=True)
+    subprocess.run(["git", "add", "."], cwd=repo, check=True, capture_output=True)
+    subprocess.run(
+        ["git", "-c", "user.email=x@example.com", "-c", "user.name=x", "commit", "-m", "base"],
+        cwd=repo,
+        check=True,
+        capture_output=True,
+    )
+    tracked.write_text("mutated\n")
+    untracked = protected / "new.py"
+    untracked.write_text("new\n")
+    monkeypatch.setattr(R.paths, "REPO", repo)
+
+    status = R._protected_repo_status()
+    assert "tasks/target_repo/money.py" in status
+    assert "tasks/target_repo/new.py" in status
+
+    workdir = tmp_path / "workdir"
+    R._quarantine_repo_escape(workdir, status)
+
+    assert tracked.read_text() == "baseline\n"
+    assert not untracked.exists()
+    assert "tasks/target_repo/money.py" in (workdir / "repo_escape.status").read_text()
+    assert "mutated" in (workdir / "repo_escape.diff").read_text()
+    assert (workdir / "repo_escape_untracked" / "tasks" / "target_repo" / "new.py").read_text() == "new\n"

@@ -18,6 +18,7 @@ from runner.provision import load_tasks, provision_task
 from runner.trace_schema import NormalizedTrace, ToolCall, validate_trace
 
 DEFAULT_TIMEOUT_S = 900
+PROTECTED_REPO_PATHS = ["tasks/target_repo", "tasks/benchmark"]
 
 
 def _env_lock_ref() -> str:
@@ -118,6 +119,45 @@ def _merge_artifacts(primary: dict[str, Path], extra: dict[str, Path]) -> dict[s
     return merged
 
 
+def _protected_repo_status() -> str:
+    res = subprocess.run(
+        ["git", "status", "--porcelain", "--", *PROTECTED_REPO_PATHS],
+        cwd=paths.REPO,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    return res.stdout.strip()
+
+
+def _quarantine_repo_escape(workdir: Path, status: str) -> None:
+    workdir.mkdir(parents=True, exist_ok=True)
+    (workdir / "repo_escape.status").write_text(status + "\n")
+    diff = subprocess.run(
+        ["git", "diff", "--binary", "--", *PROTECTED_REPO_PATHS],
+        cwd=paths.REPO,
+        capture_output=True,
+        text=True,
+        check=False,
+    ).stdout
+    if diff:
+        (workdir / "repo_escape.diff").write_text(diff)
+
+    for line in status.splitlines():
+        if not line.startswith("?? "):
+            continue
+        rel = line[3:]
+        src = paths.REPO / rel
+        if src.exists():
+            dst = workdir / "repo_escape_untracked" / rel
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            shutil.move(str(src), str(dst))
+
+    restore_paths = [p for p in PROTECTED_REPO_PATHS if (paths.REPO / p).exists()]
+    if restore_paths:
+        subprocess.run(["git", "checkout", "--", *restore_paths], cwd=paths.REPO, check=True)
+
+
 def run_once(
     config_id: int,
     task_id: str,
@@ -140,7 +180,7 @@ def run_once(
     env = dict(os.environ)
     env.update(adapter.env(secrets, cfg.model_snapshot))
     env.update(isolation.env_for_run_home(cfg.harness, run_home))
-    cmd = adapter.command(task["prompt"], cfg.model_snapshot, cfg.provider)
+    cmd = adapter.command(task["prompt"], cfg.model_snapshot, cfg.provider, workdir=workdir)
 
     started = time.time()
     launch_timed_out = False
@@ -171,6 +211,14 @@ def run_once(
         copied = _copy_latest_codex_session(workdir, run_home, started)
         if copied:
             launch_artifacts["codex_session_copy"] = copied
+
+    repo_status = _protected_repo_status()
+    if repo_status:
+        _quarantine_repo_escape(workdir, repo_status)
+        raise RuntimeError(
+            "repo_mutation_detected: harness modified protected repo paths; "
+            f"see {workdir / 'repo_escape.status'}"
+        )
 
     grade = run_grader(task, workdir)
     norm = adapter.normalize(workdir)

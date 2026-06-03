@@ -48,7 +48,7 @@ class HermesAdapter(HarnessAdapter):
             env["OPENAI_API_KEY"] = secrets["OPENAI_API_KEY"]
         return env
 
-    def command(self, prompt: str, model_snapshot: str, provider: str) -> list[str]:
+    def command(self, prompt: str, model_snapshot: str, provider: str, workdir: Path | None = None) -> list[str]:
         return [
             str(paths.HERMES_BIN),
             "-z",

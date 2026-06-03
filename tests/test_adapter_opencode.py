@@ -1,5 +1,7 @@
 from pathlib import Path
 
+import pytest
+
 from runner.adapters import get_adapter
 from runner.adapters.opencode import OpenCodeAdapter
 
@@ -7,11 +9,13 @@ FIX_HAIKU = Path(__file__).parent / "fixtures" / "opencode-haiku.smoke.log"
 FIX_GPTMINI = Path(__file__).parent / "fixtures" / "opencode-gptmini.smoke.log"
 
 
-def test_command_shape():
+def test_command_shape(tmp_path):
     a = OpenCodeAdapter()
-    cmd = a.command("FIX BUG", "claude-haiku-4-5-20251001", "anthropic")
+    cmd = a.command("FIX BUG", "claude-haiku-4-5-20251001", "anthropic", workdir=tmp_path)
     assert cmd[0].endswith("opencode")
     assert cmd[:2] == [cmd[0], "run"]
+    assert "--dir" in cmd
+    assert str(tmp_path) in cmd
     assert "--model" in cmd
     assert "anthropic/claude-haiku-4-5-20251001" in cmd
     assert "--variant" in cmd and "high" in cmd
@@ -25,6 +29,11 @@ def test_env_uses_isolated_home_and_provider_keys():
     assert env["ANTHROPIC_API_KEY"] == "a"
     assert env["OPENAI_API_KEY"] == "o"
     assert "/data/harness-lab/bin" in env["PATH"]
+
+
+def test_command_requires_explicit_workdir():
+    with pytest.raises(ValueError):
+        OpenCodeAdapter().command("FIX BUG", "claude-haiku-4-5-20251001", "anthropic")
 
 
 def test_registry_includes_opencode():

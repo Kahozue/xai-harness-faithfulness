@@ -83,7 +83,7 @@ class ClaudeCodeAdapter(HarnessAdapter):
             "MAX_THINKING_TOKENS": "63999",
         }
 
-    def command(self, prompt: str, model_snapshot: str, provider: str) -> list[str]:
+    def command(self, prompt: str, model_snapshot: str, provider: str, workdir: Path | None = None) -> list[str]:
         return [
             str(paths.LAB_BIN / "claude-trace"), "--include-all-requests", "--run-with",
             "-p", prompt, "--model", model_snapshot,

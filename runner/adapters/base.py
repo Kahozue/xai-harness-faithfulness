@@ -13,7 +13,7 @@ class HarnessAdapter(ABC):
         """回傳此次 run 的環境變數（含隔離 HOME、API key、budget）。"""
 
     @abstractmethod
-    def command(self, prompt: str, model_snapshot: str, provider: str) -> list[str]:
+    def command(self, prompt: str, model_snapshot: str, provider: str, workdir: Path | None = None) -> list[str]:
         """回傳非互動啟動指令（argv）。"""
 
     @abstractmethod

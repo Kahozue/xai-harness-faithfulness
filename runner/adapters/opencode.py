@@ -56,10 +56,14 @@ class OpenCodeAdapter(HarnessAdapter):
             env["OPENAI_API_KEY"] = secrets["OPENAI_API_KEY"]
         return env
 
-    def command(self, prompt: str, model_snapshot: str, provider: str) -> list[str]:
+    def command(self, prompt: str, model_snapshot: str, provider: str, workdir: Path | None = None) -> list[str]:
+        if workdir is None:
+            raise ValueError("OpenCode command requires an explicit workdir for --dir isolation")
         return [
             str(paths.LAB_BIN / "opencode"),
             "run",
+            "--dir",
+            str(workdir),
             "--model",
             f"{provider}/{model_snapshot}",
             "--variant",

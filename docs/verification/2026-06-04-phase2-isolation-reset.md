@@ -26,6 +26,11 @@ HCI analysis.
   the current run's HOME, copied into the workdir by the runner.
 - Codex and Hermes adapters must not fall back to latest sessions under the
   shared lab HOME.
+- OpenCode must be launched with explicit `--dir <workdir>`; subprocess `cwd`
+  alone allowed OpenCode to select `/data/repos/xai-harness-faithfulness` as the
+  project root during the repeat 90 isolation smoke.
+- Runner must detect and quarantine any harness attempt to modify protected repo
+  baseline paths, then restore the baseline before the next run.
 
 ## Invalidated artifact handling
 
@@ -36,3 +41,12 @@ folder under `/data/harness-lab/phase2/invalid-shared-home-*`.
 
 The clean restart should reuse repeats 1, 2, and 3 only after the invalid shared
 HOME artifacts are quarantined.
+
+## Isolation smoke follow-up
+
+After the per-run HOME fix, an isolation smoke using repeat 90 verified that all
+six configs could launch from run-local HOME. It also exposed an OpenCode project
+root issue: without `--dir <workdir>`, OpenCode edited
+`tasks/target_repo/calckit/money.py` in the repository baseline. That baseline
+change was reverted, and the repeat 90 smoke artifacts were quarantined under
+`/data/harness-lab/phase2/isolation-smoke-20260604-repeat90`.
