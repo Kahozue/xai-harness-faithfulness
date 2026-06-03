@@ -7,8 +7,9 @@ be non-JSON status text, then events look like:
   {"type":"item.completed","item":{"type":"file_change", ...}}
   {"type":"turn.completed","usage":{...}}
 
-The richer rollout session under $LAB_HOME/.codex/sessions is used only as a
-supplement for system-prompt presence, reasoning markers, and context budget.
+The runner copies the rollout session from that run's isolated HOME into the
+workdir. The adapter never falls back to the shared lab HOME, because that would
+allow cross-run session contamination.
 """
 from __future__ import annotations
 
@@ -30,24 +31,6 @@ def _jsonl(path: Path) -> Iterable[dict[str, Any]]:
             yield json.loads(line)
         except json.JSONDecodeError:
             continue
-
-
-def _safe_rel_to(path: Path, parent: Path) -> bool:
-    try:
-        path.resolve().relative_to(parent.resolve())
-    except ValueError:
-        return False
-    return True
-
-
-def _latest_rollout() -> Path | None:
-    root = paths.LAB_HOME / ".codex" / "sessions"
-    if not root.exists():
-        return None
-    files = list(root.rglob("rollout-*.jsonl"))
-    if not files:
-        return None
-    return max(files, key=lambda p: (p.stat().st_mtime, str(p)))
 
 
 def _summarize_command(item: dict[str, Any]) -> str:
@@ -119,11 +102,6 @@ class CodexAdapter(HarnessAdapter):
             if p.exists():
                 arts["session_jsonl"] = p
                 return arts
-
-        if _safe_rel_to(workdir, paths.LAB):
-            latest = _latest_rollout()
-            if latest is not None:
-                arts["session_jsonl"] = latest
         return arts
 
     def normalize(self, workdir: Path) -> dict:

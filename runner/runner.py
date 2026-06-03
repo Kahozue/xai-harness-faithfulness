@@ -9,7 +9,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from runner import paths, persist
+from runner import isolation, paths, persist
 from runner.adapters import get_adapter
 from runner.configs import get_config
 from runner.grader import run_grader
@@ -74,8 +74,8 @@ def _write_launch_logs(workdir: Path, harness: str, stdout: Any, stderr: Any) ->
     return artifacts
 
 
-def _copy_latest_hermes_session(workdir: Path, started_at: float) -> Path | None:
-    root = paths.LAB_HOME / ".hermes" / "sessions"
+def _copy_latest_hermes_session(workdir: Path, run_home: Path, started_at: float) -> Path | None:
+    root = run_home / ".hermes" / "sessions"
     if not root.exists():
         return None
     sessions = list(root.glob("session_*.json"))
@@ -84,6 +84,20 @@ def _copy_latest_hermes_session(workdir: Path, started_at: float) -> Path | None
     fresh = [p for p in sessions if p.stat().st_mtime >= started_at - 1]
     src = max(fresh or sessions, key=lambda p: (p.stat().st_mtime, str(p)))
     dst = workdir / "trace.session.json"
+    shutil.copy2(src, dst)
+    return dst
+
+
+def _copy_latest_codex_session(workdir: Path, run_home: Path, started_at: float) -> Path | None:
+    root = run_home / ".codex" / "sessions"
+    if not root.exists():
+        return None
+    sessions = list(root.rglob("rollout-*.jsonl"))
+    if not sessions:
+        return None
+    fresh = [p for p in sessions if p.stat().st_mtime >= started_at - 1]
+    src = max(fresh or sessions, key=lambda p: (p.stat().st_mtime, str(p)))
+    dst = workdir / "trace.session.jsonl"
     shutil.copy2(src, dst)
     return dst
 
@@ -120,10 +134,12 @@ def run_once(
 
     rd = persist.run_dir(config_id, task_id, repeat_index)
     workdir = rd / "workdir"
+    run_home = isolation.prepare_run_home(cfg.harness, persist.home_dir(config_id, task_id, repeat_index))
     provision_task(task, workdir)
 
     env = dict(os.environ)
     env.update(adapter.env(secrets, cfg.model_snapshot))
+    env.update(isolation.env_for_run_home(cfg.harness, run_home))
     cmd = adapter.command(task["prompt"], cfg.model_snapshot, cfg.provider)
 
     started = time.time()
@@ -148,9 +164,13 @@ def run_once(
 
     launch_artifacts = _write_launch_logs(workdir, cfg.harness, stdout, stderr)
     if cfg.harness == "hermes":
-        copied = _copy_latest_hermes_session(workdir, started)
+        copied = _copy_latest_hermes_session(workdir, run_home, started)
         if copied:
             launch_artifacts["hermes_session_copy"] = copied
+    elif cfg.harness == "codex":
+        copied = _copy_latest_codex_session(workdir, run_home, started)
+        if copied:
+            launch_artifacts["codex_session_copy"] = copied
 
     grade = run_grader(task, workdir)
     norm = adapter.normalize(workdir)

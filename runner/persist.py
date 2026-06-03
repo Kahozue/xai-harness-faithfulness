@@ -16,6 +16,10 @@ def raw_dir(config_id: int, task_id: str, repeat_index: int) -> Path:
     return run_dir(config_id, task_id, repeat_index) / "raw"
 
 
+def home_dir(config_id: int, task_id: str, repeat_index: int) -> Path:
+    return run_dir(config_id, task_id, repeat_index) / "home"
+
+
 def trace_path(config_id: int, task_id: str, repeat_index: int) -> Path:
     return paths.REPO / "traces" / str(config_id) / task_id / f"{repeat_index}.json"
 

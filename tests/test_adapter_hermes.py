@@ -49,3 +49,11 @@ def test_normalize_gptmini_fixture_reasoning(tmp_path):
     assert out["system_present"] is True
     assert out["reasoning_steps"], "GPT-mini Hermes fixture exposes reasoning metadata"
     assert out["evidence_levels"]["reasoning_steps"] == "direct"
+
+
+def test_raw_artifacts_never_fall_back_to_shared_lab_home(tmp_path):
+    (tmp_path / "hermes.log").write_text("stdout")
+
+    arts = HermesAdapter().raw_artifacts(tmp_path)
+
+    assert arts == {"stdout_log": tmp_path / "hermes.log"}

@@ -15,10 +15,10 @@ class _MockAdapter:
     version = "test-adapter"
 
     def env(self, secrets, model_snapshot):
-        return {}
+        return {"HOME": "/shared/template-home"}
 
     def command(self, prompt, model_snapshot, provider):
-        return ["/bin/sh", "-c", "printf raw > mock.raw; printf launch"]
+        return ["/bin/sh", "-c", "printf raw > mock.raw; printf launch; printf \"$HOME\" > seen_home"]
 
     def raw_artifacts(self, workdir):
         return {"mock_raw": workdir / "mock.raw"}
@@ -64,6 +64,10 @@ def test_run_once_produces_valid_trace_and_persists(monkeypatch, tmp_path):
     raw_dir = runs / "1" / "bugfix-t2-01" / "0" / "raw"
     assert (raw_dir / "mock.raw").read_text() == "raw"
     assert (raw_dir / "claude_code.log").read_text() == "launch"
+    assert (runs / "1" / "bugfix-t2-01" / "0" / "home").exists()
+    assert (runs / "1" / "bugfix-t2-01" / "0" / "workdir" / "seen_home").read_text() == str(
+        runs / "1" / "bugfix-t2-01" / "0" / "home"
+    )
 
     audit = traces / "private" / "1" / "bugfix-t2-01" / "0.md"
     assert "Private full run audit" in audit.read_text()

@@ -10,24 +10,6 @@ from runner import paths
 from runner.adapters.base import HarnessAdapter
 
 
-def _latest_session() -> Path | None:
-    root = paths.LAB_HOME / ".hermes" / "sessions"
-    if not root.exists():
-        return None
-    files = list(root.glob("session_*.json"))
-    if not files:
-        return None
-    return max(files, key=lambda p: (p.stat().st_mtime, str(p)))
-
-
-def _safe_rel_to(path: Path, parent: Path) -> bool:
-    try:
-        path.resolve().relative_to(parent.resolve())
-    except ValueError:
-        return False
-    return True
-
-
 def _loads_args(raw: Any) -> Any:
     if not isinstance(raw, str):
         return raw
@@ -83,10 +65,6 @@ class HermesAdapter(HarnessAdapter):
         session = workdir / "trace.session.json"
         if session.exists():
             arts["session_json"] = session
-        elif _safe_rel_to(workdir, paths.LAB):
-            latest = _latest_session()
-            if latest is not None:
-                arts["session_json"] = latest
         log = workdir / "hermes.log"
         if log.exists():
             arts["stdout_log"] = log

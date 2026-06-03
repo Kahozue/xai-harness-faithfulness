@@ -58,3 +58,12 @@ def test_normalize_extracts_tool_sequence_from_fixture(tmp_path):
     assert out["system_present"] is True
     assert out["runtime_budget"]["context_window_tokens"] == 258400
     assert any(step["type"] == "reasoning_tokens" for step in out["reasoning_steps"])
+
+
+def test_raw_artifacts_never_fall_back_to_shared_lab_home(tmp_path):
+    (tmp_path / "codex.log").write_text(FIX.read_text())
+
+    arts = CodexAdapter().raw_artifacts(tmp_path)
+
+    assert "stdout_jsonl" in arts
+    assert "session_jsonl" not in arts

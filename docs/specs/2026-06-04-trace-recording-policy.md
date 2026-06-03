@@ -32,15 +32,25 @@ They are also plaintext and private.
 `runner run` and `runner pilot` must:
 
 - write raw artifacts under `/data/harness-lab/runs/.../raw`;
+- create a fresh per-run HOME under `/data/harness-lab/runs/<config>/<task>/<repeat>/home`;
+- treat `/data/harness-lab/home` only as a static install/config template, never
+  as the writable HOME for an experiment run;
+- copy only required static config/auth into the per-run HOME, excluding
+  sessions, project histories, memories, state databases, logs, caches, and
+  prior run trust entries;
 - for Claude Code, run through `claude-trace --include-all-requests` and save
   both `.claude-trace/*.jsonl` and the generated `.html` report;
+- for Codex and Hermes, copy the session artifact from the current run's
+  isolated HOME into the workdir before normalization; adapters must not fall
+  back to "latest" session files under the shared lab HOME;
 - write a private plaintext audit under `/data/harness-lab/private-audits/...`;
 - write the committed summary trace under `traces/...`;
 - refuse to overwrite an existing summary trace by default;
 - require an explicit `--overwrite` flag or a unique `--repeat` index for any
   intentional rerun.
 
-This prevents smoke/probe runs from silently overwriting matrix traces.
+This prevents smoke/probe runs from silently overwriting matrix traces and
+prevents cross-run harness state from contaminating tool-selection behavior.
 
 ## Documentation behavior
 
@@ -58,4 +68,6 @@ The test suite must cover:
 - private audit generation in `run_once`;
 - overwrite refusal when a trace already exists;
 - parser coverage for Claude Code, Codex, OpenCode, and Hermes fixtures;
+- per-run HOME isolation and exclusion of sessions/state/memory;
+- no Codex/Hermes adapter fallback to shared lab HOME sessions;
 - hidden-thinking exclusion from generated private audit markdown.

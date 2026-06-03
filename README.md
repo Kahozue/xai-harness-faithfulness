@@ -42,6 +42,11 @@ chain-of-thought. See
 `docs/specs/2026-06-04-trace-recording-policy.md` before running any Pilot,
 rerun, or Phase 2 batch.
 
+Every real run uses a fresh harness HOME under
+`/data/harness-lab/runs/<config>/<task>/<repeat>/home`; the shared
+`/data/harness-lab/home` directory is only a static install/config template.
+Do not run Pilot, Phase 2, or reruns from a shared writable harness HOME.
+
 ## Research Questions
 
 | RQ | Question |
