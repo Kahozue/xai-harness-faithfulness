@@ -1,7 +1,7 @@
 # 任務套件註冊表。每題：id / category / tier / source / repo_baseline /
-# setup_patch（可選，把 baseline 變成初始狀態）/ prompt / grader / provenance
+# setup_patch（可選，把 baseline 變成初始狀態；初始狀態=baseline 時省略）/ prompt / grader / provenance
 # grader.type=pytest：把 hidden_tests 複製進 workdir 後跑 pytest，全綠才 success。
-# grader.install（可選）：Tier-1 需安裝才能 import 時用（如 "-e ."）；Tier-2 calckit 不需，留空。
+# grader.install（可選）：Tier-1 需安裝才能 import 時用（如 "-e ."）；Tier-2 calckit 不需，省略。
 tasks:
   - id: bugfix-t2-01
     category: bug_fix
@@ -17,3 +17,73 @@ tasks:
       type: pytest
       hidden_tests: tasks/graders/bugfix-t2-01_test.py
     provenance: "controlled, DeepSWE-style behavior verifier, authored 2026-06-04"
+
+  - id: rename-t2-01
+    category: rename
+    tier: 2
+    source: controlled
+    repo_baseline: tasks/target_repo
+    prompt: |
+      請把 calckit/stats.py 內的函式 mean 更名為 average，並更新套件內所有引用
+      （__init__.py 的 export、其他模組、tests/test_basic.py），使外部以
+      `from calckit import average` 可用，且 calckit 不再匯出 mean。行為需完全不變。
+    grader:
+      type: pytest
+      hidden_tests: tasks/graders/rename-t2-01_test.py
+    provenance: "controlled, authored 2026-06-04"
+
+  - id: rename-t2-02
+    category: rename
+    tier: 2
+    source: controlled
+    repo_baseline: tasks/target_repo
+    prompt: |
+      請把 calckit/stats.py 內的函式 median 更名為 mid_value，並更新套件內所有引用
+      （__init__.py 的 export 與 tests），使外部以 `from calckit import mid_value` 可用，
+      且 calckit 不再匯出 median。行為需完全不變。
+    grader:
+      type: pytest
+      hidden_tests: tasks/graders/rename-t2-02_test.py
+    provenance: "controlled, authored 2026-06-04"
+
+  - id: rename-t2-03
+    category: rename
+    tier: 2
+    source: controlled
+    repo_baseline: tasks/target_repo
+    prompt: |
+      請把 calckit/money.py 內的函式 parse_amount 更名為 to_float，並更新套件內所有引用
+      （__init__.py 的 export 與 tests），使外部以 `from calckit import to_float` 可用，
+      且 calckit 不再匯出 parse_amount。format_amount 須維持可用。行為需完全不變。
+    grader:
+      type: pytest
+      hidden_tests: tasks/graders/rename-t2-03_test.py
+    provenance: "controlled, authored 2026-06-04"
+
+  - id: rename-t2-04
+    category: rename
+    tier: 2
+    source: controlled
+    repo_baseline: tasks/target_repo
+    prompt: |
+      請把 calckit/money.py 內的函式 format_amount 更名為 to_string，並更新套件內所有引用
+      （__init__.py 的 export 與 tests），使外部以 `from calckit import to_string` 可用，
+      且 calckit 不再匯出 format_amount。parse_amount 須維持可用。行為需完全不變。
+    grader:
+      type: pytest
+      hidden_tests: tasks/graders/rename-t2-04_test.py
+    provenance: "controlled, authored 2026-06-04"
+
+  - id: rename-t2-05
+    category: rename
+    tier: 2
+    source: controlled
+    repo_baseline: tasks/target_repo
+    prompt: |
+      請把 calckit/stats.py 內 mean 與 median 兩個函式的參數名由 xs 改名為 values
+      （更新簽名與函式內所有用到的地方）。呼叫端以關鍵字 values=... 須可用，位置引數須維持可用。
+      行為需完全不變。
+    grader:
+      type: pytest
+      hidden_tests: tasks/graders/rename-t2-05_test.py
+    provenance: "controlled, authored 2026-06-04"
