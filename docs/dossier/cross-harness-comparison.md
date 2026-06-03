@@ -33,7 +33,7 @@ M1 建議欄位：
 
 | harness | M2 觀察點 |
 | --- | --- |
-| Claude Code | trace 中 22 tools，smoke 走 `Read -> Read -> Edit`；source 中 tool definitions 與 query engine 可對應。 |
+| Claude Code | trace 中 22 tools；遠端 `@loki-zhou/claude-trace@1.0.4` 二次解析 SSE 後，smoke 走 `Read -> Edit`；source 中 tool definitions 與 query engine 可對應。 |
 | Codex CLI | 本次 smoke 可見 `exec_command` 與 `apply_patch`；工具少但 environment/sandbox metadata 很強。 |
 | OpenCode | Haiku 走 `read -> edit`；GPT mini 走 `glob -> glob -> read -> apply_patch -> read`，同任務不同模型工具路徑差異明顯。 |
 | Hermes Agent | 18 tools 由 registry/toolset 過濾；Haiku 走 `read_file -> patch`，GPT mini 走 `read_file + search_files -> patch`；host 只在安全條件下併行。 |

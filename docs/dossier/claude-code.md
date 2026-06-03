@@ -58,8 +58,8 @@ trace 掛載方式是 `/data/harness-lab/bin/claude-trace --include-all-requests
 
 ## 8. 與 smoke trace 對照
 
-實際 trace：`/data/harness-lab/smoke/cc/.claude-trace/log-2026-06-03-12-36-38.jsonl`。解析 request body 得到 7 個有 body 的 request，其中主模型 request 的 `model` 是 `claude-haiku-4-5-20251001`，`max_tokens` 是 `32000`，`system` 有 4 段，tools 有 22 個。這直接佐證 `QueryEngine` 在呼叫 `deps.callModel()` 時傳入 system prompt、thinking config 與 tool list，而不是僅靠 CLI stdout 推斷。
+實際 trace：`/data/harness-lab/smoke/cc/.claude-trace/log-2026-06-03-12-36-38.jsonl`。遠端 lab 內的 `@loki-zhou/claude-trace@1.0.4` 可重新解析此 JSONL 並生成 `secondary-verify.html`；JSONL 共 14 筆 captured request/response，其中主模型 `/v1/messages` request 有 3 筆，`model` 皆是 `claude-haiku-4-5-20251001`，`max_tokens` 皆是 `32000`，`system` 約 26,811 字元，tools 皆有 22 個。這直接佐證 `QueryEngine` 在呼叫 `deps.callModel()` 時傳入 system prompt、thinking config 與 tool list，而不是僅靠 CLI stdout 推斷。
 
-smoke 工作目錄是 `/data/harness-lab/smoke/cc`，初始 `hello.py` 由腳本寫成 `return a - b`，見 `smoke-claude-code.sh:4` 到 `:8`。trace 中 assistant tool sequence 是 `Read -> Read -> Edit`，最後 `/data/harness-lab/smoke/cc/hello.py` 被修正為 `return a + b`。此序列對上 system prompt 的「讀檔理解後再修改」要求、tool registry 中 Read/Edit 的可用性，以及 query loop 對 `tool_use` block 的 follow-up 機制。
+smoke 工作目錄是 `/data/harness-lab/smoke/cc`，初始 `hello.py` 由腳本寫成 `return a - b`，見 `smoke-claude-code.sh:4` 到 `:8`。二次驗證解析 SSE response 的 `content_block_start` event 後，assistant tool sequence 是 `Read -> Edit`；三次主模型呼叫的 stop reasons 依序為 `tool_use`、`tool_use`、`end_turn`。最後 `/data/harness-lab/smoke/cc/hello.py` 被修正為 `return a + b`。此序列對上 system prompt 的「讀檔理解後再修改」要求、tool registry 中 Read/Edit 的可用性，以及 query loop 對 `tool_use` block 的 follow-up 機制。
 
 結論：Claude Code 2.1.88 在本實驗中是可白箱分析的 harness。可控點包含 `--model` 模型注入、runner/狀態設定中的 thinking/effort、tool registry 與 system prompt 組裝；可觀察點包含 claude-trace JSONL 的 `system`、`tools`、`messages[].content[].tool_use`。Phase 1 可用此 trace schema 直接比對各 harness 的 prompt/tool/action trajectory。

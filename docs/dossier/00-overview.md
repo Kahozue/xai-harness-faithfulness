@@ -35,7 +35,7 @@
 
 | harness | smoke trace 類型 | 主要可觀察面 |
 | --- | --- | --- |
-| Claude Code | `.claude-trace` JSONL | system blocks、22 tools、`Read -> Read -> Edit`、model/usage。 |
+| Claude Code | `.claude-trace` JSONL | system blocks、22 tools、`Read -> Edit`、model/usage；已用遠端 `@loki-zhou/claude-trace@1.0.4` 二次解析。 |
 | Codex CLI | Codex session JSONL + stdout events | base instructions、developer/env/user items、`exec_command`/`apply_patch`、reasoning tokens。 |
 | OpenCode | `opencode export` + stdout | agent/provider config、tool calls、provider usage、OpenCode system prompt 不完整可見。 |
 | Hermes Agent | `session_*.json` | cached system prompt、18 tools、messages/tool_calls、provider/model/session metadata。 |
