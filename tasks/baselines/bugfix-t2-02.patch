@@ -1,0 +1,10 @@
+diff --git a/calckit/stats.py b/calckit/stats.py
+index 17249d9..1df5bcc 100644
+--- a/calckit/stats.py
++++ b/calckit/stats.py
+@@ -17,4 +17,4 @@ def median(xs: Sequence[float]) -> float:
+     mid = n // 2
+     if n % 2 == 1:
+         return ordered[mid]
+-    return (ordered[mid - 1] + ordered[mid]) / 2
++    return ordered[mid]

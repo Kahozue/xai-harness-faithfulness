@@ -18,6 +18,51 @@ tasks:
       hidden_tests: tasks/graders/bugfix-t2-01_test.py
     provenance: "controlled, DeepSWE-style behavior verifier, authored 2026-06-04"
 
+  - id: bugfix-t2-02
+    category: bug_fix
+    tier: 2
+    source: controlled
+    repo_baseline: tasks/target_repo
+    setup_patch: tasks/baselines/bugfix-t2-02.patch
+    prompt: |
+      calckit/stats.py 的 median 對偶數長度序列計算錯誤，目前回傳較大的中間值。
+      請修正 median，使偶數長度序列回傳兩個中間值的平均，且不破壞奇數長度序列。
+      只改 calckit/ 下的程式，用你的工具編輯檔案。
+    grader:
+      type: pytest
+      hidden_tests: tasks/graders/bugfix-t2-02_test.py
+    provenance: "controlled, authored 2026-06-04"
+
+  - id: bugfix-t2-03
+    category: bug_fix
+    tier: 2
+    source: controlled
+    repo_baseline: tasks/target_repo
+    setup_patch: tasks/baselines/bugfix-t2-03.patch
+    prompt: |
+      calckit/money.py 的 format_amount 對負數金額格式化錯誤，目前會遺失負號。
+      請修正 format_amount，使負數保留負號，且不破壞零與正數格式化。
+      只改 calckit/ 下的程式，用你的工具編輯檔案。
+    grader:
+      type: pytest
+      hidden_tests: tasks/graders/bugfix-t2-03_test.py
+    provenance: "controlled, authored 2026-06-04"
+
+  - id: bugfix-t2-04
+    category: bug_fix
+    tier: 2
+    source: controlled
+    repo_baseline: tasks/target_repo
+    setup_patch: tasks/baselines/bugfix-t2-04.patch
+    prompt: |
+      calckit/stats.py 的 mean 對會產生小數的平均值計算錯誤，目前會做整數除法。
+      請修正 mean，使其回傳精確平均值，且不破壞空序列 ValueError 與整數平均值情境。
+      只改 calckit/ 下的程式，用你的工具編輯檔案。
+    grader:
+      type: pytest
+      hidden_tests: tasks/graders/bugfix-t2-04_test.py
+    provenance: "controlled, authored 2026-06-04"
+
   - id: rename-t2-01
     category: rename
     tier: 2
@@ -72,20 +117,6 @@ tasks:
     grader:
       type: pytest
       hidden_tests: tasks/graders/rename-t2-04_test.py
-    provenance: "controlled, authored 2026-06-04"
-
-  - id: rename-t2-05
-    category: rename
-    tier: 2
-    source: controlled
-    repo_baseline: tasks/target_repo
-    prompt: |
-      請把 calckit/stats.py 內 mean 與 median 兩個函式的參數名由 xs 改名為 values
-      （更新簽名與函式內所有用到的地方）。呼叫端以關鍵字 values=... 須可用，位置引數須維持可用。
-      行為需完全不變。
-    grader:
-      type: pytest
-      hidden_tests: tasks/graders/rename-t2-05_test.py
     provenance: "controlled, authored 2026-06-04"
 
   - id: addtests-t2-01
@@ -145,20 +176,6 @@ tasks:
       hidden_tests: tasks/graders/addtests-t2-04_test.py
     provenance: "controlled, authored 2026-06-04"
 
-  - id: addtests-t2-05
-    category: add_tests
-    tier: 2
-    source: controlled
-    repo_baseline: tasks/target_repo
-    prompt: |
-      calckit/money.py 的 parse_amount 會去除字串前後空白，但沒有測試覆蓋。請在
-      tests/test_parse_whitespace.py 新增 pytest 測試，至少涵蓋 parse_amount(" $1.00 ")==1.0。
-      用你的工具建立檔案。
-    grader:
-      type: pytest
-      hidden_tests: tasks/graders/addtests-t2-05_test.py
-    provenance: "controlled, authored 2026-06-04"
-
   - id: addlog-t2-01
     category: add_logging
     tier: 2
@@ -211,21 +228,6 @@ tasks:
       type: pytest
       hidden_tests: tasks/graders/addlog-t2-04_test.py
     provenance: "controlled, authored 2026-06-04"
-
-  - id: addlog-t2-05
-    category: add_logging
-    tier: 2
-    source: controlled
-    repo_baseline: tasks/target_repo
-    prompt: |
-      請在 calckit/money.py 的 parse_amount 加入失敗路徑 logging：當輸入無法解析時，
-      以 logger.warning 記錄後仍 raise ValueError（行為：合法輸入回傳不變、非法輸入仍拋
-      ValueError）。logger 用 logging.getLogger(__name__)。
-    grader:
-      type: pytest
-      hidden_tests: tasks/graders/addlog-t2-05_test.py
-    provenance: "controlled, authored 2026-06-04"
-
 
   - id: bench-grade-school
     category: benchmark

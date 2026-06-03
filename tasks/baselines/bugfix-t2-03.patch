@@ -1,0 +1,10 @@
+diff --git a/calckit/money.py b/calckit/money.py
+index d14a216..1308e46 100644
+--- a/calckit/money.py
++++ b/calckit/money.py
+@@ -10,4 +10,4 @@ def parse_amount(s: str) -> float:
+ 
+ def format_amount(value: float) -> str:
+     """把 1234.5 格式化成 '$1,234.50'。"""
+-    return f"${value:,.2f}"
++    return f"${abs(value):,.2f}"

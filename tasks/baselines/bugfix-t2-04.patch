@@ -1,0 +1,13 @@
+diff --git a/calckit/stats.py b/calckit/stats.py
+index 17249d9..33115c1 100644
+--- a/calckit/stats.py
++++ b/calckit/stats.py
+@@ -6,7 +6,7 @@ from typing import Sequence
+ def mean(xs: Sequence[float]) -> float:
+     if not xs:
+         raise ValueError("empty sequence")
+-    return sum(xs) / len(xs)
++    return sum(xs) // len(xs)
+ 
+ 
+ def median(xs: Sequence[float]) -> float:
