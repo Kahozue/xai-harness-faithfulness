@@ -13,7 +13,7 @@
 ## 模型（帶日期 snapshot）
 - Haiku 4.5: `claude-haiku-4-5-20251001`（Anthropic 原生 api.anthropic.com）
 - GPT-5.4-mini: `gpt-5.4-mini-2026-03-17`（OpenAI 原生 api.openai.com）
-- reasoning effort: high（全部；各 harness 注入機制見下表）
+- reasoning effort: high（全部；各 harness 注入機制見下表）。Claude Code / Haiku 4.5 另依 SDK/source 定案為 `CLAUDE_CODE_MAX_OUTPUT_TOKENS=64000` + `MAX_THINKING_TOKENS=63999`，以避免輸出或 thinking budget 預設值不足。
 
 ## 模型路由（控制變數）
 | 模型 | 後端 | 使用此模型的 harness |
@@ -35,7 +35,7 @@
 ## 每個 harness 的模型注入 / high effort / trace 擷取 / 認證（Phase 0 校正所得）
 | Harness | 模型注入 | high effort | trace 來源 | 認證 |
 |---------|----------|-------------|------------|------|
-| Claude Code | `claude --model <id> --effort high`（經 `claude-trace --run-with`） | CLI 固定 `--effort high`；Haiku 4.5 在 2.1.88 source 中不支援 `output_config.effort`，實際 request 以 `thinking.type=enabled`、`budget_tokens=31999` 呈現 | claude-trace `.claude-trace/*.jsonl`（含 system / tools / tool_use） | `ANTHROPIC_API_KEY` 環境變數（Anthropic 原生） |
+| Claude Code | `claude --model <id> --effort high`（經 `claude-trace --run-with`）；env 固定 `CLAUDE_CODE_EFFORT_LEVEL=high`、`CLAUDE_CODE_MAX_OUTPUT_TOKENS=64000`、`MAX_THINKING_TOKENS=63999` | SDK/source 定案：Haiku 4.5 在 2.1.88 不支援 `output_config.effort`，因此不強開 unsupported hidden flag；最高可驗證控制點是 request `max_tokens=64000`、`thinking.type=enabled`、`budget_tokens=63999` | claude-trace `.claude-trace/*.jsonl`（含 system / tools / tool_use / max_tokens / thinking） | `ANTHROPIC_API_KEY` 環境變數（Anthropic 原生） |
 | Codex CLI | `$LAB_HOME/.codex/config.toml` `model=`；`codex exec` | `config.toml` `model_reasoning_effort="high"` | `codex exec --json` JSONL（agent_message / command_execution / file_change） | `codex login --with-api-key`（寫入 `$LAB_HOME/.codex/auth.json`，File 模式） |
 | OpenCode | `opencode run -m <provider>/<id>` | `run --variant high`（provider-specific reasoning effort） | `opencode run --format json` JSONL（tool_use / step events） | `opencode.json` `provider.*.options.apiKey={env:...}` |
 | Hermes | `hermes -z PROMPT -m <id> --provider <provider>`（**分開形式**；合併 `-m provider/model` 對 snapshot id 會靜默失敗） | `config.yaml` `agent.reasoning_effort: high` | `$HERMES_HOME/sessions/session_*.json`（含 system_prompt / tools / 有序 tool_calls）；另有 `request_dump_*.json` 原始請求 | `config.yaml` `providers.*.key_env` + `$HERMES_HOME/.env`；anthropic 走 `api_mode: anthropic_messages`（原生 Messages API） |
@@ -43,7 +43,7 @@
 ## Phase 0 smoke 結果（單檔 bug fix：`add` 由 `a - b` 改為 `a + b`）
 | Config | Harness | Model | 結果 | trace |
 |--------|---------|-------|------|-------|
-| 1 | Claude Code | Haiku 4.5 | FIXED | jsonl（14 對請求，含 system/tools/tool_use） |
+| 1 | Claude Code | Haiku 4.5 | FIXED | jsonl（13 對請求；3 個主模型 request 皆含 system/tools/tool_use，`max_tokens=64000`、`thinking.budget_tokens=63999`） |
 | 6 | Codex CLI | GPT-5.4-mini | FIXED | JSONL（command_execution + file_change） |
 | 2 | OpenCode | Haiku 4.5 | FIXED | JSON（read + edit） |
 | 4 | OpenCode | GPT-5.4-mini | FIXED | JSON（apply_patch + read，reasoning tokens 有值） |
@@ -55,6 +55,7 @@
 - lab Hermes 為全新乾淨實例：`HERMES_HOME` 獨立、`memories/` 空、`SOUL.md`（513B 預設）與生產（1195B）不同檔，非複製。
 - 所有 harness 設定/狀態隔離於 `LAB_HOME`（各自 `.claude` / `.codex` / `.config/opencode` / `.hermes`），不碰 `/home/opc` 生產 dotfiles。
 - secrets 永不進 git：trace（含 Hermes session JSON）經精準檢查無真實 key（`sk-proj-`/`sk-ant-` 計數為 0）；`.env`/`auth.json` 皆 chmod 600 且在 repo 外。
+- 原始 runtime trace/log 保留於 `/data/harness-lab/smoke/`（repo 外），不直接 commit；可提交的證據為 sanitized 結構摘要，見 `docs/verification/2026-06-03-smoke-rerun-record.md`。
 
 ## 閘道路由
 - 同一模型固定走同一後端：Haiku 4.5 → Anthropic 原生；GPT-5.4-mini → OpenAI 原生。WorldRouter 退為備援、不進主實驗。

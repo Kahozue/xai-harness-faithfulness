@@ -15,7 +15,7 @@ When two AI agents produce different tool sequences on the same task, how much o
 | | Claude Code | OpenCode | Hermes | Codex CLI |
 |-|:-----------:|:--------:|:------:|:---------:|
 | Haiku 4.5 | anchor | ✓ | ✓ | — |
-| GPT-4o-mini | — | ✓ | ✓ | anchor |
+| GPT-5.4-mini | — | ✓ | ✓ | anchor |
 
 6 configs × 20 agentic tasks (rename / add tests / add logging / simple bug fix).
 
