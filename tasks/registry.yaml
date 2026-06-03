@@ -158,3 +158,70 @@ tasks:
       type: pytest
       hidden_tests: tasks/graders/addtests-t2-05_test.py
     provenance: "controlled, authored 2026-06-04"
+
+  - id: addlog-t2-01
+    category: add_logging
+    tier: 2
+    source: controlled
+    repo_baseline: tasks/target_repo
+    prompt: |
+      請在 calckit/money.py 的 parse_amount 內加入 logging：使用標準 logging 模組，
+      於函式開頭以 logger.debug 記錄收到的原始字串（log 訊息需含 "parse_amount" 字樣）。
+      不可改變回傳值與既有行為。logger 用 logging.getLogger(__name__)。
+    grader:
+      type: pytest
+      hidden_tests: tasks/graders/addlog-t2-01_test.py
+    provenance: "controlled, authored 2026-06-04"
+
+  - id: addlog-t2-02
+    category: add_logging
+    tier: 2
+    source: controlled
+    repo_baseline: tasks/target_repo
+    prompt: |
+      請在 calckit/money.py 的 format_amount 內加入 logging：以 logger.debug 記錄輸入值
+      （log 訊息需含 "format_amount" 字樣）。不可改變回傳值。logger 用 logging.getLogger(__name__)。
+    grader:
+      type: pytest
+      hidden_tests: tasks/graders/addlog-t2-02_test.py
+    provenance: "controlled, authored 2026-06-04"
+
+  - id: addlog-t2-03
+    category: add_logging
+    tier: 2
+    source: controlled
+    repo_baseline: tasks/target_repo
+    prompt: |
+      請在 calckit/stats.py 的 mean 內加入 logging：以 logger.debug 記錄輸入序列長度
+      （log 訊息需含 "mean" 字樣）。不可改變回傳值。logger 用 logging.getLogger(__name__)。
+    grader:
+      type: pytest
+      hidden_tests: tasks/graders/addlog-t2-03_test.py
+    provenance: "controlled, authored 2026-06-04"
+
+  - id: addlog-t2-04
+    category: add_logging
+    tier: 2
+    source: controlled
+    repo_baseline: tasks/target_repo
+    prompt: |
+      請在 calckit/stats.py 的 median 內加入 logging：以 logger.debug 記錄輸入序列長度
+      （log 訊息需含 "median" 字樣）。不可改變回傳值。logger 用 logging.getLogger(__name__)。
+    grader:
+      type: pytest
+      hidden_tests: tasks/graders/addlog-t2-04_test.py
+    provenance: "controlled, authored 2026-06-04"
+
+  - id: addlog-t2-05
+    category: add_logging
+    tier: 2
+    source: controlled
+    repo_baseline: tasks/target_repo
+    prompt: |
+      請在 calckit/money.py 的 parse_amount 加入失敗路徑 logging：當輸入無法解析時，
+      以 logger.warning 記錄後仍 raise ValueError（行為：合法輸入回傳不變、非法輸入仍拋
+      ValueError）。logger 用 logging.getLogger(__name__)。
+    grader:
+      type: pytest
+      hidden_tests: tasks/graders/addlog-t2-05_test.py
+    provenance: "controlled, authored 2026-06-04"
