@@ -23,6 +23,7 @@ def _minimal_kwargs():
         turns=3,
         runtime_budget={"max_output_tokens": 64000, "thinking_budget_tokens": 63999,
                         "context_window_tokens": 200000, "effort_source": "cli --effort high"},
+        system_present=True,
         raw_log_path="/data/harness-lab/runs/1/bugfix-t2-01/0/raw/claude-trace.jsonl",
         env_lock_ref="ENVIRONMENT.lock.md@<commit>",
         timestamp="2026-06-04T10:00:00Z",
@@ -34,6 +35,7 @@ def test_trace_roundtrips_to_dict():
     d = t.to_dict()
     assert d["tool_calls"][0]["tool_name"] == "Read"
     assert d["runtime_budget"]["max_output_tokens"] == 64000
+    assert d["system_present"] is True
 
 
 def test_validate_accepts_minimal():

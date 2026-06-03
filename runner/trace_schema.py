@@ -36,6 +36,7 @@ class NormalizedTrace:
     wall_time_s: Optional[float]
     turns: Optional[int]
     runtime_budget: dict[str, Any]     # {max_output_tokens, thinking_budget_tokens, context_window_tokens, effort_source}
+    system_present: Optional[bool]     # trace 是否直接或間接觀察到 system prompt
     raw_log_path: str
     env_lock_ref: str
     timestamp: str
@@ -54,7 +55,7 @@ _SCHEMA = {
         "run_id", "config_id", "harness", "harness_version", "model", "model_snapshot",
         "task_id", "task_category", "repeat_index", "reasoning_effort", "tool_calls",
         "reasoning_steps", "decision_points", "outcome", "tokens", "runtime_budget",
-        "raw_log_path", "env_lock_ref", "timestamp",
+        "system_present", "raw_log_path", "env_lock_ref", "timestamp",
     ],
     "properties": {
         "harness": {"enum": sorted(VALID_HARNESSES)},
@@ -70,6 +71,7 @@ _SCHEMA = {
         },
         "outcome": {"type": "object", "required": ["success", "grader_detail"]},
         "runtime_budget": {"type": "object", "required": ["effort_source"]},
+        "system_present": {"type": ["boolean", "null"]},
     },
 }
 
