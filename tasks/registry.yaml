@@ -1,0 +1,19 @@
+# 任務套件註冊表。每題：id / category / tier / source / repo_baseline /
+# setup_patch（可選，把 baseline 變成初始狀態）/ prompt / grader / provenance
+# grader.type=pytest：把 hidden_tests 複製進 workdir 後跑 pytest，全綠才 success。
+# grader.install（可選）：Tier-1 需安裝才能 import 時用（如 "-e ."）；Tier-2 calckit 不需，留空。
+tasks:
+  - id: bugfix-t2-01
+    category: bug_fix
+    tier: 2
+    source: controlled
+    repo_baseline: tasks/target_repo
+    setup_patch: tasks/baselines/bugfix-t2-01.patch
+    prompt: |
+      calckit/money.py 的 parse_amount 對帶括號的負數金額（例如 "($1,234.50)"，
+      會計表示法代表 -1234.50）解析錯誤。請修正 parse_amount，使其正確回傳負值，
+      且不破壞既有正數解析。只改 calckit/ 下的程式，用你的工具編輯檔案。
+    grader:
+      type: pytest
+      hidden_tests: tasks/graders/bugfix-t2-01_test.py
+    provenance: "controlled, DeepSWE-style behavior verifier, authored 2026-06-04"

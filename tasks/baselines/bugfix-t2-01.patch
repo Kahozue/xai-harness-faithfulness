@@ -1,0 +1,2 @@
+# bugfix-t2-01 的初始狀態即 target_repo baseline（parse_amount 尚不支援括號負數）。
+# 無需改動 baseline；此檔存在表示「不套用額外 patch」。runner 遇到僅含註解/空 diff 時跳過套用。
