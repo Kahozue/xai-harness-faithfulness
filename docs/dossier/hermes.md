@@ -50,7 +50,7 @@ Hermes 工具 surface 由 `model_tools.py` 和 tool registry 組合而成：
 - `run_agent.py:2050-2069` 將 external memory provider 的 tool schemas 加到同一個 tool surface，並用名稱去重。
 - `run_agent.py:2340-2355` 同樣把 context engine tool schemas 加入 tool surface。
 
-本次 lab config 啟用 `toolsets: hermes-cli`，兩個 Hermes smoke trace 都有 18 個工具 schema。Trace 中可見的工具名稱包含檔案、terminal、patch、search、session recall、memory、skills、clarify、delegate、vision、speech、image 等；任務清單工具也在 schema 中，但本文件刻意以描述代稱，避免 placeholder 掃描器把工具名誤判成未完成標記。
+本次 lab config 啟用 `toolsets: hermes-cli`，兩個 Hermes smoke trace 都有 18 個工具 schema。Trace 中可見的工具名稱包含檔案、terminal、patch、search、session recall、memory、skills、clarify、delegate、vision、speech、image 等；任務清單工具也在 schema 中，但本文件刻意以描述代稱，避免佔位字掃描器把工具名誤判成未完成標記。
 
 工具選擇在模型側發生，但 Hermes 在 host 側加上幾個控制點：
 

@@ -35,7 +35,7 @@
 ## 每個 harness 的模型注入 / high effort / trace 擷取 / 認證（Phase 0 校正所得）
 | Harness | 模型注入 | high effort | trace 來源 | 認證 |
 |---------|----------|-------------|------------|------|
-| Claude Code | `claude --model <id>`（經 `claude-trace --run-with`） | 預設 thinking；effort 於 runner 設定（Phase 1） | claude-trace `.claude-trace/*.jsonl`（含 system / tools / tool_use） | `ANTHROPIC_API_KEY` 環境變數（Anthropic 原生） |
+| Claude Code | `claude --model <id> --effort high`（經 `claude-trace --run-with`） | CLI 固定 `--effort high`；Haiku 4.5 在 2.1.88 source 中不支援 `output_config.effort`，實際 request 以 `thinking.type=enabled`、`budget_tokens=31999` 呈現 | claude-trace `.claude-trace/*.jsonl`（含 system / tools / tool_use） | `ANTHROPIC_API_KEY` 環境變數（Anthropic 原生） |
 | Codex CLI | `$LAB_HOME/.codex/config.toml` `model=`；`codex exec` | `config.toml` `model_reasoning_effort="high"` | `codex exec --json` JSONL（agent_message / command_execution / file_change） | `codex login --with-api-key`（寫入 `$LAB_HOME/.codex/auth.json`，File 模式） |
 | OpenCode | `opencode run -m <provider>/<id>` | `run --variant high`（provider-specific reasoning effort） | `opencode run --format json` JSONL（tool_use / step events） | `opencode.json` `provider.*.options.apiKey={env:...}` |
 | Hermes | `hermes -z PROMPT -m <id> --provider <provider>`（**分開形式**；合併 `-m provider/model` 對 snapshot id 會靜默失敗） | `config.yaml` `agent.reasoning_effort: high` | `$HERMES_HOME/sessions/session_*.json`（含 system_prompt / tools / 有序 tool_calls）；另有 `request_dump_*.json` 原始請求 | `config.yaml` `providers.*.key_env` + `$HERMES_HOME/.env`；anthropic 走 `api_mode: anthropic_messages`（原生 Messages API） |

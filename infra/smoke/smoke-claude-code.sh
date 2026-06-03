@@ -13,6 +13,15 @@ export PATH="$LAB_BIN:$PATH"  # 讓 claude-trace 在 PATH 解析到釘死的 cla
 cd "$WORK"
 "$LAB_BIN/claude-trace" --include-all-requests --run-with \
   -p "Fix the bug in hello.py so add returns the sum. Use your tools to edit the file." \
-  --model "$ANTHROPIC_MODEL" --permission-mode acceptEdits 2>&1 | tail -20 || true
+  --model "$ANTHROPIC_MODEL" --effort high --permission-mode acceptEdits 2>&1 | tail -20
+echo "--- result ---"; cat hello.py
+grep -q 'return a + b' hello.py
 echo "--- trace files ---"
-find "$WORK/.claude-trace" -name '*.jsonl' -printf '%p\n' 2>/dev/null || echo "no trace dir"
+mapfile -t traces < <(find "$WORK/.claude-trace" -name '*.jsonl' -printf '%p\n' 2>/dev/null)
+if [ "${#traces[@]}" -eq 0 ]; then
+  echo "no trace dir"
+  exit 1
+fi
+printf '%s\n' "${traces[@]}"
+grep -q '"tools"' "${traces[0]}"
+grep -q 'tool_use' "${traces[0]}"
