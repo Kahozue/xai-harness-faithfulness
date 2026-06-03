@@ -1,0 +1,5 @@
+PyYAML==6.0.3
+jsonschema==4.26.0
+pytest==9.0.3
+datasets==4.8.5
+huggingface_hub==1.17.0

@@ -4,3 +4,6 @@ __pycache__/
 .env
 .venv/
 *.log
+# Phase 1 runtime（repo 外的 /data/harness-lab 本就不在 repo；此處僅防誤建同名目錄）
+/runner-venv/
+.pytest_cache/

@@ -59,3 +59,7 @@
 
 ## 閘道路由
 - 同一模型固定走同一後端：Haiku 4.5 → Anthropic 原生；GPT-5.4-mini → OpenAI 原生。WorldRouter 退為備援、不進主實驗。
+
+## Phase 1 引擎環境（2026-06-04 追加）
+- runner-venv: `/data/harness-lab/runner-venv`（python 3.11.13，repo 外、不進 git），相依釘死見 `runner/requirements.txt`：
+  - PyYAML==6.0.3、jsonschema==4.26.0、pytest==9.0.3、datasets==4.8.5、huggingface_hub==1.17.0
