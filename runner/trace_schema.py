@@ -4,7 +4,7 @@ from dataclasses import dataclass, field, asdict
 from typing import Any, Optional
 import jsonschema
 
-VALID_CATEGORIES = {"rename", "add_tests", "add_logging", "bug_fix"}
+VALID_CATEGORIES = {"rename", "add_tests", "add_logging", "bug_fix", "benchmark"}
 VALID_HARNESSES = {"claude_code", "codex", "opencode", "hermes"}
 
 
