@@ -17,7 +17,8 @@ When two AI agents produce different tool sequences on the same task, how much o
 | Haiku 4.5 | anchor | ✓ | ✓ | — |
 | GPT-5.4-mini | — | ✓ | ✓ | anchor |
 
-6 configs × 20 agentic tasks (rename / add tests / add logging / simple bug fix).
+6 configs × 20 agentic tasks, balanced as 5 categories × 4 tasks:
+bug fix / rename / add tests / add logging / benchmark.
 
 **4 xAI attribution methods (white-box):**
 - M1: System prompt ablation — remove / replace sections

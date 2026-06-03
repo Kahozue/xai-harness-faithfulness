@@ -4,18 +4,22 @@
 
 **Goal:** 建出可重現的實驗引擎——20 題受控且可自動評分的 agentic 任務套件、統一 Runner（對 (harness, model, task) 開乾淨副本、注入模型與 high effort、固定 timeout、擷取並正規化 trace、自動評分、不可變存檔）、四個 harness 介面卡、跨 harness 可比的正規化 Trace schema——並以 Pilot（2 configs × 3 tasks）端到端驗證管線、grader 與成本/時間，產出 Pilot 報告作為放大 Phase 2 的放行關。
 
+**2026-06-04 實作修訂（Task 11 決策後）：** 任務套件實作定案為五類各 4 題、總數 20：
+`bug_fix`、`rename`、`add_tests`、`add_logging`、`benchmark`。SWE-bench Verified / docker / qemu 路線已放棄，
+benchmark 類改用 Aider-polyglot Python/Exercism 4 題。後續執行與 Phase 2 文件均以此分布為準。
+
 **Architecture:** 引擎為一個 Python 套件 `runner/`（進 git），以 `/usr/bin/python3.11` 建專屬 venv（`/data/harness-lab/runner-venv`，repo 外）。任務套件 `tasks/` 採資料驅動：`tasks/registry.yaml` 定義每題（category、tier、baseline repo 狀態、prompt、隱藏 pytest 驗證檔、provenance）。Grader 為單一機制：把任務的隱藏測試在「agent 跑完的乾淨 workdir」內以 pytest 執行，全綠才 pass；隱藏測試**只在評分時**複製進 workdir，agent 工作期間看不到（contamination 控制）。四個 harness 以介面卡封裝差異（啟動指令、模型/effort/budget 注入、trace 來源各不同），全部 normalize 成同一 `NormalizedTrace`。raw log 與 workdir 留 `/data/harness-lab/runs/`（repo 外、不進 git）；sanitize 後的 `trace.json` commit 進 repo `traces/`。
 
-**Tech Stack:** Python 3.11.13（`/usr/bin/python3.11`）、pytest、PyYAML、jsonschema、datasets/huggingface_hub（取 SWE-bench Verified）；四 harness 啟動沿用 Phase 0 已驗證指令（claude-trace / codex exec / opencode run / hermes -z）；模型 `claude-haiku-4-5-20251001`（Anthropic 原生）、`gpt-5.4-mini-2026-03-17`（OpenAI 原生）。
+**Tech Stack:** Python 3.11.13（`/usr/bin/python3.11`）、pytest、PyYAML、jsonschema；四 harness 啟動沿用 Phase 0 已驗證指令（claude-trace / codex exec / opencode run / hermes -z）；模型 `claude-haiku-4-5-20251001`（Anthropic 原生）、`gpt-5.4-mini-2026-03-17`（OpenAI 原生）。
 
 **執行位置：** 全部在 server `opc@150.230.202.49`，repo `/data/repos/xai-harness-faithfulness`，分支 `main`。本機（Mac）僅用來編輯檔案後 scp，或直接於 server 編輯。所有指令以 `source infra/00-paths.sh` 取得 `LAB`/`LAB_HOME`/`LAB_BIN`/secrets。
 
 **前置（已滿足）：** Phase 0 全 13 task 完成、`ENVIRONMENT.lock.md` 與 7 份 dossier 經使用者審閱通過（Phase 0 gate 已放行）。四 harness 已釘死安裝於 `/data/harness-lab/`，6 configs 的 smoke 已跑通並留有 trace 於 `/data/harness-lab/smoke/`（本計畫直接拿來當 adapter 的測試 fixtures）。
 
-**Gate（Pilot 放行關）：** Task 1–14 完成且 Task 15 Pilot（2 configs × 3 tasks）端到端跑通、Pilot 報告經使用者審閱通過後，才進入 Phase 2 全量 factorial（6×20×3）。本計畫**只跑 Pilot 規模的真實 run**，不跑全量。
+**Gate（Pilot 放行關）：** Task 1–15 完成且 Task 16 Pilot（2 configs × 3 tasks）端到端跑通、Pilot 報告經使用者審閱通過後，才進入 Phase 2 全量 factorial（6×20×3）。本計畫**只跑 Pilot 規模的真實 run**，不跑全量。
 
 **設計決策（本 Phase 拍板，記入報告「決策紀錄」）：**
-- D1：Tier-1 取材＝精選 3–4 個 SWE-bench Verified 易「bug-fix」題，各還原成釘死自含 repo + 在地跑其 hidden tests（不上官方 docker harness）；rename / add-tests / add-logging 三類全歸 Tier-2 受控自撰。Tier-1 只當 bug-fix 類錨點並提供 external provenance。
+- D1：Tier-1/benchmark 取材＝Aider-polyglot Python/Exercism 4 題；受控 Tier-2 類別為 bug_fix / rename / add_tests / add_logging 各 4 題。SWE-bench Verified 不進 Phase 1 任務套件。
 - D2：Tier-2 target repo 語言＝Python 3.11；grader 統一為「跑隱藏 pytest 驗證檔」。
 - D3：難度校準必做——每題的隱藏測試須「在 baseline（未修）狀態下 fail、在 reference solution 下 pass」，且整體難度調到小模型能完成一部分（避免 success 觸底、無分歧訊號）。
 
@@ -39,7 +43,7 @@ repo `xai-harness-faithfulness/` 內（**進 git**）：
 - `tasks/target_repo/` — Tier-2 受控 Python 目標 repo baseline（釘死）
 - `tasks/baselines/<task_id>.patch` — 把 baseline 變成各題初始狀態（如植入 bug、移除待加之物）
 - `tasks/graders/<task_id>_test.py` — 各題隱藏 pytest 驗證檔
-- `tasks/tier1/<instance_id>/` — SWE-bench Verified 還原腳本 + `provenance.json`
+- `tasks/benchmark/<exercise>/` — Aider-polyglot Python/Exercism benchmark baseline 與 provenance
 - `tests/` — 引擎自身的 pytest（用 smoke trace 當 fixtures，不花 API token）
 - `traces/<config_id>/<task_id>/<repeat_index>.json` — Pilot 產出的正規化 trace（sanitized、committed）
 - `docs/verification/2026-06-04-phase1-pilot-report.md` — Pilot 報告（放行關文件）
@@ -827,15 +831,15 @@ git commit -m "feat(runner): unified hidden-pytest grader with baseline/referenc
 
 ---
 
-## Task 6: 任務套件 — rename 類 ×5（Tier-2）
+## Task 6: 任務套件 — rename 類 ×4（Tier-2）
 
 **Files:**
-- Modify: `tasks/registry.yaml`（追加 5 題）
-- Create: `tasks/graders/rename-t2-0{1..5}_test.py`、`tasks/baselines/rename-t2-0{1..5}.patch`（如需初始狀態改動）
+- Modify: `tasks/registry.yaml`（追加 4 題）
+- Create: `tasks/graders/rename-t2-0{1..4}_test.py`、`tasks/baselines/rename-t2-0{1..4}.patch`（如需初始狀態改動）
 
 每題契約（與 Task 4/5 同模板）：固定 baseline 狀態、明確 prompt（要 agent 把某符號改名並更新所有引用）、隱藏測試斷言「新名稱可用、舊名稱已不存在、行為不變」。每題都必須通過 D3 校準（baseline fail、reference pass）。
 
-- [ ] **Step 1: 完整範本題 `rename-t2-01`（其餘 4 題照此格式，prompt 與隱藏測試各自具體列出）**
+- [ ] **Step 1: 完整範本題 `rename-t2-01`（其餘 3 題照此格式，prompt 與隱藏測試各自具體列出）**
 
 registry.yaml 追加:
 ```yaml
@@ -882,7 +886,7 @@ def test_behavior_unchanged():
     assert calckit.average([10, 20]) == 15
 ```
 
-- [ ] **Step 2: 其餘 4 題（各自具體 prompt + 隱藏測試斷言；非「同前」）**
+- [ ] **Step 2: 其餘 3 題（各自具體 prompt + 隱藏測試斷言；非「同前」）**
 
 依下表逐題建 registry 條目（格式同 Step 1）、no-op 或具體 `setup_patch`、隱藏測試檔。每題的隱藏測試需明確斷言新名可用、舊名移除、行為不變：
 
@@ -891,7 +895,6 @@ def test_behavior_unchanged():
 | rename-t2-02 | `median` (stats.py) | `mid_value` | `mid_value([3,1,2])==2`、`not hasattr(calckit,'median')`、偶數長度行為不變 |
 | rename-t2-03 | `parse_amount` (money.py) | `to_float` | `to_float("$1,234.50")==1234.5`、舊名移除、`format_amount` 仍可用 |
 | rename-t2-04 | `format_amount` (money.py) | `to_string` | `to_string(1234.5)=="$1,234.50"`、舊名移除 |
-| rename-t2-05 | 參數名 `xs`→`values`（stats.py 兩函式簽名）| — | 以關鍵字呼叫 `average(values=[1,2,3])`/`mid_value(values=[1,2,3])` 可用；位置呼叫仍可用 |
 
 - [ ] **Step 3: 逐題校準（D3）—— baseline fail、reference pass**
 
@@ -923,16 +926,16 @@ Expected: 全部 parametrized case passed（代表每題 baseline 確實 fail）
 
 ```bash
 git add tasks/registry.yaml tasks/graders/rename-* tasks/baselines/rename-* tests/test_calibration.py
-git commit -m "feat(tasks): rename category x5 (Tier-2) + baseline-fails calibration
+git commit -m "feat(tasks): rename category x4 (Tier-2) + baseline-fails calibration
 
 
 ```
 
 ---
 
-## Task 7: 任務套件 — add_tests 類 ×5（Tier-2）
+## Task 7: 任務套件 — add_tests 類 ×4（Tier-2）
 
-**Files:** Modify `tasks/registry.yaml`；Create `tasks/graders/addtests-t2-0{1..5}_test.py`、`tasks/baselines/addtests-t2-0{1..5}.patch`
+**Files:** Modify `tasks/registry.yaml`；Create `tasks/graders/addtests-t2-0{1..4}_test.py`、`tasks/baselines/addtests-t2-0{1..4}.patch`
 
 設計要點：此類要 agent「為既有但未被測到的行為補測試」。隱藏 grader 不是檢查 agent 寫的測試內容，而是**驗證 agent 產生的測試檔存在且能跑、且覆蓋指定行為**——做法：隱藏測試以 `subprocess` 跑 agent 在指定路徑新增的測試檔並要求通過，同時 import 被測函式直接驗證 agent「沒有把測試寫成空殼」。
 
@@ -979,16 +982,15 @@ def test_agent_tests_pass_and_are_nonempty():
     assert r.returncode == 0, r.stdout + r.stderr
 ```
 
-- [ ] **Step 2: 其餘 4 題（具體 prompt + 隱藏斷言）**
+- [ ] **Step 2: 其餘 3 題（具體 prompt + 隱藏斷言）**
 
 | id | 要求補測之行為 | 隱藏測試重點 |
 |----|---------------|-------------|
 | addtests-t2-02 | `format_amount` 的負數與零 | 存在 `tests/test_format_extra.py`、實呼叫 `format_amount`、跑綠 |
 | addtests-t2-03 | `median` 偶數長度取中位平均 | 存在指定檔、含 `median(`、跑綠 |
 | addtests-t2-04 | `mean` 空序列 raise ValueError | agent 測試以 `pytest.raises(ValueError)` 斷言、跑綠 |
-| addtests-t2-05 | `parse_amount` 去除前後空白 | agent 測試含 `" $1.00 "`-類案例、跑綠 |
 
-- [ ] **Step 3: 校準** — `tests/test_calibration.py` 已 parametrize 全 Tier-2；跑一次確認新增 5 題的 baseline 皆 fail（baseline 無這些測試檔，隱藏 grader 應 fail）。
+- [ ] **Step 3: 校準** — `tests/test_calibration.py` 已 parametrize 全 Tier-2；跑一次確認新增 4 題的 baseline 皆 fail（baseline 無這些測試檔，隱藏 grader 應 fail）。
 
 Run: `/data/harness-lab/runner-venv/bin/python -m pytest tests/test_calibration.py -q`
 Expected: 全綠。
@@ -997,16 +999,16 @@ Expected: 全綠。
 
 ```bash
 git add tasks/registry.yaml tasks/graders/addtests-* tasks/baselines/addtests-*
-git commit -m "feat(tasks): add_tests category x5 (Tier-2)
+git commit -m "feat(tasks): add_tests category x4 (Tier-2)
 
 
 ```
 
 ---
 
-## Task 8: 任務套件 — add_logging 類 ×5（Tier-2）
+## Task 8: 任務套件 — add_logging 類 ×4（Tier-2）
 
-**Files:** Modify `tasks/registry.yaml`；Create `tasks/graders/addlog-t2-0{1..5}_test.py`、`tasks/baselines/addlog-t2-0{1..5}.patch`
+**Files:** Modify `tasks/registry.yaml`；Create `tasks/graders/addlog-t2-0{1..4}_test.py`、`tasks/baselines/addlog-t2-0{1..4}.patch`
 
 設計要點：要 agent 在指定函式加入標準 `logging`（不可改變回傳值）。隱藏 grader 用 `caplog`/`logging` 擷取，斷言「呼叫後有預期 log 記錄且原行為不變」。
 
@@ -1051,16 +1053,15 @@ def test_no_print_used():
     assert "logging" in inspect.getsource(m)
 ```
 
-- [ ] **Step 2: 其餘 4 題**
+- [ ] **Step 2: 其餘 3 題**
 
 | id | 加 log 標的 | 隱藏測試重點 |
 |----|------------|-------------|
 | addlog-t2-02 | `format_amount` | caplog 有含 "format_amount" 的記錄、回傳不變、源碼用 logging |
 | addlog-t2-03 | `mean` | 記錄輸入長度（含 "mean"）、回傳不變 |
 | addlog-t2-04 | `median` | 記錄（含 "median"）、回傳不變 |
-| addlog-t2-05 | `parse_amount` 失敗路徑 | 對非法輸入以 logger.warning 記錄並仍 raise ValueError；caplog 有 WARNING |
 
-- [ ] **Step 3: 校準** — 跑 `tests/test_calibration.py`，確認新增 5 題 baseline 皆 fail（baseline 無 logging）。
+- [ ] **Step 3: 校準** — 跑 `tests/test_calibration.py`，確認新增 4 題 baseline 皆 fail（baseline 無 logging）。
 
 Run: `/data/harness-lab/runner-venv/bin/python -m pytest tests/test_calibration.py -q`
 Expected: 全綠。
@@ -1069,131 +1070,39 @@ Expected: 全綠。
 
 ```bash
 git add tasks/registry.yaml tasks/graders/addlog-* tasks/baselines/addlog-*
-git commit -m "feat(tasks): add_logging category x5 (Tier-2)
+git commit -m "feat(tasks): add_logging category x4 (Tier-2)
 
 
 ```
 
 ---
 
-## Task 9: 任務套件 — bug_fix 類補滿（Tier-2 backfill）+ Tier-1（SWE-bench Verified）
+## Task 9: 任務套件 — benchmark 類定案 + bug_fix 補到 4（實作修訂）
 
-**Files:**
-- Modify: `tasks/registry.yaml`
-- Create: `tasks/graders/bugfix-t2-0{2..5}_test.py`、對應 `setup_patch`
-- Create: `tasks/tier1/<instance_id>/{provenance.json,restore.sh}`、`runner/swebench.py`
-- Test: `tests/test_swebench_select.py`
+**2026-06-04 實作結果：** 原 SWE-bench Verified Tier-1 計畫已 superseded。aarch64 上不上官方 docker harness 會遇到依賴漂移與 oracle 不穩，且 SWE-bench 的 patch-correctness 目標與本研究的 tool-sequence divergence 依變項錯位。
 
-bug_fix 類共 5 題：`bugfix-t2-01`（Task 4 已建）+ Tier-2 backfill 視 Tier-1 取得數量補滿。Tier-1 取 3–4 個 SWE-bench Verified 易 bug-fix 題（D1）；若實際可行數為 N，則 Tier-2 bug_fix 補 `(5 - 1 - N_in_bugfix)` 題使 bug_fix 類達 5。**目標：bug_fix 類 = 1（既有 Tier-2）+ 3~4 Tier-1**，不足 5 時以 Tier-2 backfill 補齊。
+**最終任務分布：** total 20；五類各 4：`bug_fix`、`rename`、`add_tests`、`add_logging`、`benchmark`。
 
-- [ ] **Step 1: 寫 `runner/swebench.py`（下載 + 依準則篩選易題）**
+**benchmark 類：** 改採 Aider-polyglot benchmark 的 Python/Exercism 4 題：`bench-grade-school`、`bench-phone-number`、`bench-pig-latin`、`bench-bottle-song`。provenance 寫於 `tasks/benchmark/PROVENANCE.md`，baseline 與 hidden pytest grader 皆在 repo 內可重現。
 
-```python
-"""取 SWE-bench Verified，依小模型可行準則篩選易 bug-fix 候選（D1）。"""
-from __future__ import annotations
-import json
-from pathlib import Path
-from runner import paths
+**bug_fix 類：** 使用受控 Tier-2 `bugfix-t2-01..04`：
 
-CACHE = paths.LAB / "swebench-verified.jsonl"
+| id | 植入 bug | hidden grader 重點 |
+|----|----------|--------------------|
+| `bugfix-t2-01` | `parse_amount` 不支援括號負數金額 | 會計括號負數解析為負值，正數不破壞 |
+| `bugfix-t2-02` | `median` 偶數長度回傳較大中間值 | 偶數取兩中間值平均，奇數不破壞 |
+| `bugfix-t2-03` | `format_amount` 對負數遺失負號 | 負數保留負號，正數不破壞 |
+| `bugfix-t2-04` | `mean` 使用整數除法 | 小數平均值正確，空序列仍 raise `ValueError` |
 
-
-def fetch_verified() -> list[dict]:
-    """下載 SWE-bench Verified 到 LAB 快取（egress 已驗證可達 huggingface）。"""
-    if CACHE.exists():
-        return [json.loads(l) for l in CACHE.read_text().splitlines() if l.strip()]
-    from datasets import load_dataset
-    ds = load_dataset("princeton-nlp/SWE-bench_Verified", split="test")
-    rows = [dict(r) for r in ds]
-    CACHE.write_text("\n".join(json.dumps(r) for r in rows))
-    return rows
-
-
-def easy_candidates(rows: list[dict], limit: int = 12) -> list[dict]:
-    """易題啟發式：patch 小、FAIL_TO_PASS 少、純 Python repo、無重型相依。
-    回傳候選清單（人工再從中挑 3-4 題確認可在地復現）。"""
-    def patch_size(r):
-        return len((r.get("patch") or "").splitlines())
-
-    def f2p_count(r):
-        v = r.get("FAIL_TO_PASS")
-        if isinstance(v, str):
-            try:
-                v = json.loads(v)
-            except Exception:
-                v = []
-        return len(v or [])
-
-    scored = sorted(rows, key=lambda r: (patch_size(r), f2p_count(r)))
-    return scored[:limit]
-```
-
-- [ ] **Step 2: 下載並列出候選（人工挑題用）**
-
-Run:
-```bash
-ssh -i ~/.ssh/SSH_Tokyo_A1_Private.key opc@150.230.202.49 'cd /data/repos/xai-harness-faithfulness && /data/harness-lab/runner-venv/bin/python -c "
-from runner import swebench
-rows = swebench.fetch_verified()
-print(\"total\", len(rows))
-for r in swebench.easy_candidates(rows, 12):
-    import json
-    f2p = r.get(\"FAIL_TO_PASS\"); 
-    print(r[\"instance_id\"], \"| repo\", r[\"repo\"], \"| patch_lines\", len((r.get(\"patch\") or \"\").splitlines()))
-"'
-```
-Expected: 印出總數與 12 個候選的 `instance_id / repo / patch_lines`。
-
-- [ ] **Step 3: 挑 3–4 題並建還原（每題一目錄）**
-
-對選定的每個 `instance_id`：寫 `tasks/tier1/<instance_id>/provenance.json`（記 `instance_id`、`repo`、`base_commit`、`FAIL_TO_PASS`、`PASS_TO_PASS`、來源 "SWE-bench Verified"）與 `restore.sh`（`git clone` 該 repo、`git checkout <base_commit>`、安裝相依）。隱藏 grader 直接用該 instance 的 `FAIL_TO_PASS`＋`PASS_TO_PASS` 測試節點（grader.type=pytest，hidden_tests 指向由 `test_patch` 還原的測試檔，install 用該 repo 的安裝指令）。
-
-registry.yaml 追加（每題一條）:
-```yaml
-  - id: bugfix-t1-<short>
-    category: bug_fix
-    tier: 1
-    source: swebench_verified
-    instance_id: <instance_id>
-    repo_baseline: /data/harness-lab/runs/_tier1_baselines/<instance_id>   # 由 restore.sh 還原（repo 外，不進 git）
-    prompt: |
-      <該 instance 的 problem_statement 全文>
-    grader:
-      type: pytest
-      hidden_tests: tasks/tier1/<instance_id>/hidden_tests.py   # 由 test_patch 取出的 FAIL_TO_PASS/PASS_TO_PASS
-      install: "-e ."        # 視 repo 調整
-    provenance_file: tasks/tier1/<instance_id>/provenance.json
-```
-
-說明：Tier-1 的 `repo_baseline` 指向 LAB 內由 `restore.sh` 還原的目錄（大型 repo 不進 git，僅進 provenance 與還原腳本，符合可重現＋不膨脹 repo）。`provision.py` 對 Tier-1 採「複製已還原 baseline」路徑（與 Tier-2 同函式，因 baseline 只是一個目錄）。
-
-- [ ] **Step 4: bug_fix 類補滿到 5（Tier-2 backfill）**
-
-若 Tier-1 取得 N 題（N=3 或 4），新增 `bugfix-t2-02 .. ` 共 `(4 - N)` 題使 bug_fix 類 = 1 + (4-N) + N = 5。每題格式同 `bugfix-t2-01`（具體 bug：例如 `median` 偶數長度算錯、`format_amount` 對負數符號位置錯、`mean` 對單元素序列邊界）。各附隱藏測試與 D3 校準。
-
-- [ ] **Step 5: 驗證任務總數 = 20、四類各 5、Tier 分布符合 D1**
-
-Run:
-```bash
-ssh -i ~/.ssh/SSH_Tokyo_A1_Private.key opc@150.230.202.49 'cd /data/repos/xai-harness-faithfulness && /data/harness-lab/runner-venv/bin/python -c "
-from runner.provision import load_tasks
-from collections import Counter
-ts = load_tasks()
-print(\"total\", len(ts))
-print(\"by_category\", Counter(t[\"category\"] for t in ts))
-print(\"by_tier\", Counter(t[\"tier\"] for t in ts))
-"'
-```
-Expected: `total 20`；`by_category` 四類各 5；`by_tier` Tier-1 為 3–4、Tier-2 為其餘。
-
-- [ ] **Step 6: Commit**
+**驗證命令：**
 
 ```bash
-git add runner/swebench.py tasks/registry.yaml tasks/tier1/ tasks/graders/bugfix-* tasks/baselines/bugfix-* tests/test_swebench_select.py
-git commit -m "feat(tasks): SWE-bench Verified Tier-1 bug-fix anchors + Tier-2 backfill -> 20 tasks total
-
-
+cd /data/repos/xai-harness-faithfulness
+/data/harness-lab/runner-venv/bin/python -c "from runner.provision import load_tasks; from collections import Counter; ts=load_tasks(); print(len(ts), dict(Counter(t['category'] for t in ts)))"
+/data/harness-lab/runner-venv/bin/python -m pytest tests/test_calibration.py -q
 ```
+
+Expected: `20 {'bug_fix': 4, 'rename': 4, 'add_tests': 4, 'add_logging': 4, 'benchmark': 4}`；baseline-fail calibration 20 題全綠。
 
 ---
 
@@ -2045,13 +1954,13 @@ git commit -m "feat(runner): end-to-end orchestration + immutable persistence + 
 
 ---
 
-## Task 15: Pilot（2 configs × 3 tasks）— 真實 run + Pilot 報告（放行關）
+## Task 16: Pilot（2 configs × 3 tasks）— 真實 run + Pilot 報告（放行關）
 
 **Files:**
 - Create: `docs/verification/2026-06-04-phase1-pilot-report.md`
 - Create（產出）: `traces/<config>/<task>/0.json`（6 筆）
 
-Pilot 選樣（§6.4）：2 configs × 3 tasks。configs 取 **#1 Claude Code/Haiku（anchor）** 與 **#6 Codex/GPT-mini（anchor）**（兩 anchor 跨模型、跨後端，最能暴露管線問題）。tasks 取**跨三類各一**：`bugfix-t2-01`（bug_fix）、`rename-t2-01`（rename）、`addlog-t2-01`（add_logging）。共 6 次真實 run（會耗 API token，屬 Pilot 預期成本）。
+Pilot 選樣（§6.4）：2 configs × 3 tasks。configs 取 **#1 Claude Code/Haiku（anchor）** 與 **#6 Codex/GPT-mini（anchor）**（兩 anchor 跨模型、跨後端，最能暴露管線問題）。tasks 取**跨三類各一**：`bugfix-t2-01`（bug_fix）、`rename-t2-01`（rename）、`bench-grade-school`（benchmark）。共 6 次真實 run（會耗 API token，屬 Pilot 預期成本）。
 
 - [ ] **Step 1: 先單跑 1 次（config 1 × bugfix-t2-01）做端到端煙霧**
 
@@ -2065,7 +1974,7 @@ Expected: 印出 JSON，含 `run_id`、`success`（true/false 皆可，重點是
 
 Run:
 ```bash
-ssh -i ~/.ssh/SSH_Tokyo_A1_Private.key opc@150.230.202.49 'cd /data/repos/xai-harness-faithfulness && source infra/00-paths.sh && for c in 1 6; do for t in bugfix-t2-01 rename-t2-01 addlog-t2-01; do echo "=== config $c task $t ==="; /data/harness-lab/runner-venv/bin/python -m runner run --config $c --task $t --repeat 0; done; done'
+ssh -i ~/.ssh/SSH_Tokyo_A1_Private.key opc@150.230.202.49 'cd /data/repos/xai-harness-faithfulness && source infra/00-paths.sh && for c in 1 6; do for t in bugfix-t2-01 rename-t2-01 bench-grade-school; do echo "=== config $c task $t ==="; /data/harness-lab/runner-venv/bin/python -m runner run --config $c --task $t --repeat 0; done; done'
 ```
 Expected: 6 行 JSON，皆有非空 tool 序列；6 個 `traces/{1,6}/<task>/0.json` 生成。記錄每次 success 與 wall_s。
 
@@ -2114,7 +2023,7 @@ git commit -m "test(pilot): Phase 1 pilot 2 configs x 3 tasks end-to-end + pilot
 
 ---
 
-## Task 16: Phase 1 完成稽核 + 推上 GitHub + Gate
+## Task 17: Phase 1 完成稽核 + 推上 GitHub + Gate
 
 **Files:** Create `docs/verification/2026-06-04-phase1-completion-audit.md`
 
@@ -2127,7 +2036,7 @@ from runner.provision import load_tasks
 from collections import Counter
 ts=load_tasks(); print(\"tasks\",len(ts),dict(Counter(t[\"category\"] for t in ts)),dict(Counter(t[\"tier\"] for t in ts)))"'
 ```
-Expected: 全測試綠；tasks=20、四類各 5、Tier 分布符合 D1。
+Expected: 全測試綠；tasks=20、五類各 4。
 
 - [ ] **Step 2: 寫完成稽核文件**（仿 Phase 0 audit）：列出 Phase 1 交付物（task suite 20、runner、4 adapters、trace schema、pilot 6 traces + 報告）、四 harness 啟動指令、grader 機制、sanitization 政策、HCI ground-truth 依賴狀態（Phase 2 產出後才供 HCI），並明記「Pilot gate 待使用者審閱放行才進 Phase 2」。
 
@@ -2149,10 +2058,10 @@ Expected: push 成功，最近 commit 為 Phase 1 稽核。
 
 ## Self-Review（對照 spec §6）
 
-- §6.1 任務套件（20 = 4 類 ×5、Tier-1 SWE-bench Verified + Tier-2 受控、自動 grader、難度校準）→ Task 4–9。D1 已把 Tier-1 限為 bug-fix 錨點、其餘 Tier-2，矛盾已解。
+- §6.1 任務套件（20 = 5 類 ×4、Aider-polyglot benchmark + Tier-2 受控、自動 grader、baseline-fail 難度校準）→ Task 4–9 與 Task 11 修訂。SWE-bench Verified 已明確放棄，不進 Phase 1 任務來源。
 - §6.2 統一 Runner（provision/launch/budget 注入/timeout/capture/grade/不可變存檔、四 harness 介面卡）→ Task 10–14；啟動指令與 budget 全取自 Phase 0 已驗證 smoke。
 - §6.3 正規化 Trace schema（所有列出欄位）→ Task 2（含 evidence_levels 為跨 harness 誠實性增補）。
-- §6.4 Pilot（2 configs × 3 tasks、四項驗證、報告經確認才放大）→ Task 15–16。
+- §6.4 Pilot（2 configs × 3 tasks、四項驗證、報告經確認才放大）→ Task 16–17。
 - 隔離鐵則：全程用 `LAB_HOME` 隔離、Hermes 用全新實例、secrets 不進 git、raw 不進 git → adapters/persist 已遵循；Pilot commit 前掃 secret。
 
 **型別一致性檢查：** `NormalizedTrace`/`ToolCall` 欄位名在 schema、adapters、runner、tests 一致；`Config` 欄位（id/harness/model_role/model_snapshot/provider/role）一致；`get_adapter`/`ADAPTERS` 鍵 = harness 名一致；grader `GradeResult(success, detail)` 一致。
