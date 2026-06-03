@@ -19,6 +19,7 @@
     "launch_timed_out": false,
     "success": false
   },
+  "private_audit_path": "/data/harness-lab/private-audits/6/bench-grade-school/0.md",
   "raw_artifacts": {
     "session_jsonl": "/data/harness-lab/runs/6/bench-grade-school/0/raw/rollout-2026-06-04T02-49-52-019e8ed2-13af-7ac0-a308-a38490412243.jsonl",
     "stderr_log": "/data/harness-lab/runs/6/bench-grade-school/0/raw/harness.stderr.log",

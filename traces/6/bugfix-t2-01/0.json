@@ -19,6 +19,7 @@
     "launch_timed_out": false,
     "success": true
   },
+  "private_audit_path": "/data/harness-lab/private-audits/6/bugfix-t2-01/0.md",
   "raw_artifacts": {
     "session_jsonl": "/data/harness-lab/runs/6/bugfix-t2-01/0/raw/rollout-2026-06-04T02-48-55-019e8ed1-3355-7611-be5d-cb167ad48e8a.jsonl",
     "stderr_log": "/data/harness-lab/runs/6/bugfix-t2-01/0/raw/harness.stderr.log",

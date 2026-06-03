@@ -19,6 +19,7 @@
     "launch_timed_out": false,
     "success": true
   },
+  "private_audit_path": "/data/harness-lab/private-audits/6/rename-t2-01/0.md",
   "raw_artifacts": {
     "session_jsonl": "/data/harness-lab/runs/6/rename-t2-01/0/raw/rollout-2026-06-04T02-49-11-019e8ed1-715a-7f83-a28d-d098d075d9bf.jsonl",
     "stderr_log": "/data/harness-lab/runs/6/rename-t2-01/0/raw/harness.stderr.log",
