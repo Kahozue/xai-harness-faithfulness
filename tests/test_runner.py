@@ -96,6 +96,114 @@ def test_cli_pilot_dry_list(capsys):
     rc = cli.main(["pilot", "--dry-list"])
     assert rc == 0
     out = json.loads(capsys.readouterr().out)
+    assert out["count"] == 6
     assert len(out["planned"]) == 6
     assert out["planned"][0] == {"config": 1, "task": "bugfix-t2-01", "repeat": 0}
     assert out["planned"][-1] == {"config": 6, "task": "bench-grade-school", "repeat": 0}
+
+
+def test_phase2_plan_defaults_to_full_factorial(monkeypatch):
+    tasks = [{"id": f"task-{i:02d}"} for i in range(20)]
+    monkeypatch.setattr(cli, "load_tasks", lambda: tasks)
+
+    planned = cli._phase2_plan()
+
+    assert len(planned) == 6 * 20 * 3
+    assert planned[0] == {"config": 1, "task": "task-00", "repeat": 1}
+    assert planned[2] == {"config": 1, "task": "task-00", "repeat": 3}
+    assert planned[-1] == {"config": 6, "task": "task-19", "repeat": 3}
+
+
+def test_cli_phase2_dry_list_supports_filters(monkeypatch, capsys):
+    monkeypatch.setattr(cli, "load_tasks", lambda: [{"id": "task-a"}, {"id": "task-b"}])
+
+    rc = cli.main([
+        "phase2",
+        "--dry-list",
+        "--config", "2",
+        "--task", "task-b",
+        "--repeat-start", "4",
+        "--repeats", "2",
+    ])
+
+    assert rc == 0
+    out = json.loads(capsys.readouterr().out)
+    assert out["count"] == 2
+    assert out["total_planned"] == 2
+    assert out["planned"] == [
+        {"config": 2, "task": "task-b", "repeat": 4},
+        {"config": 2, "task": "task-b", "repeat": 5},
+    ]
+
+
+def test_cli_phase2_refuses_existing_trace_without_override(monkeypatch, tmp_path, capsys):
+    existing = tmp_path / "traces" / "1" / "task-a" / "1.json"
+    existing.parent.mkdir(parents=True)
+    existing.write_text("{}")
+
+    monkeypatch.setattr(cli, "load_tasks", lambda: [{"id": "task-a"}])
+    monkeypatch.setattr(cli.persist, "trace_path", lambda c, t, r: tmp_path / "traces" / str(c) / t / f"{r}.json")
+
+    rc = cli.main(["phase2", "--config", "1", "--task", "task-a", "--repeat-start", "1", "--repeats", "1"])
+
+    assert rc == 1
+    out = json.loads(capsys.readouterr().out)
+    assert out["error"] == "trace_exists"
+    assert out["existing"] == [str(existing)]
+
+
+def test_cli_phase2_skip_existing_resumes_without_running_existing(monkeypatch, tmp_path, capsys):
+    existing = tmp_path / "traces" / "1" / "task-a" / "1.json"
+    existing.parent.mkdir(parents=True)
+    existing.write_text("{}")
+
+    monkeypatch.setattr(cli, "load_tasks", lambda: [{"id": "task-a"}])
+    monkeypatch.setattr(cli.persist, "trace_path", lambda c, t, r: tmp_path / "traces" / str(c) / t / f"{r}.json")
+
+    rc = cli.main([
+        "phase2",
+        "--dry-list",
+        "--skip-existing",
+        "--config", "1",
+        "--task", "task-a",
+        "--repeat-start", "1",
+        "--repeats", "2",
+    ])
+
+    assert rc == 0
+    out = json.loads(capsys.readouterr().out)
+    assert out["count"] == 1
+    assert out["skipped_existing"] == 1
+    assert out["planned"] == [{"config": 1, "task": "task-a", "repeat": 2}]
+
+
+def test_cli_phase2_run_streams_progress(monkeypatch, tmp_path, capsys):
+    monkeypatch.setattr(cli, "load_tasks", lambda: [{"id": "task-a"}])
+    monkeypatch.setattr(cli.persist, "trace_path", lambda c, t, r: tmp_path / "traces" / str(c) / t / f"{r}.json")
+
+    def fake_run_once(config, task, repeat, timeout, overwrite=False):
+        return {
+            "run_id": f"c{config}__mock__{task}__r{repeat}",
+            "config_id": config,
+            "task_id": task,
+            "repeat_index": repeat,
+            "outcome": {"success": True},
+            "tool_calls": [{"tool_name": "Read"}],
+            "wall_time_s": 0.1,
+            "private_audit_path": "/tmp/audit.md",
+        }
+
+    monkeypatch.setattr(cli, "run_once", fake_run_once)
+
+    rc = cli.main(["phase2", "--config", "1", "--task", "task-a", "--repeat-start", "1", "--repeats", "1"])
+
+    assert rc == 0
+    events = [json.loads(line) for line in capsys.readouterr().out.splitlines()]
+    assert [event["event"] for event in events] == [
+        "phase2_start",
+        "phase2_run_start",
+        "phase2_run_result",
+        "phase2_complete",
+    ]
+    assert events[2]["success"] is True
+    assert events[3]["completed"] == 1
