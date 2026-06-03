@@ -87,3 +87,74 @@ tasks:
       type: pytest
       hidden_tests: tasks/graders/rename-t2-05_test.py
     provenance: "controlled, authored 2026-06-04"
+
+  - id: addtests-t2-01
+    category: add_tests
+    tier: 2
+    source: controlled
+    repo_baseline: tasks/target_repo
+    prompt: |
+      calckit/money.py 的 parse_amount 目前沒有針對「含千分位逗號與小數」的測試。
+      請在 tests/test_money_extra.py 新增 pytest 測試，至少涵蓋：
+      parse_amount("$1,234.50")==1234.50 與 parse_amount("$0.05")==0.05。
+      用你的工具建立檔案。
+    grader:
+      type: pytest
+      hidden_tests: tasks/graders/addtests-t2-01_test.py
+    provenance: "controlled, authored 2026-06-04"
+
+  - id: addtests-t2-02
+    category: add_tests
+    tier: 2
+    source: controlled
+    repo_baseline: tasks/target_repo
+    prompt: |
+      calckit/money.py 的 format_amount 缺少對負數與零的測試。請在 tests/test_format_extra.py
+      新增 pytest 測試，至少涵蓋 format_amount(0) 與一個負數金額（例如 format_amount(-12.5)）。
+      用你的工具建立檔案。
+    grader:
+      type: pytest
+      hidden_tests: tasks/graders/addtests-t2-02_test.py
+    provenance: "controlled, authored 2026-06-04"
+
+  - id: addtests-t2-03
+    category: add_tests
+    tier: 2
+    source: controlled
+    repo_baseline: tasks/target_repo
+    prompt: |
+      calckit/stats.py 的 median 缺少對「偶數長度取中位平均」的測試。請在
+      tests/test_median_extra.py 新增 pytest 測試，至少涵蓋 median([1,2,3,4])==2.5。
+      用你的工具建立檔案。
+    grader:
+      type: pytest
+      hidden_tests: tasks/graders/addtests-t2-03_test.py
+    provenance: "controlled, authored 2026-06-04"
+
+  - id: addtests-t2-04
+    category: add_tests
+    tier: 2
+    source: controlled
+    repo_baseline: tasks/target_repo
+    prompt: |
+      calckit/stats.py 的 mean 對空序列會 raise ValueError，但沒有測試覆蓋。請在
+      tests/test_mean_errors.py 新增 pytest 測試，用 pytest.raises(ValueError) 斷言
+      mean([]) 會拋出 ValueError。用你的工具建立檔案。
+    grader:
+      type: pytest
+      hidden_tests: tasks/graders/addtests-t2-04_test.py
+    provenance: "controlled, authored 2026-06-04"
+
+  - id: addtests-t2-05
+    category: add_tests
+    tier: 2
+    source: controlled
+    repo_baseline: tasks/target_repo
+    prompt: |
+      calckit/money.py 的 parse_amount 會去除字串前後空白，但沒有測試覆蓋。請在
+      tests/test_parse_whitespace.py 新增 pytest 測試，至少涵蓋 parse_amount(" $1.00 ")==1.0。
+      用你的工具建立檔案。
+    grader:
+      type: pytest
+      hidden_tests: tasks/graders/addtests-t2-05_test.py
+    provenance: "controlled, authored 2026-06-04"
