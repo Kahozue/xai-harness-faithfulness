@@ -3,6 +3,8 @@ from __future__ import annotations
 import json
 from types import SimpleNamespace
 
+import pytest
+
 from runner import cli
 from runner import runner as R
 from runner.trace_schema import validate_trace
@@ -47,6 +49,7 @@ def test_run_once_produces_valid_trace_and_persists(monkeypatch, tmp_path):
     monkeypatch.setattr(R, "run_grader", lambda task, wd: SimpleNamespace(success=False, detail="baseline fail"))
     monkeypatch.setattr(R.persist, "run_dir", lambda c, t, r: runs / str(c) / t / str(r))
     monkeypatch.setattr(R.persist, "trace_path", lambda c, t, r: traces / str(c) / t / f"{r}.json")
+    monkeypatch.setattr(R.persist, "private_audit_path", lambda c, t, r: traces / "private" / str(c) / t / f"{r}.md")
 
     trace = R.run_once(1, "bugfix-t2-01", 0, secrets={"ANTHROPIC_API_KEY": "x"})
 
@@ -56,14 +59,37 @@ def test_run_once_produces_valid_trace_and_persists(monkeypatch, tmp_path):
     assert trace["outcome"]["success"] is False
     assert trace["system_present"] is True
     assert trace["outcome"]["launch_returncode"] == 0
+    assert trace["private_audit_path"].endswith("private/1/bugfix-t2-01/0.md")
 
     raw_dir = runs / "1" / "bugfix-t2-01" / "0" / "raw"
     assert (raw_dir / "mock.raw").read_text() == "raw"
     assert (raw_dir / "claude_code.log").read_text() == "launch"
 
+    audit = traces / "private" / "1" / "bugfix-t2-01" / "0.md"
+    assert "Private full run audit" in audit.read_text()
+    assert "mock_raw" in audit.read_text()
+
     saved = json.loads((traces / "1" / "bugfix-t2-01" / "0.json").read_text())
     assert saved["raw_log_path"] == str(raw_dir)
     assert saved["raw_artifacts"]["mock_raw"].endswith("mock.raw")
+    assert saved["private_audit_path"].endswith("private/1/bugfix-t2-01/0.md")
+
+
+def test_run_once_refuses_to_overwrite_existing_trace(monkeypatch, tmp_path):
+    runs = tmp_path / "runs"
+    traces = tmp_path / "traces"
+    existing = traces / "1" / "bugfix-t2-01" / "0.json"
+    existing.parent.mkdir(parents=True)
+    existing.write_text("{}")
+
+    monkeypatch.setattr(R, "get_adapter", lambda harness: _MockAdapter())
+    monkeypatch.setattr(R.persist, "run_dir", lambda c, t, r: runs / str(c) / t / str(r))
+    monkeypatch.setattr(R.persist, "trace_path", lambda c, t, r: traces / str(c) / t / f"{r}.json")
+
+    with pytest.raises(FileExistsError):
+        R.run_once(1, "bugfix-t2-01", 0, secrets={"ANTHROPIC_API_KEY": "x"})
+
+    assert not (runs / "1" / "bugfix-t2-01" / "0" / "workdir").exists()
 
 
 def test_cli_pilot_dry_list(capsys):

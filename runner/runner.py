@@ -13,6 +13,7 @@ from runner import paths, persist
 from runner.adapters import get_adapter
 from runner.configs import get_config
 from runner.grader import run_grader
+from runner.private_audit import build_private_audit
 from runner.provision import load_tasks, provision_task
 from runner.trace_schema import NormalizedTrace, ToolCall, validate_trace
 
@@ -109,11 +110,13 @@ def run_once(
     repeat_index: int,
     timeout_s: int = DEFAULT_TIMEOUT_S,
     secrets: dict | None = None,
+    overwrite: bool = False,
 ) -> dict:
     cfg = get_config(config_id)
     task = _load_task(task_id)
     adapter = get_adapter(cfg.harness)
     secrets = paths.load_secrets() if secrets is None else secrets
+    persist.ensure_trace_writable(config_id, task_id, repeat_index, overwrite=overwrite)
 
     rd = persist.run_dir(config_id, task_id, repeat_index)
     workdir = rd / "workdir"
@@ -186,6 +189,8 @@ def run_once(
         evidence_levels=norm.get("evidence_levels", {}),
     ).to_dict()
     trace["raw_artifacts"] = saved_raw
+    audit_path = persist.save_private_audit(trace, build_private_audit(trace))
+    trace["private_audit_path"] = str(audit_path)
     validate_trace(trace)
-    persist.save_trace(trace)
+    persist.save_trace(trace, overwrite=overwrite)
     return trace

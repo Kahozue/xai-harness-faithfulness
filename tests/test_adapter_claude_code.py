@@ -31,3 +31,15 @@ def test_normalize_extracts_tool_sequence_from_fixture(tmp_path):
     assert out["runtime_budget"]["thinking_budget_tokens"] == 63999
     assert out["system_present"] is True
     assert out["turns"] >= 1
+
+
+def test_raw_artifacts_keep_claude_trace_jsonl_and_html(tmp_path):
+    td = tmp_path / ".claude-trace"
+    td.mkdir()
+    (td / "log-2026.jsonl").write_text(FIX.read_text())
+    (td / "log-2026.html").write_text("<html>trace</html>")
+
+    arts = ClaudeCodeAdapter().raw_artifacts(tmp_path)
+
+    assert arts["trace_jsonl"].name == "log-2026.jsonl"
+    assert arts["trace_html"].name == "log-2026.html"

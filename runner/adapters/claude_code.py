@@ -93,7 +93,13 @@ class ClaudeCodeAdapter(HarnessAdapter):
     def raw_artifacts(self, workdir: Path) -> dict[str, Path]:
         td = workdir / ".claude-trace"
         jsonls = sorted(td.glob("*.jsonl")) if td.exists() else []
-        return {"trace_jsonl": jsonls[-1]} if jsonls else {}
+        if not jsonls:
+            return {}
+        arts = {"trace_jsonl": jsonls[-1]}
+        html = jsonls[-1].with_suffix(".html")
+        if html.exists():
+            arts["trace_html"] = html
+        return arts
 
     def normalize(self, workdir: Path) -> dict:
         arts = self.raw_artifacts(workdir)

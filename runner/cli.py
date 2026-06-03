@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import json
 
+from runner import persist
 from runner.runner import DEFAULT_TIMEOUT_S, run_once
 
 DEFAULT_PILOT_CONFIGS = [1, 6]
@@ -17,6 +18,7 @@ def _summary(trace: dict) -> dict:
         "tools": [tc["tool_name"] for tc in trace["tool_calls"]],
         "wall_time_s": trace["wall_time_s"],
         "trace": f"traces/{trace['config_id']}/{trace['task_id']}/{trace['repeat_index']}.json",
+        "private_audit": trace.get("private_audit_path"),
     }
 
 
@@ -29,15 +31,21 @@ def main(argv: list[str] | None = None) -> int:
     run.add_argument("--task", required=True)
     run.add_argument("--repeat", type=int, default=0)
     run.add_argument("--timeout", type=int, default=DEFAULT_TIMEOUT_S)
+    run.add_argument("--overwrite", action="store_true", help="intentionally replace an existing trace")
 
     pilot = sub.add_parser("pilot", help="run or list the default 2 config x 3 task pilot")
     pilot.add_argument("--repeat", type=int, default=0)
     pilot.add_argument("--timeout", type=int, default=DEFAULT_TIMEOUT_S)
+    pilot.add_argument("--overwrite", action="store_true", help="intentionally replace existing traces")
     pilot.add_argument("--dry-list", action="store_true", help="print planned runs without launching harnesses")
 
     args = parser.parse_args(argv)
     if args.cmd == "run":
-        trace = run_once(args.config, args.task, args.repeat, args.timeout)
+        try:
+            trace = run_once(args.config, args.task, args.repeat, args.timeout, overwrite=args.overwrite)
+        except FileExistsError as exc:
+            print(json.dumps({"error": "trace_exists", "detail": str(exc)}, ensure_ascii=False))
+            return 1
         print(json.dumps(_summary(trace), ensure_ascii=False))
         return 0
 
@@ -50,8 +58,17 @@ def main(argv: list[str] | None = None) -> int:
         if args.dry_list:
             print(json.dumps({"planned": planned}, ensure_ascii=False, indent=2))
             return 0
+        if not args.overwrite:
+            existing = [
+                str(persist.trace_path(item["config"], item["task"], item["repeat"]))
+                for item in planned
+                if persist.trace_path(item["config"], item["task"], item["repeat"]).exists()
+            ]
+            if existing:
+                print(json.dumps({"error": "trace_exists", "existing": existing}, ensure_ascii=False, indent=2))
+                return 1
         results = [
-            _summary(run_once(item["config"], item["task"], item["repeat"], args.timeout))
+            _summary(run_once(item["config"], item["task"], item["repeat"], args.timeout, overwrite=args.overwrite))
             for item in planned
         ]
         print(json.dumps({"results": results}, ensure_ascii=False, indent=2))

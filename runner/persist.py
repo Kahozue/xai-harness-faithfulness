@@ -20,6 +20,18 @@ def trace_path(config_id: int, task_id: str, repeat_index: int) -> Path:
     return paths.REPO / "traces" / str(config_id) / task_id / f"{repeat_index}.json"
 
 
+def private_audit_path(config_id: int, task_id: str, repeat_index: int) -> Path:
+    return paths.PRIVATE_AUDITS / str(config_id) / task_id / f"{repeat_index}.md"
+
+
+def ensure_trace_writable(config_id: int, task_id: str, repeat_index: int, overwrite: bool = False) -> None:
+    path = trace_path(config_id, task_id, repeat_index)
+    if path.exists() and not overwrite:
+        raise FileExistsError(
+            f"trace already exists: {path}; use a unique --repeat or pass --overwrite intentionally"
+        )
+
+
 def save_raw(config_id: int, task_id: str, repeat_index: int, artifacts: dict[str, Path]) -> dict[str, str]:
     dst_dir = raw_dir(config_id, task_id, repeat_index)
     dst_dir.mkdir(parents=True, exist_ok=True)
@@ -43,8 +55,19 @@ def save_raw(config_id: int, task_id: str, repeat_index: int, artifacts: dict[st
     return saved
 
 
-def save_trace(trace: dict) -> Path:
+def save_private_audit(trace: dict, content: str) -> Path:
+    path = private_audit_path(trace["config_id"], trace["task_id"], trace["repeat_index"])
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(content)
+    return path
+
+
+def save_trace(trace: dict, overwrite: bool = False) -> Path:
     path = trace_path(trace["config_id"], trace["task_id"], trace["repeat_index"])
+    if path.exists() and not overwrite:
+        raise FileExistsError(
+            f"trace already exists: {path}; use a unique --repeat or pass --overwrite intentionally"
+        )
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(trace, ensure_ascii=False, indent=2, sort_keys=True) + "\n")
     return path

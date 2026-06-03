@@ -28,6 +28,20 @@ bug fix / rename / add tests / add logging / benchmark.
 
 **Metrics:** Jaccard similarity, disagreement rate, success correlation, five-dimension agent-card matrix (fidelity / stability / robustness / actionability / governability).
 
+## Trace Recording Policy
+
+GitHub stores only summary/public artifacts: normalized traces under `traces/`
+and verification reports under `docs/verification/`. Full plaintext audit
+records, including visible model messages, tool inputs/outputs, errors, and
+recoveries, are stored outside git on the VPS under
+`/data/harness-lab/private-audits/` and may be mirrored locally under
+`private-audits/` on the Mac.
+
+Do not commit raw harness logs, full private audits, secrets, or raw hidden
+chain-of-thought. See
+`docs/specs/2026-06-04-trace-recording-policy.md` before running any Pilot,
+rerun, or Phase 2 batch.
+
 ## Research Questions
 
 | RQ | Question |

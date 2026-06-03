@@ -1,14 +1,23 @@
 # Phase 1 Pilot report（2026-06-04）
 
-Scope: Phase 1 Task 16 Pilot only. This ran the planned 2 configs x 3 tasks =
-6 real harness runs on the VPS `opc@150.230.202.49` in
-`/data/repos/xai-harness-faithfulness`. It did not start Phase 2 full factorial.
+Scope: Phase 1 Task 16 Pilot only. This produced the planned 2 configs x
+3 tasks = 6 committed Pilot matrix traces on the VPS `opc@150.230.202.49` in
+`/data/repos/xai-harness-faithfulness`. Before the matrix, one pre-loop smoke
+run was also executed for config 1 / `bugfix-t2-01` / repeat 0. It did not start
+Phase 2 full factorial.
 
 Environment reference: `ENVIRONMENT.lock.md@3d309d2`. Runner venv:
 `/data/harness-lab/runner-venv` with Python 3.11.13 and pinned dependencies in
 `runner/requirements.txt`. Raw logs remain outside git under
 `/data/harness-lab/runs/`; committed artifacts are sanitized normalized traces
 under `traces/`.
+
+Private full trace supplement: the detailed plaintext audit with per-run tool
+input/output summaries, visible model messages, skill-use status, errors,
+recoveries, and benchmark failure diagnosis is intentionally not committed to
+git/GitHub. It is stored on the VPS under
+`/data/harness-lab/private-audits/manual/2026-06-04-phase1-pilot-deep-trace-audit.full.md`
+and mirrored on the Mac under `private-audits/`.
 
 ## Pilot matrix
 
@@ -24,6 +33,12 @@ Tasks:
 - `bench-grade-school`（Aider-polyglot / Exercism benchmark）
 
 ## Result table
+
+The table below covers the six committed matrix traces. The pre-loop smoke raw
+log remains at
+`/data/harness-lab/runs/1/bugfix-t2-01/0/raw/log-2026-06-03-18-47-08.jsonl`.
+Because the smoke and later matrix run both used repeat 0, the later matrix run
+overwrote the normalized smoke trace at `traces/1/bugfix-t2-01/0.json`.
 
 | Config | Harness | Task | Success | Tool count | Tool sequence | Wall s | Input | Cached input | Output |
 |---:|---|---|---|---:|---|---:|---:|---:|---:|
@@ -95,6 +110,10 @@ tool paths differ even on successful tasks.
 
 - Pilot only covers two anchor configs. It validates the pipeline, not the full
   6-config factorial.
+- The pre-loop smoke reused the same config/task/repeat path as the later matrix
+  run. The raw smoke log remains, but the normalized trace was overwritten. For
+  Phase 2, use unique repeat indexes for smoke/probe runs or add an explicit
+  runner overwrite policy.
 - Codex token fields are much larger than Claude Code token fields because the
   harnesses expose different usage accounting surfaces. Treat token comparisons
   as per-harness operational metadata unless normalized further.

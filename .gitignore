@@ -5,6 +5,8 @@ __pycache__/
 .venv/
 *.log
 !/tests/fixtures/*.smoke.log
+private-audits/
+docs/verification/*-deep-trace-audit*.md
 # Phase 1 runtime（repo 外的 /data/harness-lab 本就不在 repo；此處僅防誤建同名目錄）
 /runner-venv/
 .pytest_cache/

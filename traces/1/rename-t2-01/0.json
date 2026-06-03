@@ -21,6 +21,7 @@
   },
   "raw_artifacts": {
     "launch_log": "/data/harness-lab/runs/1/rename-t2-01/0/raw/claude_code.log",
+    "trace_html": "/data/harness-lab/runs/1/rename-t2-01/0/raw/log-2026-06-03-18-47-55.html",
     "trace_jsonl": "/data/harness-lab/runs/1/rename-t2-01/0/raw/log-2026-06-03-18-47-55.jsonl"
   },
   "raw_log_path": "/data/harness-lab/runs/1/rename-t2-01/0/raw",

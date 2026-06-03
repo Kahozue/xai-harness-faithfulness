@@ -1960,6 +1960,14 @@ git commit -m "feat(runner): end-to-end orchestration + immutable persistence + 
 - Create: `docs/verification/2026-06-04-phase1-pilot-report.md`
 - Create（產出）: `traces/<config>/<task>/0.json`（6 筆）
 
+**Trace recording policy（mandatory from this checkpoint onward）:**
+- GitHub 只提交 summary/public artifact：`traces/...json` 與 verification summary report。
+- Full/plaintext audit 不進 git，固定留在 VPS `/data/harness-lab/private-audits/...`，需要時 mirror 到 Mac `private-audits/`。
+- Full audit 要涵蓋 visible model messages、tool inputs/outputs、errors/recoveries、raw artifact paths、failure diagnosis。
+- 不提交 raw logs、secrets、raw hidden chain-of-thought；Claude thinking blocks / encrypted reasoning 只記 presence/count 與可見行為摘要。
+- Smoke/probe run 不得重用正式 matrix trace path；runner 預設拒絕覆蓋，除非明確 `--overwrite` 或使用新的 `--repeat`。
+- See `docs/specs/2026-06-04-trace-recording-policy.md`.
+
 Pilot 選樣（§6.4）：2 configs × 3 tasks。configs 取 **#1 Claude Code/Haiku（anchor）** 與 **#6 Codex/GPT-mini（anchor）**（兩 anchor 跨模型、跨後端，最能暴露管線問題）。tasks 取**跨三類各一**：`bugfix-t2-01`（bug_fix）、`rename-t2-01`（rename）、`bench-grade-school`（benchmark）。共 6 次真實 run（會耗 API token，屬 Pilot 預期成本）。
 
 - [ ] **Step 1: 先單跑 1 次（config 1 × bugfix-t2-01）做端到端煙霧**

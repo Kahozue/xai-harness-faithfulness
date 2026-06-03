@@ -8,6 +8,7 @@ LAB = Path("/data/harness-lab")
 LAB_HOME = LAB / "home"
 LAB_BIN = LAB / "bin"
 RUNS = LAB / "runs"
+PRIVATE_AUDITS = LAB / "private-audits"
 RUNNER_VENV = LAB / "runner-venv"
 SECRETS = Path.home() / ".harness-exp"
 
