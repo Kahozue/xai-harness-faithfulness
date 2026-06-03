@@ -51,7 +51,7 @@
 | 5 | Hermes | GPT-5.4-mini | FIXED | session JSON（read_file + patch） |
 
 ## 隔離與安全證明
-- 生產 Hermes（花帆）未受影響：`/home/opc/.hermes/config.yaml` mtime 全程恆為 `2026-05-14 17:20:03`（凍結錨點）；`hermes-gateway` 全程 `active`。
+- 生產 Hermes 未受影響：`/home/opc/.hermes/config.yaml` mtime 全程恆為 `2026-05-14 17:20:03`（凍結錨點）；`hermes-gateway` 全程 `active`。
 - lab Hermes 為全新乾淨實例：`HERMES_HOME` 獨立、`memories/` 空、`SOUL.md`（513B 預設）與生產（1195B）不同檔，非複製。
 - 所有 harness 設定/狀態隔離於 `LAB_HOME`（各自 `.claude` / `.codex` / `.config/opencode` / `.hermes`），不碰 `/home/opc` 生產 dotfiles。
 - secrets 永不進 git：trace（含 Hermes session JSON）經精準檢查無真實 key（`sk-proj-`/`sk-ant-` 計數為 0）；`.env`/`auth.json` 皆 chmod 600 且在 repo 外。
