@@ -1,0 +1,155 @@
+{
+  "boundary": {
+    "human_study": "Phase 4 prepares materials; human response collection remains a separate HCI execution step.",
+    "public_artifacts": "Sanitized summaries and generated analysis artifacts; full private/raw replay remains on VPS.",
+    "vps_authority": "/data/repos/xai-harness-faithfulness"
+  },
+  "coverage_summary": {
+    "covered": 9,
+    "materials_prepared_human_responses_still_required": 1,
+    "requirements": 10
+  },
+  "phase": "phase4_teacher_requirements_traceability",
+  "rows": [
+    {
+      "evidence_fields": [
+        "overall",
+        "task_summaries",
+        "environment_controls",
+        "factorial_decomposition"
+      ],
+      "phase4_artifacts": [
+        "docs/verification/2026-06-04-phase4-analysis-report.md",
+        "docs/verification/2026-06-04-phase4-report-support-pack.md",
+        "analysis/phase4/metrics-summary.json"
+      ],
+      "requirement": "Explain research question, method, task sampling, environment controls, results, limitations, and implications for MIS classroom review.",
+      "source": "phase4 guardrails / HCI noon requirements",
+      "status": "covered_by_phase4_artifacts"
+    },
+    {
+      "evidence_fields": [
+        "hci_boundary",
+        "phase3_method_consistency"
+      ],
+      "phase4_artifacts": [
+        "docs/verification/2026-06-04-phase4-analysis-report.md",
+        "analysis/phase4/hci-case-pack.json"
+      ],
+      "requirement": "Keep XAI findings separate from HCI evaluation; do not present xAI metrics alone as HCI evaluation.",
+      "source": "phase4 guardrails",
+      "status": "covered_with_boundary_note"
+    },
+    {
+      "evidence_fields": [
+        "hci_case_pack.procedure_support",
+        "hci_case_pack.cases[].measurement_items"
+      ],
+      "phase4_artifacts": [
+        "analysis/phase4/hci-case-pack.json",
+        "docs/verification/2026-06-04-phase4-report-support-pack.md"
+      ],
+      "requirement": "Required HCI human study with participants, two presentation styles, clarity/trust/verification/safety/load metrics, qualitative feedback, and ethics.",
+      "source": "HCI human study plan / HCI noon requirements",
+      "status": "materials_prepared_human_responses_still_required"
+    },
+    {
+      "evidence_fields": [
+        "environment_controls",
+        "readiness.phase2_gate"
+      ],
+      "phase4_artifacts": [
+        "analysis/phase4/metrics-summary.json",
+        "ENVIRONMENT.lock.md"
+      ],
+      "requirement": "Fixed test environment, versions, model snapshots, provider route, reasoning effort, token/thinking/context-window settings, raw logs outside git.",
+      "source": "HCI noon requirements / design spec",
+      "status": "covered_by_vps_gate_and_trace_fields"
+    },
+    {
+      "evidence_fields": [
+        "figures",
+        "category_summaries",
+        "agent_cards"
+      ],
+      "phase4_artifacts": [
+        "analysis/phase4/figures/jaccard-matrix.svg",
+        "analysis/phase4/figures/disagreement-success-scatter.svg",
+        "analysis/phase4/figures/factorial-contrast-bars.svg",
+        "analysis/phase4/figures/method-consistency.svg",
+        "analysis/phase4/figures/agent-card-matrix.svg",
+        "docs/verification/2026-06-04-phase4-report-support-pack.md"
+      ],
+      "requirement": "Use charts/tables/process evidence rather than long prose only.",
+      "source": "HCI noon requirements",
+      "status": "covered_with_generated_figures"
+    },
+    {
+      "evidence_fields": [
+        "source.data_boundary",
+        "hci_boundary"
+      ],
+      "phase4_artifacts": [
+        "docs/verification/2026-06-04-phase4-analysis-report.md",
+        "docs/verification/2026-06-04-phase4-report-support-pack.md"
+      ],
+      "requirement": "Non-overclaim: current data support only this controlled 20-task suite.",
+      "source": "phase4 guardrails",
+      "status": "covered_with_limitations"
+    },
+    {
+      "evidence_fields": [
+        "overall.task_splits",
+        "pairwise.contrast_by_split",
+        "category_summaries"
+      ],
+      "phase4_artifacts": [
+        "analysis/phase4/metrics-summary.json",
+        "docs/verification/2026-06-04-phase4-analysis-report.md"
+      ],
+      "requirement": "Analyze benchmark tasks separately from controlled software-engineering tasks.",
+      "source": "phase4 guardrails / HCI noon requirements",
+      "status": "covered_with_split_tables"
+    },
+    {
+      "evidence_fields": [
+        "task_summaries",
+        "category_summaries",
+        "reporting_limitations"
+      ],
+      "phase4_artifacts": [
+        "docs/verification/2026-06-04-phase4-analysis-report.md",
+        "docs/verification/2026-06-04-phase4-report-support-pack.md"
+      ],
+      "requirement": "Task sampling, difficulty calibration, harness-affinity bias, and robustness gaps must be explicit.",
+      "source": "phase4 guardrails / HCI noon requirements",
+      "status": "covered_with_limitations_and_task_metadata"
+    },
+    {
+      "evidence_fields": [
+        "hci_case_pack.cases",
+        "pairwise.observations"
+      ],
+      "phase4_artifacts": [
+        "analysis/phase4/hci-case-pack.json",
+        "docs/verification/2026-06-04-phase4-report-support-pack.md"
+      ],
+      "requirement": "Provide concrete cases so peers can understand risks and evidence dependencies.",
+      "source": "XAI/HCI peer feedback",
+      "status": "covered_with_case_pack"
+    },
+    {
+      "evidence_fields": [
+        "agent_cards"
+      ],
+      "phase4_artifacts": [
+        "analysis/phase4/metrics-summary.json",
+        "analysis/phase4/figures/agent-card-matrix.svg"
+      ],
+      "requirement": "Agent-card matrix across fidelity, stability, robustness, actionability, governability.",
+      "source": "design spec Phase 4",
+      "status": "covered_as_descriptive_proxy"
+    }
+  ],
+  "schema_version": 1
+}

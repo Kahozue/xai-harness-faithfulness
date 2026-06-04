@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="720" viewBox="0 0 920 720">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#202124}.title{font-size:18px;font-weight:700}.axis{font-size:12px;fill:#5f6368}.label{font-size:12px}.value{font-size:11px;fill:#3c4043}</style>
+<text x="40" y="42" class="title">Mean tool-family Jaccard similarity by config pair</text>
+<text x="40" y="66" class="axis">Formal repeats 1-3 only; values average config-pair x task 3x3 repeat comparisons.</text>
+<text x="249.0" y="104" class="axis" text-anchor="middle">c1</text>
+<text x="38" y="163.0" class="label">c1 Claude Code / Haiku</text>
+<text x="327.0" y="104" class="axis" text-anchor="middle">c2</text>
+<text x="38" y="241.0" class="label">c2 OpenCode / Haiku</text>
+<text x="405.0" y="104" class="axis" text-anchor="middle">c3</text>
+<text x="38" y="319.0" class="label">c3 Hermes / Haiku</text>
+<text x="483.0" y="104" class="axis" text-anchor="middle">c4</text>
+<text x="38" y="397.0" class="label">c4 OpenCode / GPT-mini</text>
+<text x="561.0" y="104" class="axis" text-anchor="middle">c5</text>
+<text x="38" y="475.0" class="label">c5 Hermes / GPT-mini</text>
+<text x="639.0" y="104" class="axis" text-anchor="middle">c6</text>
+<text x="38" y="553.0" class="label">c6 Codex / GPT-mini</text>
+<rect x="210" y="120" width="74" height="74" rx="4" fill="#2563eb" stroke="#d8dee9"/>
+<text x="247.0" y="163.0" class="value" text-anchor="middle" fill="#ffffff">1.00</text>
+<rect x="288" y="120" width="74" height="74" rx="4" fill="#5586ef" stroke="#d8dee9"/>
+<text x="325.0" y="163.0" class="value" text-anchor="middle" fill="#ffffff">0.77</text>
+<rect x="366" y="120" width="74" height="74" rx="4" fill="#4379ed" stroke="#d8dee9"/>
+<text x="403.0" y="163.0" class="value" text-anchor="middle" fill="#ffffff">0.86</text>
+<rect x="444" y="120" width="74" height="74" rx="4" fill="#5a89ef" stroke="#d8dee9"/>
+<text x="481.0" y="163.0" class="value" text-anchor="middle" fill="#ffffff">0.75</text>
+<rect x="522" y="120" width="74" height="74" rx="4" fill="#5283ef" stroke="#d8dee9"/>
+<text x="559.0" y="163.0" class="value" text-anchor="middle" fill="#ffffff">0.79</text>
+<rect x="600" y="120" width="74" height="74" rx="4" fill="#96b4f4" stroke="#d8dee9"/>
+<text x="637.0" y="163.0" class="value" text-anchor="middle" fill="#202124">0.46</text>
+<rect x="210" y="198" width="74" height="74" rx="4" fill="#5586ef" stroke="#d8dee9"/>
+<text x="247.0" y="241.0" class="value" text-anchor="middle" fill="#ffffff">0.77</text>
+<rect x="288" y="198" width="74" height="74" rx="4" fill="#2563eb" stroke="#d8dee9"/>
+<text x="325.0" y="241.0" class="value" text-anchor="middle" fill="#ffffff">1.00</text>
+<rect x="366" y="198" width="74" height="74" rx="4" fill="#6692f0" stroke="#d8dee9"/>
+<text x="403.0" y="241.0" class="value" text-anchor="middle" fill="#ffffff">0.69</text>
+<rect x="444" y="198" width="74" height="74" rx="4" fill="#6893f0" stroke="#d8dee9"/>
+<text x="481.0" y="241.0" class="value" text-anchor="middle" fill="#ffffff">0.68</text>
+<rect x="522" y="198" width="74" height="74" rx="4" fill="#729bf1" stroke="#d8dee9"/>
+<text x="559.0" y="241.0" class="value" text-anchor="middle" fill="#ffffff">0.63</text>
+<rect x="600" y="198" width="74" height="74" rx="4" fill="#8daef3" stroke="#d8dee9"/>
+<text x="637.0" y="241.0" class="value" text-anchor="middle" fill="#202124">0.50</text>
+<rect x="210" y="276" width="74" height="74" rx="4" fill="#4379ed" stroke="#d8dee9"/>
+<text x="247.0" y="319.0" class="value" text-anchor="middle" fill="#ffffff">0.86</text>
+<rect x="288" y="276" width="74" height="74" rx="4" fill="#6692f0" stroke="#d8dee9"/>
+<text x="325.0" y="319.0" class="value" text-anchor="middle" fill="#ffffff">0.69</text>
+<rect x="366" y="276" width="74" height="74" rx="4" fill="#2563eb" stroke="#d8dee9"/>
+<text x="403.0" y="319.0" class="value" text-anchor="middle" fill="#ffffff">1.00</text>
+<rect x="444" y="276" width="74" height="74" rx="4" fill="#5f8df0" stroke="#d8dee9"/>
+<text x="481.0" y="319.0" class="value" text-anchor="middle" fill="#ffffff">0.72</text>
+<rect x="522" y="276" width="74" height="74" rx="4" fill="#4d80ee" stroke="#d8dee9"/>
+<text x="559.0" y="319.0" class="value" text-anchor="middle" fill="#ffffff">0.81</text>
+<rect x="600" y="276" width="74" height="74" rx="4" fill="#a6c0f5" stroke="#d8dee9"/>
+<text x="637.0" y="319.0" class="value" text-anchor="middle" fill="#202124">0.38</text>
+<rect x="210" y="354" width="74" height="74" rx="4" fill="#5a89ef" stroke="#d8dee9"/>
+<text x="247.0" y="397.0" class="value" text-anchor="middle" fill="#ffffff">0.75</text>
+<rect x="288" y="354" width="74" height="74" rx="4" fill="#6893f0" stroke="#d8dee9"/>
+<text x="325.0" y="397.0" class="value" text-anchor="middle" fill="#ffffff">0.68</text>
+<rect x="366" y="354" width="74" height="74" rx="4" fill="#5f8df0" stroke="#d8dee9"/>
+<text x="403.0" y="397.0" class="value" text-anchor="middle" fill="#ffffff">0.72</text>
+<rect x="444" y="354" width="74" height="74" rx="4" fill="#2563eb" stroke="#d8dee9"/>
+<text x="481.0" y="397.0" class="value" text-anchor="middle" fill="#ffffff">1.00</text>
+<rect x="522" y="354" width="74" height="74" rx="4" fill="#4177ed" stroke="#d8dee9"/>
+<text x="559.0" y="397.0" class="value" text-anchor="middle" fill="#ffffff">0.87</text>
+<rect x="600" y="354" width="74" height="74" rx="4" fill="#9cb9f5" stroke="#d8dee9"/>
+<text x="637.0" y="397.0" class="value" text-anchor="middle" fill="#202124">0.43</text>
+<rect x="210" y="432" width="74" height="74" rx="4" fill="#5283ef" stroke="#d8dee9"/>
+<text x="247.0" y="475.0" class="value" text-anchor="middle" fill="#ffffff">0.79</text>
+<rect x="288" y="432" width="74" height="74" rx="4" fill="#729bf1" stroke="#d8dee9"/>
+<text x="325.0" y="475.0" class="value" text-anchor="middle" fill="#ffffff">0.63</text>
+<rect x="366" y="432" width="74" height="74" rx="4" fill="#4d80ee" stroke="#d8dee9"/>
+<text x="403.0" y="475.0" class="value" text-anchor="middle" fill="#ffffff">0.81</text>
+<rect x="444" y="432" width="74" height="74" rx="4" fill="#4177ed" stroke="#d8dee9"/>
+<text x="481.0" y="475.0" class="value" text-anchor="middle" fill="#ffffff">0.87</text>
+<rect x="522" y="432" width="74" height="74" rx="4" fill="#2563eb" stroke="#d8dee9"/>
+<text x="559.0" y="475.0" class="value" text-anchor="middle" fill="#ffffff">1.00</text>
+<rect x="600" y="432" width="74" height="74" rx="4" fill="#a5bff5" stroke="#d8dee9"/>
+<text x="637.0" y="475.0" class="value" text-anchor="middle" fill="#202124">0.39</text>
+<rect x="210" y="510" width="74" height="74" rx="4" fill="#96b4f4" stroke="#d8dee9"/>
+<text x="247.0" y="553.0" class="value" text-anchor="middle" fill="#202124">0.46</text>
+<rect x="288" y="510" width="74" height="74" rx="4" fill="#8daef3" stroke="#d8dee9"/>
+<text x="325.0" y="553.0" class="value" text-anchor="middle" fill="#202124">0.50</text>
+<rect x="366" y="510" width="74" height="74" rx="4" fill="#a6c0f5" stroke="#d8dee9"/>
+<text x="403.0" y="553.0" class="value" text-anchor="middle" fill="#202124">0.38</text>
+<rect x="444" y="510" width="74" height="74" rx="4" fill="#9cb9f5" stroke="#d8dee9"/>
+<text x="481.0" y="553.0" class="value" text-anchor="middle" fill="#202124">0.43</text>
+<rect x="522" y="510" width="74" height="74" rx="4" fill="#a5bff5" stroke="#d8dee9"/>
+<text x="559.0" y="553.0" class="value" text-anchor="middle" fill="#202124">0.39</text>
+<rect x="600" y="510" width="74" height="74" rx="4" fill="#2563eb" stroke="#d8dee9"/>
+<text x="637.0" y="553.0" class="value" text-anchor="middle" fill="#ffffff">1.00</text>
+</svg>

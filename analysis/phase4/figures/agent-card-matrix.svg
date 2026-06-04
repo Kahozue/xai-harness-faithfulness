@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="560" viewBox="0 0 980 560">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#202124}.title{font-size:18px;font-weight:700}.axis{font-size:12px;fill:#5f6368}.label{font-size:12px}.value{font-size:11px;fill:#3c4043}</style>
+<text x="40" y="42" class="title">Agent-card matrix (descriptive proxies)</text>
+<text x="40" y="66" class="axis">Scale 0-1 within this controlled Python suite; robustness is not external robustness.</text>
+<text x="295.0" y="92" class="axis" text-anchor="middle">fidelity</text>
+<text x="425.0" y="92" class="axis" text-anchor="middle">stability</text>
+<text x="555.0" y="92" class="axis" text-anchor="middle">robustness</text>
+<text x="685.0" y="92" class="axis" text-anchor="middle">actionability</text>
+<text x="815.0" y="92" class="axis" text-anchor="middle">governability</text>
+<text x="40" y="144" class="label">c1 Claude Code / Haiku</text>
+<rect x="230" y="110" width="124" height="52" rx="4" fill="#45b46b" stroke="#e2e8f0"/>
+<text x="292.0" y="143" class="value" text-anchor="middle">0.80</text>
+<rect x="360" y="110" width="124" height="52" rx="4" fill="#49b56e" stroke="#e2e8f0"/>
+<text x="422.0" y="143" class="value" text-anchor="middle">0.78</text>
+<rect x="490" y="110" width="124" height="52" rx="4" fill="#c5e2c4" stroke="#e2e8f0"/>
+<text x="552.0" y="143" class="value" text-anchor="middle">0.25</text>
+<rect x="620" y="110" width="124" height="52" rx="4" fill="#16a34a" stroke="#e2e8f0"/>
+<text x="682.0" y="143" class="value" text-anchor="middle">1.00</text>
+<rect x="750" y="110" width="124" height="52" rx="4" fill="#16a34a" stroke="#e2e8f0"/>
+<text x="812.0" y="143" class="value" text-anchor="middle">1.00</text>
+<text x="40" y="202" class="label">c2 OpenCode / Haiku</text>
+<rect x="230" y="168" width="124" height="52" rx="4" fill="#45b46b" stroke="#e2e8f0"/>
+<text x="292.0" y="201" class="value" text-anchor="middle">0.80</text>
+<rect x="360" y="168" width="124" height="52" rx="4" fill="#45b46b" stroke="#e2e8f0"/>
+<text x="422.0" y="201" class="value" text-anchor="middle">0.80</text>
+<rect x="490" y="168" width="124" height="52" rx="4" fill="#c5e2c4" stroke="#e2e8f0"/>
+<text x="552.0" y="201" class="value" text-anchor="middle">0.25</text>
+<rect x="620" y="168" width="124" height="52" rx="4" fill="#16a34a" stroke="#e2e8f0"/>
+<text x="682.0" y="201" class="value" text-anchor="middle">1.00</text>
+<rect x="750" y="168" width="124" height="52" rx="4" fill="#16a34a" stroke="#e2e8f0"/>
+<text x="812.0" y="201" class="value" text-anchor="middle">1.00</text>
+<text x="40" y="260" class="label">c3 Hermes / Haiku</text>
+<rect x="230" y="226" width="124" height="52" rx="4" fill="#3db165" stroke="#e2e8f0"/>
+<text x="292.0" y="259" class="value" text-anchor="middle">0.83</text>
+<rect x="360" y="226" width="124" height="52" rx="4" fill="#41b268" stroke="#e2e8f0"/>
+<text x="422.0" y="259" class="value" text-anchor="middle">0.82</text>
+<rect x="490" y="226" width="124" height="52" rx="4" fill="#9ed4a9" stroke="#e2e8f0"/>
+<text x="552.0" y="259" class="value" text-anchor="middle">0.42</text>
+<rect x="620" y="226" width="124" height="52" rx="4" fill="#16a34a" stroke="#e2e8f0"/>
+<text x="682.0" y="259" class="value" text-anchor="middle">1.00</text>
+<rect x="750" y="226" width="124" height="52" rx="4" fill="#16a34a" stroke="#e2e8f0"/>
+<text x="812.0" y="259" class="value" text-anchor="middle">1.00</text>
+<text x="40" y="318" class="label">c4 OpenCode / GPT-mini</text>
+<rect x="230" y="284" width="124" height="52" rx="4" fill="#39b062" stroke="#e2e8f0"/>
+<text x="292.0" y="317" class="value" text-anchor="middle">0.85</text>
+<rect x="360" y="284" width="124" height="52" rx="4" fill="#48b56d" stroke="#e2e8f0"/>
+<text x="422.0" y="317" class="value" text-anchor="middle">0.79</text>
+<rect x="490" y="284" width="124" height="52" rx="4" fill="#64bf80" stroke="#e2e8f0"/>
+<text x="552.0" y="317" class="value" text-anchor="middle">0.67</text>
+<rect x="620" y="284" width="124" height="52" rx="4" fill="#16a34a" stroke="#e2e8f0"/>
+<text x="682.0" y="317" class="value" text-anchor="middle">1.00</text>
+<rect x="750" y="284" width="124" height="52" rx="4" fill="#16a34a" stroke="#e2e8f0"/>
+<text x="812.0" y="317" class="value" text-anchor="middle">1.00</text>
+<text x="40" y="376" class="label">c5 Hermes / GPT-mini</text>
+<rect x="230" y="342" width="124" height="52" rx="4" fill="#4cb770" stroke="#e2e8f0"/>
+<text x="292.0" y="375" class="value" text-anchor="middle">0.77</text>
+<rect x="360" y="342" width="124" height="52" rx="4" fill="#37af61" stroke="#e2e8f0"/>
+<text x="422.0" y="375" class="value" text-anchor="middle">0.86</text>
+<rect x="490" y="342" width="124" height="52" rx="4" fill="#c5e2c4" stroke="#e2e8f0"/>
+<text x="552.0" y="375" class="value" text-anchor="middle">0.25</text>
+<rect x="620" y="342" width="124" height="52" rx="4" fill="#16a34a" stroke="#e2e8f0"/>
+<text x="682.0" y="375" class="value" text-anchor="middle">1.00</text>
+<rect x="750" y="342" width="124" height="52" rx="4" fill="#16a34a" stroke="#e2e8f0"/>
+<text x="812.0" y="375" class="value" text-anchor="middle">1.00</text>
+<text x="40" y="434" class="label">c6 Codex / GPT-mini</text>
+<rect x="230" y="400" width="124" height="52" rx="4" fill="#35ae60" stroke="#e2e8f0"/>
+<text x="292.0" y="433" class="value" text-anchor="middle">0.87</text>
+<rect x="360" y="400" width="124" height="52" rx="4" fill="#2eac5b" stroke="#e2e8f0"/>
+<text x="422.0" y="433" class="value" text-anchor="middle">0.90</text>
+<rect x="490" y="400" width="124" height="52" rx="4" fill="#8acd9c" stroke="#e2e8f0"/>
+<text x="552.0" y="433" class="value" text-anchor="middle">0.50</text>
+<rect x="620" y="400" width="124" height="52" rx="4" fill="#16a34a" stroke="#e2e8f0"/>
+<text x="682.0" y="433" class="value" text-anchor="middle">1.00</text>
+<rect x="750" y="400" width="124" height="52" rx="4" fill="#16a34a" stroke="#e2e8f0"/>
+<text x="812.0" y="433" class="value" text-anchor="middle">1.00</text>
+</svg>

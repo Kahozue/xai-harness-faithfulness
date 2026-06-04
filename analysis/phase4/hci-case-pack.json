@@ -1,0 +1,1696 @@
+{
+  "boundary": {
+    "human_study_status": "not_claimed_in_phase4_metrics",
+    "note": "These XAI metrics provide cases and evidence for HCI materials. They do not replace the required human study on understanding, trust calibration, verification behavior, safety/control, and cognitive load."
+  },
+  "cases": [
+    {
+      "case_id": "HCI-PH4-01",
+      "condition_a_summary_only": {
+        "fields": {
+          "left_outcome": "3/3 successful formal repeats",
+          "left_tool_sequence": [
+            "read",
+            "shell",
+            "read",
+            "read",
+            "plan",
+            "edit",
+            "shell",
+            "shell",
+            "plan"
+          ],
+          "right_outcome": "3/3 successful formal repeats",
+          "right_tool_sequence": [
+            "read",
+            "search",
+            "edit"
+          ],
+          "task": "addtests-t2-04"
+        },
+        "purpose": "Compact summary-only view for comparison condition A."
+      },
+      "condition_b_evidence_limitation_action": {
+        "evidence": [
+          "M1-M4 agreement: 4/4 for harness_main_effect.",
+          "Left traces: ['traces/2/addtests-t2-04/1.json', 'traces/2/addtests-t2-04/2.json', 'traces/2/addtests-t2-04/3.json'].",
+          "Right traces: ['traces/3/addtests-t2-04/1.json', 'traces/3/addtests-t2-04/2.json', 'traces/3/addtests-t2-04/3.json'].",
+          "Private replay refs exist on VPS for all displayed traces: left=3, right=3."
+        ],
+        "limitation": "This case is selected from high-divergence Phase 3 labels and should be used as an HCI presentation case, not as a prevalence estimate over all tasks.",
+        "purpose": "Evidence + limitation + action view for comparison condition B.",
+        "suggested_verification_action": "Inspect the listed trace summaries and, when needed, the VPS private audit/raw replay refs before accepting the agent outcome."
+      },
+      "confidence": "high",
+      "decision_kind": "initial_tool_strategy",
+      "detail_label": "tool_path_style",
+      "factorial_label": "harness_main_effect",
+      "label_id": "PH3-DP-002-A-initial-strategy",
+      "left": {
+        "baseline_traces": [
+          {
+            "config_id": 2,
+            "first_tool_family": "read",
+            "grader_detail_present": true,
+            "harness": "opencode",
+            "model_snapshot": "claude-haiku-4-5-20251001",
+            "private_audit_path": "/data/harness-lab/private-audits/2/addtests-t2-04/1.md",
+            "raw_log_path": "/data/harness-lab/runs/2/addtests-t2-04/1/raw",
+            "repeat_index": 1,
+            "success": true,
+            "tool_count": 9,
+            "tool_family_sequence": [
+              "read",
+              "shell",
+              "read",
+              "read",
+              "plan",
+              "edit",
+              "shell",
+              "shell",
+              "plan"
+            ],
+            "trace": "traces/2/addtests-t2-04/1.json"
+          },
+          {
+            "config_id": 2,
+            "first_tool_family": "read",
+            "grader_detail_present": true,
+            "harness": "opencode",
+            "model_snapshot": "claude-haiku-4-5-20251001",
+            "private_audit_path": "/data/harness-lab/private-audits/2/addtests-t2-04/2.md",
+            "raw_log_path": "/data/harness-lab/runs/2/addtests-t2-04/2/raw",
+            "repeat_index": 2,
+            "success": true,
+            "tool_count": 6,
+            "tool_family_sequence": [
+              "read",
+              "read",
+              "read",
+              "read",
+              "edit",
+              "shell"
+            ],
+            "trace": "traces/2/addtests-t2-04/2.json"
+          },
+          {
+            "config_id": 2,
+            "first_tool_family": "read",
+            "grader_detail_present": true,
+            "harness": "opencode",
+            "model_snapshot": "claude-haiku-4-5-20251001",
+            "private_audit_path": "/data/harness-lab/private-audits/2/addtests-t2-04/3.md",
+            "raw_log_path": "/data/harness-lab/runs/2/addtests-t2-04/3/raw",
+            "repeat_index": 3,
+            "success": true,
+            "tool_count": 7,
+            "tool_family_sequence": [
+              "read",
+              "shell",
+              "read",
+              "read",
+              "edit",
+              "shell",
+              "shell"
+            ],
+            "trace": "traces/2/addtests-t2-04/3.json"
+          }
+        ],
+        "config": 2,
+        "dominant_tool_family_sequence": [
+          "read",
+          "shell",
+          "read",
+          "read",
+          "plan",
+          "edit",
+          "shell",
+          "shell",
+          "plan"
+        ],
+        "first_tool_families": {
+          "read": 3
+        },
+        "harness": "opencode",
+        "model": "claude-haiku-4-5-20251001",
+        "n": 3,
+        "success_count": 3,
+        "success_rate": 1.0
+      },
+      "measurement_items": [
+        {
+          "item": "I can explain what differed between the two agent runs.",
+          "metric": "clarity",
+          "scale": "1-5 Likert"
+        },
+        {
+          "item": "My trust in the agent result matches the evidence and limitations shown.",
+          "metric": "trust_calibration",
+          "scale": "1-5 Likert"
+        },
+        {
+          "item": "What would you do next?",
+          "metric": "verification_intention_or_action_choice",
+          "scale": "choice: accept / inspect evidence / rerun / ask for more information / reject"
+        },
+        {
+          "item": "I feel able to catch or recover from an agent mistake in this case.",
+          "metric": "perceived_safety_control",
+          "scale": "1-5 Likert"
+        },
+        {
+          "item": "This presentation was understandable without excessive effort.",
+          "metric": "cognitive_load_effort",
+          "scale": "1-5 Likert"
+        },
+        {
+          "item": "What evidence helped, what was confusing, and what would change your decision?",
+          "metric": "qualitative_feedback",
+          "scale": "open text"
+        }
+      ],
+      "method_agreement": {
+        "agreement_count": 4,
+        "labels": {
+          "harness_main_effect": 4
+        },
+        "method_count": 4,
+        "primary_label": "harness_main_effect",
+        "unanimous": true
+      },
+      "right": {
+        "baseline_traces": [
+          {
+            "config_id": 3,
+            "first_tool_family": "read",
+            "grader_detail_present": true,
+            "harness": "hermes",
+            "model_snapshot": "claude-haiku-4-5-20251001",
+            "private_audit_path": "/data/harness-lab/private-audits/3/addtests-t2-04/1.md",
+            "raw_log_path": "/data/harness-lab/runs/3/addtests-t2-04/1/raw",
+            "repeat_index": 1,
+            "success": true,
+            "tool_count": 3,
+            "tool_family_sequence": [
+              "read",
+              "search",
+              "edit"
+            ],
+            "trace": "traces/3/addtests-t2-04/1.json"
+          },
+          {
+            "config_id": 3,
+            "first_tool_family": "read",
+            "grader_detail_present": true,
+            "harness": "hermes",
+            "model_snapshot": "claude-haiku-4-5-20251001",
+            "private_audit_path": "/data/harness-lab/private-audits/3/addtests-t2-04/2.md",
+            "raw_log_path": "/data/harness-lab/runs/3/addtests-t2-04/2/raw",
+            "repeat_index": 2,
+            "success": true,
+            "tool_count": 3,
+            "tool_family_sequence": [
+              "read",
+              "search",
+              "edit"
+            ],
+            "trace": "traces/3/addtests-t2-04/2.json"
+          },
+          {
+            "config_id": 3,
+            "first_tool_family": "read",
+            "grader_detail_present": true,
+            "harness": "hermes",
+            "model_snapshot": "claude-haiku-4-5-20251001",
+            "private_audit_path": "/data/harness-lab/private-audits/3/addtests-t2-04/3.md",
+            "raw_log_path": "/data/harness-lab/runs/3/addtests-t2-04/3/raw",
+            "repeat_index": 3,
+            "success": true,
+            "tool_count": 3,
+            "tool_family_sequence": [
+              "read",
+              "search",
+              "edit"
+            ],
+            "trace": "traces/3/addtests-t2-04/3.json"
+          }
+        ],
+        "config": 3,
+        "dominant_tool_family_sequence": [
+          "read",
+          "search",
+          "edit"
+        ],
+        "first_tool_families": {
+          "read": 3
+        },
+        "harness": "hermes",
+        "model": "claude-haiku-4-5-20251001",
+        "n": 3,
+        "success_count": 3,
+        "success_rate": 1.0
+      },
+      "seed_id": "PH3-DP-002",
+      "task_category": "add_tests",
+      "task_id": "addtests-t2-04",
+      "task_prompt_excerpt": "calckit/stats.py 的 mean 對空序列會 raise ValueError，但沒有測試覆蓋。請在 tests/test_mean_errors.py 新增 pytest 測試，用 pytest.raises(ValueError) 斷言 mean([]) 會拋出 ValueError。用你的工具建立檔案。"
+    },
+    {
+      "case_id": "HCI-PH4-02",
+      "condition_a_summary_only": {
+        "fields": {
+          "left_outcome": "1/3 successful formal repeats",
+          "left_tool_sequence": [
+            "shell",
+            "read",
+            "read",
+            "read",
+            "shell",
+            "shell",
+            "shell",
+            "shell",
+            "shell"
+          ],
+          "right_outcome": "3/3 successful formal repeats",
+          "right_tool_sequence": [
+            "plan",
+            "search",
+            "search",
+            "search",
+            "read",
+            "search",
+            "search",
+            "search",
+            "edit",
+            "edit",
+            "shell",
+            "shell",
+            "plan"
+          ],
+          "task": "bench-bottle-song"
+        },
+        "purpose": "Compact summary-only view for comparison condition A."
+      },
+      "condition_b_evidence_limitation_action": {
+        "evidence": [
+          "M1-M4 agreement: 3/4 for model_main_effect.",
+          "Left traces: ['traces/2/bench-bottle-song/1.json', 'traces/2/bench-bottle-song/2.json', 'traces/2/bench-bottle-song/3.json'].",
+          "Right traces: ['traces/4/bench-bottle-song/1.json', 'traces/4/bench-bottle-song/2.json', 'traces/4/bench-bottle-song/3.json'].",
+          "Private replay refs exist on VPS for all displayed traces: left=3, right=3."
+        ],
+        "limitation": "This case is selected from high-divergence Phase 3 labels and should be used as an HCI presentation case, not as a prevalence estimate over all tasks.",
+        "purpose": "Evidence + limitation + action view for comparison condition B.",
+        "suggested_verification_action": "Inspect the listed trace summaries and, when needed, the VPS private audit/raw replay refs before accepting the agent outcome."
+      },
+      "confidence": "high",
+      "decision_kind": "initial_tool_strategy",
+      "detail_label": "tool_path_style",
+      "factorial_label": "model_main_effect",
+      "label_id": "PH3-DP-007-A-initial-strategy",
+      "left": {
+        "baseline_traces": [
+          {
+            "config_id": 2,
+            "first_tool_family": "shell",
+            "grader_detail_present": true,
+            "harness": "opencode",
+            "model_snapshot": "claude-haiku-4-5-20251001",
+            "private_audit_path": "/data/harness-lab/private-audits/2/bench-bottle-song/1.md",
+            "raw_log_path": "/data/harness-lab/runs/2/bench-bottle-song/1/raw",
+            "repeat_index": 1,
+            "success": false,
+            "tool_count": 9,
+            "tool_family_sequence": [
+              "shell",
+              "read",
+              "read",
+              "read",
+              "shell",
+              "shell",
+              "shell",
+              "shell",
+              "shell"
+            ],
+            "trace": "traces/2/bench-bottle-song/1.json"
+          },
+          {
+            "config_id": 2,
+            "first_tool_family": "read",
+            "grader_detail_present": true,
+            "harness": "opencode",
+            "model_snapshot": "claude-haiku-4-5-20251001",
+            "private_audit_path": "/data/harness-lab/private-audits/2/bench-bottle-song/2.md",
+            "raw_log_path": "/data/harness-lab/runs/2/bench-bottle-song/2/raw",
+            "repeat_index": 2,
+            "success": false,
+            "tool_count": 12,
+            "tool_family_sequence": [
+              "read",
+              "read",
+              "read",
+              "shell",
+              "shell",
+              "shell",
+              "shell",
+              "shell",
+              "shell",
+              "shell",
+              "shell",
+              "shell"
+            ],
+            "trace": "traces/2/bench-bottle-song/2.json"
+          },
+          {
+            "config_id": 2,
+            "first_tool_family": "shell",
+            "grader_detail_present": true,
+            "harness": "opencode",
+            "model_snapshot": "claude-haiku-4-5-20251001",
+            "private_audit_path": "/data/harness-lab/private-audits/2/bench-bottle-song/3.md",
+            "raw_log_path": "/data/harness-lab/runs/2/bench-bottle-song/3/raw",
+            "repeat_index": 3,
+            "success": true,
+            "tool_count": 13,
+            "tool_family_sequence": [
+              "shell",
+              "read",
+              "shell",
+              "read",
+              "read",
+              "shell",
+              "shell",
+              "shell",
+              "edit",
+              "shell",
+              "shell",
+              "shell",
+              "read"
+            ],
+            "trace": "traces/2/bench-bottle-song/3.json"
+          }
+        ],
+        "config": 2,
+        "dominant_tool_family_sequence": [
+          "shell",
+          "read",
+          "read",
+          "read",
+          "shell",
+          "shell",
+          "shell",
+          "shell",
+          "shell"
+        ],
+        "first_tool_families": {
+          "read": 1,
+          "shell": 2
+        },
+        "harness": "opencode",
+        "model": "claude-haiku-4-5-20251001",
+        "n": 3,
+        "success_count": 1,
+        "success_rate": 0.333333
+      },
+      "measurement_items": [
+        {
+          "item": "I can explain what differed between the two agent runs.",
+          "metric": "clarity",
+          "scale": "1-5 Likert"
+        },
+        {
+          "item": "My trust in the agent result matches the evidence and limitations shown.",
+          "metric": "trust_calibration",
+          "scale": "1-5 Likert"
+        },
+        {
+          "item": "What would you do next?",
+          "metric": "verification_intention_or_action_choice",
+          "scale": "choice: accept / inspect evidence / rerun / ask for more information / reject"
+        },
+        {
+          "item": "I feel able to catch or recover from an agent mistake in this case.",
+          "metric": "perceived_safety_control",
+          "scale": "1-5 Likert"
+        },
+        {
+          "item": "This presentation was understandable without excessive effort.",
+          "metric": "cognitive_load_effort",
+          "scale": "1-5 Likert"
+        },
+        {
+          "item": "What evidence helped, what was confusing, and what would change your decision?",
+          "metric": "qualitative_feedback",
+          "scale": "open text"
+        }
+      ],
+      "method_agreement": {
+        "agreement_count": 3,
+        "labels": {
+          "interaction": 1,
+          "model_main_effect": 3
+        },
+        "method_count": 4,
+        "primary_label": "model_main_effect",
+        "unanimous": false
+      },
+      "right": {
+        "baseline_traces": [
+          {
+            "config_id": 4,
+            "first_tool_family": "plan",
+            "grader_detail_present": true,
+            "harness": "opencode",
+            "model_snapshot": "gpt-5.4-mini-2026-03-17",
+            "private_audit_path": "/data/harness-lab/private-audits/4/bench-bottle-song/1.md",
+            "raw_log_path": "/data/harness-lab/runs/4/bench-bottle-song/1/raw",
+            "repeat_index": 1,
+            "success": true,
+            "tool_count": 13,
+            "tool_family_sequence": [
+              "plan",
+              "search",
+              "search",
+              "search",
+              "read",
+              "search",
+              "search",
+              "search",
+              "edit",
+              "edit",
+              "shell",
+              "shell",
+              "plan"
+            ],
+            "trace": "traces/4/bench-bottle-song/1.json"
+          },
+          {
+            "config_id": 4,
+            "first_tool_family": "search",
+            "grader_detail_present": true,
+            "harness": "opencode",
+            "model_snapshot": "gpt-5.4-mini-2026-03-17",
+            "private_audit_path": "/data/harness-lab/private-audits/4/bench-bottle-song/2.md",
+            "raw_log_path": "/data/harness-lab/runs/4/bench-bottle-song/2/raw",
+            "repeat_index": 2,
+            "success": true,
+            "tool_count": 17,
+            "tool_family_sequence": [
+              "search",
+              "search",
+              "search",
+              "read",
+              "search",
+              "search",
+              "read",
+              "edit",
+              "edit",
+              "edit",
+              "read",
+              "shell",
+              "shell",
+              "edit",
+              "shell",
+              "edit",
+              "shell"
+            ],
+            "trace": "traces/4/bench-bottle-song/2.json"
+          },
+          {
+            "config_id": 4,
+            "first_tool_family": "plan",
+            "grader_detail_present": true,
+            "harness": "opencode",
+            "model_snapshot": "gpt-5.4-mini-2026-03-17",
+            "private_audit_path": "/data/harness-lab/private-audits/4/bench-bottle-song/3.md",
+            "raw_log_path": "/data/harness-lab/runs/4/bench-bottle-song/3/raw",
+            "repeat_index": 3,
+            "success": true,
+            "tool_count": 14,
+            "tool_family_sequence": [
+              "plan",
+              "search",
+              "search",
+              "read",
+              "search",
+              "search",
+              "search",
+              "search",
+              "search",
+              "edit",
+              "edit",
+              "shell",
+              "shell",
+              "plan"
+            ],
+            "trace": "traces/4/bench-bottle-song/3.json"
+          }
+        ],
+        "config": 4,
+        "dominant_tool_family_sequence": [
+          "plan",
+          "search",
+          "search",
+          "search",
+          "read",
+          "search",
+          "search",
+          "search",
+          "edit",
+          "edit",
+          "shell",
+          "shell",
+          "plan"
+        ],
+        "first_tool_families": {
+          "plan": 2,
+          "search": 1
+        },
+        "harness": "opencode",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "n": 3,
+        "success_count": 3,
+        "success_rate": 1.0
+      },
+      "seed_id": "PH3-DP-007",
+      "task_category": "benchmark",
+      "task_id": "bench-bottle-song",
+      "task_prompt_excerpt": "# Instructions Recite the lyrics to that popular children's repetitive song: Ten Green Bottles. Note that not all verses are identical. ```text Ten green bottles hanging on the wall, Ten green bottles hanging on the wall, And if one green bottle should acci..."
+    },
+    {
+      "case_id": "HCI-PH4-03",
+      "condition_a_summary_only": {
+        "fields": {
+          "left_outcome": "0/3 successful formal repeats",
+          "left_tool_sequence": [
+            "shell",
+            "read",
+            "read",
+            "read",
+            "plan",
+            "edit",
+            "read",
+            "shell",
+            "shell",
+            "shell",
+            "plan"
+          ],
+          "right_outcome": "0/3 successful formal repeats",
+          "right_tool_sequence": [
+            "read",
+            "edit"
+          ],
+          "task": "bugfix-t2-03"
+        },
+        "purpose": "Compact summary-only view for comparison condition A."
+      },
+      "condition_b_evidence_limitation_action": {
+        "evidence": [
+          "M1-M4 agreement: 4/4 for interaction.",
+          "Left traces: ['traces/2/bugfix-t2-03/1.json', 'traces/2/bugfix-t2-03/2.json', 'traces/2/bugfix-t2-03/3.json'].",
+          "Right traces: ['traces/3/bugfix-t2-03/1.json', 'traces/3/bugfix-t2-03/2.json', 'traces/3/bugfix-t2-03/3.json'].",
+          "Private replay refs exist on VPS for all displayed traces: left=3, right=3."
+        ],
+        "limitation": "This case is selected from high-divergence Phase 3 labels and should be used as an HCI presentation case, not as a prevalence estimate over all tasks.",
+        "purpose": "Evidence + limitation + action view for comparison condition B.",
+        "suggested_verification_action": "Inspect the listed trace summaries and, when needed, the VPS private audit/raw replay refs before accepting the agent outcome."
+      },
+      "confidence": "high",
+      "decision_kind": "semantic_output_convention",
+      "detail_label": "task_prompt_semantic_convention",
+      "factorial_label": "interaction",
+      "label_id": "PH3-DP-001-B-currency-convention",
+      "left": {
+        "baseline_traces": [
+          {
+            "config_id": 2,
+            "first_tool_family": "shell",
+            "grader_detail_present": true,
+            "harness": "opencode",
+            "model_snapshot": "claude-haiku-4-5-20251001",
+            "private_audit_path": "/data/harness-lab/private-audits/2/bugfix-t2-03/1.md",
+            "raw_log_path": "/data/harness-lab/runs/2/bugfix-t2-03/1/raw",
+            "repeat_index": 1,
+            "success": false,
+            "tool_count": 11,
+            "tool_family_sequence": [
+              "shell",
+              "read",
+              "read",
+              "read",
+              "plan",
+              "edit",
+              "read",
+              "shell",
+              "shell",
+              "shell",
+              "plan"
+            ],
+            "trace": "traces/2/bugfix-t2-03/1.json"
+          },
+          {
+            "config_id": 2,
+            "first_tool_family": "read",
+            "grader_detail_present": true,
+            "harness": "opencode",
+            "model_snapshot": "claude-haiku-4-5-20251001",
+            "private_audit_path": "/data/harness-lab/private-audits/2/bugfix-t2-03/2.md",
+            "raw_log_path": "/data/harness-lab/runs/2/bugfix-t2-03/2/raw",
+            "repeat_index": 2,
+            "success": false,
+            "tool_count": 8,
+            "tool_family_sequence": [
+              "read",
+              "read",
+              "plan",
+              "edit",
+              "shell",
+              "shell",
+              "shell",
+              "plan"
+            ],
+            "trace": "traces/2/bugfix-t2-03/2.json"
+          },
+          {
+            "config_id": 2,
+            "first_tool_family": "read",
+            "grader_detail_present": true,
+            "harness": "opencode",
+            "model_snapshot": "claude-haiku-4-5-20251001",
+            "private_audit_path": "/data/harness-lab/private-audits/2/bugfix-t2-03/3.md",
+            "raw_log_path": "/data/harness-lab/runs/2/bugfix-t2-03/3/raw",
+            "repeat_index": 3,
+            "success": false,
+            "tool_count": 9,
+            "tool_family_sequence": [
+              "read",
+              "read",
+              "read",
+              "plan",
+              "edit",
+              "read",
+              "shell",
+              "shell",
+              "plan"
+            ],
+            "trace": "traces/2/bugfix-t2-03/3.json"
+          }
+        ],
+        "config": 2,
+        "dominant_tool_family_sequence": [
+          "shell",
+          "read",
+          "read",
+          "read",
+          "plan",
+          "edit",
+          "read",
+          "shell",
+          "shell",
+          "shell",
+          "plan"
+        ],
+        "first_tool_families": {
+          "read": 2,
+          "shell": 1
+        },
+        "harness": "opencode",
+        "model": "claude-haiku-4-5-20251001",
+        "n": 3,
+        "success_count": 0,
+        "success_rate": 0.0
+      },
+      "measurement_items": [
+        {
+          "item": "I can explain what differed between the two agent runs.",
+          "metric": "clarity",
+          "scale": "1-5 Likert"
+        },
+        {
+          "item": "My trust in the agent result matches the evidence and limitations shown.",
+          "metric": "trust_calibration",
+          "scale": "1-5 Likert"
+        },
+        {
+          "item": "What would you do next?",
+          "metric": "verification_intention_or_action_choice",
+          "scale": "choice: accept / inspect evidence / rerun / ask for more information / reject"
+        },
+        {
+          "item": "I feel able to catch or recover from an agent mistake in this case.",
+          "metric": "perceived_safety_control",
+          "scale": "1-5 Likert"
+        },
+        {
+          "item": "This presentation was understandable without excessive effort.",
+          "metric": "cognitive_load_effort",
+          "scale": "1-5 Likert"
+        },
+        {
+          "item": "What evidence helped, what was confusing, and what would change your decision?",
+          "metric": "qualitative_feedback",
+          "scale": "open text"
+        }
+      ],
+      "method_agreement": {
+        "agreement_count": 4,
+        "labels": {
+          "interaction": 4
+        },
+        "method_count": 4,
+        "primary_label": "interaction",
+        "unanimous": true
+      },
+      "right": {
+        "baseline_traces": [
+          {
+            "config_id": 3,
+            "first_tool_family": "read",
+            "grader_detail_present": true,
+            "harness": "hermes",
+            "model_snapshot": "claude-haiku-4-5-20251001",
+            "private_audit_path": "/data/harness-lab/private-audits/3/bugfix-t2-03/1.md",
+            "raw_log_path": "/data/harness-lab/runs/3/bugfix-t2-03/1/raw",
+            "repeat_index": 1,
+            "success": false,
+            "tool_count": 2,
+            "tool_family_sequence": [
+              "read",
+              "edit"
+            ],
+            "trace": "traces/3/bugfix-t2-03/1.json"
+          },
+          {
+            "config_id": 3,
+            "first_tool_family": "read",
+            "grader_detail_present": true,
+            "harness": "hermes",
+            "model_snapshot": "claude-haiku-4-5-20251001",
+            "private_audit_path": "/data/harness-lab/private-audits/3/bugfix-t2-03/2.md",
+            "raw_log_path": "/data/harness-lab/runs/3/bugfix-t2-03/2/raw",
+            "repeat_index": 2,
+            "success": false,
+            "tool_count": 2,
+            "tool_family_sequence": [
+              "read",
+              "edit"
+            ],
+            "trace": "traces/3/bugfix-t2-03/2.json"
+          },
+          {
+            "config_id": 3,
+            "first_tool_family": "read",
+            "grader_detail_present": true,
+            "harness": "hermes",
+            "model_snapshot": "claude-haiku-4-5-20251001",
+            "private_audit_path": "/data/harness-lab/private-audits/3/bugfix-t2-03/3.md",
+            "raw_log_path": "/data/harness-lab/runs/3/bugfix-t2-03/3/raw",
+            "repeat_index": 3,
+            "success": false,
+            "tool_count": 2,
+            "tool_family_sequence": [
+              "read",
+              "edit"
+            ],
+            "trace": "traces/3/bugfix-t2-03/3.json"
+          }
+        ],
+        "config": 3,
+        "dominant_tool_family_sequence": [
+          "read",
+          "edit"
+        ],
+        "first_tool_families": {
+          "read": 3
+        },
+        "harness": "hermes",
+        "model": "claude-haiku-4-5-20251001",
+        "n": 3,
+        "success_count": 0,
+        "success_rate": 0.0
+      },
+      "seed_id": "PH3-DP-001",
+      "task_category": "bug_fix",
+      "task_id": "bugfix-t2-03",
+      "task_prompt_excerpt": "calckit/money.py 的 format_amount 對負數金額格式化錯誤，目前會遺失負號。 請修正 format_amount，使負數保留負號，且不破壞零與正數格式化。 只改 calckit/ 下的程式，用你的工具編輯檔案。"
+    },
+    {
+      "case_id": "HCI-PH4-04",
+      "condition_a_summary_only": {
+        "fields": {
+          "left_outcome": "3/3 successful formal repeats",
+          "left_tool_sequence": [
+            "read",
+            "search",
+            "search",
+            "read",
+            "edit"
+          ],
+          "right_outcome": "1/3 successful formal repeats",
+          "right_tool_sequence": [
+            "search",
+            "search",
+            "read",
+            "read",
+            "edit",
+            "shell",
+            "edit",
+            "shell"
+          ],
+          "task": "addtests-t2-02"
+        },
+        "purpose": "Compact summary-only view for comparison condition A."
+      },
+      "condition_b_evidence_limitation_action": {
+        "evidence": [
+          "M1-M4 agreement: 2/4 for interaction.",
+          "Left traces: ['traces/3/addtests-t2-02/1.json', 'traces/3/addtests-t2-02/2.json', 'traces/3/addtests-t2-02/3.json'].",
+          "Right traces: ['traces/5/addtests-t2-02/1.json', 'traces/5/addtests-t2-02/2.json', 'traces/5/addtests-t2-02/3.json'].",
+          "Private replay refs exist on VPS for all displayed traces: left=3, right=3."
+        ],
+        "limitation": "This case is selected from high-divergence Phase 3 labels and should be used as an HCI presentation case, not as a prevalence estimate over all tasks.",
+        "purpose": "Evidence + limitation + action view for comparison condition B.",
+        "suggested_verification_action": "Inspect the listed trace summaries and, when needed, the VPS private audit/raw replay refs before accepting the agent outcome."
+      },
+      "confidence": "medium",
+      "decision_kind": "task_success_gap",
+      "detail_label": "counterfactual_success_gap",
+      "factorial_label": "interaction",
+      "label_id": "PH3-DP-011-C-success-gap",
+      "left": {
+        "baseline_traces": [
+          {
+            "config_id": 3,
+            "first_tool_family": "read",
+            "grader_detail_present": true,
+            "harness": "hermes",
+            "model_snapshot": "claude-haiku-4-5-20251001",
+            "private_audit_path": "/data/harness-lab/private-audits/3/addtests-t2-02/1.md",
+            "raw_log_path": "/data/harness-lab/runs/3/addtests-t2-02/1/raw",
+            "repeat_index": 1,
+            "success": true,
+            "tool_count": 5,
+            "tool_family_sequence": [
+              "read",
+              "search",
+              "search",
+              "read",
+              "edit"
+            ],
+            "trace": "traces/3/addtests-t2-02/1.json"
+          },
+          {
+            "config_id": 3,
+            "first_tool_family": "read",
+            "grader_detail_present": true,
+            "harness": "hermes",
+            "model_snapshot": "claude-haiku-4-5-20251001",
+            "private_audit_path": "/data/harness-lab/private-audits/3/addtests-t2-02/2.md",
+            "raw_log_path": "/data/harness-lab/runs/3/addtests-t2-02/2/raw",
+            "repeat_index": 2,
+            "success": true,
+            "tool_count": 5,
+            "tool_family_sequence": [
+              "read",
+              "search",
+              "search",
+              "read",
+              "edit"
+            ],
+            "trace": "traces/3/addtests-t2-02/2.json"
+          },
+          {
+            "config_id": 3,
+            "first_tool_family": "read",
+            "grader_detail_present": true,
+            "harness": "hermes",
+            "model_snapshot": "claude-haiku-4-5-20251001",
+            "private_audit_path": "/data/harness-lab/private-audits/3/addtests-t2-02/3.md",
+            "raw_log_path": "/data/harness-lab/runs/3/addtests-t2-02/3/raw",
+            "repeat_index": 3,
+            "success": true,
+            "tool_count": 4,
+            "tool_family_sequence": [
+              "read",
+              "read",
+              "read",
+              "edit"
+            ],
+            "trace": "traces/3/addtests-t2-02/3.json"
+          }
+        ],
+        "config": 3,
+        "dominant_tool_family_sequence": [
+          "read",
+          "search",
+          "search",
+          "read",
+          "edit"
+        ],
+        "first_tool_families": {
+          "read": 3
+        },
+        "harness": "hermes",
+        "model": "claude-haiku-4-5-20251001",
+        "n": 3,
+        "success_count": 3,
+        "success_rate": 1.0
+      },
+      "measurement_items": [
+        {
+          "item": "I can explain what differed between the two agent runs.",
+          "metric": "clarity",
+          "scale": "1-5 Likert"
+        },
+        {
+          "item": "My trust in the agent result matches the evidence and limitations shown.",
+          "metric": "trust_calibration",
+          "scale": "1-5 Likert"
+        },
+        {
+          "item": "What would you do next?",
+          "metric": "verification_intention_or_action_choice",
+          "scale": "choice: accept / inspect evidence / rerun / ask for more information / reject"
+        },
+        {
+          "item": "I feel able to catch or recover from an agent mistake in this case.",
+          "metric": "perceived_safety_control",
+          "scale": "1-5 Likert"
+        },
+        {
+          "item": "This presentation was understandable without excessive effort.",
+          "metric": "cognitive_load_effort",
+          "scale": "1-5 Likert"
+        },
+        {
+          "item": "What evidence helped, what was confusing, and what would change your decision?",
+          "metric": "qualitative_feedback",
+          "scale": "open text"
+        }
+      ],
+      "method_agreement": {
+        "agreement_count": 2,
+        "labels": {
+          "interaction": 2,
+          "model_main_effect": 2
+        },
+        "method_count": 4,
+        "primary_label": "model_main_effect",
+        "unanimous": false
+      },
+      "right": {
+        "baseline_traces": [
+          {
+            "config_id": 5,
+            "first_tool_family": "search",
+            "grader_detail_present": true,
+            "harness": "hermes",
+            "model_snapshot": "gpt-5.4-mini-2026-03-17",
+            "private_audit_path": "/data/harness-lab/private-audits/5/addtests-t2-02/1.md",
+            "raw_log_path": "/data/harness-lab/runs/5/addtests-t2-02/1/raw",
+            "repeat_index": 1,
+            "success": true,
+            "tool_count": 8,
+            "tool_family_sequence": [
+              "search",
+              "search",
+              "read",
+              "read",
+              "edit",
+              "shell",
+              "edit",
+              "shell"
+            ],
+            "trace": "traces/5/addtests-t2-02/1.json"
+          },
+          {
+            "config_id": 5,
+            "first_tool_family": "search",
+            "grader_detail_present": true,
+            "harness": "hermes",
+            "model_snapshot": "gpt-5.4-mini-2026-03-17",
+            "private_audit_path": "/data/harness-lab/private-audits/5/addtests-t2-02/2.md",
+            "raw_log_path": "/data/harness-lab/runs/5/addtests-t2-02/2/raw",
+            "repeat_index": 2,
+            "success": false,
+            "tool_count": 8,
+            "tool_family_sequence": [
+              "search",
+              "search",
+              "read",
+              "read",
+              "edit",
+              "shell",
+              "shell",
+              "read"
+            ],
+            "trace": "traces/5/addtests-t2-02/2.json"
+          },
+          {
+            "config_id": 5,
+            "first_tool_family": "search",
+            "grader_detail_present": true,
+            "harness": "hermes",
+            "model_snapshot": "gpt-5.4-mini-2026-03-17",
+            "private_audit_path": "/data/harness-lab/private-audits/5/addtests-t2-02/3.md",
+            "raw_log_path": "/data/harness-lab/runs/5/addtests-t2-02/3/raw",
+            "repeat_index": 3,
+            "success": false,
+            "tool_count": 5,
+            "tool_family_sequence": [
+              "search",
+              "search",
+              "read",
+              "edit",
+              "read"
+            ],
+            "trace": "traces/5/addtests-t2-02/3.json"
+          }
+        ],
+        "config": 5,
+        "dominant_tool_family_sequence": [
+          "search",
+          "search",
+          "read",
+          "read",
+          "edit",
+          "shell",
+          "edit",
+          "shell"
+        ],
+        "first_tool_families": {
+          "search": 3
+        },
+        "harness": "hermes",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "n": 3,
+        "success_count": 1,
+        "success_rate": 0.333333
+      },
+      "seed_id": "PH3-DP-011",
+      "task_category": "add_tests",
+      "task_id": "addtests-t2-02",
+      "task_prompt_excerpt": "calckit/money.py 的 format_amount 缺少對負數與零的測試。請在 tests/test_format_extra.py 新增 pytest 測試，至少涵蓋 format_amount(0) 與一個負數金額（例如 format_amount(-12.5)）。 用你的工具建立檔案。"
+    },
+    {
+      "case_id": "HCI-PH4-05",
+      "condition_a_summary_only": {
+        "fields": {
+          "left_outcome": "1/3 successful formal repeats",
+          "left_tool_sequence": [
+            "shell",
+            "read",
+            "read",
+            "read",
+            "shell",
+            "shell",
+            "shell",
+            "shell",
+            "shell"
+          ],
+          "right_outcome": "3/3 successful formal repeats",
+          "right_tool_sequence": [
+            "plan",
+            "search",
+            "search",
+            "search",
+            "read",
+            "search",
+            "search",
+            "search",
+            "edit",
+            "edit",
+            "shell",
+            "shell",
+            "plan"
+          ],
+          "task": "bench-bottle-song"
+        },
+        "purpose": "Compact summary-only view for comparison condition A."
+      },
+      "condition_b_evidence_limitation_action": {
+        "evidence": [
+          "M1-M4 agreement: 2/4 for interaction.",
+          "Left traces: ['traces/2/bench-bottle-song/1.json', 'traces/2/bench-bottle-song/2.json', 'traces/2/bench-bottle-song/3.json'].",
+          "Right traces: ['traces/4/bench-bottle-song/1.json', 'traces/4/bench-bottle-song/2.json', 'traces/4/bench-bottle-song/3.json'].",
+          "Private replay refs exist on VPS for all displayed traces: left=3, right=3."
+        ],
+        "limitation": "This case is selected from high-divergence Phase 3 labels and should be used as an HCI presentation case, not as a prevalence estimate over all tasks.",
+        "purpose": "Evidence + limitation + action view for comparison condition B.",
+        "suggested_verification_action": "Inspect the listed trace summaries and, when needed, the VPS private audit/raw replay refs before accepting the agent outcome."
+      },
+      "confidence": "medium",
+      "decision_kind": "task_success_gap",
+      "detail_label": "counterfactual_success_gap",
+      "factorial_label": "interaction",
+      "label_id": "PH3-DP-007-C-success-gap",
+      "left": {
+        "baseline_traces": [
+          {
+            "config_id": 2,
+            "first_tool_family": "shell",
+            "grader_detail_present": true,
+            "harness": "opencode",
+            "model_snapshot": "claude-haiku-4-5-20251001",
+            "private_audit_path": "/data/harness-lab/private-audits/2/bench-bottle-song/1.md",
+            "raw_log_path": "/data/harness-lab/runs/2/bench-bottle-song/1/raw",
+            "repeat_index": 1,
+            "success": false,
+            "tool_count": 9,
+            "tool_family_sequence": [
+              "shell",
+              "read",
+              "read",
+              "read",
+              "shell",
+              "shell",
+              "shell",
+              "shell",
+              "shell"
+            ],
+            "trace": "traces/2/bench-bottle-song/1.json"
+          },
+          {
+            "config_id": 2,
+            "first_tool_family": "read",
+            "grader_detail_present": true,
+            "harness": "opencode",
+            "model_snapshot": "claude-haiku-4-5-20251001",
+            "private_audit_path": "/data/harness-lab/private-audits/2/bench-bottle-song/2.md",
+            "raw_log_path": "/data/harness-lab/runs/2/bench-bottle-song/2/raw",
+            "repeat_index": 2,
+            "success": false,
+            "tool_count": 12,
+            "tool_family_sequence": [
+              "read",
+              "read",
+              "read",
+              "shell",
+              "shell",
+              "shell",
+              "shell",
+              "shell",
+              "shell",
+              "shell",
+              "shell",
+              "shell"
+            ],
+            "trace": "traces/2/bench-bottle-song/2.json"
+          },
+          {
+            "config_id": 2,
+            "first_tool_family": "shell",
+            "grader_detail_present": true,
+            "harness": "opencode",
+            "model_snapshot": "claude-haiku-4-5-20251001",
+            "private_audit_path": "/data/harness-lab/private-audits/2/bench-bottle-song/3.md",
+            "raw_log_path": "/data/harness-lab/runs/2/bench-bottle-song/3/raw",
+            "repeat_index": 3,
+            "success": true,
+            "tool_count": 13,
+            "tool_family_sequence": [
+              "shell",
+              "read",
+              "shell",
+              "read",
+              "read",
+              "shell",
+              "shell",
+              "shell",
+              "edit",
+              "shell",
+              "shell",
+              "shell",
+              "read"
+            ],
+            "trace": "traces/2/bench-bottle-song/3.json"
+          }
+        ],
+        "config": 2,
+        "dominant_tool_family_sequence": [
+          "shell",
+          "read",
+          "read",
+          "read",
+          "shell",
+          "shell",
+          "shell",
+          "shell",
+          "shell"
+        ],
+        "first_tool_families": {
+          "read": 1,
+          "shell": 2
+        },
+        "harness": "opencode",
+        "model": "claude-haiku-4-5-20251001",
+        "n": 3,
+        "success_count": 1,
+        "success_rate": 0.333333
+      },
+      "measurement_items": [
+        {
+          "item": "I can explain what differed between the two agent runs.",
+          "metric": "clarity",
+          "scale": "1-5 Likert"
+        },
+        {
+          "item": "My trust in the agent result matches the evidence and limitations shown.",
+          "metric": "trust_calibration",
+          "scale": "1-5 Likert"
+        },
+        {
+          "item": "What would you do next?",
+          "metric": "verification_intention_or_action_choice",
+          "scale": "choice: accept / inspect evidence / rerun / ask for more information / reject"
+        },
+        {
+          "item": "I feel able to catch or recover from an agent mistake in this case.",
+          "metric": "perceived_safety_control",
+          "scale": "1-5 Likert"
+        },
+        {
+          "item": "This presentation was understandable without excessive effort.",
+          "metric": "cognitive_load_effort",
+          "scale": "1-5 Likert"
+        },
+        {
+          "item": "What evidence helped, what was confusing, and what would change your decision?",
+          "metric": "qualitative_feedback",
+          "scale": "open text"
+        }
+      ],
+      "method_agreement": {
+        "agreement_count": 2,
+        "labels": {
+          "interaction": 2,
+          "model_main_effect": 2
+        },
+        "method_count": 4,
+        "primary_label": "model_main_effect",
+        "unanimous": false
+      },
+      "right": {
+        "baseline_traces": [
+          {
+            "config_id": 4,
+            "first_tool_family": "plan",
+            "grader_detail_present": true,
+            "harness": "opencode",
+            "model_snapshot": "gpt-5.4-mini-2026-03-17",
+            "private_audit_path": "/data/harness-lab/private-audits/4/bench-bottle-song/1.md",
+            "raw_log_path": "/data/harness-lab/runs/4/bench-bottle-song/1/raw",
+            "repeat_index": 1,
+            "success": true,
+            "tool_count": 13,
+            "tool_family_sequence": [
+              "plan",
+              "search",
+              "search",
+              "search",
+              "read",
+              "search",
+              "search",
+              "search",
+              "edit",
+              "edit",
+              "shell",
+              "shell",
+              "plan"
+            ],
+            "trace": "traces/4/bench-bottle-song/1.json"
+          },
+          {
+            "config_id": 4,
+            "first_tool_family": "search",
+            "grader_detail_present": true,
+            "harness": "opencode",
+            "model_snapshot": "gpt-5.4-mini-2026-03-17",
+            "private_audit_path": "/data/harness-lab/private-audits/4/bench-bottle-song/2.md",
+            "raw_log_path": "/data/harness-lab/runs/4/bench-bottle-song/2/raw",
+            "repeat_index": 2,
+            "success": true,
+            "tool_count": 17,
+            "tool_family_sequence": [
+              "search",
+              "search",
+              "search",
+              "read",
+              "search",
+              "search",
+              "read",
+              "edit",
+              "edit",
+              "edit",
+              "read",
+              "shell",
+              "shell",
+              "edit",
+              "shell",
+              "edit",
+              "shell"
+            ],
+            "trace": "traces/4/bench-bottle-song/2.json"
+          },
+          {
+            "config_id": 4,
+            "first_tool_family": "plan",
+            "grader_detail_present": true,
+            "harness": "opencode",
+            "model_snapshot": "gpt-5.4-mini-2026-03-17",
+            "private_audit_path": "/data/harness-lab/private-audits/4/bench-bottle-song/3.md",
+            "raw_log_path": "/data/harness-lab/runs/4/bench-bottle-song/3/raw",
+            "repeat_index": 3,
+            "success": true,
+            "tool_count": 14,
+            "tool_family_sequence": [
+              "plan",
+              "search",
+              "search",
+              "read",
+              "search",
+              "search",
+              "search",
+              "search",
+              "search",
+              "edit",
+              "edit",
+              "shell",
+              "shell",
+              "plan"
+            ],
+            "trace": "traces/4/bench-bottle-song/3.json"
+          }
+        ],
+        "config": 4,
+        "dominant_tool_family_sequence": [
+          "plan",
+          "search",
+          "search",
+          "search",
+          "read",
+          "search",
+          "search",
+          "search",
+          "edit",
+          "edit",
+          "shell",
+          "shell",
+          "plan"
+        ],
+        "first_tool_families": {
+          "plan": 2,
+          "search": 1
+        },
+        "harness": "opencode",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "n": 3,
+        "success_count": 3,
+        "success_rate": 1.0
+      },
+      "seed_id": "PH3-DP-007",
+      "task_category": "benchmark",
+      "task_id": "bench-bottle-song",
+      "task_prompt_excerpt": "# Instructions Recite the lyrics to that popular children's repetitive song: Ten Green Bottles. Note that not all verses are identical. ```text Ten green bottles hanging on the wall, Ten green bottles hanging on the wall, And if one green bottle should acci..."
+    },
+    {
+      "case_id": "HCI-PH4-06",
+      "condition_a_summary_only": {
+        "fields": {
+          "left_outcome": "3/3 successful formal repeats",
+          "left_tool_sequence": [
+            "search",
+            "search",
+            "read",
+            "edit"
+          ],
+          "right_outcome": "3/3 successful formal repeats",
+          "right_tool_sequence": [
+            "shell",
+            "shell",
+            "edit",
+            "shell",
+            "shell"
+          ],
+          "task": "addlog-t2-03"
+        },
+        "purpose": "Compact summary-only view for comparison condition A."
+      },
+      "condition_b_evidence_limitation_action": {
+        "evidence": [
+          "M1-M4 agreement: 4/4 for harness_main_effect.",
+          "Left traces: ['traces/5/addlog-t2-03/1.json', 'traces/5/addlog-t2-03/2.json', 'traces/5/addlog-t2-03/3.json'].",
+          "Right traces: ['traces/6/addlog-t2-03/1.json', 'traces/6/addlog-t2-03/2.json', 'traces/6/addlog-t2-03/3.json'].",
+          "Private replay refs exist on VPS for all displayed traces: left=3, right=3."
+        ],
+        "limitation": "This case is selected from high-divergence Phase 3 labels and should be used as an HCI presentation case, not as a prevalence estimate over all tasks.",
+        "purpose": "Evidence + limitation + action view for comparison condition B.",
+        "suggested_verification_action": "Inspect the listed trace summaries and, when needed, the VPS private audit/raw replay refs before accepting the agent outcome."
+      },
+      "confidence": "high",
+      "decision_kind": "initial_tool_strategy",
+      "detail_label": "tool_path_style",
+      "factorial_label": "harness_main_effect",
+      "label_id": "PH3-DP-005-A-initial-strategy",
+      "left": {
+        "baseline_traces": [
+          {
+            "config_id": 5,
+            "first_tool_family": "search",
+            "grader_detail_present": true,
+            "harness": "hermes",
+            "model_snapshot": "gpt-5.4-mini-2026-03-17",
+            "private_audit_path": "/data/harness-lab/private-audits/5/addlog-t2-03/1.md",
+            "raw_log_path": "/data/harness-lab/runs/5/addlog-t2-03/1/raw",
+            "repeat_index": 1,
+            "success": true,
+            "tool_count": 4,
+            "tool_family_sequence": [
+              "search",
+              "search",
+              "read",
+              "edit"
+            ],
+            "trace": "traces/5/addlog-t2-03/1.json"
+          },
+          {
+            "config_id": 5,
+            "first_tool_family": "search",
+            "grader_detail_present": true,
+            "harness": "hermes",
+            "model_snapshot": "gpt-5.4-mini-2026-03-17",
+            "private_audit_path": "/data/harness-lab/private-audits/5/addlog-t2-03/2.md",
+            "raw_log_path": "/data/harness-lab/runs/5/addlog-t2-03/2/raw",
+            "repeat_index": 2,
+            "success": true,
+            "tool_count": 4,
+            "tool_family_sequence": [
+              "search",
+              "search",
+              "read",
+              "edit"
+            ],
+            "trace": "traces/5/addlog-t2-03/2.json"
+          },
+          {
+            "config_id": 5,
+            "first_tool_family": "search",
+            "grader_detail_present": true,
+            "harness": "hermes",
+            "model_snapshot": "gpt-5.4-mini-2026-03-17",
+            "private_audit_path": "/data/harness-lab/private-audits/5/addlog-t2-03/3.md",
+            "raw_log_path": "/data/harness-lab/runs/5/addlog-t2-03/3/raw",
+            "repeat_index": 3,
+            "success": true,
+            "tool_count": 4,
+            "tool_family_sequence": [
+              "search",
+              "search",
+              "read",
+              "edit"
+            ],
+            "trace": "traces/5/addlog-t2-03/3.json"
+          }
+        ],
+        "config": 5,
+        "dominant_tool_family_sequence": [
+          "search",
+          "search",
+          "read",
+          "edit"
+        ],
+        "first_tool_families": {
+          "search": 3
+        },
+        "harness": "hermes",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "n": 3,
+        "success_count": 3,
+        "success_rate": 1.0
+      },
+      "measurement_items": [
+        {
+          "item": "I can explain what differed between the two agent runs.",
+          "metric": "clarity",
+          "scale": "1-5 Likert"
+        },
+        {
+          "item": "My trust in the agent result matches the evidence and limitations shown.",
+          "metric": "trust_calibration",
+          "scale": "1-5 Likert"
+        },
+        {
+          "item": "What would you do next?",
+          "metric": "verification_intention_or_action_choice",
+          "scale": "choice: accept / inspect evidence / rerun / ask for more information / reject"
+        },
+        {
+          "item": "I feel able to catch or recover from an agent mistake in this case.",
+          "metric": "perceived_safety_control",
+          "scale": "1-5 Likert"
+        },
+        {
+          "item": "This presentation was understandable without excessive effort.",
+          "metric": "cognitive_load_effort",
+          "scale": "1-5 Likert"
+        },
+        {
+          "item": "What evidence helped, what was confusing, and what would change your decision?",
+          "metric": "qualitative_feedback",
+          "scale": "open text"
+        }
+      ],
+      "method_agreement": {
+        "agreement_count": 4,
+        "labels": {
+          "harness_main_effect": 4
+        },
+        "method_count": 4,
+        "primary_label": "harness_main_effect",
+        "unanimous": true
+      },
+      "right": {
+        "baseline_traces": [
+          {
+            "config_id": 6,
+            "first_tool_family": "shell",
+            "grader_detail_present": true,
+            "harness": "codex",
+            "model_snapshot": "gpt-5.4-mini-2026-03-17",
+            "private_audit_path": "/data/harness-lab/private-audits/6/addlog-t2-03/1.md",
+            "raw_log_path": "/data/harness-lab/runs/6/addlog-t2-03/1/raw",
+            "repeat_index": 1,
+            "success": true,
+            "tool_count": 5,
+            "tool_family_sequence": [
+              "shell",
+              "shell",
+              "edit",
+              "shell",
+              "shell"
+            ],
+            "trace": "traces/6/addlog-t2-03/1.json"
+          },
+          {
+            "config_id": 6,
+            "first_tool_family": "shell",
+            "grader_detail_present": true,
+            "harness": "codex",
+            "model_snapshot": "gpt-5.4-mini-2026-03-17",
+            "private_audit_path": "/data/harness-lab/private-audits/6/addlog-t2-03/2.md",
+            "raw_log_path": "/data/harness-lab/runs/6/addlog-t2-03/2/raw",
+            "repeat_index": 2,
+            "success": true,
+            "tool_count": 5,
+            "tool_family_sequence": [
+              "shell",
+              "shell",
+              "edit",
+              "shell",
+              "shell"
+            ],
+            "trace": "traces/6/addlog-t2-03/2.json"
+          },
+          {
+            "config_id": 6,
+            "first_tool_family": "shell",
+            "grader_detail_present": true,
+            "harness": "codex",
+            "model_snapshot": "gpt-5.4-mini-2026-03-17",
+            "private_audit_path": "/data/harness-lab/private-audits/6/addlog-t2-03/3.md",
+            "raw_log_path": "/data/harness-lab/runs/6/addlog-t2-03/3/raw",
+            "repeat_index": 3,
+            "success": true,
+            "tool_count": 5,
+            "tool_family_sequence": [
+              "shell",
+              "shell",
+              "edit",
+              "shell",
+              "shell"
+            ],
+            "trace": "traces/6/addlog-t2-03/3.json"
+          }
+        ],
+        "config": 6,
+        "dominant_tool_family_sequence": [
+          "shell",
+          "shell",
+          "edit",
+          "shell",
+          "shell"
+        ],
+        "first_tool_families": {
+          "shell": 3
+        },
+        "harness": "codex",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "n": 3,
+        "success_count": 3,
+        "success_rate": 1.0
+      },
+      "seed_id": "PH3-DP-005",
+      "task_category": "add_logging",
+      "task_id": "addlog-t2-03",
+      "task_prompt_excerpt": "請在 calckit/stats.py 的 mean 內加入 logging：以 logger.debug 記錄輸入序列長度 （log 訊息需含 \"mean\" 字樣）。不可改變回傳值。logger 用 logging.getLogger(__name__)。"
+    }
+  ],
+  "coverage": {
+    "case_count": 6,
+    "decision_kinds": {
+      "initial_tool_strategy": 3,
+      "semantic_output_convention": 1,
+      "task_success_gap": 2
+    },
+    "factorial_labels": {
+      "harness_main_effect": 2,
+      "interaction": 3,
+      "model_main_effect": 1
+    },
+    "required_plan_coverage": {
+      "harness_main_effect_initial_tool_strategy": true,
+      "interaction_or_semantic_case": true,
+      "model_main_effect_initial_tool_strategy": true,
+      "task_success_gap_case": true
+    },
+    "task_categories": {
+      "add_logging": 1,
+      "add_tests": 2,
+      "benchmark": 2,
+      "bug_fix": 1
+    }
+  },
+  "phase": "phase4_hci_case_pack",
+  "procedure_support": {
+    "condition_a": "summary-only",
+    "condition_b": "evidence + limitation + action/checkpoint cues",
+    "design": "within-subject comparison, counterbalance condition order if feasible",
+    "ethics": "voluntary, anonymous/code-based, no grade penalty, raw individual responses not published",
+    "participants": "small voluntary convenience sample, target n=6-10 MIS graduate students or peers"
+  },
+  "schema_version": 1,
+  "source": {
+    "hci_labels": "analysis/phase3/hci-ground-truth-labels.json",
+    "phase4_metrics": "analysis/phase4/metrics-summary.json",
+    "selection": "Representative 4-6 case mix required by HCI human-study plan."
+  }
+}

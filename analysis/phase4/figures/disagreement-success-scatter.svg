@@ -1,0 +1,344 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="620" viewBox="0 0 920 620">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#202124}.title{font-size:18px;font-weight:700}.axis{font-size:12px;fill:#5f6368}.label{font-size:12px}.value{font-size:11px;fill:#3c4043}</style>
+<text x="40" y="42" class="title">Sequence disagreement vs success gap</text>
+<text x="40" y="66" class="axis">Each point is one config pair on one task; y is absolute success-rate gap.</text>
+<line x1="90.0" y1="70" x2="90.0" y2="530" stroke="#edf2f7"/>
+<line x1="90" y1="70.0" x2="880" y2="70.0" stroke="#edf2f7"/>
+<text x="90.0" y="554" class="axis" text-anchor="middle">0.0</text>
+<text x="76" y="534.0" class="axis" text-anchor="end">0.0</text>
+<line x1="248.0" y1="70" x2="248.0" y2="530" stroke="#edf2f7"/>
+<line x1="90" y1="162.0" x2="880" y2="162.0" stroke="#edf2f7"/>
+<text x="248.0" y="554" class="axis" text-anchor="middle">0.2</text>
+<text x="76" y="442.0" class="axis" text-anchor="end">0.2</text>
+<line x1="406.0" y1="70" x2="406.0" y2="530" stroke="#edf2f7"/>
+<line x1="90" y1="254.0" x2="880" y2="254.0" stroke="#edf2f7"/>
+<text x="406.0" y="554" class="axis" text-anchor="middle">0.4</text>
+<text x="76" y="350.0" class="axis" text-anchor="end">0.4</text>
+<line x1="564.0" y1="70" x2="564.0" y2="530" stroke="#edf2f7"/>
+<line x1="90" y1="346.0" x2="880" y2="346.0" stroke="#edf2f7"/>
+<text x="564.0" y="554" class="axis" text-anchor="middle">0.6</text>
+<text x="76" y="258.0" class="axis" text-anchor="end">0.6</text>
+<line x1="722.0" y1="70" x2="722.0" y2="530" stroke="#edf2f7"/>
+<line x1="90" y1="438.0" x2="880" y2="438.0" stroke="#edf2f7"/>
+<text x="722.0" y="554" class="axis" text-anchor="middle">0.8</text>
+<text x="76" y="166.0" class="axis" text-anchor="end">0.8</text>
+<line x1="880.0" y1="70" x2="880.0" y2="530" stroke="#edf2f7"/>
+<line x1="90" y1="530.0" x2="880" y2="530.0" stroke="#edf2f7"/>
+<text x="880.0" y="554" class="axis" text-anchor="middle">1.0</text>
+<text x="76" y="74.0" class="axis" text-anchor="end">1.0</text>
+<line x1="90" y1="530" x2="880" y2="530" stroke="#5f6368"/>
+<line x1="90" y1="70" x2="90" y2="530" stroke="#5f6368"/>
+<text x="485.0" y="592" class="axis" text-anchor="middle">mean sequence disagreement</text>
+<text x="24" y="300.0" class="axis" transform="rotate(-90 24 300.0)" text-anchor="middle">success gap</text>
+<circle cx="116.33307" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c1-c2 addlog-t2-01</title></circle>
+<circle cx="182.16693" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c1-c3 addlog-t2-01</title></circle>
+<circle cx="524.5" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c1-c4 addlog-t2-01</title></circle>
+<circle cx="594.7223100000001" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c1-c5 addlog-t2-01</title></circle>
+<circle cx="662.75" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c1-c6 addlog-t2-01</title></circle>
+<circle cx="195.33307000000002" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c2-c3 addlog-t2-01</title></circle>
+<circle cx="524.5" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c2-c4 addlog-t2-01</title></circle>
+<circle cx="577.16693" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c2-c5 addlog-t2-01</title></circle>
+<circle cx="664.94462" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c2-c6 addlog-t2-01</title></circle>
+<circle cx="537.6669300000001" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c3-c4 addlog-t2-01</title></circle>
+<circle cx="540.5923" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c3-c5 addlog-t2-01</title></circle>
+<circle cx="664.94462" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c3-c6 addlog-t2-01</title></circle>
+<circle cx="264.82384" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c4-c5 addlog-t2-01</title></circle>
+<circle cx="636.41693" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c4-c6 addlog-t2-01</title></circle>
+<circle cx="679.57384" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c5-c6 addlog-t2-01</title></circle>
+<circle cx="147.05537999999999" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c1-c2 addlog-t2-02</title></circle>
+<circle cx="158.02769" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c1-c3 addlog-t2-02</title></circle>
+<circle cx="458.66693" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c1-c4 addlog-t2-02</title></circle>
+<circle cx="524.8136300000001" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c1-c5 addlog-t2-02</title></circle>
+<circle cx="661.49627" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c1-c6 addlog-t2-02</title></circle>
+<circle cx="164.61076" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c2-c3 addlog-t2-02</title></circle>
+<circle cx="458.66693" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c2-c4 addlog-t2-02</title></circle>
+<circle cx="520.73802" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c2-c5 addlog-t2-02</title></circle>
+<circle cx="672.46858" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c2-c6 addlog-t2-02</title></circle>
+<circle cx="458.66693" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c3-c4 addlog-t2-02</title></circle>
+<circle cx="522.30538" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c3-c5 addlog-t2-02</title></circle>
+<circle cx="663.6901" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c3-c6 addlog-t2-02</title></circle>
+<circle cx="186.86901" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c4-c5 addlog-t2-02</title></circle>
+<circle cx="745.51198" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c4-c6 addlog-t2-02</title></circle>
+<circle cx="690.02396" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c5-c6 addlog-t2-02</title></circle>
+<circle cx="160.22231" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c1-c2 addlog-t2-03</title></circle>
+<circle cx="245.80538" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c1-c3 addlog-t2-03</title></circle>
+<circle cx="555.22231" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c1-c4 addlog-t2-03</title></circle>
+<circle cx="616.66693" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c1-c5 addlog-t2-03</title></circle>
+<circle cx="669.33307" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c1-c6 addlog-t2-03</title></circle>
+<circle cx="266.28692" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c2-c3 addlog-t2-03</title></circle>
+<circle cx="539.13001" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c2-c4 addlog-t2-03</title></circle>
+<circle cx="546.44462" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c2-c5 addlog-t2-03</title></circle>
+<circle cx="673.72231" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c2-c6 addlog-t2-03</title></circle>
+<circle cx="457.20385" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c3-c4 addlog-t2-03</title></circle>
+<circle cx="460.86075999999997" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c3-c5 addlog-t2-03</title></circle>
+<circle cx="706.63924" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c3-c6 addlog-t2-03</title></circle>
+<circle cx="234.83307" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c4-c5 addlog-t2-03</title></circle>
+<circle cx="662.75" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c4-c6 addlog-t2-03</title></circle>
+<circle cx="781.25" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c5-c6 addlog-t2-03</title></circle>
+<circle cx="169.0" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c1-c2 addlog-t2-04</title></circle>
+<circle cx="116.33307" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c1-c3 addlog-t2-04</title></circle>
+<circle cx="458.66693" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c1-c4 addlog-t2-04</title></circle>
+<circle cx="511.33306999999996" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c1-c5 addlog-t2-04</title></circle>
+<circle cx="669.33307" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c1-c6 addlog-t2-04</title></circle>
+<circle cx="169.0" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c2-c3 addlog-t2-04</title></circle>
+<circle cx="458.66693" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c2-c4 addlog-t2-04</title></circle>
+<circle cx="485.0" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c2-c5 addlog-t2-04</title></circle>
+<circle cx="669.33307" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c2-c6 addlog-t2-04</title></circle>
+<circle cx="458.66693" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c3-c4 addlog-t2-04</title></circle>
+<circle cx="502.55537999999996" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c3-c5 addlog-t2-04</title></circle>
+<circle cx="669.33307" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c3-c6 addlog-t2-04</title></circle>
+<circle cx="116.33307" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c4-c5 addlog-t2-04</title></circle>
+<circle cx="781.25" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c4-c6 addlog-t2-04</title></circle>
+<circle cx="781.25" cy="530.0" r="4.2" fill="#7c3aed" fill-opacity="0.68"><title>c5-c6 addlog-t2-04</title></circle>
+<circle cx="397.0651" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c1-c2 addtests-t2-01</title></circle>
+<circle cx="359.91693" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c1-c3 addtests-t2-01</title></circle>
+<circle cx="357.82185" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c1-c4 addtests-t2-01</title></circle>
+<circle cx="407.09731" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c1-c5 addtests-t2-01</title></circle>
+<circle cx="592.71966" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c1-c6 addtests-t2-01</title></circle>
+<circle cx="410.00609000000003" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c2-c3 addtests-t2-01</title></circle>
+<circle cx="388.17996999999997" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c2-c4 addtests-t2-01</title></circle>
+<circle cx="513.40603" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c2-c5 addtests-t2-01</title></circle>
+<circle cx="583.5762" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c2-c6 addtests-t2-01</title></circle>
+<circle cx="382.25971" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c3-c4 addtests-t2-01</title></circle>
+<circle cx="337.97231" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c3-c5 addtests-t2-01</title></circle>
+<circle cx="643.22673" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c3-c6 addtests-t2-01</title></circle>
+<circle cx="357.48926" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c4-c5 addtests-t2-01</title></circle>
+<circle cx="562.39946" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c4-c6 addtests-t2-01</title></circle>
+<circle cx="731.35281" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c5-c6 addtests-t2-01</title></circle>
+<circle cx="408.19462000000004" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c1-c2 addtests-t2-02</title></circle>
+<circle cx="375.38196999999997" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c1-c3 addtests-t2-02</title></circle>
+<circle cx="393.12932" cy="223.33318" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c1-c4 addtests-t2-02</title></circle>
+<circle cx="408.40318" cy="223.33318" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c1-c5 addtests-t2-02</title></circle>
+<circle cx="588.62667" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c1-c6 addtests-t2-02</title></circle>
+<circle cx="495.97231000000005" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c2-c3 addtests-t2-02</title></circle>
+<circle cx="346.01846" cy="223.33318" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c2-c4 addtests-t2-02</title></circle>
+<circle cx="452.08307" cy="223.33318" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c2-c5 addtests-t2-02</title></circle>
+<circle cx="458.17870999999997" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c2-c6 addtests-t2-02</title></circle>
+<circle cx="457.22123" cy="223.33318" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c3-c4 addtests-t2-02</title></circle>
+<circle cx="418.43539000000004" cy="223.33318" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c3-c5 addtests-t2-02</title></circle>
+<circle cx="722.73154" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c3-c6 addtests-t2-02</title></circle>
+<circle cx="235.59937" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c4-c5 addtests-t2-02</title></circle>
+<circle cx="532.54615" cy="223.33318" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c4-c6 addtests-t2-02</title></circle>
+<circle cx="631.29615" cy="223.33318" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c5-c6 addtests-t2-02</title></circle>
+<circle cx="400.35703" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c1-c2 addtests-t2-03</title></circle>
+<circle cx="404.22329" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c1-c3 addtests-t2-03</title></circle>
+<circle cx="344.27651000000003" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c1-c4 addtests-t2-03</title></circle>
+<circle cx="392.83306999999996" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c1-c5 addtests-t2-03</title></circle>
+<circle cx="559.61076" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c1-c6 addtests-t2-03</title></circle>
+<circle cx="516.3495700000001" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c2-c3 addtests-t2-03</title></circle>
+<circle cx="415.42233" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c2-c4 addtests-t2-03</title></circle>
+<circle cx="503.80989999999997" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c2-c5 addtests-t2-03</title></circle>
+<circle cx="434.84132" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c2-c6 addtests-t2-03</title></circle>
+<circle cx="341.14179" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c3-c4 addtests-t2-03</title></circle>
+<circle cx="289.69462" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c3-c5 addtests-t2-03</title></circle>
+<circle cx="747.39297" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c3-c6 addtests-t2-03</title></circle>
+<circle cx="299.81294" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c4-c5 addtests-t2-03</title></circle>
+<circle cx="639.86528" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c4-c6 addtests-t2-03</title></circle>
+<circle cx="696.2934" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c5-c6 addtests-t2-03</title></circle>
+<circle cx="435.46858000000003" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c1-c2 addtests-t2-04</title></circle>
+<circle cx="406.62726" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c1-c3 addtests-t2-04</title></circle>
+<circle cx="402.8637" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c1-c4 addtests-t2-04</title></circle>
+<circle cx="444.24627" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c1-c5 addtests-t2-04</title></circle>
+<circle cx="576.2608" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c1-c6 addtests-t2-04</title></circle>
+<circle cx="584.89945" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c2-c3 addtests-t2-04</title></circle>
+<circle cx="422.80172" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c2-c4 addtests-t2-04</title></circle>
+<circle cx="579.6743899999999" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c2-c5 addtests-t2-04</title></circle>
+<circle cx="475.59505" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c2-c6 addtests-t2-04</title></circle>
+<circle cx="488.59055" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c3-c4 addtests-t2-04</title></circle>
+<circle cx="340.7934" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c3-c5 addtests-t2-04</title></circle>
+<circle cx="729.00098" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c3-c6 addtests-t2-04</title></circle>
+<circle cx="368.8937" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c4-c5 addtests-t2-04</title></circle>
+<circle cx="583.7721200000001" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c4-c6 addtests-t2-04</title></circle>
+<circle cx="758.95699" cy="530.0" r="4.2" fill="#d97706" fill-opacity="0.68"><title>c5-c6 addtests-t2-04</title></circle>
+<circle cx="479.69673" cy="530.0" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c1-c2 bench-bottle-song</title></circle>
+<circle cx="346.06191" cy="376.66682000000003" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c1-c3 bench-bottle-song</title></circle>
+<circle cx="454.38513" cy="223.33318" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c1-c4 bench-bottle-song</title></circle>
+<circle cx="428.67616" cy="530.0" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c1-c5 bench-bottle-song</title></circle>
+<circle cx="532.54615" cy="223.33318" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c1-c6 bench-bottle-song</title></circle>
+<circle cx="440.91879" cy="376.66682000000003" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c2-c3 bench-bottle-song</title></circle>
+<circle cx="569.51973" cy="223.33318" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c2-c4 bench-bottle-song</title></circle>
+<circle cx="551.82768" cy="530.0" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c2-c5 bench-bottle-song</title></circle>
+<circle cx="494.84656" cy="223.33318" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c2-c6 bench-bottle-song</title></circle>
+<circle cx="363.57225999999997" cy="376.66682000000003" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c3-c4 bench-bottle-song</title></circle>
+<circle cx="310.92745" cy="376.66682000000003" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c3-c5 bench-bottle-song</title></circle>
+<circle cx="493.47591" cy="376.66682000000003" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c3-c6 bench-bottle-song</title></circle>
+<circle cx="341.56049" cy="223.33318" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c4-c5 bench-bottle-song</title></circle>
+<circle cx="608.3743000000001" cy="530.0" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c4-c6 bench-bottle-song</title></circle>
+<circle cx="570.70394" cy="223.33318" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c5-c6 bench-bottle-song</title></circle>
+<circle cx="247.26846" cy="530.0" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c1-c2 bench-grade-school</title></circle>
+<circle cx="457.69128" cy="530.0" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c1-c3 bench-grade-school</title></circle>
+<circle cx="514.5965600000001" cy="376.66682000000003" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c1-c4 bench-grade-school</title></circle>
+<circle cx="488.90102" cy="530.0" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c1-c5 bench-grade-school</title></circle>
+<circle cx="388.44462" cy="376.66682000000003" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c1-c6 bench-grade-school</title></circle>
+<circle cx="467.44462" cy="530.0" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c2-c3 bench-grade-school</title></circle>
+<circle cx="512.0812" cy="376.66682000000003" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c2-c4 bench-grade-school</title></circle>
+<circle cx="471.04939" cy="530.0" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c2-c5 bench-grade-school</title></circle>
+<circle cx="394.92341" cy="376.66682000000003" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c2-c6 bench-grade-school</title></circle>
+<circle cx="403.52414" cy="376.66682000000003" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c3-c4 bench-grade-school</title></circle>
+<circle cx="357.72231" cy="530.0" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c3-c5 bench-grade-school</title></circle>
+<circle cx="588.13924" cy="376.66682000000003" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c3-c6 bench-grade-school</title></circle>
+<circle cx="311.71113" cy="376.66682000000003" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c4-c5 bench-grade-school</title></circle>
+<circle cx="632.98438" cy="530.0" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c4-c6 bench-grade-school</title></circle>
+<circle cx="603.5" cy="376.66682000000003" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c5-c6 bench-grade-school</title></circle>
+<circle cx="399.81588" cy="530.0" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c1-c2 bench-phone-number</title></circle>
+<circle cx="373.08307" cy="530.0" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c1-c3 bench-phone-number</title></circle>
+<circle cx="395.41794999999996" cy="376.66682000000003" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c1-c4 bench-phone-number</title></circle>
+<circle cx="343.21475" cy="530.0" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c1-c5 bench-phone-number</title></circle>
+<circle cx="522.06206" cy="530.0" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c1-c6 bench-phone-number</title></circle>
+<circle cx="431.09751" cy="530.0" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c2-c3 bench-phone-number</title></circle>
+<circle cx="455.98093" cy="376.66682000000003" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c2-c4 bench-phone-number</title></circle>
+<circle cx="401.0625" cy="530.0" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c2-c5 bench-phone-number</title></circle>
+<circle cx="414.22943" cy="530.0" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c2-c6 bench-phone-number</title></circle>
+<circle cx="421.34259" cy="376.66682000000003" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c3-c4 bench-phone-number</title></circle>
+<circle cx="365.87116000000003" cy="530.0" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c3-c5 bench-phone-number</title></circle>
+<circle cx="587.9338399999999" cy="530.0" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c3-c6 bench-phone-number</title></circle>
+<circle cx="328.11548000000005" cy="376.66682000000003" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c4-c5 bench-phone-number</title></circle>
+<circle cx="610.7127" cy="376.66682000000003" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c4-c6 bench-phone-number</title></circle>
+<circle cx="561.07384" cy="530.0" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c5-c6 bench-phone-number</title></circle>
+<circle cx="362.0997" cy="530.0" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c1-c2 bench-pig-latin</title></circle>
+<circle cx="337.77244" cy="376.66682000000003" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c1-c3 bench-pig-latin</title></circle>
+<circle cx="434.93612" cy="376.66682000000003" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c1-c4 bench-pig-latin</title></circle>
+<circle cx="416.58916" cy="530.0" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c1-c5 bench-pig-latin</title></circle>
+<circle cx="423.61226" cy="530.0" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c1-c6 bench-pig-latin</title></circle>
+<circle cx="439.20133" cy="376.66682000000003" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c2-c3 bench-pig-latin</title></circle>
+<circle cx="541.81206" cy="376.66682000000003" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c2-c4 bench-pig-latin</title></circle>
+<circle cx="526.2064" cy="530.0" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c2-c5 bench-pig-latin</title></circle>
+<circle cx="459.52013" cy="530.0" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c2-c6 bench-pig-latin</title></circle>
+<circle cx="317.73803999999996" cy="530.0" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c3-c4 bench-pig-latin</title></circle>
+<circle cx="319.87499" cy="376.66682000000003" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c3-c5 bench-pig-latin</title></circle>
+<circle cx="481.2949" cy="376.66682000000003" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c3-c6 bench-pig-latin</title></circle>
+<circle cx="250.22938" cy="376.66682000000003" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c4-c5 bench-pig-latin</title></circle>
+<circle cx="613.21858" cy="376.66682000000003" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c4-c6 bench-pig-latin</title></circle>
+<circle cx="572.35978" cy="530.0" r="4.2" fill="#dc2626" fill-opacity="0.68"><title>c5-c6 bench-pig-latin</title></circle>
+<circle cx="336.26512" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c1-c2 bugfix-t2-01</title></circle>
+<circle cx="458.05547" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c1-c3 bugfix-t2-01</title></circle>
+<circle cx="364.22638" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c1-c4 bugfix-t2-01</title></circle>
+<circle cx="380.06588" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c1-c5 bugfix-t2-01</title></circle>
+<circle cx="470.53668" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c1-c6 bugfix-t2-01</title></circle>
+<circle cx="459.06588" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c2-c3 bugfix-t2-01</title></circle>
+<circle cx="354.10884999999996" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c2-c4 bugfix-t2-01</title></circle>
+<circle cx="427.14671999999996" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c2-c5 bugfix-t2-01</title></circle>
+<circle cx="458.40070000000003" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c2-c6 bugfix-t2-01</title></circle>
+<circle cx="407.14945" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c3-c4 bugfix-t2-01</title></circle>
+<circle cx="376.84505" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c3-c5 bugfix-t2-01</title></circle>
+<circle cx="661.16526" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c3-c6 bugfix-t2-01</title></circle>
+<circle cx="208.08209" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c4-c5 bugfix-t2-01</title></circle>
+<circle cx="547.7852499999999" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c4-c6 bugfix-t2-01</title></circle>
+<circle cx="591.06461" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c5-c6 bugfix-t2-01</title></circle>
+<circle cx="325.90269" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c1-c2 bugfix-t2-02</title></circle>
+<circle cx="221.66693" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c1-c3 bugfix-t2-02</title></circle>
+<circle cx="524.5" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c1-c4 bugfix-t2-02</title></circle>
+<circle cx="517.91693" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c1-c5 bugfix-t2-02</title></circle>
+<circle cx="690.02396" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c1-c6 bugfix-t2-02</title></circle>
+<circle cx="408.19462000000004" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c2-c3 bugfix-t2-02</title></circle>
+<circle cx="465.73743" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c2-c4 bugfix-t2-02</title></circle>
+<circle cx="479.51424" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c2-c5 bugfix-t2-02</title></circle>
+<circle cx="641.43264" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c2-c6 bugfix-t2-02</title></circle>
+<circle cx="578.6300100000001" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c3-c4 bugfix-t2-02</title></circle>
+<circle cx="419.16693" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c3-c5 bugfix-t2-02</title></circle>
+<circle cx="690.02396" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c3-c6 bugfix-t2-02</title></circle>
+<circle cx="386.98154" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c4-c5 bugfix-t2-02</title></circle>
+<circle cx="676.47388" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c4-c6 bugfix-t2-02</title></circle>
+<circle cx="722.9400999999999" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c5-c6 bugfix-t2-02</title></circle>
+<circle cx="548.63924" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c1-c2 bugfix-t2-03</title></circle>
+<circle cx="293.77023" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c1-c3 bugfix-t2-03</title></circle>
+<circle cx="476.26023000000004" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c1-c4 bugfix-t2-03</title></circle>
+<circle cx="450.51571" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c1-c5 bugfix-t2-03</title></circle>
+<circle cx="659.16261" cy="376.66682000000003" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c1-c6 bugfix-t2-03</title></circle>
+<circle cx="596.38447" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c2-c3 bugfix-t2-03</title></circle>
+<circle cx="481.74125000000004" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c2-c4 bugfix-t2-03</title></circle>
+<circle cx="652.34333" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c2-c5 bugfix-t2-03</title></circle>
+<circle cx="560.01682" cy="376.66682000000003" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c2-c6 bugfix-t2-03</title></circle>
+<circle cx="585.41216" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c3-c4 bugfix-t2-03</title></circle>
+<circle cx="419.16693" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c3-c5 bugfix-t2-03</title></circle>
+<circle cx="702.35428" cy="376.66682000000003" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c3-c6 bugfix-t2-03</title></circle>
+<circle cx="389.57511" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c4-c5 bugfix-t2-03</title></circle>
+<circle cx="568.88299" cy="376.66682000000003" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c4-c6 bugfix-t2-03</title></circle>
+<circle cx="757.21583" cy="376.66682000000003" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c5-c6 bugfix-t2-03</title></circle>
+<circle cx="437.94128" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c1-c2 bugfix-t2-04</title></circle>
+<circle cx="234.83307" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c1-c3 bugfix-t2-04</title></circle>
+<circle cx="487.19462" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c1-c4 bugfix-t2-04</title></circle>
+<circle cx="506.33473999999995" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c1-c5 bugfix-t2-04</title></circle>
+<circle cx="659.8586" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c1-c6 bugfix-t2-04</title></circle>
+<circle cx="446.96308" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c2-c3 bugfix-t2-04</title></circle>
+<circle cx="430.38256" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c2-c4 bugfix-t2-04</title></circle>
+<circle cx="446.59731" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c2-c5 bugfix-t2-04</title></circle>
+<circle cx="588.71357" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c2-c6 bugfix-t2-04</title></circle>
+<circle cx="564.0" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c3-c4 bugfix-t2-04</title></circle>
+<circle cx="587.4077" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c3-c5 bugfix-t2-04</title></circle>
+<circle cx="698.43588" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c3-c6 bugfix-t2-04</title></circle>
+<circle cx="221.66693" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c4-c5 bugfix-t2-04</title></circle>
+<circle cx="554.14238" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c4-c6 bugfix-t2-04</title></circle>
+<circle cx="559.36744" cy="530.0" r="4.2" fill="#2563eb" fill-opacity="0.68"><title>c5-c6 bugfix-t2-04</title></circle>
+<circle cx="400.75203" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c1-c2 rename-t2-01</title></circle>
+<circle cx="188.97278" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c1-c3 rename-t2-01</title></circle>
+<circle cx="411.88865999999996" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c1-c4 rename-t2-01</title></circle>
+<circle cx="302.71145" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c1-c5 rename-t2-01</title></circle>
+<circle cx="584.71775" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c1-c6 rename-t2-01</title></circle>
+<circle cx="406.76313999999996" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c2-c3 rename-t2-01</title></circle>
+<circle cx="417.03314" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c2-c4 rename-t2-01</title></circle>
+<circle cx="498.45291" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c2-c5 rename-t2-01</title></circle>
+<circle cx="575.73545" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c2-c6 rename-t2-01</title></circle>
+<circle cx="397.37162" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c3-c4 rename-t2-01</title></circle>
+<circle cx="280.61672999999996" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c3-c5 rename-t2-01</title></circle>
+<circle cx="556.15846" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c3-c6 rename-t2-01</title></circle>
+<circle cx="335.17018" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c4-c5 rename-t2-01</title></circle>
+<circle cx="635.3899299999999" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c4-c6 rename-t2-01</title></circle>
+<circle cx="593.14231" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c5-c6 rename-t2-01</title></circle>
+<circle cx="441.91972" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c1-c2 rename-t2-02</title></circle>
+<circle cx="257.95163" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c1-c3 rename-t2-02</title></circle>
+<circle cx="413.63061" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c1-c4 rename-t2-02</title></circle>
+<circle cx="340.16693" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c1-c5 rename-t2-02</title></circle>
+<circle cx="571.73647" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c1-c6 rename-t2-02</title></circle>
+<circle cx="398.92870999999997" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c2-c3 rename-t2-02</title></circle>
+<circle cx="446.46222" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c2-c4 rename-t2-02</title></circle>
+<circle cx="475.40071" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c2-c5 rename-t2-02</title></circle>
+<circle cx="565.20633" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c2-c6 rename-t2-02</title></circle>
+<circle cx="396.17556" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c3-c4 rename-t2-02</title></circle>
+<circle cx="302.1861" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c3-c5 rename-t2-02</title></circle>
+<circle cx="520.68193" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c3-c6 rename-t2-02</title></circle>
+<circle cx="328.59185" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c4-c5 rename-t2-02</title></circle>
+<circle cx="634.15042" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c4-c6 rename-t2-02</title></circle>
+<circle cx="589.0817099999999" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c5-c6 rename-t2-02</title></circle>
+<circle cx="448.53913" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c1-c2 rename-t2-03</title></circle>
+<circle cx="245.80538" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c1-c3 rename-t2-03</title></circle>
+<circle cx="386.93651" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c1-c4 rename-t2-03</title></circle>
+<circle cx="309.48175" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c1-c5 rename-t2-03</title></circle>
+<circle cx="568.6136" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c1-c6 rename-t2-03</title></circle>
+<circle cx="436.31783" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c2-c3 rename-t2-03</title></circle>
+<circle cx="441.89286" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c2-c4 rename-t2-03</title></circle>
+<circle cx="506.76292" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c2-c5 rename-t2-03</title></circle>
+<circle cx="553.31367" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c2-c6 rename-t2-03</title></circle>
+<circle cx="378.28364" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c3-c4 rename-t2-03</title></circle>
+<circle cx="288.0372" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c3-c5 rename-t2-03</title></circle>
+<circle cx="544.41906" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c3-c6 rename-t2-03</title></circle>
+<circle cx="281.89416" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c4-c5 rename-t2-03</title></circle>
+<circle cx="602.0250699999999" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c4-c6 rename-t2-03</title></circle>
+<circle cx="595.3977600000001" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c5-c6 rename-t2-03</title></circle>
+<circle cx="377.92577" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c1-c2 rename-t2-04</title></circle>
+<circle cx="253.66114" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c1-c3 rename-t2-04</title></circle>
+<circle cx="418.85803999999996" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c1-c4 rename-t2-04</title></circle>
+<circle cx="338.96691999999996" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c1-c5 rename-t2-04</title></circle>
+<circle cx="545.40735" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c1-c6 rename-t2-04</title></circle>
+<circle cx="427.39241" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c2-c3 rename-t2-04</title></circle>
+<circle cx="438.66886999999997" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c2-c4 rename-t2-04</title></circle>
+<circle cx="474.53487" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c2-c5 rename-t2-04</title></circle>
+<circle cx="556.4215300000001" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c2-c6 rename-t2-04</title></circle>
+<circle cx="416.4201" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c3-c4 rename-t2-04</title></circle>
+<circle cx="322.74427000000003" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c3-c5 rename-t2-04</title></circle>
+<circle cx="621.41246" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c3-c6 rename-t2-04</title></circle>
+<circle cx="333.48669" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c4-c5 rename-t2-04</title></circle>
+<circle cx="603.0734" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c4-c6 rename-t2-04</title></circle>
+<circle cx="597.8388600000001" cy="530.0" r="4.2" fill="#059669" fill-opacity="0.68"><title>c5-c6 rename-t2-04</title></circle>
+<rect x="730" y="90" width="12" height="12" rx="2" fill="#2563eb"/>
+<text x="750" y="100" class="axis">bug_fix</text>
+<rect x="730" y="114" width="12" height="12" rx="2" fill="#059669"/>
+<text x="750" y="124" class="axis">rename</text>
+<rect x="730" y="138" width="12" height="12" rx="2" fill="#d97706"/>
+<text x="750" y="148" class="axis">add_tests</text>
+<rect x="730" y="162" width="12" height="12" rx="2" fill="#7c3aed"/>
+<text x="750" y="172" class="axis">add_logging</text>
+<rect x="730" y="186" width="12" height="12" rx="2" fill="#dc2626"/>
+<text x="750" y="196" class="axis">benchmark</text>
+</svg>

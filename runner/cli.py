@@ -23,6 +23,7 @@ from runner.phase3_attribution import (
     write_phase3_attribution_outputs,
 )
 from runner.phase4_readiness import validate_phase4_readiness
+from runner.phase4_analysis import build_phase4_analysis, write_phase4_outputs
 from runner.provision import load_tasks
 from runner.phase2_validation import validate_phase2
 from runner.runner import DEFAULT_TIMEOUT_S, run_once
@@ -158,6 +159,14 @@ def main(argv: list[str] | None = None) -> int:
     )
     phase4_ready.add_argument("--skip-phase2-gate", action="store_true", help="skip VPS private/raw artifact checks")
     phase4_ready.add_argument("--indent", type=int, default=2, help="JSON indentation; use 0 for one line")
+
+    phase4_analysis = sub.add_parser(
+        "phase4-analysis",
+        help="build Phase 4 metrics, figures, HCI case pack, and report support artifacts",
+    )
+    phase4_analysis.add_argument("--skip-readiness-gate", action="store_true", help="skip the Phase 4 readiness gate")
+    phase4_analysis.add_argument("--dry-run", action="store_true", help="print metrics JSON without writing artifacts")
+    phase4_analysis.add_argument("--indent", type=int, default=2, help="JSON indentation; use 0 for one line")
 
     args = parser.parse_args(argv)
     if args.cmd == "run":
@@ -341,6 +350,28 @@ def main(argv: list[str] | None = None) -> int:
         indent = None if args.indent == 0 else args.indent
         print(json.dumps(report, ensure_ascii=False, indent=indent, sort_keys=True))
         return 0 if report["ok"] else 1
+
+    if args.cmd == "phase4-analysis":
+        try:
+            analysis = build_phase4_analysis(run_readiness_gate=not args.skip_readiness_gate)
+        except ValueError as exc:
+            print(json.dumps({"ok": False, "error": "phase4_readiness_failed", "detail": str(exc)}, ensure_ascii=False))
+            return 1
+        indent = None if args.indent == 0 else args.indent
+        if args.dry_run:
+            print(json.dumps(analysis, ensure_ascii=False, indent=indent, sort_keys=True))
+            return 0
+        outputs = write_phase4_outputs(analysis)
+        print(json.dumps({
+            "ok": True,
+            "analysis": str(outputs["analysis"]),
+            "report": str(outputs["report"]),
+            "support_report": str(outputs["support_report"]),
+            "hci_case_pack": str(outputs["hci_case_pack"]),
+            "traceability": str(outputs["traceability"]),
+            "figures": outputs["figures"],
+        }, ensure_ascii=False, indent=indent, sort_keys=True))
+        return 0
 
     parser.error(f"unknown command: {args.cmd}")
     return 2

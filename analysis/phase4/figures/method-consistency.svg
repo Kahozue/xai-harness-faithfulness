@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="400" viewBox="0 0 920 400">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#202124}.title{font-size:18px;font-weight:700}.axis{font-size:12px;fill:#5f6368}.label{font-size:12px}.value{font-size:11px;fill:#3c4043}</style>
+<text x="40" y="42" class="title">Phase 3 method-consistency label matrix</text>
+<text x="40" y="66" class="axis">Counts of HCI labels by factorial attribution and decision kind.</text>
+<text x="325.0" y="88" class="axis" text-anchor="middle">initial_tool_strategy</text>
+<text x="495.0" y="88" class="axis" text-anchor="middle">semantic_output_convention</text>
+<text x="665.0" y="88" class="axis" text-anchor="middle">task_success_gap</text>
+<text x="40" y="134" class="label">harness_main_effect</text>
+<rect x="240" y="100" width="164" height="50" rx="4" fill="#7c3aed" stroke="#e2e8f0"/>
+<text x="322.0" y="133" class="value" text-anchor="middle">6</text>
+<rect x="410" y="100" width="164" height="50" rx="4" fill="#f8fafc" stroke="#e2e8f0"/>
+<text x="492.0" y="133" class="value" text-anchor="middle">0</text>
+<rect x="580" y="100" width="164" height="50" rx="4" fill="#f8fafc" stroke="#e2e8f0"/>
+<text x="662.0" y="133" class="value" text-anchor="middle">0</text>
+<text x="40" y="190" class="label">interaction</text>
+<rect x="240" y="156" width="164" height="50" rx="4" fill="#f8fafc" stroke="#e2e8f0"/>
+<text x="322.0" y="189" class="value" text-anchor="middle">0</text>
+<rect x="410" y="156" width="164" height="50" rx="4" fill="#ba9af4" stroke="#e2e8f0"/>
+<text x="492.0" y="189" class="value" text-anchor="middle">3</text>
+<rect x="580" y="156" width="164" height="50" rx="4" fill="#915af0" stroke="#e2e8f0"/>
+<text x="662.0" y="189" class="value" text-anchor="middle">5</text>
+<text x="40" y="246" class="label">model_main_effect</text>
+<rect x="240" y="212" width="164" height="50" rx="4" fill="#7c3aed" stroke="#e2e8f0"/>
+<text x="322.0" y="245" class="value" text-anchor="middle">6</text>
+<rect x="410" y="212" width="164" height="50" rx="4" fill="#f8fafc" stroke="#e2e8f0"/>
+<text x="492.0" y="245" class="value" text-anchor="middle">0</text>
+<rect x="580" y="212" width="164" height="50" rx="4" fill="#f8fafc" stroke="#e2e8f0"/>
+<text x="662.0" y="245" class="value" text-anchor="middle">0</text>
+<text x="40" y="366" class="axis">Unanimous M1-M4 labels: 10/20 (0.50)</text>
+</svg>
