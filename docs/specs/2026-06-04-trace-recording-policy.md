@@ -20,8 +20,10 @@ Phase 2 baseline traces are evidence of the observed chosen-tool path. The
 public `tool_calls` array is the primary dependent variable for tool-selection
 divergence: ordered tool names plus compact argument summaries. The baseline
 does not claim to expose every unchosen alternative or hidden rationale. The
-`decision_points` array remains empty until Phase 3 attribution code populates
-it from dossier-backed perturbation and trace-review work.
+committed Phase 2 `decision_points` array remains empty. Phase 3 attribution
+labels are stored under `analysis/phase3/` and may reference baseline and
+counterfactual traces; they do not backfill hidden alternatives into the
+baseline trace files.
 
 ## Non-negotiable rules
 

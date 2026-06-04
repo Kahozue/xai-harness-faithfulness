@@ -29,7 +29,7 @@ Scope: select auditable high-divergence Phase 2 chosen-tool sequence pairs for P
 
 ## Phase 3 usage
 
-Use these seeds as the initial M1-M4 queue. For each seed, Phase 3 should inspect the referenced private audit/raw traces, define the concrete observable decision point, then run the relevant system-prompt ablation, tool-definition perturbation, task counterfactual, and planning-trace review where the harness supports it.
+Use these seeds as the initial M1-M4 queue. For each seed, Phase 3 should inspect the referenced private audit/raw traces, define the concrete observable decision point, then attach the relevant M1/M2 source-derived prompt/tool-surface evidence, run direct M3 task counterfactuals where needed, and compare M4 planning-trace visibility.
 
-Boundary: Phase 2 traces have `decision_points=[]`; this file does not invent hidden alternatives. It records chosen-tool divergence seeds that Phase 3 must validate through perturbation and white-box evidence.
+Boundary: Phase 2 traces have `decision_points=[]`; this file does not invent hidden alternatives. It records chosen-tool divergence seeds that Phase 3 must validate through source/dossier evidence, direct counterfactual traces, and white-box trace review.
 

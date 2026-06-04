@@ -61,8 +61,9 @@ selection divergence across harness/model cells.
 Phase 2 baseline traces do not directly expose every unchosen tool alternative
 or hidden internal rationale. The `decision_points` field is intentionally empty
 for all 360 formal traces. Decision-point attribution is a Phase 3 task that
-must combine dossier evidence, M1/M2 perturbation experiments, and M4 trace
-review. PPT and report text should describe Phase 2 as chosen-tool-sequence
+combines dossier/source M1/M2 evidence, direct M3 counterfactual traces, and M4
+trace review; direct M1/M2 runtime perturbation is not claimed uniformly across
+closed/native harnesses. PPT and report text should describe Phase 2 as chosen-tool-sequence
 evidence, not as complete internal decision-tree evidence.
 
 ## Isolation and one-shot status

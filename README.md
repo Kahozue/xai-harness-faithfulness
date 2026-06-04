@@ -21,10 +21,10 @@ When two AI agents produce different tool sequences on the same task, how much o
 bug fix / rename / add tests / add logging / benchmark.
 
 **4 xAI attribution methods (white-box):**
-- M1: System prompt ablation — remove / replace sections
-- M2: Tool definition perturbation — rename, alter docstring, remove specific tool
-- M3: Behavioral counterfactual swap — rewrite task input
-- M4: Planning-loop trace — harness hook intercepts reasoning steps
+- M1: System prompt attribution — source/dossier prompt-layer evidence; direct runtime ablation is recorded only where harness patchability supports it.
+- M2: Tool definition and affordance attribution — source/dossier/tool-surface evidence; direct uniform tool-schema perturbation is not claimed across closed/native harnesses.
+- M3: Behavioral counterfactual swap — rewrite task input and execute counterfactual traces.
+- M4: Planning-loop trace — compare public trace visibility and private audit evidence while omitting hidden chain-of-thought.
 
 **Metrics:** Jaccard similarity, disagreement rate, success correlation, five-dimension agent-card matrix (fidelity / stability / robustness / actionability / governability).
 
@@ -54,9 +54,12 @@ labels.
 Baseline traces record the observed chosen-tool sequence: ordered tool names,
 argument summaries, timestamps where available, outcome, tokens, evidence level,
 raw artifact paths, and private audit path. They do not directly record every
-unselected alternative tool or hidden internal rationale. The `decision_points`
-field is reserved for Phase 3 attribution work that combines dossier evidence,
-M1/M2 perturbations, and M4 trace review.
+unselected alternative tool or hidden internal rationale. Phase 2 baseline
+traces keep `decision_points=[]`; Phase 3 attribution labels live under
+`analysis/phase3/` and combine source/dossier M1/M2 evidence, direct M3
+counterfactual traces, and M4 trace review.
+
+Current committed status: Phase 2 formal baselines and Phase 3 attribution/HCI labels are complete. The Phase 3 interface for downstream analysis is `analysis/phase3/hci-ground-truth-labels.json`.
 
 ## Research Questions
 
@@ -70,7 +73,14 @@ M1/M2 perturbations, and M4 trace review.
 ## Repository Structure
 
 ```
-proposal.pdf    Experiment proposal
+proposal.pdf       Experiment proposal
+runner/            Experiment runner, adapters, validators, Phase 3 analysis commands
+tasks/             Agentic task suite and graders
+traces/            Committed normalized public traces
+analysis/phase3/   Phase 3 seed manifest, attribution records, HCI labels
+docs/specs/        Study design and trace recording policy
+docs/verification/ Phase completion reports and validation notes
 ```
 
-Experiment scripts, traces, and analysis will be added as the study progresses.
+Full private audits and raw harness logs are intentionally outside git under
+`/data/harness-lab/` on the VPS.

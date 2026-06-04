@@ -20159,7 +20159,7 @@
   "phase": "phase3_decision_point_seed_selection",
   "schema_version": 1,
   "scoring": {
-    "note": "These are chosen-tool-sequence seeds; hidden alternatives are measured in Phase 3 perturbation and trace review.",
+    "note": "These are chosen-tool-sequence seeds; hidden alternatives are evaluated in Phase 3 through source-derived M1/M2 evidence, direct M3 counterfactuals, and M4 trace review.",
     "selection_score": "sequence_divergence + 0.25 * success_gap",
     "sequence_divergence": "mean pairwise blend of 1-Jaccard(tool families) and normalized Levenshtein(tool-family sequences)"
   },

@@ -215,18 +215,22 @@ raw_log_path, env_lock_ref, timestamp
 
 四法皆做、四 harness 皆做；每法跑在**有分歧的 decision-point 子集**（歸因最重要之處），而非機械式全 20×6，以兼顧忠於 proposal 與期限可完成。
 
-| 方法 | 內容 | 各 harness 實作途徑 |
+Phase 3 實際完成口徑（2026-06-04）：M1/M2 不宣稱四 harness 都做了 uniform direct runtime ablation/perturbation。Claude/Codex/OpenCode/Hermes 的 prompt/tool patchability 不同，因此 M1/M2 以 source/dossier/tool-surface evidence 做可稽核歸因；M3 使用直接 counterfactual traces；M4 使用 public traces 與 private audits 的 trace visibility evidence，且不轉錄 hidden chain-of-thought。
+
+| 方法 | 完成內容 | Evidence boundary |
 |------|------|------|
-| M1 system prompt ablation | 移除／替換 system prompt 段落 | CC：依 2.1.88 restored-src 定位段落，patch 安裝後 cli.js 或用支援的覆寫機制；OpenCode/Codex/Hermes：改其 prompt 來源 |
-| M2 tool 定義擾動 | rename、改 docstring、移除特定 tool | 各 harness 改其 tool registry / 定義（CC 可經 MCP 工具覆寫 + restored-src 參照） |
-| M3 行為 counterfactual swap | 改寫 task input | harness-agnostic，統一在 task 層改寫 |
-| M4 planning-loop trace | hook 攔截 reasoning step | CC：claude-trace 擷取；OpenCode/Codex/Hermes：各自 hook/trace |
+| M1 system prompt attribution | system prompt / instruction stack 的來源、可見度、可 patch 層與 config 差異 | source-derived；不宣稱所有 harness 都完成 direct runtime prompt ablation |
+| M2 tool definition and affordance attribution | tool registry / tool surface / CLI affordance 與觀察到的 tool-family sequence 差異 | source-derived；不宣稱所有 harness 都完成 direct uniform tool-schema perturbation |
+| M3 行為 counterfactual swap | 改寫 task input 並執行 repeat 301-312、401/403/404 counterfactual traces | direct-run |
+| M4 planning-loop trace | 比對 baseline/counterfactual trace visibility、tool calls、reasoning markers、private audit evidence | direct trace evidence；hidden CoT omitted |
 
 每個方法 × decision point 量測 attribution 如何位移；交叉比較四法是否對同一 decision point 給出一致歸因（→ RQ1）。
 
 ---
 
 ## 9. Phase 4 — 指標與分析
+
+Phase 4 的輸入是 Phase 2 formal repeats 1-3 的 committed traces，加上 Phase 3 的 `analysis/phase3/hci-ground-truth-labels.json` 與 `analysis/phase3/attribution-results.json`。Phase 3 repeat 301-312、401/403/404 只能用於 attribution/context，不可混入 Phase 2 factorial baseline statistics。
 
 **核心指標**
 - **Jaccard 相似度**：兩 config 在同 task 的 tool 集合重疊。

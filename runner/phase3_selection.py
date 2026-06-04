@@ -286,7 +286,7 @@ def build_phase3_seed_manifest(
         "scoring": {
             "sequence_divergence": "mean pairwise blend of 1-Jaccard(tool families) and normalized Levenshtein(tool-family sequences)",
             "selection_score": f"sequence_divergence + {SUCCESS_GAP_WEIGHT} * success_gap",
-            "note": "These are chosen-tool-sequence seeds; hidden alternatives are measured in Phase 3 perturbation and trace review.",
+            "note": "These are chosen-tool-sequence seeds; hidden alternatives are evaluated in Phase 3 through source-derived M1/M2 evidence, direct M3 counterfactuals, and M4 trace review.",
         },
         "strata": STRATA,
         "per_stratum": per_stratum,
@@ -334,9 +334,9 @@ def render_phase3_seed_report(manifest: dict[str, Any]) -> str:
         "",
         "## Phase 3 usage",
         "",
-        "Use these seeds as the initial M1-M4 queue. For each seed, Phase 3 should inspect the referenced private audit/raw traces, define the concrete observable decision point, then run the relevant system-prompt ablation, tool-definition perturbation, task counterfactual, and planning-trace review where the harness supports it.",
+        "Use these seeds as the initial M1-M4 queue. For each seed, Phase 3 should inspect the referenced private audit/raw traces, define the concrete observable decision point, then attach the relevant M1/M2 source-derived prompt/tool-surface evidence, run direct M3 task counterfactuals where needed, and compare M4 planning-trace visibility.",
         "",
-        "Boundary: Phase 2 traces have `decision_points=[]`; this file does not invent hidden alternatives. It records chosen-tool divergence seeds that Phase 3 must validate through perturbation and white-box evidence.",
+        "Boundary: Phase 2 traces have `decision_points=[]`; this file does not invent hidden alternatives. It records chosen-tool divergence seeds that Phase 3 must validate through source/dossier evidence, direct counterfactual traces, and white-box trace review.",
         "",
     ])
     return "\n".join(lines)
