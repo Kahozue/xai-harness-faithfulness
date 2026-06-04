@@ -944,7 +944,7 @@ def _slide_map() -> list[dict[str, Any]]:
         {"slide": 23, "title": "Agent-card matrix", "tables": ["agent-card-matrix.csv"], "charts": ["analysis/phase4/figures/agent-card-matrix.svg"], "source": "metrics-summary.agent_cards", "note": "Actionability/governability are coverage gates here, not discriminative rankings."},
         {"slide": 24, "title": "From attribution to action", "tables": ["action-implications.csv", "agent-card-matrix.csv"], "charts": ["charts/attribution-action-map.svg", "analysis/phase4/figures/agent-card-matrix.svg"], "source": "agent_cards + cases", "note": "Translate evidence to prompt/tool-surface governance actions."},
         {"slide": 25, "title": "Limitations", "tables": ["limitations.csv"], "charts": [], "source": "phase4_report + phase4 guardrails", "note": "Include Python-only suite, specialized/general harness comparability, model+provider route, effort non-equivalence, selected labels, and descriptive-stat boundary."},
-        {"slide": 26, "title": "Future work", "tables": ["future-work.csv"], "charts": [], "source": "content-draft.md", "note": "Mention downstream HCI only as future work unless a human study is complete."},
+        {"slide": 26, "title": "Future work", "tables": ["future-work.csv"], "charts": [], "source": "content-draft.md", "note": "Mention downstream HCI human-study only as future work unless a human study is complete."},
         {"slide": 27, "title": "Closing", "tables": ["source-index.csv", "chart-manifest.csv"], "charts": [], "source": "content-draft.md", "note": "Close on faithful observable attribution: not a leaderboard and not mind-reading."},
     ]
 
@@ -1103,6 +1103,14 @@ def write_phase5_xai_pack(data: dict[str, Any], output_dir: str | Path = DEFAULT
     tables_dir = out / "tables"
     charts_dir = out / "charts"
     charts_dir.mkdir(parents=True, exist_ok=True)
+
+    screenshot_src = _repo_path(DEFAULT_PACK_DIR) / "screenshots"
+    if screenshot_src.exists():
+        screenshot_dir = out / "screenshots"
+        screenshot_dir.mkdir(parents=True, exist_ok=True)
+        for source in screenshot_src.iterdir():
+            if source.is_file():
+                (screenshot_dir / source.name).write_bytes(source.read_bytes())
 
     table_paths = {}
     for name, rows in data["tables"].items():
