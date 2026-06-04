@@ -1,49 +1,232 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="540" viewBox="0 0 1320 540">
-<rect width="1320" height="540" fill="#ffffff"/>
-<style>
-  text { font-family: Arial, Helvetica, sans-serif; fill: #1f2933; }
-  .title { font-size: 28px; font-weight: 700; }
-  .subtitle { font-size: 15px; fill: #64748b; }
-  .label { font-size: 14px; }
-  .small { font-size: 12px; fill: #64748b; }
-  .axis { stroke: #d7dee8; stroke-width: 1; }
-</style>
-<text x="40.0" y="48.0" class="title" text-anchor="start">6 configs: harness x model routing grid</text>
-<text x="40.0" y="76.0" class="subtitle" text-anchor="start">Same model keeps one provider route across harnesses. OpenCode/Hermes are crossed cells; Claude Code/Codex are single-model anchors.</text>
-<text x="412.5" y="150.0" class="label" text-anchor="middle">Claude Code</text>
-<text x="667.5" y="150.0" class="label" text-anchor="middle">OpenCode</text>
-<text x="922.5" y="150.0" class="label" text-anchor="middle">Hermes</text>
-<text x="1177.5" y="150.0" class="label" text-anchor="middle">Codex</text>
-<text x="40.0" y="235.0" class="label" text-anchor="start">Haiku 4.5</text>
-<text x="40.0" y="259.0" class="small" text-anchor="start">Anthropic native</text>
-<rect x="300" y="175" width="225" height="130" fill="#fdeed9" stroke="#d7dee8" rx="8"/>
-<text x="322.0" y="221.0" class="title" text-anchor="start">c1</text>
-<text x="322.0" y="253.0" class="label" text-anchor="start">Claude Code</text>
-<text x="322.0" y="281.0" class="small" text-anchor="start">anchor</text>
-<rect x="555" y="175" width="225" height="130" fill="#f7f9fc" stroke="#d7dee8" rx="8"/>
-<text x="577.0" y="221.0" class="title" text-anchor="start">c2</text>
-<text x="577.0" y="253.0" class="label" text-anchor="start">OpenCode</text>
-<text x="577.0" y="281.0" class="small" text-anchor="start">crossed (interaction)</text>
-<rect x="810" y="175" width="225" height="130" fill="#f7f9fc" stroke="#d7dee8" rx="8"/>
-<text x="832.0" y="221.0" class="title" text-anchor="start">c3</text>
-<text x="832.0" y="253.0" class="label" text-anchor="start">Hermes</text>
-<text x="832.0" y="281.0" class="small" text-anchor="start">crossed (interaction)</text>
-<rect x="1065" y="175" width="225" height="130" fill="#ffffff" stroke="#d7dee8" stroke-dasharray="6 6" rx="8"/>
-<text x="1177.5" y="245.0" class="small" text-anchor="middle">not run</text>
-<text x="40.0" y="405.0" class="label" text-anchor="start">GPT-5.4-mini</text>
-<text x="40.0" y="429.0" class="small" text-anchor="start">OpenAI native</text>
-<rect x="300" y="345" width="225" height="130" fill="#ffffff" stroke="#d7dee8" stroke-dasharray="6 6" rx="8"/>
-<text x="412.5" y="415.0" class="small" text-anchor="middle">not run</text>
-<rect x="555" y="345" width="225" height="130" fill="#f7f9fc" stroke="#d7dee8" rx="8"/>
-<text x="577.0" y="391.0" class="title" text-anchor="start">c4</text>
-<text x="577.0" y="423.0" class="label" text-anchor="start">OpenCode</text>
-<text x="577.0" y="451.0" class="small" text-anchor="start">crossed (interaction)</text>
-<rect x="810" y="345" width="225" height="130" fill="#f7f9fc" stroke="#d7dee8" rx="8"/>
-<text x="832.0" y="391.0" class="title" text-anchor="start">c5</text>
-<text x="832.0" y="423.0" class="label" text-anchor="start">Hermes</text>
-<text x="832.0" y="451.0" class="small" text-anchor="start">crossed (interaction)</text>
-<rect x="1065" y="345" width="225" height="130" fill="#fdeed9" stroke="#d7dee8" rx="8"/>
-<text x="1087.0" y="391.0" class="title" text-anchor="start">c6</text>
-<text x="1087.0" y="423.0" class="label" text-anchor="start">Codex</text>
-<text x="1087.0" y="451.0" class="small" text-anchor="start">anchor</text>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="516.6pt" height="225.072pt" viewBox="0 0 516.6 225.072" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.9, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 225.072 
+L 516.6 225.072 
+L 516.6 -0 
+L 0 -0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 111.6576 134.867232 
+L 196.5294 134.867232 
+Q 206.5734 134.867232 206.5734 132.760512 
+L 206.5734 71.244288 
+Q 206.5734 69.137568 196.5294 69.137568 
+L 111.6576 69.137568 
+Q 101.6136 69.137568 101.6136 71.244288 
+L 101.6136 132.760512 
+Q 101.6136 134.867232 111.6576 134.867232 
+z
+" clip-path="url(#pa62be9ca18)" style="fill: #fbeacf; stroke: #e6c997; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 210.591 134.867232 
+L 295.4628 134.867232 
+Q 305.5068 134.867232 305.5068 132.760512 
+L 305.5068 71.244288 
+Q 305.5068 69.137568 295.4628 69.137568 
+L 210.591 69.137568 
+Q 200.547 69.137568 200.547 71.244288 
+L 200.547 132.760512 
+Q 200.547 134.867232 210.591 134.867232 
+z
+" clip-path="url(#pa62be9ca18)" style="fill: #e7eef6; stroke: #bcd0e6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 309.5244 134.867232 
+L 394.3962 134.867232 
+Q 404.4402 134.867232 404.4402 132.760512 
+L 404.4402 71.244288 
+Q 404.4402 69.137568 394.3962 69.137568 
+L 309.5244 69.137568 
+Q 299.4804 69.137568 299.4804 71.244288 
+L 299.4804 132.760512 
+Q 299.4804 134.867232 309.5244 134.867232 
+z
+" clip-path="url(#pa62be9ca18)" style="fill: #e7eef6; stroke: #bcd0e6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 411.471 134.235216 
+L 490.3164 134.235216 
+Q 500.3604 134.235216 500.3604 132.128496 
+L 500.3604 71.876304 
+Q 500.3604 69.769584 490.3164 69.769584 
+L 411.471 69.769584 
+Q 401.427 69.769584 401.427 71.876304 
+L 401.427 132.128496 
+Q 401.427 134.235216 411.471 134.235216 
+z
+" clip-path="url(#pa62be9ca18)" style="fill: #ffffff; stroke-dasharray: 4,4; stroke-dashoffset: 0; stroke: #c9c9c9; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 114.6708 210.077136 
+L 193.5162 210.077136 
+Q 203.5602 210.077136 203.5602 207.970416 
+L 203.5602 147.718224 
+Q 203.5602 145.611504 193.5162 145.611504 
+L 114.6708 145.611504 
+Q 104.6268 145.611504 104.6268 147.718224 
+L 104.6268 207.970416 
+Q 104.6268 210.077136 114.6708 210.077136 
+z
+" clip-path="url(#pa62be9ca18)" style="fill: #ffffff; stroke-dasharray: 4,4; stroke-dashoffset: 0; stroke: #c9c9c9; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 210.591 210.709152 
+L 295.4628 210.709152 
+Q 305.5068 210.709152 305.5068 208.602432 
+L 305.5068 147.086208 
+Q 305.5068 144.979488 295.4628 144.979488 
+L 210.591 144.979488 
+Q 200.547 144.979488 200.547 147.086208 
+L 200.547 208.602432 
+Q 200.547 210.709152 210.591 210.709152 
+z
+" clip-path="url(#pa62be9ca18)" style="fill: #e7eef6; stroke: #bcd0e6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 309.5244 210.709152 
+L 394.3962 210.709152 
+Q 404.4402 210.709152 404.4402 208.602432 
+L 404.4402 147.086208 
+Q 404.4402 144.979488 394.3962 144.979488 
+L 309.5244 144.979488 
+Q 299.4804 144.979488 299.4804 147.086208 
+L 299.4804 208.602432 
+Q 299.4804 210.709152 309.5244 210.709152 
+z
+" clip-path="url(#pa62be9ca18)" style="fill: #e7eef6; stroke: #bcd0e6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 408.4578 210.709152 
+L 493.3296 210.709152 
+Q 503.3736 210.709152 503.3736 208.602432 
+L 503.3736 147.086208 
+Q 503.3736 144.979488 493.3296 144.979488 
+L 408.4578 144.979488 
+Q 398.4138 144.979488 398.4138 147.086208 
+L 398.4138 208.602432 
+Q 398.4138 210.709152 408.4578 210.709152 
+z
+" clip-path="url(#pa62be9ca18)" style="fill: #fbeacf; stroke: #e6c997; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="7.2" y="17.7336" transform="rotate(-0 7.2 17.7336)">6 configs: harness × model routing grid</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 9px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #5a6573" x="7.2" y="36.69408" transform="rotate(-0 7.2 36.69408)">Same model keeps one provider route; OpenCode/Hermes are crossed cells, Claude Code/Codex are anchors.</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 9.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1a1a1a" x="154.0935" y="57.76128" transform="rotate(-0 154.0935 57.76128)">Claude Code</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 9.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1a1a1a" x="253.0269" y="57.76128" transform="rotate(-0 253.0269 57.76128)">OpenCode</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 9.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1a1a1a" x="351.9603" y="57.76128" transform="rotate(-0 351.9603 57.76128)">Hermes</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 9.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1a1a1a" x="450.8937" y="57.76128" transform="rotate(-0 450.8937 57.76128)">Codex</text>
+   </g>
+   <g id="text_7">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="7.2" y="95.68224" transform="rotate(-0 7.2 95.68224)">Haiku 4.5</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 8px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #5a6573" x="7.2" y="113.378688" transform="rotate(-0 7.2 113.378688)">Anthropic native</text>
+   </g>
+   <g id="text_9">
+    <text style="font-weight: 700; font-size: 12.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="115.6752" y="91.890144" transform="rotate(-0 115.6752 91.890144)">c1</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 8.6px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="115.6752" y="108.32256" transform="rotate(-0 115.6752 108.32256)">Claude Code</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 7.6px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #5a6573" x="115.6752" y="122.226912" transform="rotate(-0 115.6752 122.226912)">anchor</text>
+   </g>
+   <g id="text_12">
+    <text style="font-weight: 700; font-size: 12.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="214.6086" y="91.890144" transform="rotate(-0 214.6086 91.890144)">c2</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 8.6px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="214.6086" y="108.32256" transform="rotate(-0 214.6086 108.32256)">OpenCode</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 7.6px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #5a6573" x="214.6086" y="122.226912" transform="rotate(-0 214.6086 122.226912)">crossed (interaction)</text>
+   </g>
+   <g id="text_15">
+    <text style="font-weight: 700; font-size: 12.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="313.542" y="91.890144" transform="rotate(-0 313.542 91.890144)">c3</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 8.6px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="313.542" y="108.32256" transform="rotate(-0 313.542 108.32256)">Hermes</text>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 7.6px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #5a6573" x="313.542" y="122.226912" transform="rotate(-0 313.542 122.226912)">crossed (interaction)</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 8.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #9aa3ad" x="450.8937" y="104.347869" transform="rotate(-0 450.8937 104.347869)">not run</text>
+   </g>
+   <g id="text_19">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="7.2" y="171.52416" transform="rotate(-0 7.2 171.52416)">GPT-5.4-mini</text>
+   </g>
+   <g id="text_20">
+    <text style="font-size: 8px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #5a6573" x="7.2" y="189.220608" transform="rotate(-0 7.2 189.220608)">OpenAI native</text>
+   </g>
+   <g id="text_21">
+    <text style="font-size: 8.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #9aa3ad" x="154.0935" y="180.189789" transform="rotate(-0 154.0935 180.189789)">not run</text>
+   </g>
+   <g id="text_22">
+    <text style="font-weight: 700; font-size: 12.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="214.6086" y="167.732064" transform="rotate(-0 214.6086 167.732064)">c4</text>
+   </g>
+   <g id="text_23">
+    <text style="font-size: 8.6px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="214.6086" y="184.16448" transform="rotate(-0 214.6086 184.16448)">OpenCode</text>
+   </g>
+   <g id="text_24">
+    <text style="font-size: 7.6px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #5a6573" x="214.6086" y="198.068832" transform="rotate(-0 214.6086 198.068832)">crossed (interaction)</text>
+   </g>
+   <g id="text_25">
+    <text style="font-weight: 700; font-size: 12.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="313.542" y="167.732064" transform="rotate(-0 313.542 167.732064)">c5</text>
+   </g>
+   <g id="text_26">
+    <text style="font-size: 8.6px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="313.542" y="184.16448" transform="rotate(-0 313.542 184.16448)">Hermes</text>
+   </g>
+   <g id="text_27">
+    <text style="font-size: 7.6px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #5a6573" x="313.542" y="198.068832" transform="rotate(-0 313.542 198.068832)">crossed (interaction)</text>
+   </g>
+   <g id="text_28">
+    <text style="font-weight: 700; font-size: 12.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="412.4754" y="167.732064" transform="rotate(-0 412.4754 167.732064)">c6</text>
+   </g>
+   <g id="text_29">
+    <text style="font-size: 8.6px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="412.4754" y="184.16448" transform="rotate(-0 412.4754 184.16448)">Codex</text>
+   </g>
+   <g id="text_30">
+    <text style="font-size: 7.6px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #5a6573" x="412.4754" y="198.068832" transform="rotate(-0 412.4754 198.068832)">anchor</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pa62be9ca18">
+   <rect x="7.2" y="7.2" width="502.2" height="210.672"/>
+  </clipPath>
+ </defs>
 </svg>

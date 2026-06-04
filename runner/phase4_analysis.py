@@ -1369,11 +1369,10 @@ def write_phase4_figures(
     figure_root = _repo_path(figure_dir)
     figure_root.mkdir(parents=True, exist_ok=True)
     paths_by_name = {name: figure_root / filename for name, filename in FIGURE_FILES.items()}
-    _render_jaccard_matrix(analysis, paths_by_name["jaccard_matrix"])
-    _render_scatter(analysis, paths_by_name["disagreement_success_scatter"])
-    _render_factorial_bars(analysis, paths_by_name["factorial_contrast_bars"])
-    _render_method_consistency(analysis, paths_by_name["method_consistency"])
-    _render_agent_card_matrix(analysis, paths_by_name["agent_card_matrix"])
+    # Publication-quality rendering is delegated to runner.figures (matplotlib).
+    # The legacy hand-rolled _render_* SVG helpers are kept for reference only.
+    from runner import figures as _figs
+    _figs.render_phase4_figures(analysis, figure_root)
     return {name: _rel(path) for name, path in paths_by_name.items()}
 
 

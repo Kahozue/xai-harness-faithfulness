@@ -1111,26 +1111,13 @@ def write_phase5_xai_pack(data: dict[str, Any], output_dir: str | Path = DEFAULT
         "config-routing-grid.svg": charts_dir / "config-routing-grid.svg",
         "attribution-action-map.svg": charts_dir / "attribution-action-map.svg",
     }
-    _chart_trace_inventory(data, generated_charts["trace-inventory.svg"])
-    _chart_config_success(data, generated_charts["config-success-bars.svg"])
-    _chart_controlled_vs_benchmark(data, generated_charts["controlled-vs-benchmark.svg"])
-    _chart_category_success_cost(data, generated_charts["category-success-cost.svg"])
-    _chart_task_difficulty(data, generated_charts["task-difficulty-ranked.svg"])
-    _chart_task_heatmap(data, generated_charts["task-success-heatmap.svg"])
-    _chart_first_tool_stacked(data, generated_charts["first-tool-family-stacked-by-config.svg"])
-    _chart_phase3_label_summary(data, generated_charts["phase3-label-summary.svg"])
-    _chart_factorial_by_split(data, generated_charts["factorial-by-split.svg"])
-    _chart_research_design_pipeline(data, generated_charts["research-design-pipeline.svg"])
-    _chart_method_ladder(data, generated_charts["method-evidence-ladder.svg"])
-    _chart_environment_controls(data, generated_charts["environment-controls-matrix.svg"])
-    _chart_task_suite(data, generated_charts["task-suite-composition.svg"])
-    _chart_trace_schema(data, generated_charts["trace-schema-evidence.svg"])
-    _chart_config_routing_matrix(data, generated_charts["config-routing-grid.svg"])
-    _chart_action_map(data, generated_charts["attribution-action-map.svg"])
+    # Publication-quality rendering delegated to runner.figures (matplotlib).
+    # The legacy hand-rolled _chart_* SVG helpers are kept for reference only.
+    from runner import figures as _figs
+    _figs.render_phase5_charts(out_dir=charts_dir)
 
-    for i, case in enumerate(_read_json(PHASE4_CASE_PACK).get("cases", []), start=1):
+    for i in range(1, len(_read_json(PHASE4_CASE_PACK).get("cases", [])) + 1):
         path = charts_dir / f"xai-case-card-{i:02d}.svg"
-        _chart_case_card(case, path, i)
         generated_charts[path.name] = path
 
     generated_chart_paths = {name: _rel(path) for name, path in generated_charts.items()}
