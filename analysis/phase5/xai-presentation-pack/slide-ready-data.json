@@ -1,6 +1,8 @@
 {
   "boundary": {
     "baseline_statistics": "Formal Phase 2 repeats 1-3 only.",
+    "canonical_deck_basis": "analysis/phase5/xai-presentation-pack/deck/content-draft.md (27 slides)",
+    "deprecated_deck": "analysis/phase5/xai-presentation-pack/deck/index.html is not a canonical source.",
     "nonformal_traces": "Pilot repeat 0 and Phase 3 counterfactual/extra repeats may be used for examples, not baseline rates.",
     "pptx_created": false,
     "scope": "XAI deck support only; HCI human-study metrics are intentionally deferred.",
@@ -238,9 +240,9 @@
   "slide_map": [
     {
       "charts": [],
-      "note": "No data claim needed.",
+      "note": "No data claim needed; old 24-slide HTML deck is deprecated.",
       "slide": 1,
-      "source": "phase5_structure",
+      "source": "content-draft.md",
       "tables": [],
       "title": "Cover"
     },
@@ -248,130 +250,164 @@
       "charts": [
         "charts/xai-case-card-01.svg"
       ],
-      "note": "Use one concrete same-task divergence as the hook.",
+      "note": "Use one concrete same-task divergence only as the hook, not as a prevalence claim.",
       "slide": 2,
       "source": "phase4_case_pack",
       "tables": [
-        "case_candidates.csv"
+        "case-candidates.csv"
       ],
       "title": "Background and motivation"
     },
     {
       "charts": [],
-      "note": "Do not add HCI human-study metrics.",
+      "note": "Define faithfulness as observable attribution support, not hidden chain-of-thought access.",
       "slide": 3,
-      "source": "phase5_structure",
+      "source": "content-draft.md",
       "tables": [],
-      "title": "Research questions RQ1-RQ4"
+      "title": "Faithfulness definition and RQ1-RQ4"
+    },
+    {
+      "charts": [
+        "charts/config-routing-grid.svg"
+      ],
+      "note": "Introduce Claude Code, Codex CLI, OpenCode, and Hermes before comparing behavior.",
+      "slide": 4,
+      "source": "dossiers + metrics-summary.config_metadata",
+      "tables": [
+        "config-summary.csv"
+      ],
+      "title": "What is a harness and why these four"
+    },
+    {
+      "charts": [
+        "charts/first-tool-family-stacked-by-config.svg"
+      ],
+      "note": "Connect prompt/tool/planning/memory differences to later M1/M2 attribution.",
+      "slide": 5,
+      "source": "dossiers + traces",
+      "tables": [
+        "environment-controls.csv"
+      ],
+      "title": "Harness mechanism comparison"
+    },
+    {
+      "charts": [
+        "charts/method-evidence-ladder.svg"
+      ],
+      "note": "M1/M2 are source/dossier/tool-surface evidence, not uniform runtime ablations.",
+      "slide": 6,
+      "source": "phase3_attribution",
+      "tables": [
+        "method-consistency.csv"
+      ],
+      "title": "Why white-box M1-M4 attribution"
     },
     {
       "charts": [
         "charts/research-design-pipeline.svg"
       ],
-      "note": "6 configs x 20 tasks x 3 formal repeats.",
-      "slide": 4,
+      "note": "6 configs x 20 tasks x 3 formal repeats; counterfactual repeats are method/case evidence only.",
+      "slide": 7,
       "source": "metrics-summary.overall",
       "tables": [
-        "headline_stats.csv"
+        "headline-stats.csv"
       ],
       "title": "Research design overview"
     },
     {
       "charts": [
-        "charts/method-evidence-ladder.svg"
+        "charts/config-routing-grid.svg"
       ],
-      "note": "Contrast black-box success with attribution evidence.",
-      "slide": 5,
-      "source": "phase3_attribution",
+      "note": "Claude Code and Codex are anchor cells; OpenCode/Hermes form crossed cells. Model effect is model+provider route.",
+      "slide": 8,
+      "source": "metrics-summary.config_metadata",
       "tables": [
-        "method_consistency.csv"
+        "config-summary.csv"
       ],
-      "title": "Why white-box attribution"
+      "title": "6 configs and source separation"
     },
     {
       "charts": [],
-      "note": "Keep as rationale table.",
-      "slide": 6,
+      "note": "Explain Antigravity, reverse-proxy, benchmark, and SWE-bench exclusions.",
+      "slide": 9,
       "source": "design spec / phase4 guardrails",
       "tables": [
-        "design_tradeoffs.csv"
+        "design-tradeoffs.csv"
       ],
       "title": "Design decisions and tradeoffs"
     },
     {
       "charts": [
+        "charts/research-design-pipeline.svg"
+      ],
+      "note": "Show provision, clean HOME, capture, mutation guard, hidden grader, normalization, immutable trace.",
+      "slide": 10,
+      "source": "runner + trace policy",
+      "tables": [
+        "source-index.csv"
+      ],
+      "title": "Detailed experiment pipeline"
+    },
+    {
+      "charts": [
         "charts/environment-controls-matrix.svg"
       ],
-      "note": "Token/thinking/context boundary differs by harness; cite exact route.",
-      "slide": 7,
+      "note": "Effort/token/thinking/context controls differ by harness; cite exact route and empty-field boundary.",
+      "slide": 11,
       "source": "metrics-summary.environment_controls",
       "tables": [
-        "environment_controls.csv"
+        "environment-controls.csv"
       ],
       "title": "Environment locks and reproducibility"
     },
     {
       "charts": [
-        "charts/config-routing-grid.svg",
-        "charts/config-success-bars.svg"
+        "charts/trace-inventory.svg"
       ],
-      "note": "Claude Code and Codex are anchor cells; OpenCode/Hermes form crossed cells.",
-      "slide": 8,
-      "source": "metrics-summary.config_metadata",
+      "note": "Per-run HOME, hidden-test handling, repo mutation guard, and Phase 2 reset are design evidence.",
+      "slide": 12,
+      "source": "phase2 isolation report + trace policy",
       "tables": [
-        "config_summary.csv"
+        "source-index.csv"
       ],
-      "title": "6 configs, routing, isolation"
+      "title": "Isolation and contamination controls"
     },
     {
       "charts": [
         "charts/task-suite-composition.svg"
       ],
-      "note": "Benchmark and controlled tasks have different provenance and should be separated.",
-      "slide": 9,
+      "note": "Hidden pytest/unittest graders, no LLM judge; benchmark and controlled provenance stay separate.",
+      "slide": 13,
       "source": "tasks/registry.yaml",
       "tables": [
-        "task_suite.csv",
-        "category_summary.csv"
+        "task-suite.csv",
+        "category-summary.csv"
       ],
-      "title": "Task suite"
+      "title": "Task suite and grading"
     },
     {
       "charts": [
         "charts/trace-schema-evidence.svg",
-        "charts/trace-inventory.svg"
-      ],
-      "note": "Sanitized public trace plus VPS private/raw replay refs.",
-      "slide": 10,
-      "source": "traces + trace schema",
-      "tables": [
-        "trace_inventory.csv"
-      ],
-      "title": "Runner + normalized trace schema"
-    },
-    {
-      "charts": [
         "charts/method-evidence-ladder.svg"
       ],
-      "note": "State evidence boundary per method.",
-      "slide": 11,
-      "source": "phase3_attribution",
+      "note": "State direct/source-derived/inferred/unknown evidence levels.",
+      "slide": 14,
+      "source": "traces + trace schema",
       "tables": [
-        "method_consistency.csv"
+        "trace-inventory.csv"
       ],
-      "title": "M1-M4 attribution methods"
+      "title": "Normalized trace schema and evidence levels"
     },
     {
       "charts": [
         "screenshots/runner-cli-execution.png",
-        "screenshots/claude-trace-system-prompt.png",
-        "charts/trace-inventory.svg"
+        "screenshots/claude-trace-system-prompt.png"
       ],
-      "note": "Real sanitized screenshots from the VPS private layer (see screenshots/README.md); the system prompt is deliberately shown per user decision 2026-06-04; secret/PII scan clean.",
-      "slide": 12,
+      "note": "Show sanitized real execution evidence; do not dwell on git storage policy.",
+      "slide": 15,
       "source": "raw/private refs + sanitized screenshots",
       "tables": [
-        "source_index.csv"
+        "source-index.csv"
       ],
       "title": "Execution reality"
     },
@@ -379,12 +415,12 @@
       "charts": [
         "charts/trace-inventory.svg"
       ],
-      "note": "Formal baseline is 360, not 396.",
-      "slide": 13,
+      "note": "Formal baseline is 360, not 396 public JSON traces.",
+      "slide": 16,
       "source": "metrics-summary.overall",
       "tables": [
-        "headline_stats.csv",
-        "trace_inventory.csv"
+        "headline-stats.csv",
+        "trace-inventory.csv"
       ],
       "title": "Data scale"
     },
@@ -394,10 +430,10 @@
         "charts/factorial-by-split.svg"
       ],
       "note": "Do not mix benchmark low success into controlled conclusions.",
-      "slide": 14,
+      "slide": 17,
       "source": "metrics-summary.overall.task_splits",
       "tables": [
-        "task_split_summary.csv"
+        "task-split-summary.csv"
       ],
       "title": "Controlled vs benchmark split"
     },
@@ -405,25 +441,25 @@
       "charts": [
         "analysis/phase4/figures/jaccard-matrix.svg"
       ],
-      "note": "Answers how large tool-set differences are.",
-      "slide": 15,
-      "source": "metrics-summary.pairwise",
+      "note": "Tool names are canonicalized into families before comparison.",
+      "slide": 18,
+      "source": "metrics-summary.pairwise + phase3 seed selection",
       "tables": [
-        "pairwise_observations.csv"
+        "pairwise-observations.csv"
       ],
-      "title": "Jaccard matrix"
+      "title": "Jaccard and sequence disagreement"
     },
     {
       "charts": [
         "analysis/phase4/figures/factorial-contrast-bars.svg",
         "charts/factorial-by-split.svg"
       ],
-      "note": "Anchor-cell boundary: Claude Code and Codex are not fully crossed.",
-      "slide": 16,
+      "note": "Use descriptive language; interaction claims rely on OpenCode/Hermes crossed cells.",
+      "slide": 19,
       "source": "metrics-summary.factorial_decomposition",
       "tables": [
-        "factorial_summary.csv",
-        "factorial_by_split.csv"
+        "factorial-summary.csv",
+        "factorial-by-split.csv"
       ],
       "title": "Factorial decomposition"
     },
@@ -431,11 +467,11 @@
       "charts": [
         "analysis/phase4/figures/disagreement-success-scatter.svg"
       ],
-      "note": "Near-zero correlation is a finding, not proof of no risk.",
-      "slide": 17,
+      "note": "Near-zero descriptive correlation is a finding, not proof of no risk or causal independence.",
+      "slide": 20,
       "source": "metrics-summary.success_association",
       "tables": [
-        "success_association.csv"
+        "success-association.csv"
       ],
       "title": "Disagreement vs success"
     },
@@ -445,38 +481,36 @@
         "charts/phase3-label-summary.svg"
       ],
       "note": "Labels are selected high-divergence decision points, not prevalence estimates.",
-      "slide": 18,
+      "slide": 21,
       "source": "metrics-summary.phase3_method_consistency",
       "tables": [
-        "method_consistency.csv"
+        "method-consistency.csv"
       ],
       "title": "M1-M4 consistency"
     },
     {
       "charts": [
-        "analysis/phase4/figures/agent-card-matrix.svg"
+        "charts/xai-case-card-03.svg"
       ],
-      "note": "Dimensions are descriptive proxies for this suite only.",
-      "slide": 19,
-      "source": "metrics-summary.agent_cards",
+      "note": "Use XAI-C03: bugfix-t2-03, OpenCode vs Hermes. Do not describe it as Hermes vs Codex.",
+      "slide": 22,
+      "source": "phase4_case_pack",
       "tables": [
-        "agent_card_matrix.csv"
+        "case-candidates.csv"
       ],
-      "title": "Agent-card matrix"
+      "title": "Concrete XAI case walkthrough"
     },
     {
       "charts": [
-        "charts/xai-case-card-01.svg",
-        "charts/xai-case-card-02.svg",
-        "charts/xai-case-card-03.svg"
+        "analysis/phase4/figures/agent-card-matrix.svg"
       ],
-      "note": "Use as XAI evidence walkthrough; do not present human-study claims.",
-      "slide": 20,
-      "source": "phase4_case_pack",
+      "note": "Actionability/governability are coverage gates here, not discriminative rankings.",
+      "slide": 23,
+      "source": "metrics-summary.agent_cards",
       "tables": [
-        "case_candidates.csv"
+        "agent-card-matrix.csv"
       ],
-      "title": "Concrete case walkthrough"
+      "title": "Agent-card matrix"
     },
     {
       "charts": [
@@ -484,19 +518,19 @@
         "analysis/phase4/figures/agent-card-matrix.svg"
       ],
       "note": "Translate evidence to prompt/tool-surface governance actions.",
-      "slide": 21,
+      "slide": 24,
       "source": "agent_cards + cases",
       "tables": [
-        "action_implications.csv",
-        "agent_card_matrix.csv"
+        "action-implications.csv",
+        "agent-card-matrix.csv"
       ],
       "title": "From attribution to action"
     },
     {
       "charts": [],
-      "note": "Explicitly say 20-task Python suite, selected labels, and HCI deferred.",
-      "slide": 22,
-      "source": "phase4_report",
+      "note": "Include Python-only suite, specialized/general harness comparability, model+provider route, effort non-equivalence, selected labels, and descriptive-stat boundary.",
+      "slide": 25,
+      "source": "phase4_report + phase4 guardrails",
       "tables": [
         "limitations.csv"
       ],
@@ -504,24 +538,24 @@
     },
     {
       "charts": [],
-      "note": "Mention downstream HCI study only as future work.",
-      "slide": 23,
-      "source": "phase5_structure",
+      "note": "Mention downstream HCI only as future work unless a human study is complete.",
+      "slide": 26,
+      "source": "content-draft.md",
       "tables": [
-        "future_work.csv"
+        "future-work.csv"
       ],
       "title": "Future work"
     },
     {
       "charts": [],
-      "note": "Use for citations and artifact paths.",
-      "slide": 24,
-      "source": "all",
+      "note": "Close on faithful observable attribution: not a leaderboard and not mind-reading.",
+      "slide": 27,
+      "source": "content-draft.md",
       "tables": [
-        "source_index.csv",
-        "chart_manifest.csv"
+        "source-index.csv",
+        "chart-manifest.csv"
       ],
-      "title": "Appendix"
+      "title": "Closing"
     }
   ]
 }

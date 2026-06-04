@@ -1,6 +1,8 @@
 {
   "boundary": {
     "baseline_statistics": "Formal Phase 2 repeats 1-3 only.",
+    "canonical_deck_basis": "analysis/phase5/xai-presentation-pack/deck/content-draft.md (27 slides)",
+    "deprecated_deck": "analysis/phase5/xai-presentation-pack/deck/index.html is not a canonical source.",
     "nonformal_traces": "Pilot repeat 0 and Phase 3 counterfactual/extra repeats may be used for examples, not baseline rates.",
     "pptx_created": false,
     "scope": "XAI deck support only; HCI human-study metrics are intentionally deferred.",

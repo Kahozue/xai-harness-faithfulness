@@ -1,5 +1,7 @@
 next_step,why,slide
-Run HCI human study after XAI deck,"Measure clarity, trust calibration, verification choice, safety/control, and cognitive load.",23
-Expand beyond Python toy repo,Test language/framework/repository-size robustness.,23
-Test newer harness mechanisms separately,Avoid mixing Phase 2 baseline with later harness behavior changes.,23
-Build optional HTML dashboard,Make trace/path/case inspection easier for appendix or defense.,24
+Run HCI human study after XAI deck,"Measure clarity, trust calibration, verification choice, safety/control, and cognitive load.",26
+Expand beyond Python toy repo,Test language/framework/repository-size robustness.,26
+Test newer harness mechanisms separately,Avoid mixing Phase 2 baseline with later harness behavior changes.,26
+"Ablate /goal, memory, and plan-mode mechanisms",Separate default harness behavior from optional harness features.,26
+Make agent-card governance dimensions more discriminative,"Replace coverage-gate dimensions with visibility, patchability, and intervention-support metrics.",26
+Build optional HTML dashboard,Make trace/path/case inspection easier for appendix or defense.,27

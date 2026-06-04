@@ -1,7 +1,13 @@
-# Phase 5 XAI data-pack report (2026-06-04)
+# Phase 5 XAI data-pack report (updated 2026-06-05)
 
 Scope: prepare slide-ready XAI data, charts, and source mappings before building
 the PPT. This step intentionally did not create or modify any `.pptx` file.
+
+2026-06-05 update: the old 24-slide HTML deck has been discarded. The
+canonical PPT basis is now
+`analysis/phase5/xai-presentation-pack/deck/content-draft.md`, a 27-slide
+outline. `analysis/phase5/xai-presentation-pack/deck/index.html` is no longer
+present and must not be used as a slide source.
 
 ## Output
 
@@ -15,15 +21,18 @@ Key files:
 - `analysis/phase5/xai-presentation-pack/slide-data-map.json`
 - `analysis/phase5/xai-presentation-pack/slide-ready-data.json`
 - `analysis/phase5/xai-presentation-pack/tables/chart-manifest.csv`
+- `analysis/phase5/xai-presentation-pack/deck/content-draft.md`
 
 Generated content:
 
 - 25 CSV tables under `analysis/phase5/xai-presentation-pack/tables/`.
-- 20 new SVG charts under `analysis/phase5/xai-presentation-pack/charts/`.
+- 22 generated SVG charts under `analysis/phase5/xai-presentation-pack/charts/`.
 - 5 existing Phase 4 SVG charts are referenced in the manifest and chart
   manifest rather than copied.
-- 24-slide data map aligned with
+- 27-slide data map aligned with
   `docs/specs/2026-06-04-phase5-xai-presentation-structure.md`.
+- Slide 22 now uses `XAI-C03 / bugfix-t2-03 / OpenCode vs Hermes` and
+  `analysis/phase5/xai-presentation-pack/charts/xai-case-card-03.svg`.
 
 ## Headline numbers prepared for slides
 
@@ -46,8 +55,15 @@ Generated content:
 - HCI human-study claims are excluded from this XAI data pack. No clarity,
   trust calibration, perceived safety, cognitive-load, or participant-response
   claims should be made from these files.
+- Faithfulness is defined as observable attribution support from trace,
+  prompt/tool-surface, source/dossier evidence, and counterfactual reruns. The
+  pack does not expose or claim hidden chain-of-thought.
 - Case cards are XAI walkthrough examples selected from high-divergence Phase 3
   labels; they are not prevalence estimates over all tasks.
+- M1/M2 are source/dossier/tool-surface evidence, not uniform runtime ablations
+  across all harnesses.
+- Agent-card actionability/governability dimensions are coverage gates in this
+  pack; all-1.0 values are not discriminative harness rankings.
 
 ## Verification on VPS
 
@@ -70,6 +86,7 @@ Verification result:
 - Related tests passed: 8/8.
 - `manifest.json` reports `pptx_created=false`.
 - 25 generated CSV tables are non-empty.
-- 20 generated SVG charts parse as valid XML.
+- 22 generated SVG charts parse as valid XML.
+- `slide-data-map.json` has 27 slides and every table/chart path resolves.
+- No `deck/index.html` exists in the canonical pack.
 - No `.pptx` exists under `analysis/phase5/xai-presentation-pack/`.
-

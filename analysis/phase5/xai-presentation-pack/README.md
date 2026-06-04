@@ -2,11 +2,14 @@
 
 Scope: data, chart assets, source mapping, and slide-ready analysis for the XAI presentation only. No PPTX is generated here.
 
+Canonical deck basis: `analysis/phase5/xai-presentation-pack/deck/content-draft.md` (27 slides). The old 24-slide HTML deck is deprecated and must not be used as the PPT source.
+
 ## Evidence Boundary
 
 - Baseline statistics use only formal Phase 2 repeats 1-3.
 - Pilot repeat 0 and Phase 3 counterfactual/extra repeats are case/method evidence, not baseline rates.
 - HCI human-study claims are intentionally excluded; this pack only preserves material that can later feed the HCI phase.
+- Faithfulness means observable attribution support from trace/prompt/tool/counterfactual evidence; hidden chain-of-thought is not exposed or claimed.
 - VPS authority: `/data/repos/xai-harness-faithfulness`; private/raw replay remains outside git under `/data/harness-lab/`.
 
 ## Headline Numbers
@@ -60,7 +63,7 @@ Scope: data, chart assets, source mapping, and slide-ready analysis for the XAI 
 
 ## Slide Use
 
-Use `slide-data-map.json` for the page-by-page mapping. It names the table(s), chart(s), source path, and caveat for each of the 24 planned slides.
+Use `slide-data-map.json` for the page-by-page mapping. It names the table(s), chart(s), source path, and caveat for each of the 27 canonical slides.
 
 ## Do Not Mix Into XAI
 
@@ -68,3 +71,5 @@ Use `slide-data-map.json` for the page-by-page mapping. It names the table(s), c
 - Trust calibration or perceived safety claims.
 - Claims that Phase 3 selected labels estimate prevalence over all traces.
 - Claims that the 20-task Python suite generalizes to all agentic coding work.
+- Claims that M1/M2 are uniform runtime ablations across all harnesses.
+- Claims that actionability/governability all-1.0 values are discriminative harness rankings.
