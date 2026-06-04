@@ -38,7 +38,7 @@ def test_normalize_extracts_tool_sequence_from_fixture(tmp_path):
             '{"timestamp":"2026-06-03T13:57:43.708Z","type":"event_msg",'
             '"payload":{"type":"task_started","model_context_window":258400}}',
             '{"timestamp":"2026-06-03T13:57:46.675Z","type":"response_item",'
-            '"payload":{"type":"reasoning","summary":[],"encrypted_content":"x"}}',
+            '"payload":{"type":"reasoning","summary":[]}}',
         ])
     )
 

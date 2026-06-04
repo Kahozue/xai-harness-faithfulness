@@ -14,6 +14,10 @@ Every real harness run must keep two record layers:
 Raw harness logs stay outside git under `/data/harness-lab/runs/.../raw`.
 They are also plaintext and private.
 
+`Full/private` means the local/VPS record keeps the complete visible audit trail
+needed for verification. It does not mean raw hidden chain-of-thought is saved.
+GitHub keeps only the summarized/redacted public layer.
+
 ## Baseline trace semantics
 
 Phase 2 baseline traces are evidence of the observed chosen-tool path. The

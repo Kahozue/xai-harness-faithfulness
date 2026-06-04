@@ -22,6 +22,7 @@ from runner.phase3_attribution import (
     validate_phase3_attribution,
     write_phase3_attribution_outputs,
 )
+from runner.phase4_readiness import validate_phase4_readiness
 from runner.provision import load_tasks
 from runner.phase2_validation import validate_phase2
 from runner.runner import DEFAULT_TIMEOUT_S, run_once
@@ -150,6 +151,13 @@ def main(argv: list[str] | None = None) -> int:
     phase3_attr.add_argument("--report", default=str(DEFAULT_PHASE3_ATTRIBUTION_REPORT_PATH))
     phase3_attr.add_argument("--dry-run", action="store_true", help="print the attribution JSON without writing files")
     phase3_attr.add_argument("--indent", type=int, default=2, help="JSON indentation; use 0 for one line")
+
+    phase4_ready = sub.add_parser(
+        "phase4-ready",
+        help="validate Phase 2/3 public artifacts are safe and sufficient for Phase 4 analysis",
+    )
+    phase4_ready.add_argument("--skip-phase2-gate", action="store_true", help="skip VPS private/raw artifact checks")
+    phase4_ready.add_argument("--indent", type=int, default=2, help="JSON indentation; use 0 for one line")
 
     args = parser.parse_args(argv)
     if args.cmd == "run":
@@ -327,6 +335,12 @@ def main(argv: list[str] | None = None) -> int:
             "report": str(report_path),
         }, ensure_ascii=False, indent=indent, sort_keys=True))
         return 0 if validation["ok"] else 1
+
+    if args.cmd == "phase4-ready":
+        report = validate_phase4_readiness(run_phase2_gate=not args.skip_phase2_gate)
+        indent = None if args.indent == 0 else args.indent
+        print(json.dumps(report, ensure_ascii=False, indent=indent, sort_keys=True))
+        return 0 if report["ok"] else 1
 
     parser.error(f"unknown command: {args.cmd}")
     return 2

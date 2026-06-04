@@ -84,3 +84,11 @@ docs/verification/ Phase completion reports and validation notes
 
 Full private audits and raw harness logs are intentionally outside git under
 `/data/harness-lab/` on the VPS.
+The VPS/Mac private layer is the complete visible audit trail, not a store for
+raw hidden chain-of-thought. GitHub keeps the summarized/redacted public layer.
+
+Before Phase 4 analysis or report writing, read
+`docs/specs/2026-06-04-phase4-analysis-guardrails.md` for the audience,
+XAI/HCI boundary, task-suite scope, and non-overclaim rules. For the HCI report,
+also use `docs/specs/2026-06-04-hci-human-study-plan.md`; the HCI component
+requires a small human study and cannot be replaced by xAI metrics alone.
