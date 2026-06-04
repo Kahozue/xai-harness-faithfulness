@@ -9,7 +9,7 @@
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
-      <dc:title>Matplotlib v3.10.8, https://matplotlib.org/</dc:title>
+      <dc:title>Matplotlib v3.10.9, https://matplotlib.org/</dc:title>
      </cc:Agent>
     </dc:creator>
    </cc:Work>
@@ -184,7 +184,7 @@ z
     <text style="font-size: 7.6px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #5a6573" x="313.542" y="122.226912" transform="rotate(-0 313.542 122.226912)">crossed (interaction)</text>
    </g>
    <g id="text_18">
-    <text style="font-size: 8.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #9aa3ad" x="450.8937" y="104.165252" transform="rotate(-0 450.8937 104.165252)">not run</text>
+    <text style="font-size: 8.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #9aa3ad" x="450.8937" y="104.347869" transform="rotate(-0 450.8937 104.347869)">not run</text>
    </g>
    <g id="text_19">
     <text style="font-weight: 700; font-size: 10px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="7.2" y="171.52416" transform="rotate(-0 7.2 171.52416)">GPT-5.4-mini</text>
@@ -193,7 +193,7 @@ z
     <text style="font-size: 8px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #5a6573" x="7.2" y="189.220608" transform="rotate(-0 7.2 189.220608)">OpenAI native</text>
    </g>
    <g id="text_21">
-    <text style="font-size: 8.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #9aa3ad" x="154.0935" y="180.007172" transform="rotate(-0 154.0935 180.007172)">not run</text>
+    <text style="font-size: 8.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #9aa3ad" x="154.0935" y="180.189789" transform="rotate(-0 154.0935 180.189789)">not run</text>
    </g>
    <g id="text_22">
     <text style="font-weight: 700; font-size: 12.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="214.6086" y="167.732064" transform="rotate(-0 214.6086 167.732064)">c4</text>

@@ -9,7 +9,7 @@
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
-      <dc:title>Matplotlib v3.10.8, https://matplotlib.org/</dc:title>
+      <dc:title>Matplotlib v3.10.9, https://matplotlib.org/</dc:title>
      </cc:Agent>
     </dc:creator>
    </cc:Work>
@@ -137,34 +137,34 @@ z
     <text style="font-weight: 700; font-size: 13px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="7.2" y="18.73152" transform="rotate(-0 7.2 18.73152)">Research design pipeline</text>
    </g>
    <g id="text_2">
-    <text style="font-weight: 700; font-size: 11.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1a1a1a" x="62.1072" y="79.2424" transform="rotate(-0 62.1072 79.2424)">6 configs</text>
+    <text style="font-weight: 700; font-size: 11.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1a1a1a" x="62.1072" y="79.459822" transform="rotate(-0 62.1072 79.459822)">6 configs</text>
    </g>
    <g id="text_3">
-    <text style="font-size: 8.6px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #5a6573" x="62.1072" y="97.892713" transform="rotate(-0 62.1072 97.892713)">harness × model</text>
+    <text style="font-size: 8.6px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #5a6573" x="62.1072" y="98.077479" transform="rotate(-0 62.1072 98.077479)">harness × model</text>
    </g>
    <g id="text_4">
-    <text style="font-weight: 700; font-size: 11.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1a1a1a" x="167.63616" y="79.257673" transform="rotate(-0 167.63616 79.257673)">20 tasks</text>
+    <text style="font-weight: 700; font-size: 11.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1a1a1a" x="167.63616" y="79.504744" transform="rotate(-0 167.63616 79.504744)">20 tasks</text>
    </g>
    <g id="text_5">
-    <text style="font-size: 8.6px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #5a6573" x="167.63616" y="97.892713" transform="rotate(-0 167.63616 97.892713)">5 cats × 4</text>
+    <text style="font-size: 8.6px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #5a6573" x="167.63616" y="98.077479" transform="rotate(-0 167.63616 98.077479)">5 cats × 4</text>
    </g>
    <g id="text_6">
-    <text style="font-weight: 700; font-size: 11.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1a1a1a" x="273.16512" y="79.257673" transform="rotate(-0 273.16512 79.257673)">360 traces</text>
+    <text style="font-weight: 700; font-size: 11.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1a1a1a" x="273.16512" y="79.504744" transform="rotate(-0 273.16512 79.504744)">360 traces</text>
    </g>
    <g id="text_7">
-    <text style="font-size: 8.6px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #5a6573" x="273.16512" y="97.936385" transform="rotate(-0 273.16512 97.936385)">3 formal repeats</text>
+    <text style="font-size: 8.6px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #5a6573" x="273.16512" y="98.077479" transform="rotate(-0 273.16512 98.077479)">3 formal repeats</text>
    </g>
    <g id="text_8">
-    <text style="font-weight: 700; font-size: 11.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1a1a1a" x="378.69408" y="79.257673" transform="rotate(-0 378.69408 79.257673)">M1–M4</text>
+    <text style="font-weight: 700; font-size: 11.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1a1a1a" x="378.69408" y="79.504744" transform="rotate(-0 378.69408 79.504744)">M1–M4</text>
    </g>
    <g id="text_9">
-    <text style="font-size: 8.6px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #5a6573" x="378.69408" y="97.892713" transform="rotate(-0 378.69408 97.892713)">white-box attribution</text>
+    <text style="font-size: 8.6px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #5a6573" x="378.69408" y="98.077479" transform="rotate(-0 378.69408 98.077479)">white-box attribution</text>
    </g>
    <g id="text_10">
-    <text style="font-weight: 700; font-size: 11.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1a1a1a" x="484.22304" y="79.197478" transform="rotate(-0 484.22304 79.197478)">Agent cards</text>
+    <text style="font-weight: 700; font-size: 11.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1a1a1a" x="484.22304" y="79.459822" transform="rotate(-0 484.22304 79.459822)">Agent cards</text>
    </g>
    <g id="text_11">
-    <text style="font-size: 8.6px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #5a6573" x="484.22304" y="97.837619" transform="rotate(-0 484.22304 97.837619)">governance proxies</text>
+    <text style="font-size: 8.6px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #5a6573" x="484.22304" y="98.077479" transform="rotate(-0 484.22304 98.077479)">governance proxies</text>
    </g>
   </g>
  </g>

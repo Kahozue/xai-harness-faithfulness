@@ -9,7 +9,7 @@
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
-      <dc:title>Matplotlib v3.10.8, https://matplotlib.org/</dc:title>
+      <dc:title>Matplotlib v3.10.9, https://matplotlib.org/</dc:title>
      </cc:Agent>
     </dc:creator>
    </cc:Work>
@@ -185,43 +185,43 @@ z
     <text style="font-size: 8.6px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #8794a3" x="294.6816" y="56.09808" transform="rotate(-0 294.6816 56.09808)">Governance action</text>
    </g>
    <g id="text_5">
-    <text style="font-size: 9px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="25.1676" y="81.928551" transform="rotate(-0 25.1676 81.928551)">Tool path diverges even when success is</text>
+    <text style="font-size: 9px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="25.1676" y="82.16902" transform="rotate(-0 25.1676 82.16902)">Tool path diverges even when success is</text>
    </g>
    <g id="text_6">
-    <text style="font-size: 9px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="25.1676" y="95.131033" transform="rotate(-0 25.1676 95.131033)">unchanged</text>
+    <text style="font-size: 9px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="25.1676" y="95.371502" transform="rotate(-0 25.1676 95.371502)">unchanged</text>
    </g>
    <g id="text_7">
-    <text style="font-size: 9px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="302.382" y="82.036832" transform="rotate(-0 302.382 82.036832)">Show evidence path, not only pass/fail</text>
+    <text style="font-size: 9px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="302.382" y="82.16902" transform="rotate(-0 302.382 82.16902)">Show evidence path, not only pass/fail</text>
    </g>
    <g id="text_8">
-    <text style="font-size: 9px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="302.382" y="95.178142" transform="rotate(-0 302.382 95.178142)">status.</text>
+    <text style="font-size: 9px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="302.382" y="95.371502" transform="rotate(-0 302.382 95.371502)">status.</text>
    </g>
    <g id="text_9">
-    <text style="font-size: 9px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="25.1676" y="125.040587" transform="rotate(-0 25.1676 125.040587)">First-tool strategies differ by harness</text>
+    <text style="font-size: 9px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="25.1676" y="125.2459" transform="rotate(-0 25.1676 125.2459)">First-tool strategies differ by harness</text>
    </g>
    <g id="text_10">
-    <text style="font-size: 9px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="302.382" y="125.063087" transform="rotate(-0 302.382 125.063087)">Expose or standardize initial</text>
+    <text style="font-size: 9px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="302.382" y="125.2459" transform="rotate(-0 302.382 125.2459)">Expose or standardize initial</text>
    </g>
    <g id="text_11">
-    <text style="font-size: 9px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="302.382" y="138.274007" transform="rotate(-0 302.382 138.274007)">discovery affordances.</text>
+    <text style="font-size: 9px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="302.382" y="138.448382" transform="rotate(-0 302.382 138.448382)">discovery affordances.</text>
    </g>
    <g id="text_12">
-    <text style="font-size: 9px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="25.1676" y="168.117467" transform="rotate(-0 25.1676 168.117467)">Benchmark failures cluster by category</text>
+    <text style="font-size: 9px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="25.1676" y="168.32278" transform="rotate(-0 25.1676 168.32278)">Benchmark failures cluster by category</text>
    </g>
    <g id="text_13">
-    <text style="font-size: 9px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="302.382" y="168.159655" transform="rotate(-0 302.382 168.159655)">Separate high-risk task classes;</text>
+    <text style="font-size: 9px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="302.382" y="168.32278" transform="rotate(-0 302.382 168.32278)">Separate high-risk task classes;</text>
    </g>
    <g id="text_14">
-    <text style="font-size: 9px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="302.382" y="181.305183" transform="rotate(-0 302.382 181.305183)">require replay inspection.</text>
+    <text style="font-size: 9px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="302.382" y="181.525261" transform="rotate(-0 302.382 181.525261)">require replay inspection.</text>
    </g>
    <g id="text_15">
-    <text style="font-size: 9px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="25.1676" y="211.201379" transform="rotate(-0 25.1676 211.201379)">M1–M4 agreement is partial (10/20)</text>
+    <text style="font-size: 9px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="25.1676" y="211.39966" transform="rotate(-0 25.1676 211.39966)">M1–M4 agreement is partial (10/20)</text>
    </g>
    <g id="text_16">
-    <text style="font-size: 9px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="302.382" y="211.267472" transform="rotate(-0 302.382 211.267472)">Carry confidence labels and caveats on</text>
+    <text style="font-size: 9px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="302.382" y="211.39966" transform="rotate(-0 302.382 211.39966)">Carry confidence labels and caveats on</text>
    </g>
    <g id="text_17">
-    <text style="font-size: 9px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="302.382" y="224.361673" transform="rotate(-0 302.382 224.361673)">agent cards.</text>
+    <text style="font-size: 9px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="302.382" y="224.602142" transform="rotate(-0 302.382 224.602142)">agent cards.</text>
    </g>
   </g>
  </g>
