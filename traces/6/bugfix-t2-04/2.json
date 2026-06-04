@@ -1,0 +1,141 @@
+{
+  "config_id": 6,
+  "decision_points": [],
+  "env_lock_ref": "ENVIRONMENT.lock.md@1171d38",
+  "evidence_levels": {
+    "reasoning_steps": "direct",
+    "system_present": "source-derived",
+    "tokens": "direct",
+    "tool_calls": "direct"
+  },
+  "harness": "codex",
+  "harness_version": "0.136.0",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "model_snapshot": "gpt-5.4-mini-2026-03-17",
+  "outcome": {
+    "final_diff_path": null,
+    "grader_detail": "..                                                                       [100%]\n2 passed in 0.01s",
+    "launch_returncode": 0,
+    "launch_timed_out": false,
+    "success": true
+  },
+  "private_audit_path": "/data/harness-lab/private-audits/6/bugfix-t2-04/2.md",
+  "raw_artifacts": {
+    "session_jsonl": "/data/harness-lab/runs/6/bugfix-t2-04/2/raw/trace.session.jsonl",
+    "stderr_log": "/data/harness-lab/runs/6/bugfix-t2-04/2/raw/harness.stderr.log",
+    "stdout_jsonl": "/data/harness-lab/runs/6/bugfix-t2-04/2/raw/codex.log"
+  },
+  "raw_log_path": "/data/harness-lab/runs/6/bugfix-t2-04/2/raw",
+  "reasoning_effort": "high",
+  "reasoning_steps": [
+    {
+      "present": true,
+      "ts": "2026-06-03T22:19:36.304Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:19:38.535Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:19:41.260Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:19:44.502Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:19:45.983Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:19:48.037Z",
+      "type": "reasoning"
+    },
+    {
+      "tokens": 585,
+      "type": "reasoning_tokens"
+    }
+  ],
+  "repeat_index": 2,
+  "run_id": "c6__codex__bugfix-t2-04__r2",
+  "runtime_budget": {
+    "context_window_tokens": 258400,
+    "effort_source": "$LAB_HOME/.codex/config.toml reasoning_effort=high",
+    "max_output_tokens": null,
+    "thinking_budget_tokens": null
+  },
+  "system_present": true,
+  "task_category": "bug_fix",
+  "task_id": "bugfix-t2-04",
+  "timestamp": "2026-06-03T22:19:49.746336Z",
+  "tokens": {
+    "cached_input": 56192,
+    "input": 68897,
+    "output": 1865
+  },
+  "tool_calls": [
+    {
+      "args_summary": "command=/bin/bash -c \"rg -n \\\"def mean|mean\\\\(\\\" calckit tests -g '\"'!**/__pycache__/**'\"'\"",
+      "step": 1,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -c 'rg --files calckit tests'",
+      "step": 2,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -c \"sed -n '1,120p' calckit/stats.py\"",
+      "step": 3,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -c \"sed -n '1,120p' tests/test_basic.py\"",
+      "step": 4,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -c \"rg -n \\\"\\\\bmean\\\\b\\\" calckit tests\"",
+      "step": 5,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -c \"sed -n '1,200p' calckit/__init__.py\"",
+      "step": 6,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "changes=/data/harness-lab/runs/6/bugfix-t2-04/2/workdir/calckit/stats.py:update",
+      "step": 7,
+      "tool_name": "file_change",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -c 'pytest -q'",
+      "step": 8,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -c \"python - <<'PY'\nfrom calckit import mean\nprint(mean([1, 2, 3]))\nprint(mean([1, 2]))\ntry:\n    mean([])\nexcept Exception as e:\n    print(type(e).__n",
+      "step": 9,
+      "tool_name": "command_execution",
+      "ts": null
+    }
+  ],
+  "turns": 1,
+  "wall_time_s": 15.636
+}

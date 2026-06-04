@@ -14,6 +14,15 @@ Every real harness run must keep two record layers:
 Raw harness logs stay outside git under `/data/harness-lab/runs/.../raw`.
 They are also plaintext and private.
 
+## Baseline trace semantics
+
+Phase 2 baseline traces are evidence of the observed chosen-tool path. The
+public `tool_calls` array is the primary dependent variable for tool-selection
+divergence: ordered tool names plus compact argument summaries. The baseline
+does not claim to expose every unchosen alternative or hidden rationale. The
+`decision_points` array remains empty until Phase 3 attribution code populates
+it from dossier-backed perturbation and trace-review work.
+
 ## Non-negotiable rules
 
 - Do not commit full private audits to git/GitHub.
@@ -63,6 +72,12 @@ prevents cross-run harness state from contaminating tool-selection behavior.
 Verification reports committed to GitHub should be concise summaries. If a deep
 trace review is performed, put the full version in the private layer and mention
 its private path from the GitHub-safe report.
+
+Formal Phase 2 reports must use repeats 1, 2, and 3 only. Repeat 0 is Pilot data
+and must not be counted in the 6 x 20 x 3 factorial matrix. Before reporting
+Phase 2 as complete, run `python -m runner phase2-validate` on the VPS and cite
+its summary. This gate checks schema validity, private audit links, raw artifact
+links, run-local HOME directories, and infrastructure-limit failure signatures.
 
 When handing off to another model/operator, point them to this file before any
 new Pilot, full-factorial, rerun, or Phase 2 execution.

@@ -1,0 +1,146 @@
+{
+  "config_id": 6,
+  "decision_points": [],
+  "env_lock_ref": "ENVIRONMENT.lock.md@1171d38",
+  "evidence_levels": {
+    "reasoning_steps": "direct",
+    "system_present": "source-derived",
+    "tokens": "direct",
+    "tool_calls": "direct"
+  },
+  "harness": "codex",
+  "harness_version": "0.136.0",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "model_snapshot": "gpt-5.4-mini-2026-03-17",
+  "outcome": {
+    "final_diff_path": null,
+    "grader_detail": "...                                                                      [100%]\n3 passed in 0.01s",
+    "launch_returncode": 0,
+    "launch_timed_out": false,
+    "success": true
+  },
+  "private_audit_path": "/data/harness-lab/private-audits/6/bugfix-t2-01/2.md",
+  "raw_artifacts": {
+    "session_jsonl": "/data/harness-lab/runs/6/bugfix-t2-01/2/raw/trace.session.jsonl",
+    "stderr_log": "/data/harness-lab/runs/6/bugfix-t2-01/2/raw/harness.stderr.log",
+    "stdout_jsonl": "/data/harness-lab/runs/6/bugfix-t2-01/2/raw/codex.log"
+  },
+  "raw_log_path": "/data/harness-lab/runs/6/bugfix-t2-01/2/raw",
+  "reasoning_effort": "high",
+  "reasoning_steps": [
+    {
+      "present": true,
+      "ts": "2026-06-03T22:17:00.942Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:17:02.342Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:17:05.190Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:17:06.839Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:17:10.848Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:17:12.807Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:17:14.324Z",
+      "type": "reasoning"
+    },
+    {
+      "tokens": 518,
+      "type": "reasoning_tokens"
+    }
+  ],
+  "repeat_index": 2,
+  "run_id": "c6__codex__bugfix-t2-01__r2",
+  "runtime_budget": {
+    "context_window_tokens": 258400,
+    "effort_source": "$LAB_HOME/.codex/config.toml reasoning_effort=high",
+    "max_output_tokens": null,
+    "thinking_budget_tokens": null
+  },
+  "system_present": true,
+  "task_category": "bug_fix",
+  "task_id": "bugfix-t2-01",
+  "timestamp": "2026-06-03T22:17:15.985182Z",
+  "tokens": {
+    "cached_input": 67840,
+    "input": 80787,
+    "output": 1897
+  },
+  "tool_calls": [
+    {
+      "args_summary": "command=/bin/bash -c \"rg -n \\\"def parse_amount|parse_amount\\\\(\\\" calckit tests -S\"",
+      "step": 1,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -c 'rg --files calckit tests'",
+      "step": 2,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -c \"sed -n '1,120p' calckit/money.py\"",
+      "step": 3,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -c \"sed -n '1,120p' tests/test_basic.py\"",
+      "step": 4,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "changes=/data/harness-lab/runs/6/bugfix-t2-01/2/workdir/calckit/money.py:update",
+      "step": 5,
+      "tool_name": "file_change",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -c 'python -m pytest tests/test_basic.py'",
+      "step": 6,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -c \"python - <<'PY'\nfrom calckit.money import parse_amount\nprint(parse_amount('(\"'$1,234.50)'\"'))\nprint(parse_amount('\"'$1,234.50'\"'))\nPY\"",
+      "step": 7,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -c \"python - <<'PY'\nfrom calckit.money import parse_amount\nassert parse_amount('\"'$1,234.50'\"') == 1234.50\nassert parse_amount('(\"'$1,234.50)'\"') == -",
+      "step": 8,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -c \"nl -ba calckit/money.py | sed -n '1,40p'\"",
+      "step": 9,
+      "tool_name": "command_execution",
+      "ts": null
+    }
+  ],
+  "turns": 1,
+  "wall_time_s": 16.462
+}

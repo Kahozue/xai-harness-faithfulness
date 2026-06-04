@@ -1,0 +1,107 @@
+{
+  "config_id": 5,
+  "decision_points": [],
+  "env_lock_ref": "ENVIRONMENT.lock.md@1171d38",
+  "evidence_levels": {
+    "reasoning_steps": "direct",
+    "system_present": "direct",
+    "tokens": "unknown",
+    "tool_calls": "direct"
+  },
+  "harness": "hermes",
+  "harness_version": "0.13.0",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "model_snapshot": "gpt-5.4-mini-2026-03-17",
+  "outcome": {
+    "final_diff_path": null,
+    "grader_detail": "FAILED _hidden_grader_test.py::BottleSongTest::test_all_verses - AssertionErr...\nFAILED _hidden_grader_test.py::BottleSongTest::test_first_generic_verse - Ass...\nFAILED _hidden_grader_test.py::BottleSongTest::test_first_two_verses - Assert...\nFAILED _hidden_grader_test.py::BottleSongTest::test_last_generic_verse - Asse...\nFAILED _hidden_grader_test.py::BottleSongTest::test_last_three_verses - Asser...\nFAILED _hidden_grader_test.py::BottleSongTest::test_verse_with_1_bottle - Ass...\nFAILED _hidden_grader_test.py::BottleSongTest::test_verse_with_2_bottles - As...\n7 failed in 0.07s",
+    "launch_returncode": 0,
+    "launch_timed_out": false,
+    "success": false
+  },
+  "private_audit_path": "/data/harness-lab/private-audits/5/bench-bottle-song/1.md",
+  "raw_artifacts": {
+    "session_json": "/data/harness-lab/runs/5/bench-bottle-song/1/raw/trace.session.json",
+    "stdout_log": "/data/harness-lab/runs/5/bench-bottle-song/1/raw/hermes.log"
+  },
+  "raw_log_path": "/data/harness-lab/runs/5/bench-bottle-song/1/raw",
+  "reasoning_effort": "high",
+  "reasoning_steps": [
+    {
+      "message_index": 1,
+      "present": true,
+      "type": "reasoning"
+    },
+    {
+      "message_index": 4,
+      "present": true,
+      "type": "reasoning"
+    },
+    {
+      "message_index": 6,
+      "present": true,
+      "type": "reasoning"
+    },
+    {
+      "message_index": 8,
+      "present": true,
+      "type": "reasoning"
+    },
+    {
+      "message_index": 10,
+      "present": true,
+      "type": "reasoning"
+    }
+  ],
+  "repeat_index": 1,
+  "run_id": "c5__hermes__bench-bottle-song__r1",
+  "runtime_budget": {
+    "context_window_tokens": null,
+    "effort_source": "hermes -z -m MODEL --provider PROVIDER --yolo; no explicit effort flag",
+    "max_output_tokens": null,
+    "thinking_budget_tokens": null
+  },
+  "system_present": true,
+  "task_category": "benchmark",
+  "task_id": "bench-bottle-song",
+  "timestamp": "2026-06-03T22:09:25.549652Z",
+  "tokens": {
+    "cached_input": null,
+    "input": null,
+    "output": null
+  },
+  "tool_calls": [
+    {
+      "args_summary": "path=.,limit=100",
+      "step": 1,
+      "tool_name": "search_files",
+      "ts": null
+    },
+    {
+      "args_summary": "path=.,limit=100",
+      "step": 2,
+      "tool_name": "search_files",
+      "ts": null
+    },
+    {
+      "args_summary": "path=./bottle_song.py,offset=1,limit=300",
+      "step": 3,
+      "tool_name": "read_file",
+      "ts": null
+    },
+    {
+      "args_summary": "path=./bottle_song.py,mode=replace,old_string=def recite(start, take=1):\\n    pass\\n,new_string=def recite(start, take=1):\\n    def bottle_phrase(n):\\n        if n == 0:\\n            return \"no green bottles\"\\n      ",
+      "step": 4,
+      "tool_name": "patch",
+      "ts": null
+    },
+    {
+      "args_summary": "command=python - <<'PY'\\nfrom bottle_song import recite\\nprint(recite(3,2))\\nPY",
+      "step": 5,
+      "tool_name": "terminal",
+      "ts": null
+    }
+  ],
+  "turns": 5,
+  "wall_time_s": 27.392
+}

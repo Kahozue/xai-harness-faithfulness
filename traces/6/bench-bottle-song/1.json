@@ -1,0 +1,141 @@
+{
+  "config_id": 6,
+  "decision_points": [],
+  "env_lock_ref": "ENVIRONMENT.lock.md@1171d38",
+  "evidence_levels": {
+    "reasoning_steps": "direct",
+    "system_present": "source-derived",
+    "tokens": "direct",
+    "tool_calls": "direct"
+  },
+  "harness": "codex",
+  "harness_version": "0.136.0",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "model_snapshot": "gpt-5.4-mini-2026-03-17",
+  "outcome": {
+    "final_diff_path": null,
+    "grader_detail": ".......                                                                  [100%]\n7 passed in 0.01s",
+    "launch_returncode": 0,
+    "launch_timed_out": false,
+    "success": true
+  },
+  "private_audit_path": "/data/harness-lab/private-audits/6/bench-bottle-song/1.md",
+  "raw_artifacts": {
+    "session_jsonl": "/data/harness-lab/runs/6/bench-bottle-song/1/raw/trace.session.jsonl",
+    "stderr_log": "/data/harness-lab/runs/6/bench-bottle-song/1/raw/harness.stderr.log",
+    "stdout_jsonl": "/data/harness-lab/runs/6/bench-bottle-song/1/raw/codex.log"
+  },
+  "raw_log_path": "/data/harness-lab/runs/6/bench-bottle-song/1/raw",
+  "reasoning_effort": "high",
+  "reasoning_steps": [
+    {
+      "present": true,
+      "ts": "2026-06-03T22:36:01.273Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:36:03.687Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:36:08.204Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:36:15.924Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:36:19.301Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:36:21.911Z",
+      "type": "reasoning"
+    },
+    {
+      "tokens": 1474,
+      "type": "reasoning_tokens"
+    }
+  ],
+  "repeat_index": 1,
+  "run_id": "c6__codex__bench-bottle-song__r1",
+  "runtime_budget": {
+    "context_window_tokens": 258400,
+    "effort_source": "$LAB_HOME/.codex/config.toml reasoning_effort=high",
+    "max_output_tokens": null,
+    "thinking_budget_tokens": null
+  },
+  "system_present": true,
+  "task_category": "benchmark",
+  "task_id": "bench-bottle-song",
+  "timestamp": "2026-06-03T22:36:23.302475Z",
+  "tokens": {
+    "cached_input": 72448,
+    "input": 77120,
+    "output": 3137
+  },
+  "tool_calls": [
+    {
+      "args_summary": "command=/bin/bash -lc \"sed -n '1,220p' bottle_song.py\"",
+      "step": 1,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc 'rg --files'",
+      "step": 2,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc 'rg -n \"bottle_song|bottle song|Ten Green Bottles|green bottle\" -S .'",
+      "step": 3,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc \"sed -n '1,220p' instructions.md\"",
+      "step": 4,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc \"python - <<'PY'\nfrom pathlib import Path\nprint(Path('bottle_song.py').read_text())\nPY\"",
+      "step": 5,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "changes=/data/harness-lab/runs/6/bench-bottle-song/1/workdir/bottle_song.py:update",
+      "step": 6,
+      "tool_name": "file_change",
+      "ts": null
+    },
+    {
+      "args_summary": "changes=/data/harness-lab/runs/6/bench-bottle-song/1/workdir/bottle_song.py:update",
+      "step": 7,
+      "tool_name": "file_change",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc \"python - <<'PY'\nfrom bottle_song import recite\nfor args in [(1,1),(2,2),(3,1),(0,1)]:\n    print(args)\n    print('\\\\n'.join(recite(*args)))\n    pr",
+      "step": 8,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc 'python -m py_compile bottle_song.py'",
+      "step": 9,
+      "tool_name": "command_execution",
+      "ts": null
+    }
+  ],
+  "turns": 1,
+  "wall_time_s": 23.428
+}

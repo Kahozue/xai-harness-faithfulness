@@ -1,0 +1,99 @@
+{
+  "config_id": 2,
+  "decision_points": [],
+  "env_lock_ref": "ENVIRONMENT.lock.md@eef47fb",
+  "evidence_levels": {
+    "reasoning_steps": "unknown",
+    "system_present": "unknown",
+    "tokens": "direct",
+    "tool_calls": "direct"
+  },
+  "harness": "opencode",
+  "harness_version": "1.15.13",
+  "model": "claude-haiku-4-5-20251001",
+  "model_snapshot": "claude-haiku-4-5-20251001",
+  "outcome": {
+    "final_diff_path": null,
+    "grader_detail": "E         ?  -\nE         + -$12.50\nE         ? +\n\n_hidden_grader_test.py:5: AssertionError\n=========================== short test summary info ============================\nFAILED _hidden_grader_test.py::test_negative_keeps_sign - AssertionError: ass...\n1 failed, 1 passed in 0.02s",
+    "launch_returncode": 0,
+    "launch_timed_out": false,
+    "success": false
+  },
+  "private_audit_path": "/data/harness-lab/private-audits/2/bugfix-t2-03/2.md",
+  "raw_artifacts": {
+    "stderr_log": "/data/harness-lab/runs/2/bugfix-t2-03/2/raw/harness.stderr.log",
+    "stdout_jsonl": "/data/harness-lab/runs/2/bugfix-t2-03/2/raw/oc.log"
+  },
+  "raw_log_path": "/data/harness-lab/runs/2/bugfix-t2-03/2/raw",
+  "reasoning_effort": "high",
+  "reasoning_steps": [],
+  "repeat_index": 2,
+  "run_id": "c2__opencode__bugfix-t2-03__r2",
+  "runtime_budget": {
+    "context_window_tokens": null,
+    "effort_source": "opencode run --variant high",
+    "max_output_tokens": null,
+    "thinking_budget_tokens": null
+  },
+  "system_present": false,
+  "task_category": "bug_fix",
+  "task_id": "bugfix-t2-03",
+  "timestamp": "2026-06-04T01:49:52.023696Z",
+  "tokens": {
+    "cached_input": 81750,
+    "input": 94,
+    "output": 2786
+  },
+  "tool_calls": [
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/2/bugfix-t2-03/2/workdir",
+      "step": 1,
+      "tool_name": "read",
+      "ts": "2026-06-04T01:49:28.327000Z"
+    },
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/2/bugfix-t2-03/2/workdir/calckit/money.py",
+      "step": 2,
+      "tool_name": "read",
+      "ts": "2026-06-04T01:49:29.739000Z"
+    },
+    {
+      "args_summary": "todos",
+      "step": 3,
+      "tool_name": "todowrite",
+      "ts": "2026-06-04T01:49:36.661000Z"
+    },
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/2/bugfix-t2-03/2/workdir/calckit/money.py,oldString=def format_amount(value: float) -> str:\\n    \"\"\"把 1234.5 格式化成 '$1,234.50'。\"\"\"\\n    return f\"${abs(value):,.2f}\",newString=def format_amount(value: float) -> str:\\n    \"\"\"把 1234.5 格式化成 '$1,234.50'。\"\"\"\\n    if value < 0:\\n        return f\"-${ab",
+      "step": 4,
+      "tool_name": "edit",
+      "ts": "2026-06-04T01:49:39.071000Z"
+    },
+    {
+      "args_summary": "command,description",
+      "step": 5,
+      "tool_name": "bash",
+      "ts": "2026-06-04T01:49:42.192000Z"
+    },
+    {
+      "args_summary": "command,description",
+      "step": 6,
+      "tool_name": "bash",
+      "ts": "2026-06-04T01:49:44.570000Z"
+    },
+    {
+      "args_summary": "command,description",
+      "step": 7,
+      "tool_name": "bash",
+      "ts": "2026-06-04T01:49:46.889000Z"
+    },
+    {
+      "args_summary": "todos",
+      "step": 8,
+      "tool_name": "todowrite",
+      "ts": "2026-06-04T01:49:48.639000Z"
+    }
+  ],
+  "turns": 9,
+  "wall_time_s": 28.66
+}

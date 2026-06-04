@@ -1,0 +1,117 @@
+{
+  "config_id": 3,
+  "decision_points": [],
+  "env_lock_ref": "ENVIRONMENT.lock.md@eef47fb",
+  "evidence_levels": {
+    "reasoning_steps": "unknown",
+    "system_present": "direct",
+    "tokens": "unknown",
+    "tool_calls": "direct"
+  },
+  "harness": "hermes",
+  "harness_version": "0.13.0",
+  "model": "claude-haiku-4-5-20251001",
+  "model_snapshot": "claude-haiku-4-5-20251001",
+  "outcome": {
+    "final_diff_path": null,
+    "grader_detail": "......................                                                   [100%]\n22 passed in 0.02s",
+    "launch_returncode": 0,
+    "launch_timed_out": false,
+    "success": true
+  },
+  "private_audit_path": "/data/harness-lab/private-audits/3/bench-pig-latin/1.md",
+  "raw_artifacts": {
+    "session_json": "/data/harness-lab/runs/3/bench-pig-latin/1/raw/trace.session.json",
+    "stdout_log": "/data/harness-lab/runs/3/bench-pig-latin/1/raw/hermes.log"
+  },
+  "raw_log_path": "/data/harness-lab/runs/3/bench-pig-latin/1/raw",
+  "reasoning_effort": "high",
+  "reasoning_steps": [],
+  "repeat_index": 1,
+  "run_id": "c3__hermes__bench-pig-latin__r1",
+  "runtime_budget": {
+    "context_window_tokens": null,
+    "effort_source": "hermes -z -m MODEL --provider PROVIDER --yolo; no explicit effort flag",
+    "max_output_tokens": null,
+    "thinking_budget_tokens": null
+  },
+  "system_present": true,
+  "task_category": "benchmark",
+  "task_id": "bench-pig-latin",
+  "timestamp": "2026-06-04T00:47:02.102417Z",
+  "tokens": {
+    "cached_input": null,
+    "input": null,
+    "output": null
+  },
+  "tool_calls": [
+    {
+      "args_summary": "pattern,target",
+      "step": 1,
+      "tool_name": "search_files",
+      "ts": null
+    },
+    {
+      "args_summary": "path=./pig_latin.py",
+      "step": 2,
+      "tool_name": "read_file",
+      "ts": null
+    },
+    {
+      "args_summary": "command=find . -name \"*test*\" -o -name \"*spec*\" 2>/dev/null",
+      "step": 3,
+      "tool_name": "terminal",
+      "ts": null
+    },
+    {
+      "args_summary": "command=ls -la",
+      "step": 4,
+      "tool_name": "terminal",
+      "ts": null
+    },
+    {
+      "args_summary": "command=find /data/harness-lab/runs/3/bench-pig-latin/1 -name \"*test*\" -type f 2>/dev/null",
+      "step": 5,
+      "tool_name": "terminal",
+      "ts": null
+    },
+    {
+      "args_summary": "command=ls -la /data/harness-lab/runs/3/bench-pig-latin/1/",
+      "step": 6,
+      "tool_name": "terminal",
+      "ts": null
+    },
+    {
+      "args_summary": "command=ls -la /data/harness-lab/runs/3/bench-pig-latin/1/raw/",
+      "step": 7,
+      "tool_name": "terminal",
+      "ts": null
+    },
+    {
+      "args_summary": "path=./instructions.md",
+      "step": 8,
+      "tool_name": "read_file",
+      "ts": null
+    },
+    {
+      "args_summary": "path=./pig_latin.py",
+      "step": 9,
+      "tool_name": "write_file",
+      "ts": null
+    },
+    {
+      "args_summary": "command=python3 << 'EOF'\\nfrom pig_latin import translate\\n\\n# Test Rule 1: vowels, \"xr\", \"yt\"\\nprint(\"Rule 1 tests:\")\\nprint(f\"",
+      "step": 10,
+      "tool_name": "terminal",
+      "ts": null
+    },
+    {
+      "args_summary": "command=python3 << 'EOF'\\nfrom pig_latin import translate\\n\\n# Test with mixed case and punctuation\\nprint(\"Additional tests:\")\\",
+      "step": 11,
+      "tool_name": "terminal",
+      "ts": null
+    }
+  ],
+  "turns": 12,
+  "wall_time_s": 35.149
+}

@@ -1,0 +1,86 @@
+{
+  "config_id": 4,
+  "decision_points": [],
+  "env_lock_ref": "ENVIRONMENT.lock.md@1171d38",
+  "evidence_levels": {
+    "reasoning_steps": "direct",
+    "system_present": "unknown",
+    "tokens": "direct",
+    "tool_calls": "direct"
+  },
+  "harness": "opencode",
+  "harness_version": "1.15.13",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "model_snapshot": "gpt-5.4-mini-2026-03-17",
+  "outcome": {
+    "final_diff_path": null,
+    "grader_detail": "..                                                                       [100%]\n2 passed in 0.01s",
+    "launch_returncode": 0,
+    "launch_timed_out": false,
+    "success": true
+  },
+  "private_audit_path": "/data/harness-lab/private-audits/4/addlog-t2-03/3.md",
+  "raw_artifacts": {
+    "stderr_log": "/data/harness-lab/runs/4/addlog-t2-03/3/raw/harness.stderr.log",
+    "stdout_jsonl": "/data/harness-lab/runs/4/addlog-t2-03/3/raw/oc.log"
+  },
+  "raw_log_path": "/data/harness-lab/runs/4/addlog-t2-03/3/raw",
+  "reasoning_effort": "high",
+  "reasoning_steps": [
+    {
+      "tokens": 213,
+      "type": "reasoning_tokens"
+    }
+  ],
+  "repeat_index": 3,
+  "run_id": "c4__opencode__addlog-t2-03__r3",
+  "runtime_budget": {
+    "context_window_tokens": null,
+    "effort_source": "opencode run --variant high",
+    "max_output_tokens": null,
+    "thinking_budget_tokens": null
+  },
+  "system_present": false,
+  "task_category": "add_logging",
+  "task_id": "addlog-t2-03",
+  "timestamp": "2026-06-03T21:24:53.156364Z",
+  "tokens": {
+    "cached_input": 31744,
+    "input": 2705,
+    "output": 591
+  },
+  "tool_calls": [
+    {
+      "args_summary": "path=/data/harness-lab/runs/4/addlog-t2-03/3/workdir,pattern=**/calckit/stats.py",
+      "step": 1,
+      "tool_name": "glob",
+      "ts": "2026-06-03T21:24:43.913000Z"
+    },
+    {
+      "args_summary": "path=/data/harness-lab/runs/4/addlog-t2-03/3/workdir,pattern=**/stats.py",
+      "step": 2,
+      "tool_name": "glob",
+      "ts": "2026-06-03T21:24:43.976000Z"
+    },
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/4/addlog-t2-03/3/workdir/calckit/stats.py",
+      "step": 3,
+      "tool_name": "read",
+      "ts": "2026-06-03T21:24:45.075000Z"
+    },
+    {
+      "args_summary": "patchText=*** Begin Patch\\n*** Update File: /data/harness-lab/runs/4/addlog-t2-03/3/workdir/calckit/stats.py\\n@@\\n \"\"\"基本統計。\"\"\"\\n f",
+      "step": 4,
+      "tool_name": "apply_patch",
+      "ts": "2026-06-03T21:24:48.005000Z"
+    },
+    {
+      "args_summary": "command,timeout,workdir,description",
+      "step": 5,
+      "tool_name": "bash",
+      "ts": "2026-06-03T21:24:51.472000Z"
+    }
+  ],
+  "turns": 5,
+  "wall_time_s": 13.534
+}

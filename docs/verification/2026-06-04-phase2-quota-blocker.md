@@ -1,5 +1,17 @@
 # Phase 2 quota blocker（2026-06-04）
 
+## Resolution
+
+Resolved on 2026-06-04 after the Anthropic limit reset. Config 3 was rerun only,
+with `--config 3 --repeat-start 1 --repeats 3 --overwrite --continue-on-error`.
+The rerun completed 60/60 slots with zero runner errors and replaced the prior
+quota-failure traces with behavioral Hermes/Haiku traces. The formal Phase 2
+completion status is recorded in
+`docs/verification/2026-06-04-phase2-completion-report.md`.
+
+The historical blocker details below are retained to explain why the config 3
+rerun was necessary and why the earlier config 3 traces must not be used.
+
 Scope: clean isolated Phase 2 batch launched from commit `1171d38` with per-run
 HOME isolation, OpenCode `--dir <workdir>`, and repo-baseline escape guard.
 

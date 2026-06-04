@@ -1,0 +1,98 @@
+{
+  "config_id": 4,
+  "decision_points": [],
+  "env_lock_ref": "ENVIRONMENT.lock.md@1171d38",
+  "evidence_levels": {
+    "reasoning_steps": "direct",
+    "system_present": "unknown",
+    "tokens": "direct",
+    "tool_calls": "direct"
+  },
+  "harness": "opencode",
+  "harness_version": "1.15.13",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "model_snapshot": "gpt-5.4-mini-2026-03-17",
+  "outcome": {
+    "final_diff_path": null,
+    "grader_detail": "......................                                                   [100%]\n22 passed in 0.02s",
+    "launch_returncode": 0,
+    "launch_timed_out": false,
+    "success": true
+  },
+  "private_audit_path": "/data/harness-lab/private-audits/4/bench-pig-latin/2.md",
+  "raw_artifacts": {
+    "stderr_log": "/data/harness-lab/runs/4/bench-pig-latin/2/raw/harness.stderr.log",
+    "stdout_jsonl": "/data/harness-lab/runs/4/bench-pig-latin/2/raw/oc.log"
+  },
+  "raw_log_path": "/data/harness-lab/runs/4/bench-pig-latin/2/raw",
+  "reasoning_effort": "high",
+  "reasoning_steps": [
+    {
+      "tokens": 1925,
+      "type": "reasoning_tokens"
+    }
+  ],
+  "repeat_index": 2,
+  "run_id": "c4__opencode__bench-pig-latin__r2",
+  "runtime_budget": {
+    "context_window_tokens": null,
+    "effort_source": "opencode run --variant high",
+    "max_output_tokens": null,
+    "thinking_budget_tokens": null
+  },
+  "system_present": false,
+  "task_category": "benchmark",
+  "task_id": "bench-pig-latin",
+  "timestamp": "2026-06-03T21:34:19.229979Z",
+  "tokens": {
+    "cached_input": 53248,
+    "input": 3997,
+    "output": 858
+  },
+  "tool_calls": [
+    {
+      "args_summary": "path=/data/harness-lab/runs/4/bench-pig-latin/2/workdir,pattern=**/*test*.py",
+      "step": 1,
+      "tool_name": "glob",
+      "ts": "2026-06-03T21:33:41.881000Z"
+    },
+    {
+      "args_summary": "path=/data/harness-lab/runs/4/bench-pig-latin/2/workdir,pattern=**/pig_latin.py",
+      "step": 2,
+      "tool_name": "glob",
+      "ts": "2026-06-03T21:33:41.915000Z"
+    },
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/4/bench-pig-latin/2/workdir/pig_latin.py",
+      "step": 3,
+      "tool_name": "read",
+      "ts": "2026-06-03T21:33:45.306000Z"
+    },
+    {
+      "args_summary": "path=/data/harness-lab/runs/4/bench-pig-latin/2/workdir,pattern=**/*",
+      "step": 4,
+      "tool_name": "glob",
+      "ts": "2026-06-03T21:33:48.021000Z"
+    },
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/4/bench-pig-latin/2/workdir/instructions.md",
+      "step": 5,
+      "tool_name": "read",
+      "ts": "2026-06-03T21:33:50.154000Z"
+    },
+    {
+      "args_summary": "patchText=*** Begin Patch\\n*** Update File: /data/harness-lab/runs/4/bench-pig-latin/2/workdir/pig_latin.py\\n@@\\n-def translate(te",
+      "step": 6,
+      "tool_name": "apply_patch",
+      "ts": "2026-06-03T21:34:07.884000Z"
+    },
+    {
+      "args_summary": "command,timeout,workdir,description",
+      "step": 7,
+      "tool_name": "bash",
+      "ts": "2026-06-03T21:34:11.290000Z"
+    }
+  ],
+  "turns": 7,
+  "wall_time_s": 42.922
+}

@@ -1,0 +1,167 @@
+{
+  "config_id": 6,
+  "decision_points": [],
+  "env_lock_ref": "ENVIRONMENT.lock.md@1171d38",
+  "evidence_levels": {
+    "reasoning_steps": "direct",
+    "system_present": "source-derived",
+    "tokens": "direct",
+    "tool_calls": "direct"
+  },
+  "harness": "codex",
+  "harness_version": "0.136.0",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "model_snapshot": "gpt-5.4-mini-2026-03-17",
+  "outcome": {
+    "final_diff_path": null,
+    "grader_detail": "....................                                                     [100%]\n20 passed in 0.02s",
+    "launch_returncode": 0,
+    "launch_timed_out": false,
+    "success": true
+  },
+  "private_audit_path": "/data/harness-lab/private-audits/6/bench-grade-school/1.md",
+  "raw_artifacts": {
+    "session_jsonl": "/data/harness-lab/runs/6/bench-grade-school/1/raw/trace.session.jsonl",
+    "stderr_log": "/data/harness-lab/runs/6/bench-grade-school/1/raw/harness.stderr.log",
+    "stdout_jsonl": "/data/harness-lab/runs/6/bench-grade-school/1/raw/codex.log"
+  },
+  "raw_log_path": "/data/harness-lab/runs/6/bench-grade-school/1/raw",
+  "reasoning_effort": "high",
+  "reasoning_steps": [
+    {
+      "present": true,
+      "ts": "2026-06-03T22:29:43.384Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:29:44.898Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:29:51.651Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:29:53.052Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:29:57.086Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:30:01.616Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:30:08.913Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:30:11.183Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:30:13.241Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:30:14.539Z",
+      "type": "reasoning"
+    },
+    {
+      "tokens": 3130,
+      "type": "reasoning_tokens"
+    }
+  ],
+  "repeat_index": 1,
+  "run_id": "c6__codex__bench-grade-school__r1",
+  "runtime_budget": {
+    "context_window_tokens": 258400,
+    "effort_source": "$LAB_HOME/.codex/config.toml reasoning_effort=high",
+    "max_output_tokens": null,
+    "thinking_budget_tokens": null
+  },
+  "system_present": true,
+  "task_category": "benchmark",
+  "task_id": "bench-grade-school",
+  "timestamp": "2026-06-03T22:30:15.813828Z",
+  "tokens": {
+    "cached_input": 102016,
+    "input": 126467,
+    "output": 4631
+  },
+  "tool_calls": [
+    {
+      "args_summary": "command=/bin/bash -lc 'pwd && rg --files'",
+      "step": 1,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc \"sed -n '1,220p' grade_school.py\"",
+      "step": 2,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc \"sed -n '1,220p' instructions.md\"",
+      "step": 3,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc \"find .. -maxdepth 3 -type f | sed 's#\"'^../##'\"' | sort\"",
+      "step": 4,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc 'git status --short'",
+      "step": 5,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc \"python - <<'PY'\nfrom pathlib import Path\nprint(Path('grade_school.py').read_text())\nPY\"",
+      "step": 6,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "changes=/data/harness-lab/runs/6/bench-grade-school/1/workdir/grade_school.py:update",
+      "step": 7,
+      "tool_name": "file_change",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc \"python - <<'PY'\nfrom grade_school import School\ns=School()\ns.add_student('Jim',2)\ns.add_student('Alice',1)\ns.add_student('Jim',3)\nprint(s.roster(",
+      "step": 8,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc 'python -m py_compile grade_school.py'",
+      "step": 9,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc 'nl -ba grade_school.py'",
+      "step": 10,
+      "tool_name": "command_execution",
+      "ts": null
+    }
+  ],
+  "turns": 1,
+  "wall_time_s": 33.614
+}

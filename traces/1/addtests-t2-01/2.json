@@ -1,0 +1,133 @@
+{
+  "config_id": 1,
+  "decision_points": [],
+  "env_lock_ref": "ENVIRONMENT.lock.md@1171d38",
+  "evidence_levels": {
+    "reasoning_steps": "direct",
+    "system_present": "direct",
+    "tokens": "direct",
+    "tool_calls": "direct"
+  },
+  "harness": "claude_code",
+  "harness_version": "2.1.88",
+  "model": "claude-haiku-4-5-20251001",
+  "model_snapshot": "claude-haiku-4-5-20251001",
+  "outcome": {
+    "final_diff_path": null,
+    "grader_detail": "..                                                                       [100%]\n2 passed in 0.33s",
+    "launch_returncode": 0,
+    "launch_timed_out": false,
+    "success": true
+  },
+  "private_audit_path": "/data/harness-lab/private-audits/1/addtests-t2-01/2.md",
+  "raw_artifacts": {
+    "launch_log": "/data/harness-lab/runs/1/addtests-t2-01/2/raw/claude_code.log",
+    "trace_html": "/data/harness-lab/runs/1/addtests-t2-01/2/raw/log-2026-06-03-20-32-41.html",
+    "trace_jsonl": "/data/harness-lab/runs/1/addtests-t2-01/2/raw/log-2026-06-03-20-32-41.jsonl"
+  },
+  "raw_log_path": "/data/harness-lab/runs/1/addtests-t2-01/2/raw",
+  "reasoning_effort": "high",
+  "reasoning_steps": [
+    {
+      "present": true,
+      "type": "thinking"
+    },
+    {
+      "present": true,
+      "type": "thinking"
+    },
+    {
+      "present": true,
+      "type": "thinking"
+    },
+    {
+      "present": true,
+      "type": "thinking"
+    },
+    {
+      "present": true,
+      "type": "thinking"
+    },
+    {
+      "present": true,
+      "type": "thinking"
+    },
+    {
+      "present": true,
+      "type": "thinking"
+    },
+    {
+      "present": true,
+      "type": "thinking"
+    }
+  ],
+  "repeat_index": 2,
+  "run_id": "c1__claude_code__addtests-t2-01__r2",
+  "runtime_budget": {
+    "context_window_tokens": 200000,
+    "effort_source": "cli --effort high + env budgets",
+    "max_output_tokens": 64000,
+    "thinking_budget_tokens": 63999
+  },
+  "system_present": true,
+  "task_category": "add_tests",
+  "task_id": "addtests-t2-01",
+  "timestamp": "2026-06-03T20:33:03.806761Z",
+  "tokens": {
+    "cached_input": 18327,
+    "input": 8,
+    "output": 2021
+  },
+  "tool_calls": [
+    {
+      "args_summary": "file_path=/data/harness-lab/runs/1/addtests-t2-01/2/workdir",
+      "step": 1,
+      "tool_name": "Read",
+      "ts": null
+    },
+    {
+      "args_summary": "pattern=**/*.py",
+      "step": 2,
+      "tool_name": "Glob",
+      "ts": null
+    },
+    {
+      "args_summary": "command=find /data/harness-lab/runs/1/addtests-t2-01/2/workdir -type f -name \"*.py\" | he",
+      "step": 3,
+      "tool_name": "Bash",
+      "ts": null
+    },
+    {
+      "args_summary": "file_path=/data/harness-lab/runs/1/addtests-t2-01/2/workdir/calckit/money.py",
+      "step": 4,
+      "tool_name": "Read",
+      "ts": null
+    },
+    {
+      "args_summary": "command=ls -la /data/harness-lab/runs/1/addtests-t2-01/2/workdir/tests/ 2>/dev/null || e",
+      "step": 5,
+      "tool_name": "Bash",
+      "ts": null
+    },
+    {
+      "args_summary": "file_path=/data/harness-lab/runs/1/addtests-t2-01/2/workdir/tests/test_basic.py",
+      "step": 6,
+      "tool_name": "Read",
+      "ts": null
+    },
+    {
+      "args_summary": "file_path=/data/harness-lab/runs/1/addtests-t2-01/2/workdir/tests/test_money_extra.py",
+      "step": 7,
+      "tool_name": "Write",
+      "ts": null
+    },
+    {
+      "args_summary": "command=cd /data/harness-lab/runs/1/addtests-t2-01/2/workdir && python -m pytest tests/t",
+      "step": 8,
+      "tool_name": "Bash",
+      "ts": null
+    }
+  ],
+  "turns": 8,
+  "wall_time_s": 21.556
+}

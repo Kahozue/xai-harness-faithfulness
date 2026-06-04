@@ -1,0 +1,255 @@
+{
+  "config_id": 6,
+  "decision_points": [],
+  "env_lock_ref": "ENVIRONMENT.lock.md@1171d38",
+  "evidence_levels": {
+    "reasoning_steps": "direct",
+    "system_present": "source-derived",
+    "tokens": "direct",
+    "tool_calls": "direct"
+  },
+  "harness": "codex",
+  "harness_version": "0.136.0",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "model_snapshot": "gpt-5.4-mini-2026-03-17",
+  "outcome": {
+    "final_diff_path": null,
+    "grader_detail": ".......                                                                  [100%]\n7 passed in 0.01s",
+    "launch_returncode": 0,
+    "launch_timed_out": false,
+    "success": true
+  },
+  "private_audit_path": "/data/harness-lab/private-audits/6/bench-bottle-song/2.md",
+  "raw_artifacts": {
+    "session_jsonl": "/data/harness-lab/runs/6/bench-bottle-song/2/raw/trace.session.jsonl",
+    "stderr_log": "/data/harness-lab/runs/6/bench-bottle-song/2/raw/harness.stderr.log",
+    "stdout_jsonl": "/data/harness-lab/runs/6/bench-bottle-song/2/raw/codex.log"
+  },
+  "raw_log_path": "/data/harness-lab/runs/6/bench-bottle-song/2/raw",
+  "reasoning_effort": "high",
+  "reasoning_steps": [
+    {
+      "present": true,
+      "ts": "2026-06-03T22:36:25.164Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:36:26.911Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:36:33.028Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:36:34.678Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:36:36.753Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:36:39.883Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:36:41.142Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:36:42.085Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:36:45.950Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:36:48.115Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:36:49.301Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:36:51.500Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:36:54.082Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:36:58.610Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:37:01.583Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:37:02.937Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:37:05.797Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:37:10.228Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:37:16.145Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:37:20.166Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:37:22.744Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:37:31.500Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:37:33.433Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:37:38.506Z",
+      "type": "reasoning"
+    },
+    {
+      "tokens": 4646,
+      "type": "reasoning_tokens"
+    }
+  ],
+  "repeat_index": 2,
+  "run_id": "c6__codex__bench-bottle-song__r2",
+  "runtime_budget": {
+    "context_window_tokens": 258400,
+    "effort_source": "$LAB_HOME/.codex/config.toml reasoning_effort=high",
+    "max_output_tokens": null,
+    "thinking_budget_tokens": null
+  },
+  "system_present": true,
+  "task_category": "benchmark",
+  "task_id": "bench-bottle-song",
+  "timestamp": "2026-06-03T22:37:39.795019Z",
+  "tokens": {
+    "cached_input": 237952,
+    "input": 349987,
+    "output": 7001
+  },
+  "tool_calls": [
+    {
+      "args_summary": "command=/bin/bash -lc \"sed -n '1,220p' bottle_song.py\"",
+      "step": 1,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc 'rg --files'",
+      "step": 2,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc \"sed -n '1,240p' instructions.md\"",
+      "step": 3,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc 'git status --short'",
+      "step": 4,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "changes=/data/harness-lab/runs/6/bench-bottle-song/2/workdir/bottle_song.py:update",
+      "step": 5,
+      "tool_name": "file_change",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc 'python -m py_compile bottle_song.py'",
+      "step": 6,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc \"python - <<'PY'\nfrom bottle_song import recite\ncases = [\n    (10,1),\n    (10,2),\n    (3,3),\n    (2,1),\n    (1,1),\n]\nfor start,take in cases:\n    ",
+      "step": 7,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "changes=/data/harness-lab/runs/6/bench-bottle-song/2/workdir/bottle_song.py:update",
+      "step": 8,
+      "tool_name": "file_change",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc \"python - <<'PY'\nfrom bottle_song import recite\nfor start,take in [(10,1),(10,2),(3,3),(2,1),(1,1)]:\n    print((start,take))\n    print(recite(star",
+      "step": 9,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc 'python -m py_compile bottle_song.py'",
+      "step": 10,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "changes=/data/harness-lab/runs/6/bench-bottle-song/2/workdir/bottle_song.py:update",
+      "step": 11,
+      "tool_name": "file_change",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc 'python -m py_compile bottle_song.py'",
+      "step": 12,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc \"python - <<'PY'\nfrom bottle_song import recite\nassert recite(10, 1) == [\n    'Ten green bottles hanging on the wall,',\n    'Ten green bottles han",
+      "step": 13,
+      "tool_name": "command_execution",
+      "ts": null
+    }
+  ],
+  "turns": 1,
+  "wall_time_s": 76.141
+}

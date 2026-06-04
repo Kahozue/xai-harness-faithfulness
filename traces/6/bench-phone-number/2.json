@@ -1,0 +1,156 @@
+{
+  "config_id": 6,
+  "decision_points": [],
+  "env_lock_ref": "ENVIRONMENT.lock.md@1171d38",
+  "evidence_levels": {
+    "reasoning_steps": "direct",
+    "system_present": "source-derived",
+    "tokens": "direct",
+    "tool_calls": "direct"
+  },
+  "harness": "codex",
+  "harness_version": "0.136.0",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "model_snapshot": "gpt-5.4-mini-2026-03-17",
+  "outcome": {
+    "final_diff_path": null,
+    "grader_detail": "FAILED _hidden_grader_test.py::PhoneNumberTest::test_cleans_numbers_with_dots\nFAILED _hidden_grader_test.py::PhoneNumberTest::test_cleans_numbers_with_multiple_spaces\nFAILED _hidden_grader_test.py::PhoneNumberTest::test_cleans_the_number - Asse...\nFAILED _hidden_grader_test.py::PhoneNumberTest::test_pretty_print - Attribute...\nFAILED _hidden_grader_test.py::PhoneNumberTest::test_pretty_print_with_full_us_phone_number\nFAILED _hidden_grader_test.py::PhoneNumberTest::test_valid_when_11_digits_and_starting_with_1\nFAILED _hidden_grader_test.py::PhoneNumberTest::test_valid_when_11_digits_and_starting_with_1_even_with_punctuation\n8 failed, 13 passed in 0.06s",
+    "launch_returncode": 0,
+    "launch_timed_out": false,
+    "success": false
+  },
+  "private_audit_path": "/data/harness-lab/private-audits/6/bench-phone-number/2.md",
+  "raw_artifacts": {
+    "session_jsonl": "/data/harness-lab/runs/6/bench-phone-number/2/raw/trace.session.jsonl",
+    "stderr_log": "/data/harness-lab/runs/6/bench-phone-number/2/raw/harness.stderr.log",
+    "stdout_jsonl": "/data/harness-lab/runs/6/bench-phone-number/2/raw/codex.log"
+  },
+  "raw_log_path": "/data/harness-lab/runs/6/bench-phone-number/2/raw",
+  "reasoning_effort": "high",
+  "reasoning_steps": [
+    {
+      "present": true,
+      "ts": "2026-06-03T22:32:41.512Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:32:43.173Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:32:44.264Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:33:12.964Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:33:22.334Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:33:27.328Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:33:28.818Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:33:41.776Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:33:46.095Z",
+      "type": "reasoning"
+    },
+    {
+      "tokens": 7750,
+      "type": "reasoning_tokens"
+    }
+  ],
+  "repeat_index": 2,
+  "run_id": "c6__codex__bench-phone-number__r2",
+  "runtime_budget": {
+    "context_window_tokens": 258400,
+    "effort_source": "$LAB_HOME/.codex/config.toml reasoning_effort=high",
+    "max_output_tokens": null,
+    "thinking_budget_tokens": null
+  },
+  "system_present": true,
+  "task_category": "benchmark",
+  "task_id": "bench-phone-number",
+  "timestamp": "2026-06-03T22:33:47.468682Z",
+  "tokens": {
+    "cached_input": 124416,
+    "input": 130964,
+    "output": 9619
+  },
+  "tool_calls": [
+    {
+      "args_summary": "command=/bin/bash -c \"sed -n '1,220p' phone_number.py\"",
+      "step": 1,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -c 'pwd && rg --files'",
+      "step": 2,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -c \"sed -n '1,220p' instructions.md\"",
+      "step": 3,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "changes=/data/harness-lab/runs/6/bench-phone-number/2/workdir/phone_number.py:update",
+      "step": 4,
+      "tool_name": "file_change",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -c \"python - <<'PY'\nfrom phone_number import PhoneNumber\ncases = [\n    '+1 (613)-995-0253',\n    '613-995-0253',\n    '1 613 995 0253',\n    '613.995.025",
+      "step": 5,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "changes=/data/harness-lab/runs/6/bench-phone-number/2/workdir/phone_number.py:update",
+      "step": 6,
+      "tool_name": "file_change",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -c \"python - <<'PY'\nfrom phone_number import PhoneNumber\nfor c in ['   +1 (613)-995-0253', ' +1 (613)-995-0253', '1+6139950253']:\n    try:\n        p =",
+      "step": 7,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -c \"sed -n '1,220p' phone_number.py\"",
+      "step": 8,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -c 'python -m py_compile phone_number.py'",
+      "step": 9,
+      "tool_name": "command_execution",
+      "ts": null
+    }
+  ],
+  "turns": 1,
+  "wall_time_s": 67.328
+}

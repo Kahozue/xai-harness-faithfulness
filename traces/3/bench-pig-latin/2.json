@@ -1,0 +1,135 @@
+{
+  "config_id": 3,
+  "decision_points": [],
+  "env_lock_ref": "ENVIRONMENT.lock.md@eef47fb",
+  "evidence_levels": {
+    "reasoning_steps": "unknown",
+    "system_present": "direct",
+    "tokens": "unknown",
+    "tool_calls": "direct"
+  },
+  "harness": "hermes",
+  "harness_version": "0.13.0",
+  "model": "claude-haiku-4-5-20251001",
+  "model_snapshot": "claude-haiku-4-5-20251001",
+  "outcome": {
+    "final_diff_path": null,
+    "grader_detail": "......................                                                   [100%]\n22 passed in 0.02s",
+    "launch_returncode": 0,
+    "launch_timed_out": false,
+    "success": true
+  },
+  "private_audit_path": "/data/harness-lab/private-audits/3/bench-pig-latin/2.md",
+  "raw_artifacts": {
+    "session_json": "/data/harness-lab/runs/3/bench-pig-latin/2/raw/trace.session.json",
+    "stdout_log": "/data/harness-lab/runs/3/bench-pig-latin/2/raw/hermes.log"
+  },
+  "raw_log_path": "/data/harness-lab/runs/3/bench-pig-latin/2/raw",
+  "reasoning_effort": "high",
+  "reasoning_steps": [],
+  "repeat_index": 2,
+  "run_id": "c3__hermes__bench-pig-latin__r2",
+  "runtime_budget": {
+    "context_window_tokens": null,
+    "effort_source": "hermes -z -m MODEL --provider PROVIDER --yolo; no explicit effort flag",
+    "max_output_tokens": null,
+    "thinking_budget_tokens": null
+  },
+  "system_present": true,
+  "task_category": "benchmark",
+  "task_id": "bench-pig-latin",
+  "timestamp": "2026-06-04T00:47:42.692520Z",
+  "tokens": {
+    "cached_input": null,
+    "input": null,
+    "output": null
+  },
+  "tool_calls": [
+    {
+      "args_summary": "pattern,target",
+      "step": 1,
+      "tool_name": "search_files",
+      "ts": null
+    },
+    {
+      "args_summary": "path=./pig_latin.py",
+      "step": 2,
+      "tool_name": "read_file",
+      "ts": null
+    },
+    {
+      "args_summary": "pattern,target",
+      "step": 3,
+      "tool_name": "search_files",
+      "ts": null
+    },
+    {
+      "args_summary": "command=find . -type f -name \"*.py\" | head -20",
+      "step": 4,
+      "tool_name": "terminal",
+      "ts": null
+    },
+    {
+      "args_summary": "command=ls -la",
+      "step": 5,
+      "tool_name": "terminal",
+      "ts": null
+    },
+    {
+      "args_summary": "command=python -m pytest --help 2>&1 | head -5",
+      "step": 6,
+      "tool_name": "terminal",
+      "ts": null
+    },
+    {
+      "args_summary": "command=python -m pytest --collect-only 2>&1",
+      "step": 7,
+      "tool_name": "terminal",
+      "ts": null
+    },
+    {
+      "args_summary": "command=ls -la ..",
+      "step": 8,
+      "tool_name": "terminal",
+      "ts": null
+    },
+    {
+      "args_summary": "command=ls -la ../raw/",
+      "step": 9,
+      "tool_name": "terminal",
+      "ts": null
+    },
+    {
+      "args_summary": "path=./instructions.md",
+      "step": 10,
+      "tool_name": "read_file",
+      "ts": null
+    },
+    {
+      "args_summary": "path=./pig_latin.py",
+      "step": 11,
+      "tool_name": "write_file",
+      "ts": null
+    },
+    {
+      "args_summary": "command=cd /data/harness-lab/runs/3/bench-pig-latin/2/workdir && python3 << 'EOF'\\nfrom pig_latin import translate\\n\\n# Test Rul",
+      "step": 12,
+      "tool_name": "terminal",
+      "ts": null
+    },
+    {
+      "args_summary": "command=cd /data/harness-lab/runs/3/bench-pig-latin/2/workdir && python3 << 'EOF'\\nfrom pig_latin import translate\\n\\n# Test wit",
+      "step": 13,
+      "tool_name": "terminal",
+      "ts": null
+    },
+    {
+      "args_summary": "command=cd /data/harness-lab/runs/3/bench-pig-latin/2/workdir && python3 << 'EOF'\\nfrom pig_latin import translate\\n\\n# Edge cas",
+      "step": 14,
+      "tool_name": "terminal",
+      "ts": null
+    }
+  ],
+  "turns": 14,
+  "wall_time_s": 40.217
+}

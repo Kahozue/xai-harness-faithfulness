@@ -1,0 +1,134 @@
+{
+  "config_id": 4,
+  "decision_points": [],
+  "env_lock_ref": "ENVIRONMENT.lock.md@1171d38",
+  "evidence_levels": {
+    "reasoning_steps": "direct",
+    "system_present": "unknown",
+    "tokens": "direct",
+    "tool_calls": "direct"
+  },
+  "harness": "opencode",
+  "harness_version": "1.15.13",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "model_snapshot": "gpt-5.4-mini-2026-03-17",
+  "outcome": {
+    "final_diff_path": null,
+    "grader_detail": "....................                                                     [100%]\n20 passed in 0.02s",
+    "launch_returncode": 0,
+    "launch_timed_out": false,
+    "success": true
+  },
+  "private_audit_path": "/data/harness-lab/private-audits/4/bench-grade-school/1.md",
+  "raw_artifacts": {
+    "stderr_log": "/data/harness-lab/runs/4/bench-grade-school/1/raw/harness.stderr.log",
+    "stdout_jsonl": "/data/harness-lab/runs/4/bench-grade-school/1/raw/oc.log"
+  },
+  "raw_log_path": "/data/harness-lab/runs/4/bench-grade-school/1/raw",
+  "reasoning_effort": "high",
+  "reasoning_steps": [
+    {
+      "tokens": 2812,
+      "type": "reasoning_tokens"
+    }
+  ],
+  "repeat_index": 1,
+  "run_id": "c4__opencode__bench-grade-school__r1",
+  "runtime_budget": {
+    "context_window_tokens": null,
+    "effort_source": "opencode run --variant high",
+    "max_output_tokens": null,
+    "thinking_budget_tokens": null
+  },
+  "system_present": false,
+  "task_category": "benchmark",
+  "task_id": "bench-grade-school",
+  "timestamp": "2026-06-03T21:26:53.019404Z",
+  "tokens": {
+    "cached_input": 125440,
+    "input": 16856,
+    "output": 1493
+  },
+  "tool_calls": [
+    {
+      "args_summary": "todos",
+      "step": 1,
+      "tool_name": "todowrite",
+      "ts": "2026-06-03T21:25:56.459000Z"
+    },
+    {
+      "args_summary": "path=/data/harness-lab/runs/4/bench-grade-school/1/workdir,pattern=**/grade_school.py",
+      "step": 2,
+      "tool_name": "glob",
+      "ts": "2026-06-03T21:25:58.525000Z"
+    },
+    {
+      "args_summary": "path=/data/harness-lab/runs/4/bench-grade-school/1/workdir,pattern=**/*test*",
+      "step": 3,
+      "tool_name": "glob",
+      "ts": "2026-06-03T21:25:58.580000Z"
+    },
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/4/bench-grade-school/1/workdir/grade_school.py",
+      "step": 4,
+      "tool_name": "read",
+      "ts": "2026-06-03T21:25:59.812000Z"
+    },
+    {
+      "args_summary": "patchText=*** Begin Patch\\n*** Update File: /data/harness-lab/runs/4/bench-grade-school/1/workdir/grade_school.py\\n@@\\n class Scho",
+      "step": 5,
+      "tool_name": "apply_patch",
+      "ts": "2026-06-03T21:26:02.934000Z"
+    },
+    {
+      "args_summary": "url,format,timeout",
+      "step": 6,
+      "tool_name": "webfetch",
+      "ts": "2026-06-03T21:26:09.682000Z"
+    },
+    {
+      "args_summary": "url,format,timeout",
+      "step": 7,
+      "tool_name": "webfetch",
+      "ts": "2026-06-03T21:26:17.781000Z"
+    },
+    {
+      "args_summary": "url,format,timeout",
+      "step": 8,
+      "tool_name": "webfetch",
+      "ts": "2026-06-03T21:26:21.668000Z"
+    },
+    {
+      "args_summary": "url,format,timeout",
+      "step": 9,
+      "tool_name": "webfetch",
+      "ts": "2026-06-03T21:26:24.251000Z"
+    },
+    {
+      "args_summary": "patchText=*** Begin Patch\\n*** Update File: /data/harness-lab/runs/4/bench-grade-school/1/workdir/grade_school.py\\n@@\\n class Scho",
+      "step": 10,
+      "tool_name": "apply_patch",
+      "ts": "2026-06-03T21:26:40.681000Z"
+    },
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/4/bench-grade-school/1/workdir/grade_school.py",
+      "step": 11,
+      "tool_name": "read",
+      "ts": "2026-06-03T21:26:43.417000Z"
+    },
+    {
+      "args_summary": "command,timeout,workdir,description",
+      "step": 12,
+      "tool_name": "bash",
+      "ts": "2026-06-03T21:26:46.753000Z"
+    },
+    {
+      "args_summary": "todos",
+      "step": 13,
+      "tool_name": "todowrite",
+      "ts": "2026-06-03T21:26:50.195000Z"
+    }
+  ],
+  "turns": 13,
+  "wall_time_s": 61.175
+}

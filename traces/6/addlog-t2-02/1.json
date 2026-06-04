@@ -1,0 +1,181 @@
+{
+  "config_id": 6,
+  "decision_points": [],
+  "env_lock_ref": "ENVIRONMENT.lock.md@1171d38",
+  "evidence_levels": {
+    "reasoning_steps": "direct",
+    "system_present": "source-derived",
+    "tokens": "direct",
+    "tool_calls": "direct"
+  },
+  "harness": "codex",
+  "harness_version": "0.136.0",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "model_snapshot": "gpt-5.4-mini-2026-03-17",
+  "outcome": {
+    "final_diff_path": null,
+    "grader_detail": "..                                                                       [100%]\n2 passed in 0.01s",
+    "launch_returncode": 0,
+    "launch_timed_out": false,
+    "success": true
+  },
+  "private_audit_path": "/data/harness-lab/private-audits/6/addlog-t2-02/1.md",
+  "raw_artifacts": {
+    "session_jsonl": "/data/harness-lab/runs/6/addlog-t2-02/1/raw/trace.session.jsonl",
+    "stderr_log": "/data/harness-lab/runs/6/addlog-t2-02/1/raw/harness.stderr.log",
+    "stdout_jsonl": "/data/harness-lab/runs/6/addlog-t2-02/1/raw/codex.log"
+  },
+  "raw_log_path": "/data/harness-lab/runs/6/addlog-t2-02/1/raw",
+  "reasoning_effort": "high",
+  "reasoning_steps": [
+    {
+      "present": true,
+      "ts": "2026-06-03T22:28:08.025Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:28:10.391Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:28:12.253Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:28:15.423Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:28:18.100Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:28:19.874Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:28:22.502Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:28:25.088Z",
+      "type": "reasoning"
+    },
+    {
+      "tokens": 513,
+      "type": "reasoning_tokens"
+    }
+  ],
+  "repeat_index": 1,
+  "run_id": "c6__codex__addlog-t2-02__r1",
+  "runtime_budget": {
+    "context_window_tokens": 258400,
+    "effort_source": "$LAB_HOME/.codex/config.toml reasoning_effort=high",
+    "max_output_tokens": null,
+    "thinking_budget_tokens": null
+  },
+  "system_present": true,
+  "task_category": "add_logging",
+  "task_id": "addlog-t2-02",
+  "timestamp": "2026-06-03T22:28:26.931103Z",
+  "tokens": {
+    "cached_input": 103296,
+    "input": 109017,
+    "output": 2542
+  },
+  "tool_calls": [
+    {
+      "args_summary": "command=/bin/bash -lc \"rg -n \\\"def format_amount|logging.getLogger|import logging|logger =\\\" calckit/money.py calckit -g '\"'!**/__pycache__/**'\"'\"",
+      "step": 1,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc \"sed -n '1,220p' calckit/money.py\"",
+      "step": 2,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc \"rg -n \\\"format_amount|parse_amount\\\" tests calckit -g '\"'!**/__pycache__/**'\"'\"",
+      "step": 3,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc \"sed -n '1,200p' calckit/__init__.py\"",
+      "step": 4,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc \"sed -n '1,220p' tests/test_basic.py\"",
+      "step": 5,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc \"sed -n '1,220p' calckit/money.py\"",
+      "step": 6,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "changes=/data/harness-lab/runs/6/addlog-t2-02/1/workdir/calckit/money.py:update",
+      "step": 7,
+      "tool_name": "file_change",
+      "ts": null
+    },
+    {
+      "args_summary": "changes=/data/harness-lab/runs/6/addlog-t2-02/1/workdir/tests/test_basic.py:update",
+      "step": 8,
+      "tool_name": "file_change",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc 'git diff -- calckit/money.py tests/test_basic.py'",
+      "step": 9,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc 'pytest -q tests/test_basic.py'",
+      "step": 10,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc 'python -m pytest -q tests/test_basic.py'",
+      "step": 11,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc 'python --version'",
+      "step": 12,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc \"python - <<'PY'\nimport logging\nfrom io import StringIO\nfrom calckit.money import format_amount, logger\n\nstream = StringIO()\nhandler = logging.Str",
+      "step": 13,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc \"sed -n '1,120p' calckit/money.py && printf '\\\\n---\\\\n' && sed -n '1,120p' tests/test_basic.py\"",
+      "step": 14,
+      "tool_name": "command_execution",
+      "ts": null
+    }
+  ],
+  "turns": 1,
+  "wall_time_s": 21.337
+}

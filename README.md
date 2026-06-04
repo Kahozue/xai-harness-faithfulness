@@ -47,6 +47,17 @@ Every real run uses a fresh harness HOME under
 `/data/harness-lab/home` directory is only a static install/config template.
 Do not run Pilot, Phase 2, or reruns from a shared writable harness HOME.
 
+Phase 2 formal baseline traces are repeats 1-3 only. Repeat 0 is reserved for
+Pilot traces and must not be mixed into factorial statistics or HCI ground-truth
+labels.
+
+Baseline traces record the observed chosen-tool sequence: ordered tool names,
+argument summaries, timestamps where available, outcome, tokens, evidence level,
+raw artifact paths, and private audit path. They do not directly record every
+unselected alternative tool or hidden internal rationale. The `decision_points`
+field is reserved for Phase 3 attribution work that combines dossier evidence,
+M1/M2 perturbations, and M4 trace review.
+
 ## Research Questions
 
 | RQ | Question |

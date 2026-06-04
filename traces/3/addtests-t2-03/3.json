@@ -1,0 +1,75 @@
+{
+  "config_id": 3,
+  "decision_points": [],
+  "env_lock_ref": "ENVIRONMENT.lock.md@eef47fb",
+  "evidence_levels": {
+    "reasoning_steps": "unknown",
+    "system_present": "direct",
+    "tokens": "unknown",
+    "tool_calls": "direct"
+  },
+  "harness": "hermes",
+  "harness_version": "0.13.0",
+  "model": "claude-haiku-4-5-20251001",
+  "model_snapshot": "claude-haiku-4-5-20251001",
+  "outcome": {
+    "final_diff_path": null,
+    "grader_detail": "..                                                                       [100%]\n2 passed in 0.33s",
+    "launch_returncode": 0,
+    "launch_timed_out": false,
+    "success": true
+  },
+  "private_audit_path": "/data/harness-lab/private-audits/3/addtests-t2-03/3.md",
+  "raw_artifacts": {
+    "session_json": "/data/harness-lab/runs/3/addtests-t2-03/3/raw/trace.session.json",
+    "stdout_log": "/data/harness-lab/runs/3/addtests-t2-03/3/raw/hermes.log"
+  },
+  "raw_log_path": "/data/harness-lab/runs/3/addtests-t2-03/3/raw",
+  "reasoning_effort": "high",
+  "reasoning_steps": [],
+  "repeat_index": 3,
+  "run_id": "c3__hermes__addtests-t2-03__r3",
+  "runtime_budget": {
+    "context_window_tokens": null,
+    "effort_source": "hermes -z -m MODEL --provider PROVIDER --yolo; no explicit effort flag",
+    "max_output_tokens": null,
+    "thinking_budget_tokens": null
+  },
+  "system_present": true,
+  "task_category": "add_tests",
+  "task_id": "addtests-t2-03",
+  "timestamp": "2026-06-04T00:37:47.319637Z",
+  "tokens": {
+    "cached_input": null,
+    "input": null,
+    "output": null
+  },
+  "tool_calls": [
+    {
+      "args_summary": "pattern,target",
+      "step": 1,
+      "tool_name": "search_files",
+      "ts": null
+    },
+    {
+      "args_summary": "path=./calckit/stats.py",
+      "step": 2,
+      "tool_name": "read_file",
+      "ts": null
+    },
+    {
+      "args_summary": "path=./tests/test_basic.py",
+      "step": 3,
+      "tool_name": "read_file",
+      "ts": null
+    },
+    {
+      "args_summary": "path=./tests/test_median_extra.py",
+      "step": 4,
+      "tool_name": "write_file",
+      "ts": null
+    }
+  ],
+  "turns": 5,
+  "wall_time_s": 19.381
+}

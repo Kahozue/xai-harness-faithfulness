@@ -1,0 +1,192 @@
+{
+  "config_id": 6,
+  "decision_points": [],
+  "env_lock_ref": "ENVIRONMENT.lock.md@1171d38",
+  "evidence_levels": {
+    "reasoning_steps": "direct",
+    "system_present": "source-derived",
+    "tokens": "direct",
+    "tool_calls": "direct"
+  },
+  "harness": "codex",
+  "harness_version": "0.136.0",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "model_snapshot": "gpt-5.4-mini-2026-03-17",
+  "outcome": {
+    "final_diff_path": null,
+    "grader_detail": "...                                                                      [100%]\n3 passed in 0.01s",
+    "launch_returncode": 0,
+    "launch_timed_out": false,
+    "success": true
+  },
+  "private_audit_path": "/data/harness-lab/private-audits/6/rename-t2-02/3.md",
+  "raw_artifacts": {
+    "session_jsonl": "/data/harness-lab/runs/6/rename-t2-02/3/raw/trace.session.jsonl",
+    "stderr_log": "/data/harness-lab/runs/6/rename-t2-02/3/raw/harness.stderr.log",
+    "stdout_jsonl": "/data/harness-lab/runs/6/rename-t2-02/3/raw/codex.log"
+  },
+  "raw_log_path": "/data/harness-lab/runs/6/rename-t2-02/3/raw",
+  "reasoning_effort": "high",
+  "reasoning_steps": [
+    {
+      "present": true,
+      "ts": "2026-06-03T22:22:15.687Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:22:17.329Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:22:20.344Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:22:22.669Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:22:25.282Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:22:27.509Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:22:31.151Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:22:32.863Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:22:35.164Z",
+      "type": "reasoning"
+    },
+    {
+      "tokens": 528,
+      "type": "reasoning_tokens"
+    }
+  ],
+  "repeat_index": 3,
+  "run_id": "c6__codex__rename-t2-02__r3",
+  "runtime_budget": {
+    "context_window_tokens": 258400,
+    "effort_source": "$LAB_HOME/.codex/config.toml reasoning_effort=high",
+    "max_output_tokens": null,
+    "thinking_budget_tokens": null
+  },
+  "system_present": true,
+  "task_category": "rename",
+  "task_id": "rename-t2-02",
+  "timestamp": "2026-06-03T22:22:37.156299Z",
+  "tokens": {
+    "cached_input": 100352,
+    "input": 114238,
+    "output": 3081
+  },
+  "tool_calls": [
+    {
+      "args_summary": "command=/bin/bash -lc \"rg -n \\\"\\\\bmedian\\\\b|mid_value\\\" .\"",
+      "step": 1,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc 'rg --files .'",
+      "step": 2,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc \"sed -n '1,160p' calckit/stats.py\"",
+      "step": 3,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc \"sed -n '1,160p' calckit/__init__.py\"",
+      "step": 4,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc \"sed -n '1,200p' tests/test_basic.py\"",
+      "step": 5,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc \"sed -n '1,40p' calckit/__init__.py | sed -n 'l'\"",
+      "step": 6,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc \"sed -n '1,80p' calckit/stats.py | sed -n 'l'\"",
+      "step": 7,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc \"sed -n '1,80p' tests/test_basic.py | sed -n 'l'\"",
+      "step": 8,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "changes=/data/harness-lab/runs/6/rename-t2-02/3/workdir/calckit/__init__.py:update,/data/harness-lab/runs/6/rename-t2-02/3/workdir/calckit/stats.py:update,/data/harness-lab/runs/6/rename-t2-02/3/workdir/tests/test_basic.py:update",
+      "step": 9,
+      "tool_name": "file_change",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc 'pytest -q'",
+      "step": 10,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc \"rg -n \\\"\\\\bmedian\\\\b|mid_value\\\" calckit tests\"",
+      "step": 11,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc \"sed -n '1,220p' pyproject.toml\"",
+      "step": 12,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc 'python -V'",
+      "step": 13,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc 'python -m pytest -q'",
+      "step": 14,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc \"python - <<'PY'\nfrom calckit import parse_amount, format_amount, mean, mid_value\n\nassert parse_amount('\"'$1,234.50'\"') == 1234.50\nassert format_a",
+      "step": 15,
+      "tool_name": "command_execution",
+      "ts": null
+    }
+  ],
+  "turns": 1,
+  "wall_time_s": 23.062
+}

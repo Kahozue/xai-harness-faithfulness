@@ -1,0 +1,108 @@
+{
+  "config_id": 5,
+  "decision_points": [],
+  "env_lock_ref": "ENVIRONMENT.lock.md@1171d38",
+  "evidence_levels": {
+    "reasoning_steps": "direct",
+    "system_present": "direct",
+    "tokens": "unknown",
+    "tool_calls": "direct"
+  },
+  "harness": "hermes",
+  "harness_version": "0.13.0",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "model_snapshot": "gpt-5.4-mini-2026-03-17",
+  "outcome": {
+    "final_diff_path": null,
+    "grader_detail": "..                                                                       [100%]\n2 passed in 0.32s",
+    "launch_returncode": 0,
+    "launch_timed_out": false,
+    "success": true
+  },
+  "private_audit_path": "/data/harness-lab/private-audits/5/addtests-t2-04/2.md",
+  "raw_artifacts": {
+    "session_json": "/data/harness-lab/runs/5/addtests-t2-04/2/raw/trace.session.json",
+    "stdout_log": "/data/harness-lab/runs/5/addtests-t2-04/2/raw/hermes.log"
+  },
+  "raw_log_path": "/data/harness-lab/runs/5/addtests-t2-04/2/raw",
+  "reasoning_effort": "high",
+  "reasoning_steps": [
+    {
+      "message_index": 1,
+      "present": true,
+      "type": "reasoning"
+    },
+    {
+      "message_index": 4,
+      "present": true,
+      "type": "reasoning"
+    },
+    {
+      "message_index": 7,
+      "present": true,
+      "type": "reasoning"
+    },
+    {
+      "message_index": 9,
+      "present": true,
+      "type": "reasoning"
+    }
+  ],
+  "repeat_index": 2,
+  "run_id": "c5__hermes__addtests-t2-04__r2",
+  "runtime_budget": {
+    "context_window_tokens": null,
+    "effort_source": "hermes -z -m MODEL --provider PROVIDER --yolo; no explicit effort flag",
+    "max_output_tokens": null,
+    "thinking_budget_tokens": null
+  },
+  "system_present": true,
+  "task_category": "add_tests",
+  "task_id": "addtests-t2-04",
+  "timestamp": "2026-06-03T21:58:11.462993Z",
+  "tokens": {
+    "cached_input": null,
+    "input": null,
+    "output": null
+  },
+  "tool_calls": [
+    {
+      "args_summary": "path=.,limit=20",
+      "step": 1,
+      "tool_name": "search_files",
+      "ts": null
+    },
+    {
+      "args_summary": "path=.,limit=20",
+      "step": 2,
+      "tool_name": "search_files",
+      "ts": null
+    },
+    {
+      "args_summary": "path=./tests/test_basic.py,offset=1,limit=200",
+      "step": 3,
+      "tool_name": "read_file",
+      "ts": null
+    },
+    {
+      "args_summary": "path=./calckit/stats.py,offset=1,limit=200",
+      "step": 4,
+      "tool_name": "read_file",
+      "ts": null
+    },
+    {
+      "args_summary": "path=./tests/test_mean_errors.py",
+      "step": 5,
+      "tool_name": "write_file",
+      "ts": null
+    },
+    {
+      "args_summary": "path=./tests/test_mean_errors.py,offset=1,limit=50",
+      "step": 6,
+      "tool_name": "read_file",
+      "ts": null
+    }
+  ],
+  "turns": 5,
+  "wall_time_s": 21.757
+}

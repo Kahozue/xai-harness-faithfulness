@@ -1,0 +1,98 @@
+{
+  "config_id": 4,
+  "decision_points": [],
+  "env_lock_ref": "ENVIRONMENT.lock.md@1171d38",
+  "evidence_levels": {
+    "reasoning_steps": "direct",
+    "system_present": "unknown",
+    "tokens": "direct",
+    "tool_calls": "direct"
+  },
+  "harness": "opencode",
+  "harness_version": "1.15.13",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "model_snapshot": "gpt-5.4-mini-2026-03-17",
+  "outcome": {
+    "final_diff_path": null,
+    "grader_detail": "E       AttributeError: 'PhoneNumber' object has no attribute 'pretty'\n\n_hidden_grader_test.py:122: AttributeError\n=========================== short test summary info ============================\nFAILED _hidden_grader_test.py::PhoneNumberTest::test_area_code - AttributeErr...\nFAILED _hidden_grader_test.py::PhoneNumberTest::test_pretty_print - Attribute...\nFAILED _hidden_grader_test.py::PhoneNumberTest::test_pretty_print_with_full_us_phone_number\n3 failed, 18 passed in 0.04s",
+    "launch_returncode": 0,
+    "launch_timed_out": false,
+    "success": false
+  },
+  "private_audit_path": "/data/harness-lab/private-audits/4/bench-phone-number/1.md",
+  "raw_artifacts": {
+    "stderr_log": "/data/harness-lab/runs/4/bench-phone-number/1/raw/harness.stderr.log",
+    "stdout_jsonl": "/data/harness-lab/runs/4/bench-phone-number/1/raw/oc.log"
+  },
+  "raw_log_path": "/data/harness-lab/runs/4/bench-phone-number/1/raw",
+  "reasoning_effort": "high",
+  "reasoning_steps": [
+    {
+      "tokens": 6936,
+      "type": "reasoning_tokens"
+    }
+  ],
+  "repeat_index": 1,
+  "run_id": "c4__opencode__bench-phone-number__r1",
+  "runtime_budget": {
+    "context_window_tokens": null,
+    "effort_source": "opencode run --variant high",
+    "max_output_tokens": null,
+    "thinking_budget_tokens": null
+  },
+  "system_present": false,
+  "task_category": "benchmark",
+  "task_id": "bench-phone-number",
+  "timestamp": "2026-06-03T21:29:12.968535Z",
+  "tokens": {
+    "cached_input": 64512,
+    "input": 5424,
+    "output": 1406
+  },
+  "tool_calls": [
+    {
+      "args_summary": "path=/data/harness-lab/runs/4/bench-phone-number/1/workdir,pattern=**/*test*",
+      "step": 1,
+      "tool_name": "glob",
+      "ts": "2026-06-03T21:27:56.554000Z"
+    },
+    {
+      "args_summary": "path=/data/harness-lab/runs/4/bench-phone-number/1/workdir,pattern=**/phone_number.py",
+      "step": 2,
+      "tool_name": "glob",
+      "ts": "2026-06-03T21:27:56.606000Z"
+    },
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/4/bench-phone-number/1/workdir/phone_number.py",
+      "step": 3,
+      "tool_name": "read",
+      "ts": "2026-06-03T21:27:58.972000Z"
+    },
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/4/bench-phone-number/1/workdir",
+      "step": 4,
+      "tool_name": "read",
+      "ts": "2026-06-03T21:28:01.496000Z"
+    },
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/4/bench-phone-number/1/workdir/instructions.md",
+      "step": 5,
+      "tool_name": "read",
+      "ts": "2026-06-03T21:28:02.880000Z"
+    },
+    {
+      "args_summary": "patchText=*** Begin Patch\\n*** Update File: /data/harness-lab/runs/4/bench-phone-number/1/workdir/phone_number.py\\n@@\\n-class Phon",
+      "step": 6,
+      "tool_name": "apply_patch",
+      "ts": "2026-06-03T21:28:57.857000Z"
+    },
+    {
+      "args_summary": "command,timeout,workdir,description",
+      "step": 7,
+      "tool_name": "bash",
+      "ts": "2026-06-03T21:29:01.536000Z"
+    }
+  ],
+  "turns": 7,
+  "wall_time_s": 81.158
+}

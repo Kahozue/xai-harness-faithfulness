@@ -1,0 +1,174 @@
+{
+  "config_id": 6,
+  "decision_points": [],
+  "env_lock_ref": "ENVIRONMENT.lock.md@1171d38",
+  "evidence_levels": {
+    "reasoning_steps": "direct",
+    "system_present": "source-derived",
+    "tokens": "direct",
+    "tool_calls": "direct"
+  },
+  "harness": "codex",
+  "harness_version": "0.136.0",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "model_snapshot": "gpt-5.4-mini-2026-03-17",
+  "outcome": {
+    "final_diff_path": null,
+    "grader_detail": "FAILED _hidden_grader_test.py::GradeSchoolTest::test_cannot_add_same_student_to_multiple_grades_in_the_roster\nFAILED _hidden_grader_test.py::GradeSchoolTest::test_cannot_add_student_to_same_grade_in_the_roster_more_than_once\nFAILED _hidden_grader_test.py::GradeSchoolTest::test_student_not_added_to_multiple_grades\nFAILED _hidden_grader_test.py::GradeSchoolTest::test_student_not_added_to_multiple_grades_in_the_roster\nFAILED _hidden_grader_test.py::GradeSchoolTest::test_student_not_added_to_other_grade_for_multiple_grades\nFAILED _hidden_grader_test.py::GradeSchoolTest::test_student_not_added_to_same_grade_in_the_roster_more_than_once\nFAILED _hidden_grader_test.py::GradeSchoolTest::test_student_not_added_to_same_grade_more_than_once\n10 failed, 10 passed in 0.09s",
+    "launch_returncode": 0,
+    "launch_timed_out": false,
+    "success": false
+  },
+  "private_audit_path": "/data/harness-lab/private-audits/6/bench-grade-school/2.md",
+  "raw_artifacts": {
+    "session_jsonl": "/data/harness-lab/runs/6/bench-grade-school/2/raw/trace.session.jsonl",
+    "stderr_log": "/data/harness-lab/runs/6/bench-grade-school/2/raw/harness.stderr.log",
+    "stdout_jsonl": "/data/harness-lab/runs/6/bench-grade-school/2/raw/codex.log"
+  },
+  "raw_log_path": "/data/harness-lab/runs/6/bench-grade-school/2/raw",
+  "reasoning_effort": "high",
+  "reasoning_steps": [
+    {
+      "present": true,
+      "ts": "2026-06-03T22:30:17.438Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:30:18.790Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:30:22.066Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:30:33.063Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:30:35.138Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:30:49.059Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:30:50.288Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:30:52.544Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:30:53.681Z",
+      "type": "reasoning"
+    },
+    {
+      "tokens": 3750,
+      "type": "reasoning_tokens"
+    }
+  ],
+  "repeat_index": 2,
+  "run_id": "c6__codex__bench-grade-school__r2",
+  "runtime_budget": {
+    "context_window_tokens": 258400,
+    "effort_source": "$LAB_HOME/.codex/config.toml reasoning_effort=high",
+    "max_output_tokens": null,
+    "thinking_budget_tokens": null
+  },
+  "system_present": true,
+  "task_category": "benchmark",
+  "task_id": "bench-grade-school",
+  "timestamp": "2026-06-03T22:30:55.157387Z",
+  "tokens": {
+    "cached_input": 117120,
+    "input": 122452,
+    "output": 5523
+  },
+  "tool_calls": [
+    {
+      "args_summary": "command=/bin/bash -c \"sed -n '1,220p' grade_school.py\"",
+      "step": 1,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -c 'rg --files'",
+      "step": 2,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -c \"sed -n '1,220p' instructions.md\"",
+      "step": 3,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -c \"rg -n \\\"added\\\\(\\\" -S .\"",
+      "step": 4,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -c \"rg -n \\\"grade_school|School\\\\(\\\" -S .\"",
+      "step": 5,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "changes=/data/harness-lab/runs/6/bench-grade-school/2/workdir/grade_school.py:update",
+      "step": 6,
+      "tool_name": "file_change",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -c \"python - <<'PY'\nfrom grade_school import School\ns = School()\ns.add_student('Jim', 2)\ns.add_student('Barb', 1)\ns.add_student('Alex', 2)\nprint(s.gra",
+      "step": 7,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -c 'python -m py_compile grade_school.py'",
+      "step": 8,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "changes=/data/harness-lab/runs/6/bench-grade-school/2/workdir/grade_school.py:update",
+      "step": 9,
+      "tool_name": "file_change",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -c \"python - <<'PY'\nfrom grade_school import School\ns = School()\ns.add_student('Zoe', 2)\ns.add_student('Alex', 2)\nprint(s.grade(2))\nprint(s.roster())\n",
+      "step": 10,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -c 'python -m py_compile grade_school.py'",
+      "step": 11,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -c 'nl -ba grade_school.py'",
+      "step": 12,
+      "tool_name": "command_execution",
+      "ts": null
+    }
+  ],
+  "turns": 1,
+  "wall_time_s": 38.917
+}

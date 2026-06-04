@@ -1,0 +1,118 @@
+{
+  "config_id": 6,
+  "decision_points": [],
+  "env_lock_ref": "ENVIRONMENT.lock.md@1171d38",
+  "evidence_levels": {
+    "reasoning_steps": "direct",
+    "system_present": "source-derived",
+    "tokens": "direct",
+    "tool_calls": "direct"
+  },
+  "harness": "codex",
+  "harness_version": "0.136.0",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "model_snapshot": "gpt-5.4-mini-2026-03-17",
+  "outcome": {
+    "final_diff_path": null,
+    "grader_detail": "FAILED _hidden_grader_test.py::GradeSchoolTest::test_cannot_add_same_student_to_multiple_grades_in_the_roster\nFAILED _hidden_grader_test.py::GradeSchoolTest::test_cannot_add_student_to_same_grade_in_the_roster_more_than_once\nFAILED _hidden_grader_test.py::GradeSchoolTest::test_student_not_added_to_multiple_grades\nFAILED _hidden_grader_test.py::GradeSchoolTest::test_student_not_added_to_multiple_grades_in_the_roster\nFAILED _hidden_grader_test.py::GradeSchoolTest::test_student_not_added_to_other_grade_for_multiple_grades\nFAILED _hidden_grader_test.py::GradeSchoolTest::test_student_not_added_to_same_grade_in_the_roster_more_than_once\nFAILED _hidden_grader_test.py::GradeSchoolTest::test_student_not_added_to_same_grade_more_than_once\n10 failed, 10 passed in 0.09s",
+    "launch_returncode": 0,
+    "launch_timed_out": false,
+    "success": false
+  },
+  "private_audit_path": "/data/harness-lab/private-audits/6/bench-grade-school/3.md",
+  "raw_artifacts": {
+    "session_jsonl": "/data/harness-lab/runs/6/bench-grade-school/3/raw/trace.session.jsonl",
+    "stderr_log": "/data/harness-lab/runs/6/bench-grade-school/3/raw/harness.stderr.log",
+    "stdout_jsonl": "/data/harness-lab/runs/6/bench-grade-school/3/raw/codex.log"
+  },
+  "raw_log_path": "/data/harness-lab/runs/6/bench-grade-school/3/raw",
+  "reasoning_effort": "high",
+  "reasoning_steps": [
+    {
+      "present": true,
+      "ts": "2026-06-03T22:30:57.238Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:30:58.746Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:31:08.467Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:31:12.985Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:31:16.284Z",
+      "type": "reasoning"
+    },
+    {
+      "tokens": 2055,
+      "type": "reasoning_tokens"
+    }
+  ],
+  "repeat_index": 3,
+  "run_id": "c6__codex__bench-grade-school__r3",
+  "runtime_budget": {
+    "context_window_tokens": 258400,
+    "effort_source": "$LAB_HOME/.codex/config.toml reasoning_effort=high",
+    "max_output_tokens": null,
+    "thinking_budget_tokens": null
+  },
+  "system_present": true,
+  "task_category": "benchmark",
+  "task_id": "bench-grade-school",
+  "timestamp": "2026-06-03T22:31:17.786308Z",
+  "tokens": {
+    "cached_input": 56704,
+    "input": 60294,
+    "output": 3153
+  },
+  "tool_calls": [
+    {
+      "args_summary": "command=/bin/bash -c 'pwd && rg --files'",
+      "step": 1,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -c 'rg -n \"class School|grade_school|roster|duplicate|add_student|students_in_grade\" -S .'",
+      "step": 2,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -c \"sed -n '1,200p' grade_school.py\"",
+      "step": 3,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -c \"sed -n '1,220p' instructions.md\"",
+      "step": 4,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "changes=/data/harness-lab/runs/6/bench-grade-school/3/workdir/grade_school.py:update",
+      "step": 5,
+      "tool_name": "file_change",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -c \"python - <<'PY'\nfrom grade_school import School\n\nschool = School()\nschool.add_student('Jim', 2)\nschool.add_student('Zoe', 2)\nschool.add_student('A",
+      "step": 6,
+      "tool_name": "command_execution",
+      "ts": null
+    }
+  ],
+  "turns": 1,
+  "wall_time_s": 22.181
+}

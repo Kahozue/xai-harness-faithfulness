@@ -1,0 +1,152 @@
+{
+  "config_id": 4,
+  "decision_points": [],
+  "env_lock_ref": "ENVIRONMENT.lock.md@1171d38",
+  "evidence_levels": {
+    "reasoning_steps": "direct",
+    "system_present": "unknown",
+    "tokens": "direct",
+    "tool_calls": "direct"
+  },
+  "harness": "opencode",
+  "harness_version": "1.15.13",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "model_snapshot": "gpt-5.4-mini-2026-03-17",
+  "outcome": {
+    "final_diff_path": null,
+    "grader_detail": "...                                                                      [100%]\n3 passed in 0.01s",
+    "launch_returncode": 0,
+    "launch_timed_out": false,
+    "success": true
+  },
+  "private_audit_path": "/data/harness-lab/private-audits/4/rename-t2-04/2.md",
+  "raw_artifacts": {
+    "stderr_log": "/data/harness-lab/runs/4/rename-t2-04/2/raw/harness.stderr.log",
+    "stdout_jsonl": "/data/harness-lab/runs/4/rename-t2-04/2/raw/oc.log"
+  },
+  "raw_log_path": "/data/harness-lab/runs/4/rename-t2-04/2/raw",
+  "reasoning_effort": "high",
+  "reasoning_steps": [
+    {
+      "tokens": 771,
+      "type": "reasoning_tokens"
+    }
+  ],
+  "repeat_index": 2,
+  "run_id": "c4__opencode__rename-t2-04__r2",
+  "runtime_budget": {
+    "context_window_tokens": null,
+    "effort_source": "opencode run --variant high",
+    "max_output_tokens": null,
+    "thinking_budget_tokens": null
+  },
+  "system_present": false,
+  "task_category": "rename",
+  "task_id": "rename-t2-04",
+  "timestamp": "2026-06-03T21:16:42.970196Z",
+  "tokens": {
+    "cached_input": 101888,
+    "input": 11936,
+    "output": 1816
+  },
+  "tool_calls": [
+    {
+      "args_summary": "todos",
+      "step": 1,
+      "tool_name": "todowrite",
+      "ts": "2026-06-03T21:16:03.205000Z"
+    },
+    {
+      "args_summary": "path=/data/harness-lab/runs/4/rename-t2-04/2/workdir,pattern=**/calckit/**",
+      "step": 2,
+      "tool_name": "glob",
+      "ts": "2026-06-03T21:16:05.560000Z"
+    },
+    {
+      "args_summary": "path=/data/harness-lab/runs/4/rename-t2-04/2/workdir,pattern=**/*test*.py",
+      "step": 3,
+      "tool_name": "glob",
+      "ts": "2026-06-03T21:16:05.578000Z"
+    },
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/4/rename-t2-04/2/workdir/calckit/money.py",
+      "step": 4,
+      "tool_name": "read",
+      "ts": "2026-06-03T21:16:07.084000Z"
+    },
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/4/rename-t2-04/2/workdir/calckit/__init__.py",
+      "step": 5,
+      "tool_name": "read",
+      "ts": "2026-06-03T21:16:07.176000Z"
+    },
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/4/rename-t2-04/2/workdir/tests/test_basic.py",
+      "step": 6,
+      "tool_name": "read",
+      "ts": "2026-06-03T21:16:07.209000Z"
+    },
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/4/rename-t2-04/2/workdir/calckit/stats.py",
+      "step": 7,
+      "tool_name": "read",
+      "ts": "2026-06-03T21:16:07.209000Z"
+    },
+    {
+      "args_summary": "path=/data/harness-lab/runs/4/rename-t2-04/2/workdir,pattern=format_amount",
+      "step": 8,
+      "tool_name": "grep",
+      "ts": "2026-06-03T21:16:10.929000Z"
+    },
+    {
+      "args_summary": "patchText=*** Begin Patch\\n*** Update File: /data/harness-lab/runs/4/rename-t2-04/2/workdir/calckit/money.py\\n@@\\n-def format_amou",
+      "step": 9,
+      "tool_name": "apply_patch",
+      "ts": "2026-06-03T21:16:14.377000Z"
+    },
+    {
+      "args_summary": "path=/data/harness-lab/runs/4/rename-t2-04/2/workdir,pattern=format_amount",
+      "step": 10,
+      "tool_name": "grep",
+      "ts": "2026-06-03T21:16:19.352000Z"
+    },
+    {
+      "args_summary": "command,timeout,workdir,description",
+      "step": 11,
+      "tool_name": "bash",
+      "ts": "2026-06-03T21:16:22.088000Z"
+    },
+    {
+      "args_summary": "command,timeout,workdir,description",
+      "step": 12,
+      "tool_name": "bash",
+      "ts": "2026-06-03T21:16:24.890000Z"
+    },
+    {
+      "args_summary": "command,timeout,workdir,description",
+      "step": 13,
+      "tool_name": "bash",
+      "ts": "2026-06-03T21:16:30.039000Z"
+    },
+    {
+      "args_summary": "command,timeout,workdir,description",
+      "step": 14,
+      "tool_name": "bash",
+      "ts": "2026-06-03T21:16:33.147000Z"
+    },
+    {
+      "args_summary": "command,timeout,workdir,description",
+      "step": 15,
+      "tool_name": "bash",
+      "ts": "2026-06-03T21:16:36.860000Z"
+    },
+    {
+      "args_summary": "todos",
+      "step": 16,
+      "tool_name": "todowrite",
+      "ts": "2026-06-03T21:16:39.507000Z"
+    }
+  ],
+  "turns": 13,
+  "wall_time_s": 45.047
+}

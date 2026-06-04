@@ -1,0 +1,99 @@
+{
+  "config_id": 2,
+  "decision_points": [],
+  "env_lock_ref": "ENVIRONMENT.lock.md@eef47fb",
+  "evidence_levels": {
+    "reasoning_steps": "unknown",
+    "system_present": "unknown",
+    "tokens": "direct",
+    "tool_calls": "direct"
+  },
+  "harness": "opencode",
+  "harness_version": "1.15.13",
+  "model": "claude-haiku-4-5-20251001",
+  "model_snapshot": "claude-haiku-4-5-20251001",
+  "outcome": {
+    "final_diff_path": null,
+    "grader_detail": "..                                                                       [100%]\n2 passed in 0.33s",
+    "launch_returncode": 0,
+    "launch_timed_out": false,
+    "success": true
+  },
+  "private_audit_path": "/data/harness-lab/private-audits/2/addtests-t2-01/2.md",
+  "raw_artifacts": {
+    "stderr_log": "/data/harness-lab/runs/2/addtests-t2-01/2/raw/harness.stderr.log",
+    "stdout_jsonl": "/data/harness-lab/runs/2/addtests-t2-01/2/raw/oc.log"
+  },
+  "raw_log_path": "/data/harness-lab/runs/2/addtests-t2-01/2/raw",
+  "reasoning_effort": "high",
+  "reasoning_steps": [],
+  "repeat_index": 2,
+  "run_id": "c2__opencode__addtests-t2-01__r2",
+  "runtime_budget": {
+    "context_window_tokens": null,
+    "effort_source": "opencode run --variant high",
+    "max_output_tokens": null,
+    "thinking_budget_tokens": null
+  },
+  "system_present": false,
+  "task_category": "add_tests",
+  "task_id": "addtests-t2-01",
+  "timestamp": "2026-06-04T02:01:10.278199Z",
+  "tokens": {
+    "cached_input": 58303,
+    "input": 75,
+    "output": 2086
+  },
+  "tool_calls": [
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/2/addtests-t2-01/2/workdir",
+      "step": 1,
+      "tool_name": "read",
+      "ts": "2026-06-04T02:00:53.099000Z"
+    },
+    {
+      "args_summary": "pattern=calckit/money.py",
+      "step": 2,
+      "tool_name": "glob",
+      "ts": "2026-06-04T02:00:53.392000Z"
+    },
+    {
+      "args_summary": "pattern=tests/test_money*.py",
+      "step": 3,
+      "tool_name": "glob",
+      "ts": "2026-06-04T02:00:53.407000Z"
+    },
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/2/addtests-t2-01/2/workdir/calckit/money.py",
+      "step": 4,
+      "tool_name": "read",
+      "ts": "2026-06-04T02:00:54.885000Z"
+    },
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/2/addtests-t2-01/2/workdir/tests",
+      "step": 5,
+      "tool_name": "read",
+      "ts": "2026-06-04T02:00:56.486000Z"
+    },
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/2/addtests-t2-01/2/workdir/tests/test_basic.py",
+      "step": 6,
+      "tool_name": "read",
+      "ts": "2026-06-04T02:00:57.816000Z"
+    },
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/2/addtests-t2-01/2/workdir/tests/test_money_extra.py",
+      "step": 7,
+      "tool_name": "write",
+      "ts": "2026-06-04T02:01:03.236000Z"
+    },
+    {
+      "args_summary": "command,description",
+      "step": 8,
+      "tool_name": "bash",
+      "ts": "2026-06-04T02:01:06.595000Z"
+    }
+  ],
+  "turns": 7,
+  "wall_time_s": 21.762
+}

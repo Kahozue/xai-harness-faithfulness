@@ -1,0 +1,112 @@
+{
+  "config_id": 6,
+  "decision_points": [],
+  "env_lock_ref": "ENVIRONMENT.lock.md@1171d38",
+  "evidence_levels": {
+    "reasoning_steps": "direct",
+    "system_present": "source-derived",
+    "tokens": "direct",
+    "tool_calls": "direct"
+  },
+  "harness": "codex",
+  "harness_version": "0.136.0",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "model_snapshot": "gpt-5.4-mini-2026-03-17",
+  "outcome": {
+    "final_diff_path": null,
+    "grader_detail": "..                                                                       [100%]\n2 passed in 0.01s",
+    "launch_returncode": 0,
+    "launch_timed_out": false,
+    "success": true
+  },
+  "private_audit_path": "/data/harness-lab/private-audits/6/bugfix-t2-02/2.md",
+  "raw_artifacts": {
+    "session_jsonl": "/data/harness-lab/runs/6/bugfix-t2-02/2/raw/trace.session.jsonl",
+    "stderr_log": "/data/harness-lab/runs/6/bugfix-t2-02/2/raw/harness.stderr.log",
+    "stdout_jsonl": "/data/harness-lab/runs/6/bugfix-t2-02/2/raw/codex.log"
+  },
+  "raw_log_path": "/data/harness-lab/runs/6/bugfix-t2-02/2/raw",
+  "reasoning_effort": "high",
+  "reasoning_steps": [
+    {
+      "present": true,
+      "ts": "2026-06-03T22:17:53.803Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:17:55.435Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:17:57.277Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:17:58.825Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-03T22:18:01.767Z",
+      "type": "reasoning"
+    },
+    {
+      "tokens": 202,
+      "type": "reasoning_tokens"
+    }
+  ],
+  "repeat_index": 2,
+  "run_id": "c6__codex__bugfix-t2-02__r2",
+  "runtime_budget": {
+    "context_window_tokens": 258400,
+    "effort_source": "$LAB_HOME/.codex/config.toml reasoning_effort=high",
+    "max_output_tokens": null,
+    "thinking_budget_tokens": null
+  },
+  "system_present": true,
+  "task_category": "bug_fix",
+  "task_id": "bugfix-t2-02",
+  "timestamp": "2026-06-03T22:18:03.096338Z",
+  "tokens": {
+    "cached_input": 43008,
+    "input": 54386,
+    "output": 1082
+  },
+  "tool_calls": [
+    {
+      "args_summary": "command=/bin/bash -lc \"rg -n \\\"def median|median\\\\(\\\" calckit -S\"",
+      "step": 1,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc 'rg --files calckit'",
+      "step": 2,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc \"sed -n '1,200p' calckit/stats.py\"",
+      "step": 3,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "changes=/data/harness-lab/runs/6/bugfix-t2-02/2/workdir/calckit/stats.py:update",
+      "step": 4,
+      "tool_name": "file_change",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc \"python - <<'PY'\nfrom calckit.stats import median\nprint(median([1, 3, 5]))\nprint(median([1, 3, 5, 7]))\nprint(median([7, 1, 5, 3]))\nPY\"",
+      "step": 5,
+      "tool_name": "command_execution",
+      "ts": null
+    }
+  ],
+  "turns": 1,
+  "wall_time_s": 10.752
+}

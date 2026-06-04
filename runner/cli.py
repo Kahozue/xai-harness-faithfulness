@@ -7,6 +7,7 @@ import json
 from runner import persist
 from runner.configs import CONFIGS
 from runner.provision import load_tasks
+from runner.phase2_validation import validate_phase2
 from runner.runner import DEFAULT_TIMEOUT_S, run_once
 
 DEFAULT_PILOT_CONFIGS = [1, 6]
@@ -92,6 +93,13 @@ def main(argv: list[str] | None = None) -> int:
     phase2.add_argument("--skip-existing", action="store_true", help="resume by omitting runs whose trace already exists")
     phase2.add_argument("--continue-on-error", action="store_true", help="continue the batch after one run raises")
     phase2.add_argument("--dry-list", action="store_true", help="print planned runs without launching harnesses")
+
+    phase2_validate = sub.add_parser("phase2-validate", help="validate Phase 2 formal trace readiness")
+    phase2_validate.add_argument("--repeat-start", type=int, default=DEFAULT_PHASE2_REPEAT_START)
+    phase2_validate.add_argument("--repeats", type=int, default=DEFAULT_PHASE2_REPEATS)
+    phase2_validate.add_argument("--config", type=int, action="append", dest="configs", help="limit to a config id; repeatable")
+    phase2_validate.add_argument("--task", action="append", dest="tasks", help="limit to a task id; repeatable")
+    phase2_validate.add_argument("--indent", type=int, default=2, help="JSON indentation; use 0 for one line")
 
     args = parser.parse_args(argv)
     if args.cmd == "run":
@@ -189,6 +197,21 @@ def main(argv: list[str] | None = None) -> int:
             "errors": len(errors),
         }, ensure_ascii=False), flush=True)
         return 0 if not errors else 1
+
+    if args.cmd == "phase2-validate":
+        try:
+            report = validate_phase2(
+                repeat_start=args.repeat_start,
+                repeats=args.repeats,
+                config_ids=args.configs,
+                task_ids=args.tasks,
+            )
+        except ValueError as exc:
+            print(json.dumps({"ok": False, "error": "invalid_plan", "detail": str(exc)}, ensure_ascii=False))
+            return 2
+        indent = None if args.indent == 0 else args.indent
+        print(json.dumps(report, ensure_ascii=False, indent=indent, sort_keys=True))
+        return 0 if report["ok"] else 1
 
     parser.error(f"unknown command: {args.cmd}")
     return 2

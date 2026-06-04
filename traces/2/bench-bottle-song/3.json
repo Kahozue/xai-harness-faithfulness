@@ -1,0 +1,129 @@
+{
+  "config_id": 2,
+  "decision_points": [],
+  "env_lock_ref": "ENVIRONMENT.lock.md@eef47fb",
+  "evidence_levels": {
+    "reasoning_steps": "unknown",
+    "system_present": "unknown",
+    "tokens": "direct",
+    "tool_calls": "direct"
+  },
+  "harness": "opencode",
+  "harness_version": "1.15.13",
+  "model": "claude-haiku-4-5-20251001",
+  "model_snapshot": "claude-haiku-4-5-20251001",
+  "outcome": {
+    "final_diff_path": null,
+    "grader_detail": ".......                                                                  [100%]\n7 passed in 0.01s",
+    "launch_returncode": 0,
+    "launch_timed_out": false,
+    "success": true
+  },
+  "private_audit_path": "/data/harness-lab/private-audits/2/bench-bottle-song/3.md",
+  "raw_artifacts": {
+    "stderr_log": "/data/harness-lab/runs/2/bench-bottle-song/3/raw/harness.stderr.log",
+    "stdout_jsonl": "/data/harness-lab/runs/2/bench-bottle-song/3/raw/oc.log"
+  },
+  "raw_log_path": "/data/harness-lab/runs/2/bench-bottle-song/3/raw",
+  "reasoning_effort": "high",
+  "reasoning_steps": [],
+  "repeat_index": 3,
+  "run_id": "c2__opencode__bench-bottle-song__r3",
+  "runtime_budget": {
+    "context_window_tokens": null,
+    "effort_source": "opencode run --variant high",
+    "max_output_tokens": null,
+    "thinking_budget_tokens": null
+  },
+  "system_present": false,
+  "task_category": "benchmark",
+  "task_id": "bench-bottle-song",
+  "timestamp": "2026-06-04T02:16:51.696250Z",
+  "tokens": {
+    "cached_input": 322932,
+    "input": 142,
+    "output": 4701
+  },
+  "tool_calls": [
+    {
+      "args_summary": "command,description",
+      "step": 1,
+      "tool_name": "bash",
+      "ts": "2026-06-04T02:16:04.775000Z"
+    },
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/2/bench-bottle-song/3/workdir",
+      "step": 2,
+      "tool_name": "read",
+      "ts": "2026-06-04T02:16:06.445000Z"
+    },
+    {
+      "args_summary": "command,description",
+      "step": 3,
+      "tool_name": "bash",
+      "ts": "2026-06-04T02:16:08.442000Z"
+    },
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/2/bench-bottle-song/3/workdir/bottle_song.py",
+      "step": 4,
+      "tool_name": "read",
+      "ts": "2026-06-04T02:16:09.774000Z"
+    },
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/2/bench-bottle-song/3/workdir/instructions.md",
+      "step": 5,
+      "tool_name": "read",
+      "ts": "2026-06-04T02:16:11.250000Z"
+    },
+    {
+      "args_summary": "command,description",
+      "step": 6,
+      "tool_name": "bash",
+      "ts": "2026-06-04T02:16:18.663000Z"
+    },
+    {
+      "args_summary": "command,description",
+      "step": 7,
+      "tool_name": "bash",
+      "ts": "2026-06-04T02:16:20.673000Z"
+    },
+    {
+      "args_summary": "command,description",
+      "step": 8,
+      "tool_name": "bash",
+      "ts": "2026-06-04T02:16:24.751000Z"
+    },
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/2/bench-bottle-song/3/workdir/bottle_song.py,oldString=def recite(start, take=1):\\n    pass,newString=def recite(start, take=1):\\n    \"\"\"\\n    Generate lyrics for the Ten Green Bottles song.\\n    \\n    Args:\\n        start",
+      "step": 9,
+      "tool_name": "edit",
+      "ts": "2026-06-04T02:16:31.532000Z"
+    },
+    {
+      "args_summary": "command,description",
+      "step": 10,
+      "tool_name": "bash",
+      "ts": "2026-06-04T02:16:34.528000Z"
+    },
+    {
+      "args_summary": "command,description",
+      "step": 11,
+      "tool_name": "bash",
+      "ts": "2026-06-04T02:16:37.544000Z"
+    },
+    {
+      "args_summary": "command,description",
+      "step": 12,
+      "tool_name": "bash",
+      "ts": "2026-06-04T02:16:40.720000Z"
+    },
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/2/bench-bottle-song/3/workdir/bottle_song.py",
+      "step": 13,
+      "tool_name": "read",
+      "ts": "2026-06-04T02:16:47.372000Z"
+    }
+  ],
+  "turns": 14,
+  "wall_time_s": 51.653
+}

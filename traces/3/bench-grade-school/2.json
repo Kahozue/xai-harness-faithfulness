@@ -1,0 +1,87 @@
+{
+  "config_id": 3,
+  "decision_points": [],
+  "env_lock_ref": "ENVIRONMENT.lock.md@eef47fb",
+  "evidence_levels": {
+    "reasoning_steps": "unknown",
+    "system_present": "direct",
+    "tokens": "unknown",
+    "tool_calls": "direct"
+  },
+  "harness": "hermes",
+  "harness_version": "0.13.0",
+  "model": "claude-haiku-4-5-20251001",
+  "model_snapshot": "claude-haiku-4-5-20251001",
+  "outcome": {
+    "final_diff_path": null,
+    "grader_detail": "_hidden_grader_test.py:56: AssertionError\n=========================== short test summary info ============================\nFAILED _hidden_grader_test.py::GradeSchoolTest::test_add_a_student - Assertio...\nFAILED _hidden_grader_test.py::GradeSchoolTest::test_adding_multiple_students_in_the_same_grade_in_the_roster\nFAILED _hidden_grader_test.py::GradeSchoolTest::test_adding_students_in_multiple_grades\nFAILED _hidden_grader_test.py::GradeSchoolTest::test_cannot_add_same_student_to_multiple_grades_in_the_roster\nFAILED _hidden_grader_test.py::GradeSchoolTest::test_cannot_add_student_to_same_grade_in_the_roster_more_than_once\n5 failed, 15 passed in 0.06s",
+    "launch_returncode": 0,
+    "launch_timed_out": false,
+    "success": false
+  },
+  "private_audit_path": "/data/harness-lab/private-audits/3/bench-grade-school/2.md",
+  "raw_artifacts": {
+    "session_json": "/data/harness-lab/runs/3/bench-grade-school/2/raw/trace.session.json",
+    "stdout_log": "/data/harness-lab/runs/3/bench-grade-school/2/raw/hermes.log"
+  },
+  "raw_log_path": "/data/harness-lab/runs/3/bench-grade-school/2/raw",
+  "reasoning_effort": "high",
+  "reasoning_steps": [],
+  "repeat_index": 2,
+  "run_id": "c3__hermes__bench-grade-school__r2",
+  "runtime_budget": {
+    "context_window_tokens": null,
+    "effort_source": "hermes -z -m MODEL --provider PROVIDER --yolo; no explicit effort flag",
+    "max_output_tokens": null,
+    "thinking_budget_tokens": null
+  },
+  "system_present": true,
+  "task_category": "benchmark",
+  "task_id": "bench-grade-school",
+  "timestamp": "2026-06-04T00:42:54.931270Z",
+  "tokens": {
+    "cached_input": null,
+    "input": null,
+    "output": null
+  },
+  "tool_calls": [
+    {
+      "args_summary": "pattern,target",
+      "step": 1,
+      "tool_name": "search_files",
+      "ts": null
+    },
+    {
+      "args_summary": "pattern,target",
+      "step": 2,
+      "tool_name": "search_files",
+      "ts": null
+    },
+    {
+      "args_summary": "pattern,target",
+      "step": 3,
+      "tool_name": "search_files",
+      "ts": null
+    },
+    {
+      "args_summary": "path=./grade_school.py",
+      "step": 4,
+      "tool_name": "read_file",
+      "ts": null
+    },
+    {
+      "args_summary": "path=./instructions.md",
+      "step": 5,
+      "tool_name": "read_file",
+      "ts": null
+    },
+    {
+      "args_summary": "path=./grade_school.py",
+      "step": 6,
+      "tool_name": "write_file",
+      "ts": null
+    }
+  ],
+  "turns": 7,
+  "wall_time_s": 22.246
+}

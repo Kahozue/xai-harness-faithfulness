@@ -1,0 +1,188 @@
+{
+  "config_id": 4,
+  "decision_points": [],
+  "env_lock_ref": "ENVIRONMENT.lock.md@1171d38",
+  "evidence_levels": {
+    "reasoning_steps": "direct",
+    "system_present": "unknown",
+    "tokens": "direct",
+    "tool_calls": "direct"
+  },
+  "harness": "opencode",
+  "harness_version": "1.15.13",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "model_snapshot": "gpt-5.4-mini-2026-03-17",
+  "outcome": {
+    "final_diff_path": null,
+    "grader_detail": "...                                                                      [100%]\n3 passed in 0.01s",
+    "launch_returncode": 0,
+    "launch_timed_out": false,
+    "success": true
+  },
+  "private_audit_path": "/data/harness-lab/private-audits/4/rename-t2-01/2.md",
+  "raw_artifacts": {
+    "stderr_log": "/data/harness-lab/runs/4/rename-t2-01/2/raw/harness.stderr.log",
+    "stdout_jsonl": "/data/harness-lab/runs/4/rename-t2-01/2/raw/oc.log"
+  },
+  "raw_log_path": "/data/harness-lab/runs/4/rename-t2-01/2/raw",
+  "reasoning_effort": "high",
+  "reasoning_steps": [
+    {
+      "tokens": 1055,
+      "type": "reasoning_tokens"
+    }
+  ],
+  "repeat_index": 2,
+  "run_id": "c4__opencode__rename-t2-01__r2",
+  "runtime_budget": {
+    "context_window_tokens": null,
+    "effort_source": "opencode run --variant high",
+    "max_output_tokens": null,
+    "thinking_budget_tokens": null
+  },
+  "system_present": false,
+  "task_category": "rename",
+  "task_id": "rename-t2-01",
+  "timestamp": "2026-06-03T21:10:37.163113Z",
+  "tokens": {
+    "cached_input": 110080,
+    "input": 13499,
+    "output": 2520
+  },
+  "tool_calls": [
+    {
+      "args_summary": "path=/data/harness-lab/runs/4/rename-t2-01/2/workdir,pattern=\\bmean\\b",
+      "step": 1,
+      "tool_name": "grep",
+      "ts": "2026-06-03T21:10:01.593000Z"
+    },
+    {
+      "args_summary": "path=/data/harness-lab/runs/4/rename-t2-01/2/workdir,pattern=**/tests/**/*.py",
+      "step": 2,
+      "tool_name": "glob",
+      "ts": "2026-06-03T21:10:01.606000Z"
+    },
+    {
+      "args_summary": "path=/data/harness-lab/runs/4/rename-t2-01/2/workdir,pattern=**/calckit/**/*.py",
+      "step": 3,
+      "tool_name": "glob",
+      "ts": "2026-06-03T21:10:01.630000Z"
+    },
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/4/rename-t2-01/2/workdir/calckit/stats.py",
+      "step": 4,
+      "tool_name": "read",
+      "ts": "2026-06-03T21:10:03.339000Z"
+    },
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/4/rename-t2-01/2/workdir/calckit/__init__.py",
+      "step": 5,
+      "tool_name": "read",
+      "ts": "2026-06-03T21:10:03.374000Z"
+    },
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/4/rename-t2-01/2/workdir/tests/test_basic.py",
+      "step": 6,
+      "tool_name": "read",
+      "ts": "2026-06-03T21:10:03.374000Z"
+    },
+    {
+      "args_summary": "todos",
+      "step": 7,
+      "tool_name": "todowrite",
+      "ts": "2026-06-03T21:10:07.913000Z"
+    },
+    {
+      "args_summary": "patchText=*** Begin Patch\\n*** Update File: /data/harness-lab/runs/4/rename-t2-01/2/workdir/calckit/stats.py\\n@@\\n-def mean(xs: Se",
+      "step": 8,
+      "tool_name": "apply_patch",
+      "ts": "2026-06-03T21:10:10.305000Z"
+    },
+    {
+      "args_summary": "patchText=*** Begin Patch\\n*** Update File: /data/harness-lab/runs/4/rename-t2-01/2/workdir/calckit/stats.py\\n@@\\n-def mean(xs: Se",
+      "step": 9,
+      "tool_name": "apply_patch",
+      "ts": "2026-06-03T21:10:13.184000Z"
+    },
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/4/rename-t2-01/2/workdir/calckit/stats.py",
+      "step": 10,
+      "tool_name": "read",
+      "ts": "2026-06-03T21:10:15.640000Z"
+    },
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/4/rename-t2-01/2/workdir/calckit/__init__.py",
+      "step": 11,
+      "tool_name": "read",
+      "ts": "2026-06-03T21:10:15.640000Z"
+    },
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/4/rename-t2-01/2/workdir/tests/test_basic.py",
+      "step": 12,
+      "tool_name": "read",
+      "ts": "2026-06-03T21:10:15.640000Z"
+    },
+    {
+      "args_summary": "path=/data/harness-lab/runs/4/rename-t2-01/2/workdir,pattern=\\bmean\\b",
+      "step": 13,
+      "tool_name": "grep",
+      "ts": "2026-06-03T21:10:15.671000Z"
+    },
+    {
+      "args_summary": "command,timeout,workdir,description",
+      "step": 14,
+      "tool_name": "bash",
+      "ts": "2026-06-03T21:10:18.434000Z"
+    },
+    {
+      "args_summary": "path=/data/harness-lab/runs/4/rename-t2-01/2/workdir,pattern=**/pyproject.toml",
+      "step": 15,
+      "tool_name": "glob",
+      "ts": "2026-06-03T21:10:21.763000Z"
+    },
+    {
+      "args_summary": "path=/data/harness-lab/runs/4/rename-t2-01/2/workdir,pattern=**/setup.py",
+      "step": 16,
+      "tool_name": "glob",
+      "ts": "2026-06-03T21:10:21.784000Z"
+    },
+    {
+      "args_summary": "path=/data/harness-lab/runs/4/rename-t2-01/2/workdir,pattern=**/requirements*.txt",
+      "step": 17,
+      "tool_name": "glob",
+      "ts": "2026-06-03T21:10:21.815000Z"
+    },
+    {
+      "args_summary": "path=/data/harness-lab/runs/4/rename-t2-01/2/workdir,pattern=**/tox.ini",
+      "step": 18,
+      "tool_name": "glob",
+      "ts": "2026-06-03T21:10:21.815000Z"
+    },
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/4/rename-t2-01/2/workdir/pyproject.toml",
+      "step": 19,
+      "tool_name": "read",
+      "ts": "2026-06-03T21:10:23.301000Z"
+    },
+    {
+      "args_summary": "command,timeout,workdir,description",
+      "step": 20,
+      "tool_name": "bash",
+      "ts": "2026-06-03T21:10:26.695000Z"
+    },
+    {
+      "args_summary": "command,timeout,workdir,description",
+      "step": 21,
+      "tool_name": "bash",
+      "ts": "2026-06-03T21:10:29.727000Z"
+    },
+    {
+      "args_summary": "todos",
+      "step": 22,
+      "tool_name": "todowrite",
+      "ts": "2026-06-03T21:10:33.912000Z"
+    }
+  ],
+  "turns": 13,
+  "wall_time_s": 40.418
+}

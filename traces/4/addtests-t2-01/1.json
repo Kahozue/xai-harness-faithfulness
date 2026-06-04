@@ -1,0 +1,122 @@
+{
+  "config_id": 4,
+  "decision_points": [],
+  "env_lock_ref": "ENVIRONMENT.lock.md@1171d38",
+  "evidence_levels": {
+    "reasoning_steps": "direct",
+    "system_present": "unknown",
+    "tokens": "direct",
+    "tool_calls": "direct"
+  },
+  "harness": "opencode",
+  "harness_version": "1.15.13",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "model_snapshot": "gpt-5.4-mini-2026-03-17",
+  "outcome": {
+    "final_diff_path": null,
+    "grader_detail": "..                                                                       [100%]\n2 passed in 0.35s",
+    "launch_returncode": 0,
+    "launch_timed_out": false,
+    "success": true
+  },
+  "private_audit_path": "/data/harness-lab/private-audits/4/addtests-t2-01/1.md",
+  "raw_artifacts": {
+    "stderr_log": "/data/harness-lab/runs/4/addtests-t2-01/1/raw/harness.stderr.log",
+    "stdout_jsonl": "/data/harness-lab/runs/4/addtests-t2-01/1/raw/oc.log"
+  },
+  "raw_log_path": "/data/harness-lab/runs/4/addtests-t2-01/1/raw",
+  "reasoning_effort": "high",
+  "reasoning_steps": [
+    {
+      "tokens": 414,
+      "type": "reasoning_tokens"
+    }
+  ],
+  "repeat_index": 1,
+  "run_id": "c4__opencode__addtests-t2-01__r1",
+  "runtime_budget": {
+    "context_window_tokens": null,
+    "effort_source": "opencode run --variant high",
+    "max_output_tokens": null,
+    "thinking_budget_tokens": null
+  },
+  "system_present": false,
+  "task_category": "add_tests",
+  "task_id": "addtests-t2-01",
+  "timestamp": "2026-06-03T21:17:49.123755Z",
+  "tokens": {
+    "cached_input": 56832,
+    "input": 3740,
+    "output": 930
+  },
+  "tool_calls": [
+    {
+      "args_summary": "path=/data/harness-lab/runs/4/addtests-t2-01/1/workdir,pattern=**/money.py",
+      "step": 1,
+      "tool_name": "glob",
+      "ts": "2026-06-03T21:17:26.140000Z"
+    },
+    {
+      "args_summary": "path=/data/harness-lab/runs/4/addtests-t2-01/1/workdir,pattern=**/test_money*.py",
+      "step": 2,
+      "tool_name": "glob",
+      "ts": "2026-06-03T21:17:26.149000Z"
+    },
+    {
+      "args_summary": "path=/data/harness-lab/runs/4/addtests-t2-01/1/workdir,pattern=**/tests",
+      "step": 3,
+      "tool_name": "glob",
+      "ts": "2026-06-03T21:17:26.184000Z"
+    },
+    {
+      "args_summary": "path=/data/harness-lab/runs/4/addtests-t2-01/1/workdir,pattern=**/*",
+      "step": 4,
+      "tool_name": "glob",
+      "ts": "2026-06-03T21:17:28.450000Z"
+    },
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/4/addtests-t2-01/1/workdir/calckit/money.py",
+      "step": 5,
+      "tool_name": "read",
+      "ts": "2026-06-03T21:17:28.473000Z"
+    },
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/4/addtests-t2-01/1/workdir/tests/test_basic.py",
+      "step": 6,
+      "tool_name": "read",
+      "ts": "2026-06-03T21:17:30.528000Z"
+    },
+    {
+      "args_summary": "patchText=*** Begin Patch\\n*** Add File: /data/harness-lab/runs/4/addtests-t2-01/1/workdir/tests/test_money_extra.py\\n+from calcki",
+      "step": 7,
+      "tool_name": "apply_patch",
+      "ts": "2026-06-03T21:17:34.034000Z"
+    },
+    {
+      "args_summary": "command,timeout,workdir,description",
+      "step": 8,
+      "tool_name": "bash",
+      "ts": "2026-06-03T21:17:36.340000Z"
+    },
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/4/addtests-t2-01/1/workdir/pyproject.toml",
+      "step": 9,
+      "tool_name": "read",
+      "ts": "2026-06-03T21:17:39.251000Z"
+    },
+    {
+      "args_summary": "command,timeout,workdir,description",
+      "step": 10,
+      "tool_name": "bash",
+      "ts": "2026-06-03T21:17:42.046000Z"
+    },
+    {
+      "args_summary": "command,timeout,workdir,description",
+      "step": 11,
+      "tool_name": "bash",
+      "ts": "2026-06-03T21:17:45.593000Z"
+    }
+  ],
+  "turns": 9,
+  "wall_time_s": 29.14
+}

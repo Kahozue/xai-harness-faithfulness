@@ -1,0 +1,129 @@
+{
+  "config_id": 3,
+  "decision_points": [],
+  "env_lock_ref": "ENVIRONMENT.lock.md@eef47fb",
+  "evidence_levels": {
+    "reasoning_steps": "unknown",
+    "system_present": "direct",
+    "tokens": "unknown",
+    "tool_calls": "direct"
+  },
+  "harness": "hermes",
+  "harness_version": "0.13.0",
+  "model": "claude-haiku-4-5-20251001",
+  "model_snapshot": "claude-haiku-4-5-20251001",
+  "outcome": {
+    "final_diff_path": null,
+    "grader_detail": "FAILED _hidden_grader_test.py::BottleSongTest::test_all_verses - AssertionErr...\nFAILED _hidden_grader_test.py::BottleSongTest::test_first_generic_verse - Ass...\nFAILED _hidden_grader_test.py::BottleSongTest::test_first_two_verses - Assert...\nFAILED _hidden_grader_test.py::BottleSongTest::test_last_generic_verse - Asse...\nFAILED _hidden_grader_test.py::BottleSongTest::test_last_three_verses - Asser...\nFAILED _hidden_grader_test.py::BottleSongTest::test_verse_with_1_bottle - Ass...\nFAILED _hidden_grader_test.py::BottleSongTest::test_verse_with_2_bottles - As...\n7 failed in 0.04s",
+    "launch_returncode": 0,
+    "launch_timed_out": false,
+    "success": false
+  },
+  "private_audit_path": "/data/harness-lab/private-audits/3/bench-bottle-song/1.md",
+  "raw_artifacts": {
+    "session_json": "/data/harness-lab/runs/3/bench-bottle-song/1/raw/trace.session.json",
+    "stdout_log": "/data/harness-lab/runs/3/bench-bottle-song/1/raw/hermes.log"
+  },
+  "raw_log_path": "/data/harness-lab/runs/3/bench-bottle-song/1/raw",
+  "reasoning_effort": "high",
+  "reasoning_steps": [],
+  "repeat_index": 1,
+  "run_id": "c3__hermes__bench-bottle-song__r1",
+  "runtime_budget": {
+    "context_window_tokens": null,
+    "effort_source": "hermes -z -m MODEL --provider PROVIDER --yolo; no explicit effort flag",
+    "max_output_tokens": null,
+    "thinking_budget_tokens": null
+  },
+  "system_present": true,
+  "task_category": "benchmark",
+  "task_id": "bench-bottle-song",
+  "timestamp": "2026-06-04T00:48:49.597880Z",
+  "tokens": {
+    "cached_input": null,
+    "input": null,
+    "output": null
+  },
+  "tool_calls": [
+    {
+      "args_summary": "pattern,target",
+      "step": 1,
+      "tool_name": "search_files",
+      "ts": null
+    },
+    {
+      "args_summary": "pattern,target",
+      "step": 2,
+      "tool_name": "search_files",
+      "ts": null
+    },
+    {
+      "args_summary": "pattern,target",
+      "step": 3,
+      "tool_name": "search_files",
+      "ts": null
+    },
+    {
+      "args_summary": "path=./bottle_song.py",
+      "step": 4,
+      "tool_name": "read_file",
+      "ts": null
+    },
+    {
+      "args_summary": "path=./instructions.md",
+      "step": 5,
+      "tool_name": "read_file",
+      "ts": null
+    },
+    {
+      "args_summary": "command=find . -name \"*test*\" -type f 2>/dev/null | head -20",
+      "step": 6,
+      "tool_name": "terminal",
+      "ts": null
+    },
+    {
+      "args_summary": "command=find /data/harness-lab/runs/3/bench-bottle-song -name \"*test*\" -type f 2>/dev/null",
+      "step": 7,
+      "tool_name": "terminal",
+      "ts": null
+    },
+    {
+      "args_summary": "command=cd /data/harness-lab/runs/3/bench-bottle-song/1/workdir && python -m pytest -v 2>&1 | head -100",
+      "step": 8,
+      "tool_name": "terminal",
+      "ts": null
+    },
+    {
+      "args_summary": "command=ls -la /data/harness-lab/runs/3/bench-bottle-song/1/",
+      "step": 9,
+      "tool_name": "terminal",
+      "ts": null
+    },
+    {
+      "args_summary": "command=ls -la /data/harness-lab/runs/3/bench-bottle-song/1/raw/",
+      "step": 10,
+      "tool_name": "terminal",
+      "ts": null
+    },
+    {
+      "args_summary": "path=./bottle_song.py",
+      "step": 11,
+      "tool_name": "write_file",
+      "ts": null
+    },
+    {
+      "args_summary": "command=cd /data/harness-lab/runs/3/bench-bottle-song/1/workdir && python -c \"\\nfrom bottle_song import recite\\n\\n# Test single ",
+      "step": 12,
+      "tool_name": "terminal",
+      "ts": null
+    },
+    {
+      "args_summary": "command=cd /data/harness-lab/runs/3/bench-bottle-song/1/workdir && python -c \"\\nfrom bottle_song import recite\\n\\n# Verify the f",
+      "step": 13,
+      "tool_name": "terminal",
+      "ts": null
+    }
+  ],
+  "turns": 13,
+  "wall_time_s": 33.859
+}

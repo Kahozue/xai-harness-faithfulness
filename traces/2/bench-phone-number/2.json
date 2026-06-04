@@ -1,0 +1,111 @@
+{
+  "config_id": 2,
+  "decision_points": [],
+  "env_lock_ref": "ENVIRONMENT.lock.md@eef47fb",
+  "evidence_levels": {
+    "reasoning_steps": "unknown",
+    "system_present": "unknown",
+    "tokens": "direct",
+    "tool_calls": "direct"
+  },
+  "harness": "opencode",
+  "harness_version": "1.15.13",
+  "model": "claude-haiku-4-5-20251001",
+  "model_snapshot": "claude-haiku-4-5-20251001",
+  "outcome": {
+    "final_diff_path": null,
+    "grader_detail": "E       AttributeError: 'PhoneNumber' object has no attribute 'pretty'\n\n_hidden_grader_test.py:122: AttributeError\n=========================== short test summary info ============================\nFAILED _hidden_grader_test.py::PhoneNumberTest::test_area_code - AttributeErr...\nFAILED _hidden_grader_test.py::PhoneNumberTest::test_pretty_print - Attribute...\nFAILED _hidden_grader_test.py::PhoneNumberTest::test_pretty_print_with_full_us_phone_number\n3 failed, 18 passed in 0.04s",
+    "launch_returncode": 0,
+    "launch_timed_out": false,
+    "success": false
+  },
+  "private_audit_path": "/data/harness-lab/private-audits/2/bench-phone-number/2.md",
+  "raw_artifacts": {
+    "stderr_log": "/data/harness-lab/runs/2/bench-phone-number/2/raw/harness.stderr.log",
+    "stdout_jsonl": "/data/harness-lab/runs/2/bench-phone-number/2/raw/oc.log"
+  },
+  "raw_log_path": "/data/harness-lab/runs/2/bench-phone-number/2/raw",
+  "reasoning_effort": "high",
+  "reasoning_steps": [],
+  "repeat_index": 2,
+  "run_id": "c2__opencode__bench-phone-number__r2",
+  "runtime_budget": {
+    "context_window_tokens": null,
+    "effort_source": "opencode run --variant high",
+    "max_output_tokens": null,
+    "thinking_budget_tokens": null
+  },
+  "system_present": false,
+  "task_category": "benchmark",
+  "task_id": "bench-phone-number",
+  "timestamp": "2026-06-04T02:12:28.546321Z",
+  "tokens": {
+    "cached_input": 116872,
+    "input": 110,
+    "output": 5942
+  },
+  "tool_calls": [
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/2/bench-phone-number/2/workdir",
+      "step": 1,
+      "tool_name": "read",
+      "ts": "2026-06-04T02:11:40.896000Z"
+    },
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/2/bench-phone-number/2/workdir/phone_number.py",
+      "step": 2,
+      "tool_name": "read",
+      "ts": "2026-06-04T02:11:43.244000Z"
+    },
+    {
+      "args_summary": "pattern=**/*test*.py",
+      "step": 3,
+      "tool_name": "glob",
+      "ts": "2026-06-04T02:11:44.481000Z"
+    },
+    {
+      "args_summary": "pattern=**/*.py",
+      "step": 4,
+      "tool_name": "glob",
+      "ts": "2026-06-04T02:11:45.851000Z"
+    },
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/2/bench-phone-number/2/workdir/phone_number.py,oldString=class PhoneNumber:\\n    def __init__(self, number):\\n        pass,newString=class PhoneNumber:\\n    def __init__(self, number):\\n        # Remove whitespace and check for letters\\n        if any(c",
+      "step": 5,
+      "tool_name": "edit",
+      "ts": "2026-06-04T02:11:52.958000Z"
+    },
+    {
+      "args_summary": "command,description",
+      "step": 6,
+      "tool_name": "bash",
+      "ts": "2026-06-04T02:11:58.257000Z"
+    },
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/2/bench-phone-number/2/workdir/phone_number.py,oldString=class PhoneNumber:\\n    def __init__(self, number):\\n        # Remove whitespace and check for letters\\n        if any(c,newString=class PhoneNumber:\\n    def __init__(self, number):\\n        # Check for letters\\n        if any(char.isalpha() for char",
+      "step": 7,
+      "tool_name": "edit",
+      "ts": "2026-06-04T02:12:07.820000Z"
+    },
+    {
+      "args_summary": "command,description",
+      "step": 8,
+      "tool_name": "bash",
+      "ts": "2026-06-04T02:12:15.625000Z"
+    },
+    {
+      "args_summary": "command,description",
+      "step": 9,
+      "tool_name": "bash",
+      "ts": "2026-06-04T02:12:20.286000Z"
+    },
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/2/bench-phone-number/2/workdir/phone_number.py",
+      "step": 10,
+      "tool_name": "read",
+      "ts": "2026-06-04T02:12:23.177000Z"
+    }
+  ],
+  "turns": 11,
+  "wall_time_s": 53.23
+}

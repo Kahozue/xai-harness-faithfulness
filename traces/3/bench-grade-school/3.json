@@ -1,0 +1,111 @@
+{
+  "config_id": 3,
+  "decision_points": [],
+  "env_lock_ref": "ENVIRONMENT.lock.md@eef47fb",
+  "evidence_levels": {
+    "reasoning_steps": "unknown",
+    "system_present": "direct",
+    "tokens": "unknown",
+    "tool_calls": "direct"
+  },
+  "harness": "hermes",
+  "harness_version": "0.13.0",
+  "model": "claude-haiku-4-5-20251001",
+  "model_snapshot": "claude-haiku-4-5-20251001",
+  "outcome": {
+    "final_diff_path": null,
+    "grader_detail": "FAILED _hidden_grader_test.py::GradeSchoolTest::test_cannot_add_same_student_to_multiple_grades_in_the_roster\nFAILED _hidden_grader_test.py::GradeSchoolTest::test_cannot_add_student_to_same_grade_in_the_roster_more_than_once\nFAILED _hidden_grader_test.py::GradeSchoolTest::test_student_not_added_to_multiple_grades\nFAILED _hidden_grader_test.py::GradeSchoolTest::test_student_not_added_to_multiple_grades_in_the_roster\nFAILED _hidden_grader_test.py::GradeSchoolTest::test_student_not_added_to_other_grade_for_multiple_grades\nFAILED _hidden_grader_test.py::GradeSchoolTest::test_student_not_added_to_same_grade_in_the_roster_more_than_once\nFAILED _hidden_grader_test.py::GradeSchoolTest::test_student_not_added_to_same_grade_more_than_once\n10 failed, 10 passed in 0.10s",
+    "launch_returncode": 0,
+    "launch_timed_out": false,
+    "success": false
+  },
+  "private_audit_path": "/data/harness-lab/private-audits/3/bench-grade-school/3.md",
+  "raw_artifacts": {
+    "session_json": "/data/harness-lab/runs/3/bench-grade-school/3/raw/trace.session.json",
+    "stdout_log": "/data/harness-lab/runs/3/bench-grade-school/3/raw/hermes.log"
+  },
+  "raw_log_path": "/data/harness-lab/runs/3/bench-grade-school/3/raw",
+  "reasoning_effort": "high",
+  "reasoning_steps": [],
+  "repeat_index": 3,
+  "run_id": "c3__hermes__bench-grade-school__r3",
+  "runtime_budget": {
+    "context_window_tokens": null,
+    "effort_source": "hermes -z -m MODEL --provider PROVIDER --yolo; no explicit effort flag",
+    "max_output_tokens": null,
+    "thinking_budget_tokens": null
+  },
+  "system_present": true,
+  "task_category": "benchmark",
+  "task_id": "bench-grade-school",
+  "timestamp": "2026-06-04T00:43:37.740575Z",
+  "tokens": {
+    "cached_input": null,
+    "input": null,
+    "output": null
+  },
+  "tool_calls": [
+    {
+      "args_summary": "pattern,target",
+      "step": 1,
+      "tool_name": "search_files",
+      "ts": null
+    },
+    {
+      "args_summary": "command=find . -name \"*test*\" -o -name \"*spec*\" | head -20",
+      "step": 2,
+      "tool_name": "terminal",
+      "ts": null
+    },
+    {
+      "args_summary": "pattern,target",
+      "step": 3,
+      "tool_name": "search_files",
+      "ts": null
+    },
+    {
+      "args_summary": "path=./grade_school.py",
+      "step": 4,
+      "tool_name": "read_file",
+      "ts": null
+    },
+    {
+      "args_summary": "path=./instructions.md",
+      "step": 5,
+      "tool_name": "read_file",
+      "ts": null
+    },
+    {
+      "args_summary": "command=find /data/harness-lab/runs/3/bench-grade-school -name \"*test*\" -type f 2>/dev/null | head -10",
+      "step": 6,
+      "tool_name": "terminal",
+      "ts": null
+    },
+    {
+      "args_summary": "command=find /data/harness-lab/runs/3/bench-grade-school -name \"*.py\" -type f 2>/dev/null | grep -i test | head -10",
+      "step": 7,
+      "tool_name": "terminal",
+      "ts": null
+    },
+    {
+      "args_summary": "path=./grade_school.py",
+      "step": 8,
+      "tool_name": "write_file",
+      "ts": null
+    },
+    {
+      "args_summary": "command=cd /data/harness-lab/runs/3/bench-grade-school/3/workdir && python3 << 'EOF'\\nfrom grade_school import School\\n\\n# Test ",
+      "step": 9,
+      "tool_name": "terminal",
+      "ts": null
+    },
+    {
+      "args_summary": "command=cd /data/harness-lab/runs/3/bench-grade-school/3/workdir && python3 << 'EOF'\\nfrom grade_school import School\\n\\n# Test ",
+      "step": 10,
+      "tool_name": "terminal",
+      "ts": null
+    }
+  ],
+  "turns": 11,
+  "wall_time_s": 42.359
+}
