@@ -1,0 +1,137 @@
+{
+  "boundary": {
+    "baseline_statistics": "Formal Phase 2 repeats 1-3 only.",
+    "nonformal_traces": "Pilot repeat 0 and Phase 3 counterfactual/extra repeats may be used for examples, not baseline rates.",
+    "pptx_created": false,
+    "scope": "XAI deck support only; HCI human-study metrics are intentionally deferred.",
+    "vps_authority": "/data/repos/xai-harness-faithfulness"
+  },
+  "chart_manifest": "analysis/phase5/xai-presentation-pack/tables/chart-manifest.csv",
+  "charts": {
+    "existing_phase4": {
+      "agent_card_matrix": {
+        "path": "analysis/phase4/figures/agent-card-matrix.svg",
+        "slide": 19,
+        "use": "RQ4: condensed descriptive agent-card proxy dimensions."
+      },
+      "disagreement_success_scatter": {
+        "path": "analysis/phase4/figures/disagreement-success-scatter.svg",
+        "slide": 17,
+        "use": "RQ2: sequence disagreement is almost unrelated to success gap here."
+      },
+      "factorial_contrast_bars": {
+        "path": "analysis/phase4/figures/factorial-contrast-bars.svg",
+        "slide": 16,
+        "use": "RQ3: descriptive contrast across harness/model/mixed comparisons."
+      },
+      "jaccard_matrix": {
+        "path": "analysis/phase4/figures/jaccard-matrix.svg",
+        "slide": 15,
+        "use": "RQ3: how large the harness/model tool-set differences are."
+      },
+      "method_consistency": {
+        "path": "analysis/phase4/figures/method-consistency.svg",
+        "slide": 18,
+        "use": "RQ1: M1-M4 agreement over selected high-divergence decision points."
+      }
+    },
+    "generated": {
+      "category-success-cost.svg": "analysis/phase5/xai-presentation-pack/charts/category-success-cost.svg",
+      "config-success-bars.svg": "analysis/phase5/xai-presentation-pack/charts/config-success-bars.svg",
+      "controlled-vs-benchmark.svg": "analysis/phase5/xai-presentation-pack/charts/controlled-vs-benchmark.svg",
+      "environment-controls-matrix.svg": "analysis/phase5/xai-presentation-pack/charts/environment-controls-matrix.svg",
+      "factorial-by-split.svg": "analysis/phase5/xai-presentation-pack/charts/factorial-by-split.svg",
+      "first-tool-family-stacked-by-config.svg": "analysis/phase5/xai-presentation-pack/charts/first-tool-family-stacked-by-config.svg",
+      "method-evidence-ladder.svg": "analysis/phase5/xai-presentation-pack/charts/method-evidence-ladder.svg",
+      "phase3-label-summary.svg": "analysis/phase5/xai-presentation-pack/charts/phase3-label-summary.svg",
+      "research-design-pipeline.svg": "analysis/phase5/xai-presentation-pack/charts/research-design-pipeline.svg",
+      "task-difficulty-ranked.svg": "analysis/phase5/xai-presentation-pack/charts/task-difficulty-ranked.svg",
+      "task-success-heatmap.svg": "analysis/phase5/xai-presentation-pack/charts/task-success-heatmap.svg",
+      "task-suite-composition.svg": "analysis/phase5/xai-presentation-pack/charts/task-suite-composition.svg",
+      "trace-inventory.svg": "analysis/phase5/xai-presentation-pack/charts/trace-inventory.svg",
+      "trace-schema-evidence.svg": "analysis/phase5/xai-presentation-pack/charts/trace-schema-evidence.svg",
+      "xai-case-card-01.svg": "analysis/phase5/xai-presentation-pack/charts/xai-case-card-01.svg",
+      "xai-case-card-02.svg": "analysis/phase5/xai-presentation-pack/charts/xai-case-card-02.svg",
+      "xai-case-card-03.svg": "analysis/phase5/xai-presentation-pack/charts/xai-case-card-03.svg",
+      "xai-case-card-04.svg": "analysis/phase5/xai-presentation-pack/charts/xai-case-card-04.svg",
+      "xai-case-card-05.svg": "analysis/phase5/xai-presentation-pack/charts/xai-case-card-05.svg",
+      "xai-case-card-06.svg": "analysis/phase5/xai-presentation-pack/charts/xai-case-card-06.svg"
+    }
+  },
+  "phase": "phase5_xai_presentation_pack",
+  "readme": "analysis/phase5/xai-presentation-pack/README.md",
+  "schema_version": 1,
+  "slide_map": "analysis/phase5/xai-presentation-pack/slide-data-map.json",
+  "source_files": {
+    "phase3_labels": "analysis/phase3/hci-ground-truth-labels.json",
+    "phase4_case_pack": "analysis/phase4/hci-case-pack.json",
+    "phase4_metrics": "analysis/phase4/metrics-summary.json",
+    "phase4_report": "docs/verification/2026-06-04-phase4-analysis-report.md",
+    "phase5_structure": "docs/specs/2026-06-04-phase5-xai-presentation-structure.md",
+    "registry": "tasks/registry.yaml"
+  },
+  "tables": {
+    "action_implications": "analysis/phase5/xai-presentation-pack/tables/action-implications.csv",
+    "agent_card_matrix": "analysis/phase5/xai-presentation-pack/tables/agent-card-matrix.csv",
+    "case_candidates": "analysis/phase5/xai-presentation-pack/tables/case-candidates.csv",
+    "category_success_by_config": "analysis/phase5/xai-presentation-pack/tables/category-success-by-config.csv",
+    "category_summary": "analysis/phase5/xai-presentation-pack/tables/category-summary.csv",
+    "chart_manifest": "analysis/phase5/xai-presentation-pack/tables/chart-manifest.csv",
+    "config_summary": "analysis/phase5/xai-presentation-pack/tables/config-summary.csv",
+    "design_tradeoffs": "analysis/phase5/xai-presentation-pack/tables/design-tradeoffs.csv",
+    "environment_controls": "analysis/phase5/xai-presentation-pack/tables/environment-controls.csv",
+    "factorial_by_split": "analysis/phase5/xai-presentation-pack/tables/factorial-by-split.csv",
+    "factorial_summary": "analysis/phase5/xai-presentation-pack/tables/factorial-summary.csv",
+    "first_tool_family_by_config": "analysis/phase5/xai-presentation-pack/tables/first-tool-family-by-config.csv",
+    "future_work": "analysis/phase5/xai-presentation-pack/tables/future-work.csv",
+    "headline_stats": "analysis/phase5/xai-presentation-pack/tables/headline-stats.csv",
+    "limitations": "analysis/phase5/xai-presentation-pack/tables/limitations.csv",
+    "method_consistency": "analysis/phase5/xai-presentation-pack/tables/method-consistency.csv",
+    "pairwise_by_category": "analysis/phase5/xai-presentation-pack/tables/pairwise-by-category.csv",
+    "pairwise_observations": "analysis/phase5/xai-presentation-pack/tables/pairwise-observations.csv",
+    "source_index": "analysis/phase5/xai-presentation-pack/tables/source-index.csv",
+    "success_association": "analysis/phase5/xai-presentation-pack/tables/success-association.csv",
+    "task_split_summary": "analysis/phase5/xai-presentation-pack/tables/task-split-summary.csv",
+    "task_success_by_config": "analysis/phase5/xai-presentation-pack/tables/task-success-by-config.csv",
+    "task_suite": "analysis/phase5/xai-presentation-pack/tables/task-suite.csv",
+    "task_summary": "analysis/phase5/xai-presentation-pack/tables/task-summary.csv",
+    "trace_inventory": "analysis/phase5/xai-presentation-pack/tables/trace-inventory.csv"
+  },
+  "trace_inventory": {
+    "by_config": {
+      "1": 65,
+      "2": 68,
+      "3": 66,
+      "4": 64,
+      "5": 66,
+      "6": 67
+    },
+    "by_repeat": {
+      "0": 6,
+      "1": 120,
+      "2": 120,
+      "3": 120,
+      "301": 2,
+      "302": 2,
+      "303": 2,
+      "304": 2,
+      "305": 2,
+      "306": 2,
+      "307": 2,
+      "308": 2,
+      "309": 2,
+      "310": 2,
+      "311": 2,
+      "312": 2,
+      "401": 2,
+      "403": 2,
+      "404": 2
+    },
+    "classes": {
+      "formal_baseline": 360,
+      "phase3_counterfactual_or_extra": 30,
+      "pilot": 6
+    },
+    "total_public_trace_json": 396
+  }
+}

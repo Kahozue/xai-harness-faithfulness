@@ -1,0 +1,7 @@
+contrast_family,mean_failure_rate,mean_jaccard,mean_sequence_disagreement,mean_success_gap,mean_tool_set_disagreement,n,task_split
+harness_same_model,0.611111,0.686056,0.454995,0.194444,0.313944,24,benchmark
+harness_same_model,0.072917,0.662693,0.434729,0.020833,0.337307,96,controlled
+mixed_harness_model,0.613095,0.685714,0.460853,0.202381,0.314286,28,benchmark
+mixed_harness_model,0.06994,0.585813,0.551453,0.032738,0.414187,112,controlled
+model_swap_same_harness,0.604167,0.787732,0.429397,0.291667,0.212268,8,benchmark
+model_swap_same_harness,0.083333,0.736053,0.417674,0.041667,0.263947,32,controlled

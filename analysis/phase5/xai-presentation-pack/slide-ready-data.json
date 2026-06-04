@@ -1,0 +1,509 @@
+{
+  "boundary": {
+    "baseline_statistics": "Formal Phase 2 repeats 1-3 only.",
+    "nonformal_traces": "Pilot repeat 0 and Phase 3 counterfactual/extra repeats may be used for examples, not baseline rates.",
+    "pptx_created": false,
+    "scope": "XAI deck support only; HCI human-study metrics are intentionally deferred.",
+    "vps_authority": "/data/repos/xai-harness-faithfulness"
+  },
+  "chart_manifest": [
+    {
+      "chart_id": "jaccard_matrix",
+      "path": "analysis/phase4/figures/jaccard-matrix.svg",
+      "recommended_slide": 15,
+      "status": "existing_phase4",
+      "use": "RQ3: how large the harness/model tool-set differences are."
+    },
+    {
+      "chart_id": "factorial_contrast_bars",
+      "path": "analysis/phase4/figures/factorial-contrast-bars.svg",
+      "recommended_slide": 16,
+      "status": "existing_phase4",
+      "use": "RQ3: descriptive contrast across harness/model/mixed comparisons."
+    },
+    {
+      "chart_id": "disagreement_success_scatter",
+      "path": "analysis/phase4/figures/disagreement-success-scatter.svg",
+      "recommended_slide": 17,
+      "status": "existing_phase4",
+      "use": "RQ2: sequence disagreement is almost unrelated to success gap here."
+    },
+    {
+      "chart_id": "method_consistency",
+      "path": "analysis/phase4/figures/method-consistency.svg",
+      "recommended_slide": 18,
+      "status": "existing_phase4",
+      "use": "RQ1: M1-M4 agreement over selected high-divergence decision points."
+    },
+    {
+      "chart_id": "agent_card_matrix",
+      "path": "analysis/phase4/figures/agent-card-matrix.svg",
+      "recommended_slide": 19,
+      "status": "existing_phase4",
+      "use": "RQ4: condensed descriptive agent-card proxy dimensions."
+    },
+    {
+      "chart_id": "category-success-cost",
+      "path": "analysis/phase5/xai-presentation-pack/charts/category-success-cost.svg",
+      "recommended_slide": "",
+      "status": "generated_phase5_pack",
+      "use": "Category success vs tool-call effort."
+    },
+    {
+      "chart_id": "config-success-bars",
+      "path": "analysis/phase5/xai-presentation-pack/charts/config-success-bars.svg",
+      "recommended_slide": "",
+      "status": "generated_phase5_pack",
+      "use": "Topline config success comparison."
+    },
+    {
+      "chart_id": "controlled-vs-benchmark",
+      "path": "analysis/phase5/xai-presentation-pack/charts/controlled-vs-benchmark.svg",
+      "recommended_slide": "",
+      "status": "generated_phase5_pack",
+      "use": "Controlled vs benchmark split."
+    },
+    {
+      "chart_id": "environment-controls-matrix",
+      "path": "analysis/phase5/xai-presentation-pack/charts/environment-controls-matrix.svg",
+      "recommended_slide": "",
+      "status": "generated_phase5_pack",
+      "use": "Environment lock table as chart."
+    },
+    {
+      "chart_id": "factorial-by-split",
+      "path": "analysis/phase5/xai-presentation-pack/charts/factorial-by-split.svg",
+      "recommended_slide": "",
+      "status": "generated_phase5_pack",
+      "use": "Contrast metrics separated by controlled/benchmark split."
+    },
+    {
+      "chart_id": "first-tool-family-stacked-by-config",
+      "path": "analysis/phase5/xai-presentation-pack/charts/first-tool-family-stacked-by-config.svg",
+      "recommended_slide": "",
+      "status": "generated_phase5_pack",
+      "use": "Harness first-action style comparison."
+    },
+    {
+      "chart_id": "method-evidence-ladder",
+      "path": "analysis/phase5/xai-presentation-pack/charts/method-evidence-ladder.svg",
+      "recommended_slide": "",
+      "status": "generated_phase5_pack",
+      "use": "M1-M4 method evidence boundary."
+    },
+    {
+      "chart_id": "phase3-label-summary",
+      "path": "analysis/phase5/xai-presentation-pack/charts/phase3-label-summary.svg",
+      "recommended_slide": "",
+      "status": "generated_phase5_pack",
+      "use": "Attribution label and agreement distributions."
+    },
+    {
+      "chart_id": "research-design-pipeline",
+      "path": "analysis/phase5/xai-presentation-pack/charts/research-design-pipeline.svg",
+      "recommended_slide": "",
+      "status": "generated_phase5_pack",
+      "use": "Method pipeline overview."
+    },
+    {
+      "chart_id": "task-difficulty-ranked",
+      "path": "analysis/phase5/xai-presentation-pack/charts/task-difficulty-ranked.svg",
+      "recommended_slide": "",
+      "status": "generated_phase5_pack",
+      "use": "Task-level difficulty ranking."
+    },
+    {
+      "chart_id": "task-success-heatmap",
+      "path": "analysis/phase5/xai-presentation-pack/charts/task-success-heatmap.svg",
+      "recommended_slide": "",
+      "status": "generated_phase5_pack",
+      "use": "Task/config success matrix."
+    },
+    {
+      "chart_id": "task-suite-composition",
+      "path": "analysis/phase5/xai-presentation-pack/charts/task-suite-composition.svg",
+      "recommended_slide": "",
+      "status": "generated_phase5_pack",
+      "use": "Task category/source composition."
+    },
+    {
+      "chart_id": "trace-inventory",
+      "path": "analysis/phase5/xai-presentation-pack/charts/trace-inventory.svg",
+      "recommended_slide": "",
+      "status": "generated_phase5_pack",
+      "use": "Evidence scale and baseline/nonbaseline boundary."
+    },
+    {
+      "chart_id": "trace-schema-evidence",
+      "path": "analysis/phase5/xai-presentation-pack/charts/trace-schema-evidence.svg",
+      "recommended_slide": "",
+      "status": "generated_phase5_pack",
+      "use": "Normalized trace schema evidence model."
+    },
+    {
+      "chart_id": "xai-case-card-01",
+      "path": "analysis/phase5/xai-presentation-pack/charts/xai-case-card-01.svg",
+      "recommended_slide": "",
+      "status": "generated_phase5_pack",
+      "use": "Concrete case walkthrough candidate."
+    },
+    {
+      "chart_id": "xai-case-card-02",
+      "path": "analysis/phase5/xai-presentation-pack/charts/xai-case-card-02.svg",
+      "recommended_slide": "",
+      "status": "generated_phase5_pack",
+      "use": "Concrete case walkthrough candidate."
+    },
+    {
+      "chart_id": "xai-case-card-03",
+      "path": "analysis/phase5/xai-presentation-pack/charts/xai-case-card-03.svg",
+      "recommended_slide": "",
+      "status": "generated_phase5_pack",
+      "use": "Concrete case walkthrough candidate."
+    },
+    {
+      "chart_id": "xai-case-card-04",
+      "path": "analysis/phase5/xai-presentation-pack/charts/xai-case-card-04.svg",
+      "recommended_slide": "",
+      "status": "generated_phase5_pack",
+      "use": "Concrete case walkthrough candidate."
+    },
+    {
+      "chart_id": "xai-case-card-05",
+      "path": "analysis/phase5/xai-presentation-pack/charts/xai-case-card-05.svg",
+      "recommended_slide": "",
+      "status": "generated_phase5_pack",
+      "use": "Concrete case walkthrough candidate."
+    },
+    {
+      "chart_id": "xai-case-card-06",
+      "path": "analysis/phase5/xai-presentation-pack/charts/xai-case-card-06.svg",
+      "recommended_slide": "",
+      "status": "generated_phase5_pack",
+      "use": "Concrete case walkthrough candidate."
+    }
+  ],
+  "headline_stats": [
+    {
+      "metric": "formal_trace_count",
+      "presentation_text": "360 formal traces",
+      "source": "metrics-summary.overall",
+      "value": 360
+    },
+    {
+      "metric": "overall_success",
+      "presentation_text": "295/360 (81.9%)",
+      "source": "metrics-summary.overall",
+      "value": 0.819444
+    },
+    {
+      "metric": "task_suite",
+      "presentation_text": "20 tasks: 5 categories x 4",
+      "source": "tasks/registry.yaml",
+      "value": 20
+    },
+    {
+      "metric": "public_trace_json_total",
+      "presentation_text": "396 public trace JSON files; only 360 are formal baseline",
+      "source": "traces/",
+      "value": 396
+    },
+    {
+      "metric": "sequence_disagreement_success_gap_r",
+      "presentation_text": "r=0.003 over 300 config-pair/task observations",
+      "source": "metrics-summary.success_association",
+      "value": 0.002509
+    },
+    {
+      "metric": "unanimous_m1_m4",
+      "presentation_text": "10/20 (50.0%)",
+      "source": "metrics-summary.phase3_method_consistency",
+      "value": 0.5
+    }
+  ],
+  "slide_map": [
+    {
+      "charts": [],
+      "note": "No data claim needed.",
+      "slide": 1,
+      "source": "phase5_structure",
+      "tables": [],
+      "title": "Cover"
+    },
+    {
+      "charts": [
+        "charts/xai-case-card-01.svg"
+      ],
+      "note": "Use one concrete same-task divergence as the hook.",
+      "slide": 2,
+      "source": "phase4_case_pack",
+      "tables": [
+        "case_candidates.csv"
+      ],
+      "title": "Background and motivation"
+    },
+    {
+      "charts": [],
+      "note": "Do not add HCI human-study metrics.",
+      "slide": 3,
+      "source": "phase5_structure",
+      "tables": [],
+      "title": "Research questions RQ1-RQ4"
+    },
+    {
+      "charts": [
+        "charts/research-design-pipeline.svg"
+      ],
+      "note": "6 configs x 20 tasks x 3 formal repeats.",
+      "slide": 4,
+      "source": "metrics-summary.overall",
+      "tables": [
+        "headline_stats.csv"
+      ],
+      "title": "Research design overview"
+    },
+    {
+      "charts": [
+        "charts/method-evidence-ladder.svg"
+      ],
+      "note": "Contrast black-box success with attribution evidence.",
+      "slide": 5,
+      "source": "phase3_attribution",
+      "tables": [
+        "method_consistency.csv"
+      ],
+      "title": "Why white-box attribution"
+    },
+    {
+      "charts": [],
+      "note": "Keep as rationale table.",
+      "slide": 6,
+      "source": "design spec / phase4 guardrails",
+      "tables": [
+        "design_tradeoffs.csv"
+      ],
+      "title": "Design decisions and tradeoffs"
+    },
+    {
+      "charts": [
+        "charts/environment-controls-matrix.svg"
+      ],
+      "note": "Token/thinking/context boundary differs by harness; cite exact route.",
+      "slide": 7,
+      "source": "metrics-summary.environment_controls",
+      "tables": [
+        "environment_controls.csv"
+      ],
+      "title": "Environment locks and reproducibility"
+    },
+    {
+      "charts": [
+        "charts/config-success-bars.svg"
+      ],
+      "note": "Claude Code and Codex are anchor cells; OpenCode/Hermes form crossed cells.",
+      "slide": 8,
+      "source": "metrics-summary.config_metadata",
+      "tables": [
+        "config_summary.csv"
+      ],
+      "title": "6 configs, routing, isolation"
+    },
+    {
+      "charts": [
+        "charts/task-suite-composition.svg"
+      ],
+      "note": "Benchmark and controlled tasks have different provenance and should be separated.",
+      "slide": 9,
+      "source": "tasks/registry.yaml",
+      "tables": [
+        "task_suite.csv",
+        "category_summary.csv"
+      ],
+      "title": "Task suite"
+    },
+    {
+      "charts": [
+        "charts/trace-schema-evidence.svg",
+        "charts/trace-inventory.svg"
+      ],
+      "note": "Sanitized public trace plus VPS private/raw replay refs.",
+      "slide": 10,
+      "source": "traces + trace schema",
+      "tables": [
+        "trace_inventory.csv"
+      ],
+      "title": "Runner + normalized trace schema"
+    },
+    {
+      "charts": [
+        "charts/method-evidence-ladder.svg"
+      ],
+      "note": "State evidence boundary per method.",
+      "slide": 11,
+      "source": "phase3_attribution",
+      "tables": [
+        "method_consistency.csv"
+      ],
+      "title": "M1-M4 attribution methods"
+    },
+    {
+      "charts": [
+        "charts/trace-inventory.svg"
+      ],
+      "note": "If using screenshots, take them from VPS raw/private layer; not generated here.",
+      "slide": 12,
+      "source": "raw/private refs",
+      "tables": [
+        "source_index.csv"
+      ],
+      "title": "Execution reality"
+    },
+    {
+      "charts": [
+        "charts/trace-inventory.svg"
+      ],
+      "note": "Formal baseline is 360, not 396.",
+      "slide": 13,
+      "source": "metrics-summary.overall",
+      "tables": [
+        "headline_stats.csv",
+        "trace_inventory.csv"
+      ],
+      "title": "Data scale"
+    },
+    {
+      "charts": [
+        "charts/controlled-vs-benchmark.svg",
+        "charts/factorial-by-split.svg"
+      ],
+      "note": "Do not mix benchmark low success into controlled conclusions.",
+      "slide": 14,
+      "source": "metrics-summary.overall.task_splits",
+      "tables": [
+        "task_split_summary.csv"
+      ],
+      "title": "Controlled vs benchmark split"
+    },
+    {
+      "charts": [
+        "analysis/phase4/figures/jaccard-matrix.svg"
+      ],
+      "note": "Answers how large tool-set differences are.",
+      "slide": 15,
+      "source": "metrics-summary.pairwise",
+      "tables": [
+        "pairwise_observations.csv"
+      ],
+      "title": "Jaccard matrix"
+    },
+    {
+      "charts": [
+        "analysis/phase4/figures/factorial-contrast-bars.svg",
+        "charts/factorial-by-split.svg"
+      ],
+      "note": "Anchor-cell boundary: Claude Code and Codex are not fully crossed.",
+      "slide": 16,
+      "source": "metrics-summary.factorial_decomposition",
+      "tables": [
+        "factorial_summary.csv",
+        "factorial_by_split.csv"
+      ],
+      "title": "Factorial decomposition"
+    },
+    {
+      "charts": [
+        "analysis/phase4/figures/disagreement-success-scatter.svg"
+      ],
+      "note": "Near-zero correlation is a finding, not proof of no risk.",
+      "slide": 17,
+      "source": "metrics-summary.success_association",
+      "tables": [
+        "success_association.csv"
+      ],
+      "title": "Disagreement vs success"
+    },
+    {
+      "charts": [
+        "analysis/phase4/figures/method-consistency.svg",
+        "charts/phase3-label-summary.svg"
+      ],
+      "note": "Labels are selected high-divergence decision points, not prevalence estimates.",
+      "slide": 18,
+      "source": "metrics-summary.phase3_method_consistency",
+      "tables": [
+        "method_consistency.csv"
+      ],
+      "title": "M1-M4 consistency"
+    },
+    {
+      "charts": [
+        "analysis/phase4/figures/agent-card-matrix.svg"
+      ],
+      "note": "Dimensions are descriptive proxies for this suite only.",
+      "slide": 19,
+      "source": "metrics-summary.agent_cards",
+      "tables": [
+        "agent_card_matrix.csv"
+      ],
+      "title": "Agent-card matrix"
+    },
+    {
+      "charts": [
+        "charts/xai-case-card-01.svg",
+        "charts/xai-case-card-02.svg",
+        "charts/xai-case-card-03.svg"
+      ],
+      "note": "Use as XAI evidence walkthrough; do not present human-study claims.",
+      "slide": 20,
+      "source": "phase4_case_pack",
+      "tables": [
+        "case_candidates.csv"
+      ],
+      "title": "Concrete case walkthrough"
+    },
+    {
+      "charts": [
+        "analysis/phase4/figures/agent-card-matrix.svg"
+      ],
+      "note": "Translate evidence to prompt/tool-surface governance actions.",
+      "slide": 21,
+      "source": "agent_cards + cases",
+      "tables": [
+        "action_implications.csv",
+        "agent_card_matrix.csv"
+      ],
+      "title": "From attribution to action"
+    },
+    {
+      "charts": [],
+      "note": "Explicitly say 20-task Python suite, selected labels, and HCI deferred.",
+      "slide": 22,
+      "source": "phase4_report",
+      "tables": [
+        "limitations.csv"
+      ],
+      "title": "Limitations"
+    },
+    {
+      "charts": [],
+      "note": "Mention downstream HCI study only as future work.",
+      "slide": 23,
+      "source": "phase5_structure",
+      "tables": [
+        "future_work.csv"
+      ],
+      "title": "Future work"
+    },
+    {
+      "charts": [],
+      "note": "Use for citations and artifact paths.",
+      "slide": 24,
+      "source": "all",
+      "tables": [
+        "source_index.csv",
+        "chart_manifest.csv"
+      ],
+      "title": "Appendix"
+    }
+  ]
+}

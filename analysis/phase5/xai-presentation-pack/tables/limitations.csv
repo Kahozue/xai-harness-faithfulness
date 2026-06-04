@@ -1,0 +1,7 @@
+limitation,consequence,slide
+20-task Python suite only,Do not generalize to all coding-agent work.,22
+Benchmark and controlled tasks differ,Interpret low benchmark success separately.,22
+Anchor cells are not fully crossed,Interaction claims use OpenCode/Hermes overlap only.,16
+Phase 3 labels are selected high-divergence cases,"They support explanation, not prevalence estimates.",18
+Hidden chain-of-thought omitted,"Trace evidence uses visible tool path, prompts, metadata, and replay refs.",11
+No HCI human responses yet,Trust/clarity/calibration claims wait for HCI phase.,22

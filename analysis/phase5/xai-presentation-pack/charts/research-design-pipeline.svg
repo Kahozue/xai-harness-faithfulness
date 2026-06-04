@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="500" viewBox="0 0 1280 500">
+<rect width="1280" height="500" fill="#ffffff"/>
+<style>
+  text { font-family: Arial, Helvetica, sans-serif; fill: #1f2933; }
+  .title { font-size: 28px; font-weight: 700; }
+  .subtitle { font-size: 15px; fill: #64748b; }
+  .label { font-size: 14px; }
+  .small { font-size: 12px; fill: #64748b; }
+  .axis { stroke: #d7dee8; stroke-width: 1; }
+</style>
+<text x="40.0" y="48.0" class="title" text-anchor="start">Research design pipeline</text>
+<text x="40.0" y="76.0" class="subtitle" text-anchor="start">Fixed task suite and formal repeats flow into normalized traces and attribution outputs.</text>
+<rect x="70" y="180" width="190" height="118" fill="#f7f9fc" stroke="#d7dee8" rx="8"/>
+<text x="165.0" y="226.0" class="title" text-anchor="middle">6 configs</text>
+<text x="165.0" y="258.0" class="small" text-anchor="middle">Harness/model matrix</text>
+<line x1="268" y1="239" x2="300" y2="239" stroke="#475569" stroke-width="3"/>
+<polygon points="300,239 288,232 288,246" fill="#475569"/>
+<rect x="308" y="180" width="190" height="118" fill="#f7f9fc" stroke="#d7dee8" rx="8"/>
+<text x="403.0" y="226.0" class="title" text-anchor="middle">20 tasks</text>
+<text x="403.0" y="258.0" class="small" text-anchor="middle">5 categories x 4</text>
+<line x1="506" y1="239" x2="538" y2="239" stroke="#475569" stroke-width="3"/>
+<polygon points="538,239 526,232 526,246" fill="#475569"/>
+<rect x="546" y="180" width="190" height="118" fill="#f7f9fc" stroke="#d7dee8" rx="8"/>
+<text x="641.0" y="226.0" class="title" text-anchor="middle">360 traces</text>
+<text x="641.0" y="258.0" class="small" text-anchor="middle">3 formal repeats</text>
+<line x1="744" y1="239" x2="776" y2="239" stroke="#475569" stroke-width="3"/>
+<polygon points="776,239 764,232 764,246" fill="#475569"/>
+<rect x="784" y="180" width="190" height="118" fill="#f7f9fc" stroke="#d7dee8" rx="8"/>
+<text x="879.0" y="226.0" class="title" text-anchor="middle">M1-M4</text>
+<text x="879.0" y="258.0" class="small" text-anchor="middle">White-box attribution</text>
+<line x1="982" y1="239" x2="1014" y2="239" stroke="#475569" stroke-width="3"/>
+<polygon points="1014,239 1002,232 1002,246" fill="#475569"/>
+<rect x="1022" y="180" width="190" height="118" fill="#f7f9fc" stroke="#d7dee8" rx="8"/>
+<text x="1117.0" y="226.0" class="title" text-anchor="middle">Agent cards</text>
+<text x="1117.0" y="258.0" class="small" text-anchor="middle">Descriptive proxies</text>
+</svg>

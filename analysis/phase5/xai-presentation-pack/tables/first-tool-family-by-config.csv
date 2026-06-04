@@ -1,0 +1,7 @@
+config_id,config_label,n,plan,read,search,shell
+1,c1 Claude Code / Haiku,60,0,32,10,18
+2,c2 OpenCode / Haiku,60,2,42,1,15
+3,c3 Hermes / Haiku,60,0,35,25,0
+4,c4 OpenCode / GPT-mini,60,9,0,51,0
+5,c5 Hermes / GPT-mini,60,0,0,60,0
+6,c6 Codex / GPT-mini,60,0,0,0,60

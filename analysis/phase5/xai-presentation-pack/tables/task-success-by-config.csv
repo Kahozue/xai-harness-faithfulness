@@ -1,0 +1,121 @@
+task_id,task_category,source,tier,config_id,config_label,success_count,success_rate,mean_tool_calls,first_tool_families,n
+addlog-t2-01,add_logging,controlled,2,1,c1 Claude Code / Haiku,3,1.0,4.0,"{""read"": 3}",3
+addlog-t2-01,add_logging,controlled,2,2,c2 OpenCode / Haiku,3,1.0,4.333333,"{""read"": 3}",3
+addlog-t2-01,add_logging,controlled,2,3,c3 Hermes / Haiku,3,1.0,3.666667,"{""read"": 3}",3
+addlog-t2-01,add_logging,controlled,2,4,c4 OpenCode / GPT-mini,3,1.0,5.666667,"{""search"": 3}",3
+addlog-t2-01,add_logging,controlled,2,5,c5 Hermes / GPT-mini,3,1.0,4.666667,"{""search"": 3}",3
+addlog-t2-01,add_logging,controlled,2,6,c6 Codex / GPT-mini,3,1.0,4.666667,"{""shell"": 3}",3
+addlog-t2-02,add_logging,controlled,2,1,c1 Claude Code / Haiku,3,1.0,3.666667,"{""read"": 3}",3
+addlog-t2-02,add_logging,controlled,2,2,c2 OpenCode / Haiku,3,1.0,4.333333,"{""read"": 3}",3
+addlog-t2-02,add_logging,controlled,2,3,c3 Hermes / Haiku,3,1.0,4.0,"{""read"": 3}",3
+addlog-t2-02,add_logging,controlled,2,4,c4 OpenCode / GPT-mini,3,1.0,5.0,"{""search"": 3}",3
+addlog-t2-02,add_logging,controlled,2,5,c5 Hermes / GPT-mini,3,1.0,5.333333,"{""search"": 3}",3
+addlog-t2-02,add_logging,controlled,2,6,c6 Codex / GPT-mini,3,1.0,7.666667,"{""shell"": 3}",3
+addlog-t2-03,add_logging,controlled,2,1,c1 Claude Code / Haiku,3,1.0,4.0,"{""read"": 3}",3
+addlog-t2-03,add_logging,controlled,2,2,c2 OpenCode / Haiku,3,1.0,5.0,"{""read"": 3}",3
+addlog-t2-03,add_logging,controlled,2,3,c3 Hermes / Haiku,3,1.0,4.0,"{""read"": 3}",3
+addlog-t2-03,add_logging,controlled,2,4,c4 OpenCode / GPT-mini,3,1.0,5.0,"{""search"": 3}",3
+addlog-t2-03,add_logging,controlled,2,5,c5 Hermes / GPT-mini,3,1.0,4.0,"{""search"": 3}",3
+addlog-t2-03,add_logging,controlled,2,6,c6 Codex / GPT-mini,3,1.0,5.0,"{""shell"": 3}",3
+addlog-t2-04,add_logging,controlled,2,1,c1 Claude Code / Haiku,3,1.0,4.0,"{""read"": 3}",3
+addlog-t2-04,add_logging,controlled,2,2,c2 OpenCode / Haiku,3,1.0,5.0,"{""read"": 3}",3
+addlog-t2-04,add_logging,controlled,2,3,c3 Hermes / Haiku,3,1.0,4.333333,"{""read"": 3}",3
+addlog-t2-04,add_logging,controlled,2,4,c4 OpenCode / GPT-mini,3,1.0,5.0,"{""search"": 3}",3
+addlog-t2-04,add_logging,controlled,2,5,c5 Hermes / GPT-mini,3,1.0,4.666667,"{""search"": 3}",3
+addlog-t2-04,add_logging,controlled,2,6,c6 Codex / GPT-mini,3,1.0,5.0,"{""shell"": 3}",3
+addtests-t2-01,add_tests,controlled,2,1,c1 Claude Code / Haiku,3,1.0,6.333333,"{""read"": 2, ""search"": 1}",3
+addtests-t2-01,add_tests,controlled,2,2,c2 OpenCode / Haiku,3,1.0,8.0,"{""read"": 3}",3
+addtests-t2-01,add_tests,controlled,2,3,c3 Hermes / Haiku,3,1.0,5.0,"{""read"": 2, ""search"": 1}",3
+addtests-t2-01,add_tests,controlled,2,4,c4 OpenCode / GPT-mini,3,1.0,8.333333,"{""search"": 3}",3
+addtests-t2-01,add_tests,controlled,2,5,c5 Hermes / GPT-mini,3,1.0,5.0,"{""search"": 3}",3
+addtests-t2-01,add_tests,controlled,2,6,c6 Codex / GPT-mini,3,1.0,8.0,"{""shell"": 3}",3
+addtests-t2-02,add_tests,controlled,2,1,c1 Claude Code / Haiku,3,1.0,6.0,"{""read"": 3}",3
+addtests-t2-02,add_tests,controlled,2,2,c2 OpenCode / Haiku,3,1.0,8.0,"{""read"": 3}",3
+addtests-t2-02,add_tests,controlled,2,3,c3 Hermes / Haiku,3,1.0,4.666667,"{""read"": 3}",3
+addtests-t2-02,add_tests,controlled,2,4,c4 OpenCode / GPT-mini,1,0.333333,8.0,"{""search"": 3}",3
+addtests-t2-02,add_tests,controlled,2,5,c5 Hermes / GPT-mini,1,0.333333,7.0,"{""search"": 3}",3
+addtests-t2-02,add_tests,controlled,2,6,c6 Codex / GPT-mini,3,1.0,8.333333,"{""shell"": 3}",3
+addtests-t2-03,add_tests,controlled,2,1,c1 Claude Code / Haiku,3,1.0,6.0,"{""read"": 3}",3
+addtests-t2-03,add_tests,controlled,2,2,c2 OpenCode / Haiku,3,1.0,7.666667,"{""read"": 3}",3
+addtests-t2-03,add_tests,controlled,2,3,c3 Hermes / Haiku,3,1.0,4.666667,"{""read"": 1, ""search"": 2}",3
+addtests-t2-03,add_tests,controlled,2,4,c4 OpenCode / GPT-mini,3,1.0,7.666667,"{""search"": 3}",3
+addtests-t2-03,add_tests,controlled,2,5,c5 Hermes / GPT-mini,3,1.0,6.666667,"{""search"": 3}",3
+addtests-t2-03,add_tests,controlled,2,6,c6 Codex / GPT-mini,3,1.0,8.0,"{""shell"": 3}",3
+addtests-t2-04,add_tests,controlled,2,1,c1 Claude Code / Haiku,3,1.0,6.0,"{""read"": 3}",3
+addtests-t2-04,add_tests,controlled,2,2,c2 OpenCode / Haiku,3,1.0,7.333333,"{""read"": 3}",3
+addtests-t2-04,add_tests,controlled,2,3,c3 Hermes / Haiku,3,1.0,3.0,"{""read"": 3}",3
+addtests-t2-04,add_tests,controlled,2,4,c4 OpenCode / GPT-mini,3,1.0,9.666667,"{""search"": 3}",3
+addtests-t2-04,add_tests,controlled,2,5,c5 Hermes / GPT-mini,3,1.0,6.333333,"{""search"": 3}",3
+addtests-t2-04,add_tests,controlled,2,6,c6 Codex / GPT-mini,3,1.0,7.666667,"{""shell"": 3}",3
+bench-bottle-song,benchmark,aider_polyglot,1,1,c1 Claude Code / Haiku,1,0.333333,26.0,"{""search"": 1, ""shell"": 2}",3
+bench-bottle-song,benchmark,aider_polyglot,1,2,c2 OpenCode / Haiku,1,0.333333,11.333333,"{""read"": 1, ""shell"": 2}",3
+bench-bottle-song,benchmark,aider_polyglot,1,3,c3 Hermes / Haiku,2,0.666667,13.666667,"{""search"": 3}",3
+bench-bottle-song,benchmark,aider_polyglot,1,4,c4 OpenCode / GPT-mini,3,1.0,14.666667,"{""plan"": 2, ""search"": 1}",3
+bench-bottle-song,benchmark,aider_polyglot,1,5,c5 Hermes / GPT-mini,1,0.333333,9.666667,"{""search"": 3}",3
+bench-bottle-song,benchmark,aider_polyglot,1,6,c6 Codex / GPT-mini,3,1.0,9.666667,"{""shell"": 3}",3
+bench-grade-school,benchmark,aider_polyglot,1,1,c1 Claude Code / Haiku,0,0.0,8.0,"{""shell"": 3}",3
+bench-grade-school,benchmark,aider_polyglot,1,2,c2 OpenCode / Haiku,0,0.0,10.0,"{""read"": 2, ""shell"": 1}",3
+bench-grade-school,benchmark,aider_polyglot,1,3,c3 Hermes / Haiku,0,0.0,8.666667,"{""search"": 3}",3
+bench-grade-school,benchmark,aider_polyglot,1,4,c4 OpenCode / GPT-mini,1,0.333333,9.666667,"{""plan"": 1, ""search"": 2}",3
+bench-grade-school,benchmark,aider_polyglot,1,5,c5 Hermes / GPT-mini,0,0.0,6.0,"{""search"": 3}",3
+bench-grade-school,benchmark,aider_polyglot,1,6,c6 Codex / GPT-mini,1,0.333333,9.333333,"{""shell"": 3}",3
+bench-phone-number,benchmark,aider_polyglot,1,1,c1 Claude Code / Haiku,0,0.0,9.0,"{""search"": 1, ""shell"": 2}",3
+bench-phone-number,benchmark,aider_polyglot,1,2,c2 OpenCode / Haiku,0,0.0,12.333333,"{""read"": 1, ""shell"": 2}",3
+bench-phone-number,benchmark,aider_polyglot,1,3,c3 Hermes / Haiku,0,0.0,14.0,"{""search"": 3}",3
+bench-phone-number,benchmark,aider_polyglot,1,4,c4 OpenCode / GPT-mini,1,0.333333,12.666667,"{""search"": 3}",3
+bench-phone-number,benchmark,aider_polyglot,1,5,c5 Hermes / GPT-mini,0,0.0,8.0,"{""search"": 3}",3
+bench-phone-number,benchmark,aider_polyglot,1,6,c6 Codex / GPT-mini,0,0.0,9.666667,"{""shell"": 3}",3
+bench-pig-latin,benchmark,aider_polyglot,1,1,c1 Claude Code / Haiku,2,0.666667,9.333333,"{""shell"": 3}",3
+bench-pig-latin,benchmark,aider_polyglot,1,2,c2 OpenCode / Haiku,2,0.666667,9.0,"{""read"": 1, ""shell"": 2}",3
+bench-pig-latin,benchmark,aider_polyglot,1,3,c3 Hermes / Haiku,3,1.0,11.666667,"{""search"": 3}",3
+bench-pig-latin,benchmark,aider_polyglot,1,4,c4 OpenCode / GPT-mini,3,1.0,9.666667,"{""search"": 3}",3
+bench-pig-latin,benchmark,aider_polyglot,1,5,c5 Hermes / GPT-mini,2,0.666667,6.666667,"{""search"": 3}",3
+bench-pig-latin,benchmark,aider_polyglot,1,6,c6 Codex / GPT-mini,2,0.666667,6.333333,"{""shell"": 3}",3
+bugfix-t2-01,bug_fix,controlled,2,1,c1 Claude Code / Haiku,3,1.0,8.0,"{""search"": 1, ""shell"": 2}",3
+bugfix-t2-01,bug_fix,controlled,2,2,c2 OpenCode / Haiku,3,1.0,10.666667,"{""read"": 2, ""shell"": 1}",3
+bugfix-t2-01,bug_fix,controlled,2,3,c3 Hermes / Haiku,3,1.0,4.666667,"{""read"": 3}",3
+bugfix-t2-01,bug_fix,controlled,2,4,c4 OpenCode / GPT-mini,3,1.0,7.333333,"{""search"": 3}",3
+bugfix-t2-01,bug_fix,controlled,2,5,c5 Hermes / GPT-mini,3,1.0,5.0,"{""search"": 3}",3
+bugfix-t2-01,bug_fix,controlled,2,6,c6 Codex / GPT-mini,3,1.0,8.666667,"{""shell"": 3}",3
+bugfix-t2-02,bug_fix,controlled,2,1,c1 Claude Code / Haiku,3,1.0,3.0,"{""read"": 3}",3
+bugfix-t2-02,bug_fix,controlled,2,2,c2 OpenCode / Haiku,3,1.0,5.333333,"{""read"": 2, ""search"": 1}",3
+bugfix-t2-02,bug_fix,controlled,2,3,c3 Hermes / Haiku,3,1.0,2.0,"{""read"": 3}",3
+bugfix-t2-02,bug_fix,controlled,2,4,c4 OpenCode / GPT-mini,3,1.0,8.0,"{""plan"": 1, ""search"": 2}",3
+bugfix-t2-02,bug_fix,controlled,2,5,c5 Hermes / GPT-mini,3,1.0,4.0,"{""search"": 3}",3
+bugfix-t2-02,bug_fix,controlled,2,6,c6 Codex / GPT-mini,3,1.0,7.333333,"{""shell"": 3}",3
+bugfix-t2-03,bug_fix,controlled,2,1,c1 Claude Code / Haiku,0,0.0,4.0,"{""read"": 2, ""shell"": 1}",3
+bugfix-t2-03,bug_fix,controlled,2,2,c2 OpenCode / Haiku,0,0.0,9.333333,"{""read"": 2, ""shell"": 1}",3
+bugfix-t2-03,bug_fix,controlled,2,3,c3 Hermes / Haiku,0,0.0,2.0,"{""read"": 3}",3
+bugfix-t2-03,bug_fix,controlled,2,4,c4 OpenCode / GPT-mini,0,0.0,8.666667,"{""search"": 3}",3
+bugfix-t2-03,bug_fix,controlled,2,5,c5 Hermes / GPT-mini,0,0.0,4.0,"{""search"": 3}",3
+bugfix-t2-03,bug_fix,controlled,2,6,c6 Codex / GPT-mini,1,0.333333,9.666667,"{""shell"": 3}",3
+bugfix-t2-04,bug_fix,controlled,2,1,c1 Claude Code / Haiku,3,1.0,3.0,"{""read"": 3}",3
+bugfix-t2-04,bug_fix,controlled,2,2,c2 OpenCode / Haiku,3,1.0,6.0,"{""read"": 2, ""shell"": 1}",3
+bugfix-t2-04,bug_fix,controlled,2,3,c3 Hermes / Haiku,3,1.0,2.0,"{""read"": 3}",3
+bugfix-t2-04,bug_fix,controlled,2,4,c4 OpenCode / GPT-mini,3,1.0,7.0,"{""search"": 3}",3
+bugfix-t2-04,bug_fix,controlled,2,5,c5 Hermes / GPT-mini,3,1.0,8.333333,"{""search"": 3}",3
+bugfix-t2-04,bug_fix,controlled,2,6,c6 Codex / GPT-mini,3,1.0,8.0,"{""shell"": 3}",3
+rename-t2-01,rename,controlled,2,1,c1 Claude Code / Haiku,3,1.0,15.666667,"{""search"": 2, ""shell"": 1}",3
+rename-t2-01,rename,controlled,2,2,c2 OpenCode / Haiku,3,1.0,21.0,"{""plan"": 1, ""read"": 1, ""shell"": 1}",3
+rename-t2-01,rename,controlled,2,3,c3 Hermes / Haiku,3,1.0,14.666667,"{""search"": 3}",3
+rename-t2-01,rename,controlled,2,4,c4 OpenCode / GPT-mini,3,1.0,19.0,"{""plan"": 2, ""search"": 1}",3
+rename-t2-01,rename,controlled,2,5,c5 Hermes / GPT-mini,3,1.0,16.0,"{""search"": 3}",3
+rename-t2-01,rename,controlled,2,6,c6 Codex / GPT-mini,3,1.0,16.333333,"{""shell"": 3}",3
+rename-t2-02,rename,controlled,2,1,c1 Claude Code / Haiku,3,1.0,12.0,"{""search"": 2, ""shell"": 1}",3
+rename-t2-02,rename,controlled,2,2,c2 OpenCode / Haiku,3,1.0,18.333333,"{""read"": 2, ""shell"": 1}",3
+rename-t2-02,rename,controlled,2,3,c3 Hermes / Haiku,3,1.0,14.0,"{""read"": 1, ""search"": 2}",3
+rename-t2-02,rename,controlled,2,4,c4 OpenCode / GPT-mini,3,1.0,18.333333,"{""search"": 3}",3
+rename-t2-02,rename,controlled,2,5,c5 Hermes / GPT-mini,3,1.0,13.666667,"{""search"": 3}",3
+rename-t2-02,rename,controlled,2,6,c6 Codex / GPT-mini,3,1.0,14.666667,"{""shell"": 3}",3
+rename-t2-03,rename,controlled,2,1,c1 Claude Code / Haiku,3,1.0,15.333333,"{""read"": 1, ""search"": 1, ""shell"": 1}",3
+rename-t2-03,rename,controlled,2,2,c2 OpenCode / Haiku,3,1.0,21.333333,"{""read"": 1, ""shell"": 2}",3
+rename-t2-03,rename,controlled,2,3,c3 Hermes / Haiku,3,1.0,12.333333,"{""read"": 1, ""search"": 2}",3
+rename-t2-03,rename,controlled,2,4,c4 OpenCode / GPT-mini,3,1.0,15.0,"{""plan"": 1, ""search"": 2}",3
+rename-t2-03,rename,controlled,2,5,c5 Hermes / GPT-mini,3,1.0,12.0,"{""search"": 3}",3
+rename-t2-03,rename,controlled,2,6,c6 Codex / GPT-mini,3,1.0,13.666667,"{""shell"": 3}",3
+rename-t2-04,rename,controlled,2,1,c1 Claude Code / Haiku,3,1.0,14.333333,"{""search"": 1, ""shell"": 2}",3
+rename-t2-04,rename,controlled,2,2,c2 OpenCode / Haiku,3,1.0,19.333333,"{""plan"": 1, ""read"": 1, ""shell"": 1}",3
+rename-t2-04,rename,controlled,2,3,c3 Hermes / Haiku,3,1.0,13.333333,"{""search"": 3}",3
+rename-t2-04,rename,controlled,2,4,c4 OpenCode / GPT-mini,3,1.0,17.0,"{""plan"": 2, ""search"": 1}",3
+rename-t2-04,rename,controlled,2,5,c5 Hermes / GPT-mini,3,1.0,13.666667,"{""search"": 3}",3
+rename-t2-04,rename,controlled,2,6,c6 Codex / GPT-mini,3,1.0,14.333333,"{""shell"": 3}",3

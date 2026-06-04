@@ -1,0 +1,21 @@
+mean_tool_calls,mean_wall_time_s,n,provenance,source,success_count,success_rate,success_rate_stdev_across_configs,task_category,task_id,tier
+4.5,16.085056,18,"controlled, authored 2026-06-04",controlled,18,1.0,0.0,add_logging,addlog-t2-01,2
+5.0,16.802278,18,"controlled, authored 2026-06-04",controlled,18,1.0,0.0,add_logging,addlog-t2-02,2
+4.5,15.479667,18,"controlled, authored 2026-06-04",controlled,18,1.0,0.0,add_logging,addlog-t2-03,2
+4.666667,16.329111,18,"controlled, authored 2026-06-04",controlled,18,1.0,0.0,add_logging,addlog-t2-04,2
+6.777778,19.571111,18,"controlled, authored 2026-06-04",controlled,18,1.0,0.0,add_tests,addtests-t2-01,2
+7.0,20.751056,18,"controlled, authored 2026-06-04",controlled,14,0.777778,0.31427,add_tests,addtests-t2-02,2
+6.777778,21.084667,18,"controlled, authored 2026-06-04",controlled,18,1.0,0.0,add_tests,addtests-t2-03,2
+6.666667,19.296444,18,"controlled, authored 2026-06-04",controlled,18,1.0,0.0,add_tests,addtests-t2-04,2
+14.166667,69.045556,18,Aider polyglot benchmark / Exercism Python track; exercise 'bottle-song'; used under Exercism open-source license,aider_polyglot,11,0.611111,0.299176,benchmark,bench-bottle-song,1
+8.611111,32.369111,18,Aider polyglot benchmark / Exercism Python track; exercise 'grade-school'; used under Exercism open-source license,aider_polyglot,2,0.111111,0.157135,benchmark,bench-grade-school,1
+10.944444,66.767833,18,Aider polyglot benchmark / Exercism Python track; exercise 'phone-number'; used under Exercism open-source license,aider_polyglot,1,0.055556,0.124226,benchmark,bench-phone-number,1
+8.777778,45.658278,18,Aider polyglot benchmark / Exercism Python track; exercise 'pig-latin'; used under Exercism open-source license,aider_polyglot,14,0.777778,0.157135,benchmark,bench-pig-latin,1
+7.388889,24.6555,18,"controlled, DeepSWE-style behavior verifier, authored 2026-06-04",controlled,18,1.0,0.0,bug_fix,bugfix-t2-01,2
+4.944444,16.098722,18,"controlled, authored 2026-06-04",controlled,18,1.0,0.0,bug_fix,bugfix-t2-02,2
+6.277778,21.808556,18,"controlled, authored 2026-06-04",controlled,1,0.055556,0.124226,bug_fix,bugfix-t2-03,2
+5.722222,19.611667,18,"controlled, authored 2026-06-04",controlled,18,1.0,0.0,bug_fix,bugfix-t2-04,2
+17.111111,38.574556,18,"controlled, authored 2026-06-04",controlled,18,1.0,0.0,rename,rename-t2-01,2
+15.166667,37.159444,18,"controlled, authored 2026-06-04",controlled,18,1.0,0.0,rename,rename-t2-02,2
+14.944444,34.843111,18,"controlled, authored 2026-06-04",controlled,18,1.0,0.0,rename,rename-t2-03,2
+15.333333,34.571667,18,"controlled, authored 2026-06-04",controlled,18,1.0,0.0,rename,rename-t2-04,2

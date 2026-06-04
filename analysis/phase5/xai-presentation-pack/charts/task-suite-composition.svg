@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="520" viewBox="0 0 1280 520">
+<rect width="1280" height="520" fill="#ffffff"/>
+<style>
+  text { font-family: Arial, Helvetica, sans-serif; fill: #1f2933; }
+  .title { font-size: 28px; font-weight: 700; }
+  .subtitle { font-size: 15px; fill: #64748b; }
+  .label { font-size: 14px; }
+  .small { font-size: 12px; fill: #64748b; }
+  .axis { stroke: #d7dee8; stroke-width: 1; }
+</style>
+<text x="40.0" y="48.0" class="title" text-anchor="start">Task-suite composition</text>
+<text x="40.0" y="76.0" class="subtitle" text-anchor="start">20 Python tasks: 16 controlled tasks and 4 Aider/Exercism benchmark tasks.</text>
+<rect x="90" y="135" width="110" height="168" fill="#4f9d69" rx="8"/>
+<text x="145.0" y="331.0" class="small" text-anchor="middle">add logging</text>
+<text x="145.0" y="227.0" class="title" text-anchor="middle">4</text>
+<rect x="240" y="135" width="110" height="168" fill="#0f8b8d" rx="8"/>
+<text x="295.0" y="331.0" class="small" text-anchor="middle">add tests</text>
+<text x="295.0" y="227.0" class="title" text-anchor="middle">4</text>
+<rect x="390" y="135" width="110" height="168" fill="#f2a541" rx="8"/>
+<text x="445.0" y="331.0" class="small" text-anchor="middle">benchmark</text>
+<text x="445.0" y="227.0" class="title" text-anchor="middle">4</text>
+<rect x="540" y="135" width="110" height="168" fill="#7b5ea7" rx="8"/>
+<text x="595.0" y="331.0" class="small" text-anchor="middle">bug fix</text>
+<text x="595.0" y="227.0" class="title" text-anchor="middle">4</text>
+<rect x="690" y="135" width="110" height="168" fill="#e45756" rx="8"/>
+<text x="745.0" y="331.0" class="small" text-anchor="middle">rename</text>
+<text x="745.0" y="227.0" class="title" text-anchor="middle">4</text>
+<text x="875.0" y="160.0" class="label" text-anchor="start">Source split</text>
+<rect x="875" y="198" width="80" height="26" fill="#f2a541" rx="4"/>
+<text x="971.0" y="216.0" class="label" text-anchor="start">aider_polyglot: 4</text>
+<rect x="875" y="246" width="320" height="26" fill="#7b5ea7" rx="4"/>
+<text x="1211.0" y="264.0" class="label" text-anchor="start">controlled: 16</text>
+</svg>

@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="1040" viewBox="0 0 1280 1040">
+<rect width="1280" height="1040" fill="#ffffff"/>
+<style>
+  text { font-family: Arial, Helvetica, sans-serif; fill: #1f2933; }
+  .title { font-size: 28px; font-weight: 700; }
+  .subtitle { font-size: 15px; fill: #64748b; }
+  .label { font-size: 14px; }
+  .small { font-size: 12px; fill: #64748b; }
+  .axis { stroke: #d7dee8; stroke-width: 1; }
+</style>
+<text x="40.0" y="48.0" class="title" text-anchor="start">Task success ranking</text>
+<text x="40.0" y="76.0" class="subtitle" text-anchor="start">Hard tasks are concentrated in benchmark and one controlled bug-fix case.</text>
+<line x1="260" y1="100" x2="260" y2="998" class="axis"/>
+<text x="40.0" y="141.0" class="label" text-anchor="start">bench-phone-number (benchmark)</text>
+<rect x="260" y="120" width="850" height="24" fill="#f7f9fc" rx="4"/>
+<rect x="260" y="120" width="47.2" height="24" fill="#f2a541" rx="4"/>
+<text x="1128.0" y="138.0" class="label" text-anchor="start">5.6%</text>
+<text x="40.0" y="185.0" class="label" text-anchor="start">bugfix-t2-03 (bug_fix)</text>
+<rect x="260" y="164" width="850" height="24" fill="#f7f9fc" rx="4"/>
+<rect x="260" y="164" width="47.2" height="24" fill="#f2a541" rx="4"/>
+<text x="1128.0" y="182.0" class="label" text-anchor="start">5.6%</text>
+<text x="40.0" y="229.0" class="label" text-anchor="start">bench-grade-school (benchmark)</text>
+<rect x="260" y="208" width="850" height="24" fill="#f7f9fc" rx="4"/>
+<rect x="260" y="208" width="94.4" height="24" fill="#f2a541" rx="4"/>
+<text x="1128.0" y="226.0" class="label" text-anchor="start">11.1%</text>
+<text x="40.0" y="273.0" class="label" text-anchor="start">bench-bottle-song (benchmark)</text>
+<rect x="260" y="252" width="850" height="24" fill="#f7f9fc" rx="4"/>
+<rect x="260" y="252" width="519.4" height="24" fill="#f2a541" rx="4"/>
+<text x="1128.0" y="270.0" class="label" text-anchor="start">61.1%</text>
+<text x="40.0" y="317.0" class="label" text-anchor="start">addtests-t2-02 (add_tests)</text>
+<rect x="260" y="296" width="850" height="24" fill="#f7f9fc" rx="4"/>
+<rect x="260" y="296" width="661.1" height="24" fill="#f2a541" rx="4"/>
+<text x="1128.0" y="314.0" class="label" text-anchor="start">77.8%</text>
+<text x="40.0" y="361.0" class="label" text-anchor="start">bench-pig-latin (benchmark)</text>
+<rect x="260" y="340" width="850" height="24" fill="#f7f9fc" rx="4"/>
+<rect x="260" y="340" width="661.1" height="24" fill="#f2a541" rx="4"/>
+<text x="1128.0" y="358.0" class="label" text-anchor="start">77.8%</text>
+<text x="40.0" y="405.0" class="label" text-anchor="start">addlog-t2-01 (add_logging)</text>
+<rect x="260" y="384" width="850" height="24" fill="#f7f9fc" rx="4"/>
+<rect x="260" y="384" width="850.0" height="24" fill="#f2a541" rx="4"/>
+<text x="1128.0" y="402.0" class="label" text-anchor="start">100.0%</text>
+<text x="40.0" y="449.0" class="label" text-anchor="start">addlog-t2-02 (add_logging)</text>
+<rect x="260" y="428" width="850" height="24" fill="#f7f9fc" rx="4"/>
+<rect x="260" y="428" width="850.0" height="24" fill="#f2a541" rx="4"/>
+<text x="1128.0" y="446.0" class="label" text-anchor="start">100.0%</text>
+<text x="40.0" y="493.0" class="label" text-anchor="start">addlog-t2-03 (add_logging)</text>
+<rect x="260" y="472" width="850" height="24" fill="#f7f9fc" rx="4"/>
+<rect x="260" y="472" width="850.0" height="24" fill="#f2a541" rx="4"/>
+<text x="1128.0" y="490.0" class="label" text-anchor="start">100.0%</text>
+<text x="40.0" y="537.0" class="label" text-anchor="start">addlog-t2-04 (add_logging)</text>
+<rect x="260" y="516" width="850" height="24" fill="#f7f9fc" rx="4"/>
+<rect x="260" y="516" width="850.0" height="24" fill="#f2a541" rx="4"/>
+<text x="1128.0" y="534.0" class="label" text-anchor="start">100.0%</text>
+<text x="40.0" y="581.0" class="label" text-anchor="start">addtests-t2-01 (add_tests)</text>
+<rect x="260" y="560" width="850" height="24" fill="#f7f9fc" rx="4"/>
+<rect x="260" y="560" width="850.0" height="24" fill="#f2a541" rx="4"/>
+<text x="1128.0" y="578.0" class="label" text-anchor="start">100.0%</text>
+<text x="40.0" y="625.0" class="label" text-anchor="start">addtests-t2-03 (add_tests)</text>
+<rect x="260" y="604" width="850" height="24" fill="#f7f9fc" rx="4"/>
+<rect x="260" y="604" width="850.0" height="24" fill="#f2a541" rx="4"/>
+<text x="1128.0" y="622.0" class="label" text-anchor="start">100.0%</text>
+<text x="40.0" y="669.0" class="label" text-anchor="start">addtests-t2-04 (add_tests)</text>
+<rect x="260" y="648" width="850" height="24" fill="#f7f9fc" rx="4"/>
+<rect x="260" y="648" width="850.0" height="24" fill="#f2a541" rx="4"/>
+<text x="1128.0" y="666.0" class="label" text-anchor="start">100.0%</text>
+<text x="40.0" y="713.0" class="label" text-anchor="start">bugfix-t2-01 (bug_fix)</text>
+<rect x="260" y="692" width="850" height="24" fill="#f7f9fc" rx="4"/>
+<rect x="260" y="692" width="850.0" height="24" fill="#f2a541" rx="4"/>
+<text x="1128.0" y="710.0" class="label" text-anchor="start">100.0%</text>
+<text x="40.0" y="757.0" class="label" text-anchor="start">bugfix-t2-02 (bug_fix)</text>
+<rect x="260" y="736" width="850" height="24" fill="#f7f9fc" rx="4"/>
+<rect x="260" y="736" width="850.0" height="24" fill="#f2a541" rx="4"/>
+<text x="1128.0" y="754.0" class="label" text-anchor="start">100.0%</text>
+<text x="40.0" y="801.0" class="label" text-anchor="start">bugfix-t2-04 (bug_fix)</text>
+<rect x="260" y="780" width="850" height="24" fill="#f7f9fc" rx="4"/>
+<rect x="260" y="780" width="850.0" height="24" fill="#f2a541" rx="4"/>
+<text x="1128.0" y="798.0" class="label" text-anchor="start">100.0%</text>
+<text x="40.0" y="845.0" class="label" text-anchor="start">rename-t2-01 (rename)</text>
+<rect x="260" y="824" width="850" height="24" fill="#f7f9fc" rx="4"/>
+<rect x="260" y="824" width="850.0" height="24" fill="#f2a541" rx="4"/>
+<text x="1128.0" y="842.0" class="label" text-anchor="start">100.0%</text>
+<text x="40.0" y="889.0" class="label" text-anchor="start">rename-t2-02 (rename)</text>
+<rect x="260" y="868" width="850" height="24" fill="#f7f9fc" rx="4"/>
+<rect x="260" y="868" width="850.0" height="24" fill="#f2a541" rx="4"/>
+<text x="1128.0" y="886.0" class="label" text-anchor="start">100.0%</text>
+<text x="40.0" y="933.0" class="label" text-anchor="start">rename-t2-03 (rename)</text>
+<rect x="260" y="912" width="850" height="24" fill="#f7f9fc" rx="4"/>
+<rect x="260" y="912" width="850.0" height="24" fill="#f2a541" rx="4"/>
+<text x="1128.0" y="930.0" class="label" text-anchor="start">100.0%</text>
+<text x="40.0" y="977.0" class="label" text-anchor="start">rename-t2-04 (rename)</text>
+<rect x="260" y="956" width="850" height="24" fill="#f7f9fc" rx="4"/>
+<rect x="260" y="956" width="850.0" height="24" fill="#f2a541" rx="4"/>
+<text x="1128.0" y="974.0" class="label" text-anchor="start">100.0%</text>
+</svg>

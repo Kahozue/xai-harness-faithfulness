@@ -1,0 +1,3 @@
+categories,mean_tool_calls,n,split,success_count,success_rate
+"['add_logging', 'add_tests', 'bug_fix', 'rename']",8.298611,288,controlled,267,0.927083
+['benchmark'],10.625,72,benchmark,28,0.388889

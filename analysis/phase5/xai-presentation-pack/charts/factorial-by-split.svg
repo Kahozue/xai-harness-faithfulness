@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="560" viewBox="0 0 1280 560">
+<rect width="1280" height="560" fill="#ffffff"/>
+<style>
+  text { font-family: Arial, Helvetica, sans-serif; fill: #1f2933; }
+  .title { font-size: 28px; font-weight: 700; }
+  .subtitle { font-size: 15px; fill: #64748b; }
+  .label { font-size: 14px; }
+  .small { font-size: 12px; fill: #64748b; }
+  .axis { stroke: #d7dee8; stroke-width: 1; }
+</style>
+<text x="40.0" y="48.0" class="title" text-anchor="start">Factorial contrasts by task split</text>
+<text x="40.0" y="76.0" class="subtitle" text-anchor="start">Benchmark has much higher failure rate; controlled tasks still show sequence divergence.</text>
+<rect x="130" y="219.0" width="46" height="169.0" fill="#0f8b8d" rx="4"/>
+<rect x="188" y="161.0" width="46" height="227.0" fill="#e45756" rx="4"/>
+<text x="153.0" y="414.0" class="small" text-anchor="middle">0.45</text>
+<text x="211.0" y="414.0" class="small" text-anchor="middle">0.61</text>
+<text x="182.0" y="454.0" class="small" text-anchor="middle">benchmark /</text>
+<text x="182.0" y="469.0" class="small" text-anchor="middle">harness same model</text>
+<rect x="310" y="226.5" width="46" height="161.5" fill="#0f8b8d" rx="4"/>
+<rect x="368" y="360.9" width="46" height="27.1" fill="#e45756" rx="4"/>
+<text x="333.0" y="414.0" class="small" text-anchor="middle">0.43</text>
+<text x="391.0" y="414.0" class="small" text-anchor="middle">0.07</text>
+<text x="362.0" y="454.0" class="small" text-anchor="middle">controlled /</text>
+<text x="362.0" y="469.0" class="small" text-anchor="middle">harness same model</text>
+<rect x="490" y="216.8" width="46" height="171.2" fill="#0f8b8d" rx="4"/>
+<rect x="548" y="160.3" width="46" height="227.7" fill="#e45756" rx="4"/>
+<text x="513.0" y="414.0" class="small" text-anchor="middle">0.46</text>
+<text x="571.0" y="414.0" class="small" text-anchor="middle">0.61</text>
+<text x="542.0" y="454.0" class="small" text-anchor="middle">benchmark / mixed</text>
+<text x="542.0" y="469.0" class="small" text-anchor="middle">harness model</text>
+<rect x="670" y="183.2" width="46" height="204.8" fill="#0f8b8d" rx="4"/>
+<rect x="728" y="362.0" width="46" height="26.0" fill="#e45756" rx="4"/>
+<text x="693.0" y="414.0" class="small" text-anchor="middle">0.55</text>
+<text x="751.0" y="414.0" class="small" text-anchor="middle">0.07</text>
+<text x="722.0" y="454.0" class="small" text-anchor="middle">controlled / mixed</text>
+<text x="722.0" y="469.0" class="small" text-anchor="middle">harness model</text>
+<rect x="850" y="228.5" width="46" height="159.5" fill="#0f8b8d" rx="4"/>
+<rect x="908" y="163.6" width="46" height="224.4" fill="#e45756" rx="4"/>
+<text x="873.0" y="414.0" class="small" text-anchor="middle">0.43</text>
+<text x="931.0" y="414.0" class="small" text-anchor="middle">0.60</text>
+<text x="902.0" y="454.0" class="small" text-anchor="middle">benchmark / model</text>
+<text x="902.0" y="469.0" class="small" text-anchor="middle">swap same harness</text>
+<rect x="1030" y="232.9" width="46" height="155.1" fill="#0f8b8d" rx="4"/>
+<rect x="1088" y="357.0" width="46" height="31.0" fill="#e45756" rx="4"/>
+<text x="1053.0" y="414.0" class="small" text-anchor="middle">0.42</text>
+<text x="1111.0" y="414.0" class="small" text-anchor="middle">0.08</text>
+<text x="1082.0" y="454.0" class="small" text-anchor="middle">controlled / model</text>
+<text x="1082.0" y="469.0" class="small" text-anchor="middle">swap same harness</text>
+<rect x="930" y="118" width="18" height="18" fill="#0f8b8d"/>
+<text x="956.0" y="132.0" class="label" text-anchor="start">sequence disagreement</text>
+<rect x="930" y="150" width="18" height="18" fill="#e45756"/>
+<text x="956.0" y="164.0" class="label" text-anchor="start">mean failure rate</text>
+</svg>

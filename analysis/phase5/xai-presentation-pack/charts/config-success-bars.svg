@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="384" viewBox="0 0 1280 384">
+<rect width="1280" height="384" fill="#ffffff"/>
+<style>
+  text { font-family: Arial, Helvetica, sans-serif; fill: #1f2933; }
+  .title { font-size: 28px; font-weight: 700; }
+  .subtitle { font-size: 15px; fill: #64748b; }
+  .label { font-size: 14px; }
+  .small { font-size: 12px; fill: #64748b; }
+  .axis { stroke: #d7dee8; stroke-width: 1; }
+</style>
+<text x="40.0" y="48.0" class="title" text-anchor="start">Success by 6 harness/model configs</text>
+<text x="40.0" y="76.0" class="subtitle" text-anchor="start">Each config has 60 formal runs: 20 tasks x 3 repeats.</text>
+<line x1="260" y1="100" x2="260" y2="342" class="axis"/>
+<text x="40.0" y="141.0" class="label" text-anchor="start">c1 claude_code / haiku</text>
+<rect x="260" y="120" width="850" height="24" fill="#f7f9fc" rx="4"/>
+<rect x="260" y="120" width="680.0" height="24" fill="#4f9d69" rx="4"/>
+<text x="1128.0" y="138.0" class="label" text-anchor="start">80.0%</text>
+<text x="40.0" y="185.0" class="label" text-anchor="start">c2 opencode / haiku</text>
+<rect x="260" y="164" width="850" height="24" fill="#f7f9fc" rx="4"/>
+<rect x="260" y="164" width="680.0" height="24" fill="#4f9d69" rx="4"/>
+<text x="1128.0" y="182.0" class="label" text-anchor="start">80.0%</text>
+<text x="40.0" y="229.0" class="label" text-anchor="start">c3 hermes / haiku</text>
+<rect x="260" y="208" width="850" height="24" fill="#f7f9fc" rx="4"/>
+<rect x="260" y="208" width="708.3" height="24" fill="#4f9d69" rx="4"/>
+<text x="1128.0" y="226.0" class="label" text-anchor="start">83.3%</text>
+<text x="40.0" y="273.0" class="label" text-anchor="start">c4 opencode / gptmini</text>
+<rect x="260" y="252" width="850" height="24" fill="#f7f9fc" rx="4"/>
+<rect x="260" y="252" width="722.5" height="24" fill="#4f9d69" rx="4"/>
+<text x="1128.0" y="270.0" class="label" text-anchor="start">85.0%</text>
+<text x="40.0" y="317.0" class="label" text-anchor="start">c5 hermes / gptmini</text>
+<rect x="260" y="296" width="850" height="24" fill="#f7f9fc" rx="4"/>
+<rect x="260" y="296" width="651.7" height="24" fill="#4f9d69" rx="4"/>
+<text x="1128.0" y="314.0" class="label" text-anchor="start">76.7%</text>
+<text x="40.0" y="361.0" class="label" text-anchor="start">c6 codex / gptmini</text>
+<rect x="260" y="340" width="850" height="24" fill="#f7f9fc" rx="4"/>
+<rect x="260" y="340" width="736.7" height="24" fill="#4f9d69" rx="4"/>
+<text x="1128.0" y="358.0" class="label" text-anchor="start">86.7%</text>
+</svg>

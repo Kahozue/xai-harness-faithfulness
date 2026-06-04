@@ -24,6 +24,7 @@ from runner.phase3_attribution import (
 )
 from runner.phase4_readiness import validate_phase4_readiness
 from runner.phase4_analysis import build_phase4_analysis, write_phase4_outputs
+from runner.phase5_xai_pack import build_and_write_phase5_xai_pack, build_phase5_xai_pack_data
 from runner.provision import load_tasks
 from runner.phase2_validation import validate_phase2
 from runner.runner import DEFAULT_TIMEOUT_S, run_once
@@ -167,6 +168,14 @@ def main(argv: list[str] | None = None) -> int:
     phase4_analysis.add_argument("--skip-readiness-gate", action="store_true", help="skip the Phase 4 readiness gate")
     phase4_analysis.add_argument("--dry-run", action="store_true", help="print metrics JSON without writing artifacts")
     phase4_analysis.add_argument("--indent", type=int, default=2, help="JSON indentation; use 0 for one line")
+
+    phase5_xai_pack = sub.add_parser(
+        "phase5-xai-pack",
+        help="build Phase 5 XAI slide data pack without creating a PPTX",
+    )
+    phase5_xai_pack.add_argument("--output-dir", default="analysis/phase5/xai-presentation-pack")
+    phase5_xai_pack.add_argument("--dry-run", action="store_true", help="print pack data JSON without writing artifacts")
+    phase5_xai_pack.add_argument("--indent", type=int, default=2, help="JSON indentation; use 0 for one line")
 
     args = parser.parse_args(argv)
     if args.cmd == "run":
@@ -370,6 +379,25 @@ def main(argv: list[str] | None = None) -> int:
             "hci_case_pack": str(outputs["hci_case_pack"]),
             "traceability": str(outputs["traceability"]),
             "figures": outputs["figures"],
+        }, ensure_ascii=False, indent=indent, sort_keys=True))
+        return 0
+
+    if args.cmd == "phase5-xai-pack":
+        indent = None if args.indent == 0 else args.indent
+        if args.dry_run:
+            print(json.dumps(build_phase5_xai_pack_data(), ensure_ascii=False, indent=indent, sort_keys=True))
+            return 0
+        outputs = build_and_write_phase5_xai_pack(args.output_dir)
+        print(json.dumps({
+            "ok": True,
+            "pack_dir": str(outputs["pack_dir"]),
+            "manifest": str(outputs["manifest"]),
+            "readme": str(outputs["readme"]),
+            "slide_map": str(outputs["slide_map"]),
+            "slide_ready_data": str(outputs["slide_ready_data"]),
+            "chart_manifest": str(outputs["chart_manifest"]),
+            "tables": outputs["tables"],
+            "charts": outputs["charts"],
         }, ensure_ascii=False, indent=indent, sort_keys=True))
         return 0
 

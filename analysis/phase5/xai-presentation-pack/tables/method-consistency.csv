@@ -1,0 +1,12 @@
+bucket,label,count
+factorial_label,harness_main_effect,6
+factorial_label,interaction,8
+factorial_label,model_main_effect,6
+decision_kind,initial_tool_strategy,12
+decision_kind,semantic_output_convention,3
+decision_kind,task_success_gap,5
+agreement_count,2,5
+agreement_count,3,5
+agreement_count,4,10
+confidence,high,15
+confidence,medium,5

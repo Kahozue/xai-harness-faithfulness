@@ -1,0 +1,7 @@
+metric,value,presentation_text,source
+formal_trace_count,360,360 formal traces,metrics-summary.overall
+overall_success,0.819444,295/360 (81.9%),metrics-summary.overall
+task_suite,20,20 tasks: 5 categories x 4,tasks/registry.yaml
+public_trace_json_total,396,396 public trace JSON files; only 360 are formal baseline,traces/
+sequence_disagreement_success_gap_r,0.002509,r=0.003 over 300 config-pair/task observations,metrics-summary.success_association
+unanimous_m1_m4,0.5,10/20 (50.0%),metrics-summary.phase3_method_consistency

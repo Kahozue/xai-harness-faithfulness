@@ -1,0 +1,8 @@
+artifact,path,purpose
+phase5_structure,docs/specs/2026-06-04-phase5-xai-presentation-structure.md,slide order and narrative scope
+phase4_metrics,analysis/phase4/metrics-summary.json,formal baseline metrics and existing figures
+phase4_case_pack,analysis/phase4/hci-case-pack.json,case walkthrough candidates and trace refs
+phase3_labels,analysis/phase3/hci-ground-truth-labels.json,selected decision-point labels
+phase4_report,docs/verification/2026-06-04-phase4-analysis-report.md,topline narrative and limitations
+task_registry,tasks/registry.yaml,"task provenance, category, tier, grader"
+vps_private_raw,/data/harness-lab/private-audits and /data/harness-lab/runs,complete replay layer outside git

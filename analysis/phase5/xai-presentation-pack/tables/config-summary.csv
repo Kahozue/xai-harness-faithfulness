@@ -1,0 +1,7 @@
+config_id,config_label,harness,model_role,model_snapshot,provider,success_rate,failed_trace_count,mean_stability,robustness_min_category_success,actionability,governability,n,role
+1,c1 Claude Code / Haiku,claude_code,haiku,claude-haiku-4-5-20251001,anthropic,0.8,12,0.780874,0.25,1.0,1.0,60,anchor: 橫向 harness 基準
+2,c2 OpenCode / Haiku,opencode,haiku,claude-haiku-4-5-20251001,anthropic,0.8,12,0.798965,0.25,1.0,1.0,60,
+3,c3 Hermes / Haiku,hermes,haiku,claude-haiku-4-5-20251001,anthropic,0.833333,10,0.817331,0.416667,1.0,1.0,60,
+4,c4 OpenCode / GPT-mini,opencode,gptmini,gpt-5.4-mini-2026-03-17,openai,0.85,9,0.786065,0.666667,1.0,1.0,60,
+5,c5 Hermes / GPT-mini,hermes,gptmini,gpt-5.4-mini-2026-03-17,openai,0.766667,14,0.856735,0.25,1.0,1.0,60,
+6,c6 Codex / GPT-mini,codex,gptmini,gpt-5.4-mini-2026-03-17,openai,0.866667,8,0.896479,0.5,1.0,1.0,60,anchor

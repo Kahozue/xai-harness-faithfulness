@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="510" viewBox="0 0 1280 510">
+<rect width="1280" height="510" fill="#ffffff"/>
+<style>
+  text { font-family: Arial, Helvetica, sans-serif; fill: #1f2933; }
+  .title { font-size: 28px; font-weight: 700; }
+  .subtitle { font-size: 15px; fill: #64748b; }
+  .label { font-size: 14px; }
+  .small { font-size: 12px; fill: #64748b; }
+  .axis { stroke: #d7dee8; stroke-width: 1; }
+</style>
+<text x="40.0" y="48.0" class="title" text-anchor="start">First tool family by config</text>
+<text x="40.0" y="76.0" class="subtitle" text-anchor="start">First action reveals harness affordance: Codex starts with shell; Hermes/OpenCode often search/read.</text>
+<text x="40.0" y="139.0" class="label" text-anchor="start">c1 Claude Code / Haiku</text>
+<rect x="220.0" y="118" width="405.3" height="26" fill="#3b6ea8" rx="3"/>
+<text x="422.7" y="136.0" class="small" text-anchor="middle">32</text>
+<rect x="625.3" y="118" width="126.7" height="26" fill="#0f8b8d" rx="3"/>
+<text x="688.7" y="136.0" class="small" text-anchor="middle">10</text>
+<rect x="752.0" y="118" width="228.0" height="26" fill="#f2a541" rx="3"/>
+<text x="866.0" y="136.0" class="small" text-anchor="middle">18</text>
+<text x="40.0" y="195.0" class="label" text-anchor="start">c2 OpenCode / Haiku</text>
+<rect x="220.0" y="174" width="532.0" height="26" fill="#3b6ea8" rx="3"/>
+<text x="486.0" y="192.0" class="small" text-anchor="middle">42</text>
+<rect x="752.0" y="174" width="12.7" height="26" fill="#0f8b8d" rx="3"/>
+<rect x="764.7" y="174" width="190.0" height="26" fill="#f2a541" rx="3"/>
+<text x="859.7" y="192.0" class="small" text-anchor="middle">15</text>
+<rect x="954.7" y="174" width="25.3" height="26" fill="#7b5ea7" rx="3"/>
+<text x="40.0" y="251.0" class="label" text-anchor="start">c3 Hermes / Haiku</text>
+<rect x="220.0" y="230" width="443.3" height="26" fill="#3b6ea8" rx="3"/>
+<text x="441.7" y="248.0" class="small" text-anchor="middle">35</text>
+<rect x="663.3" y="230" width="316.7" height="26" fill="#0f8b8d" rx="3"/>
+<text x="821.7" y="248.0" class="small" text-anchor="middle">25</text>
+<text x="40.0" y="307.0" class="label" text-anchor="start">c4 OpenCode / GPT-mini</text>
+<rect x="220.0" y="286" width="646.0" height="26" fill="#0f8b8d" rx="3"/>
+<text x="543.0" y="304.0" class="small" text-anchor="middle">51</text>
+<rect x="866.0" y="286" width="114.0" height="26" fill="#7b5ea7" rx="3"/>
+<text x="923.0" y="304.0" class="small" text-anchor="middle">9</text>
+<text x="40.0" y="363.0" class="label" text-anchor="start">c5 Hermes / GPT-mini</text>
+<rect x="220.0" y="342" width="760.0" height="26" fill="#0f8b8d" rx="3"/>
+<text x="600.0" y="360.0" class="small" text-anchor="middle">60</text>
+<text x="40.0" y="419.0" class="label" text-anchor="start">c6 Codex / GPT-mini</text>
+<rect x="220.0" y="398" width="760.0" height="26" fill="#f2a541" rx="3"/>
+<text x="600.0" y="416.0" class="small" text-anchor="middle">60</text>
+<rect x="1010" y="116" width="16" height="16" fill="#3b6ea8"/>
+<text x="1034.0" y="129.0" class="small" text-anchor="start">read</text>
+<rect x="1010" y="140" width="16" height="16" fill="#0f8b8d"/>
+<text x="1034.0" y="153.0" class="small" text-anchor="start">search</text>
+<rect x="1010" y="164" width="16" height="16" fill="#f2a541"/>
+<text x="1034.0" y="177.0" class="small" text-anchor="start">shell</text>
+<rect x="1010" y="188" width="16" height="16" fill="#7b5ea7"/>
+<text x="1034.0" y="201.0" class="small" text-anchor="start">plan</text>
+<rect x="1010" y="212" width="16" height="16" fill="#4f9d69"/>
+<text x="1034.0" y="225.0" class="small" text-anchor="start">edit</text>
+<rect x="1010" y="236" width="16" height="16" fill="#e45756"/>
+<text x="1034.0" y="249.0" class="small" text-anchor="start">agent</text>
+<rect x="1010" y="260" width="16" height="16" fill="#475569"/>
+<text x="1034.0" y="273.0" class="small" text-anchor="start">&lt;none&gt;</text>
+</svg>

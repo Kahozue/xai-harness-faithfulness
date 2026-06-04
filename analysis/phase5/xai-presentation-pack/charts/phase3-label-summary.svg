@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="620" viewBox="0 0 1280 620">
+<rect width="1280" height="620" fill="#ffffff"/>
+<style>
+  text { font-family: Arial, Helvetica, sans-serif; fill: #1f2933; }
+  .title { font-size: 28px; font-weight: 700; }
+  .subtitle { font-size: 15px; fill: #64748b; }
+  .label { font-size: 14px; }
+  .small { font-size: 12px; fill: #64748b; }
+  .axis { stroke: #d7dee8; stroke-width: 1; }
+</style>
+<text x="40.0" y="48.0" class="title" text-anchor="start">Phase 3 label and method-consistency summary</text>
+<text x="40.0" y="76.0" class="subtitle" text-anchor="start">20 selected high-divergence labels; 10/20 have unanimous M1-M4 agreement.</text>
+<rect x="52" y="90" width="360" height="430" fill="#f7f9fc" rx="8"/>
+<text x="70.0" y="116.0" class="label" text-anchor="start">Attribution labels</text>
+<text x="70.0" y="152.0" class="small" text-anchor="start">harness_main_effect</text>
+<rect x="70" y="160" width="270" height="24" fill="#ffffff" rx="4"/>
+<rect x="70" y="160" width="195.0" height="24" fill="#0f8b8d" rx="4"/>
+<text x="356.0" y="178.0" class="label" text-anchor="start">6</text>
+<text x="70.0" y="238.0" class="small" text-anchor="start">interaction</text>
+<rect x="70" y="246" width="270" height="24" fill="#ffffff" rx="4"/>
+<rect x="70" y="246" width="260.0" height="24" fill="#e45756" rx="4"/>
+<text x="356.0" y="264.0" class="label" text-anchor="start">8</text>
+<text x="70.0" y="324.0" class="small" text-anchor="start">model_main_effect</text>
+<rect x="70" y="332" width="270" height="24" fill="#ffffff" rx="4"/>
+<rect x="70" y="332" width="195.0" height="24" fill="#f2a541" rx="4"/>
+<text x="356.0" y="350.0" class="label" text-anchor="start">6</text>
+<rect x="462" y="90" width="360" height="430" fill="#f7f9fc" rx="8"/>
+<text x="480.0" y="116.0" class="label" text-anchor="start">Decision kinds</text>
+<text x="480.0" y="152.0" class="small" text-anchor="start">initial_tool_strategy</text>
+<rect x="480" y="160" width="270" height="24" fill="#ffffff" rx="4"/>
+<rect x="480" y="160" width="260.0" height="24" fill="#0f8b8d" rx="4"/>
+<text x="766.0" y="178.0" class="label" text-anchor="start">12</text>
+<text x="480.0" y="238.0" class="small" text-anchor="start">semantic_output_convention</text>
+<rect x="480" y="246" width="270" height="24" fill="#ffffff" rx="4"/>
+<rect x="480" y="246" width="65.0" height="24" fill="#e45756" rx="4"/>
+<text x="766.0" y="264.0" class="label" text-anchor="start">3</text>
+<text x="480.0" y="324.0" class="small" text-anchor="start">task_success_gap</text>
+<rect x="480" y="332" width="270" height="24" fill="#ffffff" rx="4"/>
+<rect x="480" y="332" width="108.3" height="24" fill="#f2a541" rx="4"/>
+<text x="766.0" y="350.0" class="label" text-anchor="start">5</text>
+<rect x="872" y="90" width="360" height="430" fill="#f7f9fc" rx="8"/>
+<text x="890.0" y="116.0" class="label" text-anchor="start">M1-M4 agreement</text>
+<text x="890.0" y="152.0" class="small" text-anchor="start">2</text>
+<rect x="890" y="160" width="270" height="24" fill="#ffffff" rx="4"/>
+<rect x="890" y="160" width="130.0" height="24" fill="#0f8b8d" rx="4"/>
+<text x="1176.0" y="178.0" class="label" text-anchor="start">5</text>
+<text x="890.0" y="238.0" class="small" text-anchor="start">3</text>
+<rect x="890" y="246" width="270" height="24" fill="#ffffff" rx="4"/>
+<rect x="890" y="246" width="130.0" height="24" fill="#e45756" rx="4"/>
+<text x="1176.0" y="264.0" class="label" text-anchor="start">5</text>
+<text x="890.0" y="324.0" class="small" text-anchor="start">4</text>
+<rect x="890" y="332" width="270" height="24" fill="#ffffff" rx="4"/>
+<rect x="890" y="332" width="260.0" height="24" fill="#f2a541" rx="4"/>
+<text x="1176.0" y="350.0" class="label" text-anchor="start">10</text>
+</svg>

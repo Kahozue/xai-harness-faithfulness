@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="480" viewBox="0 0 1280 480">
+<rect width="1280" height="480" fill="#ffffff"/>
+<style>
+  text { font-family: Arial, Helvetica, sans-serif; fill: #1f2933; }
+  .title { font-size: 28px; font-weight: 700; }
+  .subtitle { font-size: 15px; fill: #64748b; }
+  .label { font-size: 14px; }
+  .small { font-size: 12px; fill: #64748b; }
+  .axis { stroke: #d7dee8; stroke-width: 1; }
+</style>
+<text x="40.0" y="48.0" class="title" text-anchor="start">Normalized trace schema evidence</text>
+<text x="40.0" y="76.0" class="subtitle" text-anchor="start">Four harnesses become comparable through one public sanitized JSON shape.</text>
+<rect x="70" y="130" width="330" height="108" fill="#f7f9fc" stroke="#d7dee8" rx="8"/>
+<text x="92.0" y="166.0" class="label" text-anchor="start">identity</text>
+<text x="92.0" y="192.0" class="small" text-anchor="start">config_id, harness, model_snapshot,</text>
+<text x="92.0" y="208.0" class="small" text-anchor="start">task_id, repeat</text>
+<rect x="465" y="130" width="330" height="108" fill="#f7f9fc" stroke="#d7dee8" rx="8"/>
+<text x="487.0" y="166.0" class="label" text-anchor="start">tool path</text>
+<text x="487.0" y="192.0" class="small" text-anchor="start">tool_calls, turns, wall_time_s</text>
+<rect x="860" y="130" width="330" height="108" fill="#f7f9fc" stroke="#d7dee8" rx="8"/>
+<text x="882.0" y="166.0" class="label" text-anchor="start">outcome</text>
+<text x="882.0" y="192.0" class="small" text-anchor="start">success, grader_detail, final diff</text>
+<text x="882.0" y="208.0" class="small" text-anchor="start">pointer</text>
+<rect x="70" y="280" width="330" height="108" fill="#f7f9fc" stroke="#d7dee8" rx="8"/>
+<text x="92.0" y="316.0" class="label" text-anchor="start">replay refs</text>
+<text x="92.0" y="342.0" class="small" text-anchor="start">raw_log_path, private_audit_path</text>
+<rect x="465" y="280" width="330" height="108" fill="#f7f9fc" stroke="#d7dee8" rx="8"/>
+<text x="487.0" y="316.0" class="label" text-anchor="start">boundary</text>
+<text x="487.0" y="342.0" class="small" text-anchor="start">evidence_levels, runtime_budget,</text>
+<text x="487.0" y="358.0" class="small" text-anchor="start">hidden CoT omitted</text>
+</svg>

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="560" viewBox="0 0 1280 560">
+<rect width="1280" height="560" fill="#ffffff"/>
+<style>
+  text { font-family: Arial, Helvetica, sans-serif; fill: #1f2933; }
+  .title { font-size: 28px; font-weight: 700; }
+  .subtitle { font-size: 15px; fill: #64748b; }
+  .label { font-size: 14px; }
+  .small { font-size: 12px; fill: #64748b; }
+  .axis { stroke: #d7dee8; stroke-width: 1; }
+</style>
+<text x="40.0" y="48.0" class="title" text-anchor="start">M1-M4 attribution evidence ladder</text>
+<text x="40.0" y="76.0" class="subtitle" text-anchor="start">Each method answers a different boundary; hidden chain-of-thought remains omitted.</text>
+<rect x="110" y="150" width="220" height="126" fill="#f7f9fc" stroke="#d7dee8" rx="8"/>
+<text x="132.0" y="188.0" class="title" text-anchor="start">M1</text>
+<text x="132.0" y="218.0" class="label" text-anchor="start">System prompt layer</text>
+<text x="132.0" y="246.0" class="small" text-anchor="start">source/dossier</text>
+<rect x="390" y="185" width="220" height="126" fill="#f7f9fc" stroke="#d7dee8" rx="8"/>
+<text x="412.0" y="223.0" class="title" text-anchor="start">M2</text>
+<text x="412.0" y="253.0" class="label" text-anchor="start">Tool affordance</text>
+<text x="412.0" y="281.0" class="small" text-anchor="start">source/dossier + trace</text>
+<text x="412.0" y="297.0" class="small" text-anchor="start">schema</text>
+<rect x="670" y="220" width="220" height="126" fill="#f7f9fc" stroke="#d7dee8" rx="8"/>
+<text x="692.0" y="258.0" class="title" text-anchor="start">M3</text>
+<text x="692.0" y="288.0" class="label" text-anchor="start">Direct counterfactual</text>
+<text x="692.0" y="316.0" class="small" text-anchor="start">executed repeat</text>
+<text x="692.0" y="332.0" class="small" text-anchor="start">301-312/401/403/404</text>
+<rect x="950" y="255" width="220" height="126" fill="#f7f9fc" stroke="#d7dee8" rx="8"/>
+<text x="972.0" y="293.0" class="title" text-anchor="start">M4</text>
+<text x="972.0" y="323.0" class="label" text-anchor="start">Planning-loop trace</text>
+<text x="972.0" y="351.0" class="small" text-anchor="start">public trace + private</text>
+<text x="972.0" y="367.0" class="small" text-anchor="start">replay refs</text>
+</svg>

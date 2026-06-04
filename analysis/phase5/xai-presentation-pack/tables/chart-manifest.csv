@@ -1,0 +1,26 @@
+chart_id,path,status,recommended_slide,use
+jaccard_matrix,analysis/phase4/figures/jaccard-matrix.svg,existing_phase4,15,RQ3: how large the harness/model tool-set differences are.
+factorial_contrast_bars,analysis/phase4/figures/factorial-contrast-bars.svg,existing_phase4,16,RQ3: descriptive contrast across harness/model/mixed comparisons.
+disagreement_success_scatter,analysis/phase4/figures/disagreement-success-scatter.svg,existing_phase4,17,RQ2: sequence disagreement is almost unrelated to success gap here.
+method_consistency,analysis/phase4/figures/method-consistency.svg,existing_phase4,18,RQ1: M1-M4 agreement over selected high-divergence decision points.
+agent_card_matrix,analysis/phase4/figures/agent-card-matrix.svg,existing_phase4,19,RQ4: condensed descriptive agent-card proxy dimensions.
+category-success-cost,analysis/phase5/xai-presentation-pack/charts/category-success-cost.svg,generated_phase5_pack,,Category success vs tool-call effort.
+config-success-bars,analysis/phase5/xai-presentation-pack/charts/config-success-bars.svg,generated_phase5_pack,,Topline config success comparison.
+controlled-vs-benchmark,analysis/phase5/xai-presentation-pack/charts/controlled-vs-benchmark.svg,generated_phase5_pack,,Controlled vs benchmark split.
+environment-controls-matrix,analysis/phase5/xai-presentation-pack/charts/environment-controls-matrix.svg,generated_phase5_pack,,Environment lock table as chart.
+factorial-by-split,analysis/phase5/xai-presentation-pack/charts/factorial-by-split.svg,generated_phase5_pack,,Contrast metrics separated by controlled/benchmark split.
+first-tool-family-stacked-by-config,analysis/phase5/xai-presentation-pack/charts/first-tool-family-stacked-by-config.svg,generated_phase5_pack,,Harness first-action style comparison.
+method-evidence-ladder,analysis/phase5/xai-presentation-pack/charts/method-evidence-ladder.svg,generated_phase5_pack,,M1-M4 method evidence boundary.
+phase3-label-summary,analysis/phase5/xai-presentation-pack/charts/phase3-label-summary.svg,generated_phase5_pack,,Attribution label and agreement distributions.
+research-design-pipeline,analysis/phase5/xai-presentation-pack/charts/research-design-pipeline.svg,generated_phase5_pack,,Method pipeline overview.
+task-difficulty-ranked,analysis/phase5/xai-presentation-pack/charts/task-difficulty-ranked.svg,generated_phase5_pack,,Task-level difficulty ranking.
+task-success-heatmap,analysis/phase5/xai-presentation-pack/charts/task-success-heatmap.svg,generated_phase5_pack,,Task/config success matrix.
+task-suite-composition,analysis/phase5/xai-presentation-pack/charts/task-suite-composition.svg,generated_phase5_pack,,Task category/source composition.
+trace-inventory,analysis/phase5/xai-presentation-pack/charts/trace-inventory.svg,generated_phase5_pack,,Evidence scale and baseline/nonbaseline boundary.
+trace-schema-evidence,analysis/phase5/xai-presentation-pack/charts/trace-schema-evidence.svg,generated_phase5_pack,,Normalized trace schema evidence model.
+xai-case-card-01,analysis/phase5/xai-presentation-pack/charts/xai-case-card-01.svg,generated_phase5_pack,,Concrete case walkthrough candidate.
+xai-case-card-02,analysis/phase5/xai-presentation-pack/charts/xai-case-card-02.svg,generated_phase5_pack,,Concrete case walkthrough candidate.
+xai-case-card-03,analysis/phase5/xai-presentation-pack/charts/xai-case-card-03.svg,generated_phase5_pack,,Concrete case walkthrough candidate.
+xai-case-card-04,analysis/phase5/xai-presentation-pack/charts/xai-case-card-04.svg,generated_phase5_pack,,Concrete case walkthrough candidate.
+xai-case-card-05,analysis/phase5/xai-presentation-pack/charts/xai-case-card-05.svg,generated_phase5_pack,,Concrete case walkthrough candidate.
+xai-case-card-06,analysis/phase5/xai-presentation-pack/charts/xai-case-card-06.svg,generated_phase5_pack,,Concrete case walkthrough candidate.

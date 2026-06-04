@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="360" viewBox="0 0 1280 360">
+<rect width="1280" height="360" fill="#ffffff"/>
+<style>
+  text { font-family: Arial, Helvetica, sans-serif; fill: #1f2933; }
+  .title { font-size: 28px; font-weight: 700; }
+  .subtitle { font-size: 15px; fill: #64748b; }
+  .label { font-size: 14px; }
+  .small { font-size: 12px; fill: #64748b; }
+  .axis { stroke: #d7dee8; stroke-width: 1; }
+</style>
+<text x="40.0" y="48.0" class="title" text-anchor="start">Controlled vs benchmark split</text>
+<text x="40.0" y="76.0" class="subtitle" text-anchor="start">Controlled software-engineering tasks and benchmark tasks should be interpreted separately.</text>
+<line x1="260" y1="100" x2="260" y2="318" class="axis"/>
+<text x="40.0" y="141.0" class="label" text-anchor="start">controlled (n=288)</text>
+<rect x="260" y="120" width="850" height="24" fill="#f7f9fc" rx="4"/>
+<rect x="260" y="120" width="788.0" height="24" fill="#e45756" rx="4"/>
+<text x="1128.0" y="138.0" class="label" text-anchor="start">92.7%</text>
+<text x="40.0" y="185.0" class="label" text-anchor="start">benchmark (n=72)</text>
+<rect x="260" y="164" width="850" height="24" fill="#f7f9fc" rx="4"/>
+<rect x="260" y="164" width="330.6" height="24" fill="#e45756" rx="4"/>
+<text x="1128.0" y="182.0" class="label" text-anchor="start">38.9%</text>
+</svg>

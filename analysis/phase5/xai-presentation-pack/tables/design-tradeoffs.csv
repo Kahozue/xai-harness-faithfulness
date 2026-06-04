@@ -1,0 +1,6 @@
+decision,reason,slide
+Use formal repeats 1-3 only,Avoid pilot/counterfactual leakage into baseline statistics.,6
+Separate controlled and benchmark tasks,Benchmark rows have much lower success and different provenance.,14
+Use OpenCode/Hermes as crossed interaction cells,"Claude Code and Codex are anchor cells, not fully crossed across both models.",16
+Use M1-M4 instead of success-only scoring,Success cannot identify prompt/tool/model interaction causes.,5
+Keep HCI human study out of XAI deck,"Phase 4 metrics are evidence materials, not human response data.",22

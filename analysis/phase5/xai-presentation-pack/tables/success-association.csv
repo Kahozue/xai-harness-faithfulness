@@ -1,0 +1,2 @@
+mean_sequence_disagreement_when_success_gap_nonzero,mean_sequence_disagreement_when_success_gap_zero,n,pearson_sequence_disagreement_vs_mean_failure_rate,pearson_sequence_disagreement_vs_success_gap,success_gap_nonzero_n,success_gap_zero_n,unit
+0.481072,0.480286,300,-0.004702,0.002509,45,255,config-pair x task observation

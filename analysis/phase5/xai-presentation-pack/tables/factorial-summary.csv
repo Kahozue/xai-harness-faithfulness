@@ -1,0 +1,4 @@
+contrast_family,mean_failure_rate,mean_jaccard,mean_sequence_disagreement,mean_success_gap,mean_tool_set_disagreement,n
+harness_same_model,0.180556,0.667366,0.438782,0.055556,0.332635,120
+mixed_harness_model,0.178571,0.605794,0.533333,0.066667,0.394206,140
+model_swap_same_harness,0.1875,0.746389,0.420018,0.091667,0.253611,40

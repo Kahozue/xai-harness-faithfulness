@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="720" viewBox="0 0 1500 720">
+<rect width="1500" height="720" fill="#ffffff"/>
+<style>
+  text { font-family: Arial, Helvetica, sans-serif; fill: #1f2933; }
+  .title { font-size: 28px; font-weight: 700; }
+  .subtitle { font-size: 15px; fill: #64748b; }
+  .label { font-size: 14px; }
+  .small { font-size: 12px; fill: #64748b; }
+  .axis { stroke: #d7dee8; stroke-width: 1; }
+</style>
+<text x="40.0" y="48.0" class="title" text-anchor="start">Case 2: bench-bottle-song / model_main_effect</text>
+<text x="40.0" y="76.0" class="subtitle" text-anchor="start">initial_tool_strategy | high confidence | M1-M4 agreement 3/4</text>
+<rect x="70" y="118" width="620" height="470" fill="#f7f9fc" stroke="#d7dee8" rx="10"/>
+<text x="96.0" y="158.0" class="label" text-anchor="start">Left: c2 opencode</text>
+<text x="96.0" y="186.0" class="small" text-anchor="start">claude-haiku-4-5-20251001</text>
+<text x="96.0" y="226.0" class="label" text-anchor="start">Outcome: 1/3 successful repeats</text>
+<text x="96.0" y="264.0" class="small" text-anchor="start">Dominant tool-family path</text>
+<text x="96.0" y="292.0" class="label" text-anchor="start">shell -&gt; read -&gt; read -&gt; read -&gt; shell -&gt; shell -&gt;</text>
+<text x="96.0" y="314.0" class="label" text-anchor="start">shell -&gt; shell -&gt; shell</text>
+<rect x="780" y="118" width="620" height="470" fill="#f7f9fc" stroke="#d7dee8" rx="10"/>
+<text x="806.0" y="158.0" class="label" text-anchor="start">Right: c4 opencode</text>
+<text x="806.0" y="186.0" class="small" text-anchor="start">gpt-5.4-mini-2026-03-17</text>
+<text x="806.0" y="226.0" class="label" text-anchor="start">Outcome: 3/3 successful repeats</text>
+<text x="806.0" y="264.0" class="small" text-anchor="start">Dominant tool-family path</text>
+<text x="806.0" y="292.0" class="label" text-anchor="start">plan -&gt; search -&gt; search -&gt; search -&gt; read -&gt; search</text>
+<text x="806.0" y="314.0" class="label" text-anchor="start">-&gt; search -&gt; search -&gt; edit -&gt; edit -&gt; shell -&gt; shell</text>
+<text x="806.0" y="336.0" class="label" text-anchor="start">-&gt; plan</text>
+<text x="70.0" y="636.0" class="small" text-anchor="start">Evidence refs: M1-M4 agreement: 3/4 for model_main_effect. | Left traces: [&#x27;traces/2/bench-bottle-song/1.json&#x27;, &#x27;traces/2/bench-bottle-song/2.json&#x27;, &#x27;traces/2/bench-bottle-song/3.json&#x27;].</text>
+</svg>

@@ -1,0 +1,279 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1260" height="852" viewBox="0 0 1260 852">
+<rect width="1260" height="852" fill="#ffffff"/>
+<style>
+  text { font-family: Arial, Helvetica, sans-serif; fill: #1f2933; }
+  .title { font-size: 28px; font-weight: 700; }
+  .subtitle { font-size: 15px; fill: #64748b; }
+  .label { font-size: 14px; }
+  .small { font-size: 12px; fill: #64748b; }
+  .axis { stroke: #d7dee8; stroke-width: 1; }
+</style>
+<text x="40.0" y="48.0" class="title" text-anchor="start">Task x config success heatmap</text>
+<text x="40.0" y="76.0" class="subtitle" text-anchor="start">Each cell is 3 formal repeats; benchmark rows expose the low-success region.</text>
+<text x="314.0" y="108.0" class="label" text-anchor="middle">c1</text>
+<text x="422.0" y="108.0" class="label" text-anchor="middle">c2</text>
+<text x="530.0" y="108.0" class="label" text-anchor="middle">c3</text>
+<text x="638.0" y="108.0" class="label" text-anchor="middle">c4</text>
+<text x="746.0" y="108.0" class="label" text-anchor="middle">c5</text>
+<text x="854.0" y="108.0" class="label" text-anchor="middle">c6</text>
+<text x="40.0" y="144.0" class="small" text-anchor="start">addlog-t2-01 (add_logging)</text>
+<rect x="260" y="126" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="309.0" y="144.0" class="small" text-anchor="middle">100%</text>
+<rect x="368" y="126" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="417.0" y="144.0" class="small" text-anchor="middle">100%</text>
+<rect x="476" y="126" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="525.0" y="144.0" class="small" text-anchor="middle">100%</text>
+<rect x="584" y="126" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="633.0" y="144.0" class="small" text-anchor="middle">100%</text>
+<rect x="692" y="126" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="741.0" y="144.0" class="small" text-anchor="middle">100%</text>
+<rect x="800" y="126" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="849.0" y="144.0" class="small" text-anchor="middle">100%</text>
+<text x="40.0" y="180.0" class="small" text-anchor="start">addlog-t2-02 (add_logging)</text>
+<rect x="260" y="162" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="309.0" y="180.0" class="small" text-anchor="middle">100%</text>
+<rect x="368" y="162" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="417.0" y="180.0" class="small" text-anchor="middle">100%</text>
+<rect x="476" y="162" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="525.0" y="180.0" class="small" text-anchor="middle">100%</text>
+<rect x="584" y="162" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="633.0" y="180.0" class="small" text-anchor="middle">100%</text>
+<rect x="692" y="162" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="741.0" y="180.0" class="small" text-anchor="middle">100%</text>
+<rect x="800" y="162" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="849.0" y="180.0" class="small" text-anchor="middle">100%</text>
+<text x="40.0" y="216.0" class="small" text-anchor="start">addlog-t2-03 (add_logging)</text>
+<rect x="260" y="198" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="309.0" y="216.0" class="small" text-anchor="middle">100%</text>
+<rect x="368" y="198" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="417.0" y="216.0" class="small" text-anchor="middle">100%</text>
+<rect x="476" y="198" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="525.0" y="216.0" class="small" text-anchor="middle">100%</text>
+<rect x="584" y="198" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="633.0" y="216.0" class="small" text-anchor="middle">100%</text>
+<rect x="692" y="198" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="741.0" y="216.0" class="small" text-anchor="middle">100%</text>
+<rect x="800" y="198" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="849.0" y="216.0" class="small" text-anchor="middle">100%</text>
+<text x="40.0" y="252.0" class="small" text-anchor="start">addlog-t2-04 (add_logging)</text>
+<rect x="260" y="234" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="309.0" y="252.0" class="small" text-anchor="middle">100%</text>
+<rect x="368" y="234" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="417.0" y="252.0" class="small" text-anchor="middle">100%</text>
+<rect x="476" y="234" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="525.0" y="252.0" class="small" text-anchor="middle">100%</text>
+<rect x="584" y="234" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="633.0" y="252.0" class="small" text-anchor="middle">100%</text>
+<rect x="692" y="234" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="741.0" y="252.0" class="small" text-anchor="middle">100%</text>
+<rect x="800" y="234" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="849.0" y="252.0" class="small" text-anchor="middle">100%</text>
+<text x="40.0" y="288.0" class="small" text-anchor="start">addtests-t2-01 (add_tests)</text>
+<rect x="260" y="270" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="309.0" y="288.0" class="small" text-anchor="middle">100%</text>
+<rect x="368" y="270" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="417.0" y="288.0" class="small" text-anchor="middle">100%</text>
+<rect x="476" y="270" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="525.0" y="288.0" class="small" text-anchor="middle">100%</text>
+<rect x="584" y="270" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="633.0" y="288.0" class="small" text-anchor="middle">100%</text>
+<rect x="692" y="270" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="741.0" y="288.0" class="small" text-anchor="middle">100%</text>
+<rect x="800" y="270" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="849.0" y="288.0" class="small" text-anchor="middle">100%</text>
+<text x="40.0" y="324.0" class="small" text-anchor="start">addtests-t2-02 (add_tests)</text>
+<rect x="260" y="306" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="309.0" y="324.0" class="small" text-anchor="middle">100%</text>
+<rect x="368" y="306" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="417.0" y="324.0" class="small" text-anchor="middle">100%</text>
+<rect x="476" y="306" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="525.0" y="324.0" class="small" text-anchor="middle">100%</text>
+<rect x="584" y="306" width="98" height="26" fill="#e57a59" rx="4"/>
+<text x="633.0" y="324.0" class="small" text-anchor="middle">33%</text>
+<rect x="692" y="306" width="98" height="26" fill="#e57a59" rx="4"/>
+<text x="741.0" y="324.0" class="small" text-anchor="middle">33%</text>
+<rect x="800" y="306" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="849.0" y="324.0" class="small" text-anchor="middle">100%</text>
+<text x="40.0" y="360.0" class="small" text-anchor="start">addtests-t2-03 (add_tests)</text>
+<rect x="260" y="342" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="309.0" y="360.0" class="small" text-anchor="middle">100%</text>
+<rect x="368" y="342" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="417.0" y="360.0" class="small" text-anchor="middle">100%</text>
+<rect x="476" y="342" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="525.0" y="360.0" class="small" text-anchor="middle">100%</text>
+<rect x="584" y="342" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="633.0" y="360.0" class="small" text-anchor="middle">100%</text>
+<rect x="692" y="342" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="741.0" y="360.0" class="small" text-anchor="middle">100%</text>
+<rect x="800" y="342" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="849.0" y="360.0" class="small" text-anchor="middle">100%</text>
+<text x="40.0" y="396.0" class="small" text-anchor="start">addtests-t2-04 (add_tests)</text>
+<rect x="260" y="378" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="309.0" y="396.0" class="small" text-anchor="middle">100%</text>
+<rect x="368" y="378" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="417.0" y="396.0" class="small" text-anchor="middle">100%</text>
+<rect x="476" y="378" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="525.0" y="396.0" class="small" text-anchor="middle">100%</text>
+<rect x="584" y="378" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="633.0" y="396.0" class="small" text-anchor="middle">100%</text>
+<rect x="692" y="378" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="741.0" y="396.0" class="small" text-anchor="middle">100%</text>
+<rect x="800" y="378" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="849.0" y="396.0" class="small" text-anchor="middle">100%</text>
+<text x="40.0" y="432.0" class="small" text-anchor="start">bench-bottle-song (benchmark)</text>
+<rect x="260" y="414" width="98" height="26" fill="#e57a59" rx="4"/>
+<text x="309.0" y="432.0" class="small" text-anchor="middle">33%</text>
+<rect x="368" y="414" width="98" height="26" fill="#e57a59" rx="4"/>
+<text x="417.0" y="432.0" class="small" text-anchor="middle">33%</text>
+<rect x="476" y="414" width="98" height="26" fill="#f0b34f" rx="4"/>
+<text x="525.0" y="432.0" class="small" text-anchor="middle">67%</text>
+<rect x="584" y="414" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="633.0" y="432.0" class="small" text-anchor="middle">100%</text>
+<rect x="692" y="414" width="98" height="26" fill="#e57a59" rx="4"/>
+<text x="741.0" y="432.0" class="small" text-anchor="middle">33%</text>
+<rect x="800" y="414" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="849.0" y="432.0" class="small" text-anchor="middle">100%</text>
+<text x="40.0" y="468.0" class="small" text-anchor="start">bench-grade-school (benchmark)</text>
+<rect x="260" y="450" width="98" height="26" fill="#c9484a" rx="4"/>
+<text x="309.0" y="468.0" class="small" text-anchor="middle">0%</text>
+<rect x="368" y="450" width="98" height="26" fill="#c9484a" rx="4"/>
+<text x="417.0" y="468.0" class="small" text-anchor="middle">0%</text>
+<rect x="476" y="450" width="98" height="26" fill="#c9484a" rx="4"/>
+<text x="525.0" y="468.0" class="small" text-anchor="middle">0%</text>
+<rect x="584" y="450" width="98" height="26" fill="#e57a59" rx="4"/>
+<text x="633.0" y="468.0" class="small" text-anchor="middle">33%</text>
+<rect x="692" y="450" width="98" height="26" fill="#c9484a" rx="4"/>
+<text x="741.0" y="468.0" class="small" text-anchor="middle">0%</text>
+<rect x="800" y="450" width="98" height="26" fill="#e57a59" rx="4"/>
+<text x="849.0" y="468.0" class="small" text-anchor="middle">33%</text>
+<text x="40.0" y="504.0" class="small" text-anchor="start">bench-phone-number (benchmark)</text>
+<rect x="260" y="486" width="98" height="26" fill="#c9484a" rx="4"/>
+<text x="309.0" y="504.0" class="small" text-anchor="middle">0%</text>
+<rect x="368" y="486" width="98" height="26" fill="#c9484a" rx="4"/>
+<text x="417.0" y="504.0" class="small" text-anchor="middle">0%</text>
+<rect x="476" y="486" width="98" height="26" fill="#c9484a" rx="4"/>
+<text x="525.0" y="504.0" class="small" text-anchor="middle">0%</text>
+<rect x="584" y="486" width="98" height="26" fill="#e57a59" rx="4"/>
+<text x="633.0" y="504.0" class="small" text-anchor="middle">33%</text>
+<rect x="692" y="486" width="98" height="26" fill="#c9484a" rx="4"/>
+<text x="741.0" y="504.0" class="small" text-anchor="middle">0%</text>
+<rect x="800" y="486" width="98" height="26" fill="#c9484a" rx="4"/>
+<text x="849.0" y="504.0" class="small" text-anchor="middle">0%</text>
+<text x="40.0" y="540.0" class="small" text-anchor="start">bench-pig-latin (benchmark)</text>
+<rect x="260" y="522" width="98" height="26" fill="#f0b34f" rx="4"/>
+<text x="309.0" y="540.0" class="small" text-anchor="middle">67%</text>
+<rect x="368" y="522" width="98" height="26" fill="#f0b34f" rx="4"/>
+<text x="417.0" y="540.0" class="small" text-anchor="middle">67%</text>
+<rect x="476" y="522" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="525.0" y="540.0" class="small" text-anchor="middle">100%</text>
+<rect x="584" y="522" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="633.0" y="540.0" class="small" text-anchor="middle">100%</text>
+<rect x="692" y="522" width="98" height="26" fill="#f0b34f" rx="4"/>
+<text x="741.0" y="540.0" class="small" text-anchor="middle">67%</text>
+<rect x="800" y="522" width="98" height="26" fill="#f0b34f" rx="4"/>
+<text x="849.0" y="540.0" class="small" text-anchor="middle">67%</text>
+<text x="40.0" y="576.0" class="small" text-anchor="start">bugfix-t2-01 (bug_fix)</text>
+<rect x="260" y="558" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="309.0" y="576.0" class="small" text-anchor="middle">100%</text>
+<rect x="368" y="558" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="417.0" y="576.0" class="small" text-anchor="middle">100%</text>
+<rect x="476" y="558" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="525.0" y="576.0" class="small" text-anchor="middle">100%</text>
+<rect x="584" y="558" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="633.0" y="576.0" class="small" text-anchor="middle">100%</text>
+<rect x="692" y="558" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="741.0" y="576.0" class="small" text-anchor="middle">100%</text>
+<rect x="800" y="558" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="849.0" y="576.0" class="small" text-anchor="middle">100%</text>
+<text x="40.0" y="612.0" class="small" text-anchor="start">bugfix-t2-02 (bug_fix)</text>
+<rect x="260" y="594" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="309.0" y="612.0" class="small" text-anchor="middle">100%</text>
+<rect x="368" y="594" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="417.0" y="612.0" class="small" text-anchor="middle">100%</text>
+<rect x="476" y="594" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="525.0" y="612.0" class="small" text-anchor="middle">100%</text>
+<rect x="584" y="594" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="633.0" y="612.0" class="small" text-anchor="middle">100%</text>
+<rect x="692" y="594" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="741.0" y="612.0" class="small" text-anchor="middle">100%</text>
+<rect x="800" y="594" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="849.0" y="612.0" class="small" text-anchor="middle">100%</text>
+<text x="40.0" y="648.0" class="small" text-anchor="start">bugfix-t2-03 (bug_fix)</text>
+<rect x="260" y="630" width="98" height="26" fill="#c9484a" rx="4"/>
+<text x="309.0" y="648.0" class="small" text-anchor="middle">0%</text>
+<rect x="368" y="630" width="98" height="26" fill="#c9484a" rx="4"/>
+<text x="417.0" y="648.0" class="small" text-anchor="middle">0%</text>
+<rect x="476" y="630" width="98" height="26" fill="#c9484a" rx="4"/>
+<text x="525.0" y="648.0" class="small" text-anchor="middle">0%</text>
+<rect x="584" y="630" width="98" height="26" fill="#c9484a" rx="4"/>
+<text x="633.0" y="648.0" class="small" text-anchor="middle">0%</text>
+<rect x="692" y="630" width="98" height="26" fill="#c9484a" rx="4"/>
+<text x="741.0" y="648.0" class="small" text-anchor="middle">0%</text>
+<rect x="800" y="630" width="98" height="26" fill="#e57a59" rx="4"/>
+<text x="849.0" y="648.0" class="small" text-anchor="middle">33%</text>
+<text x="40.0" y="684.0" class="small" text-anchor="start">bugfix-t2-04 (bug_fix)</text>
+<rect x="260" y="666" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="309.0" y="684.0" class="small" text-anchor="middle">100%</text>
+<rect x="368" y="666" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="417.0" y="684.0" class="small" text-anchor="middle">100%</text>
+<rect x="476" y="666" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="525.0" y="684.0" class="small" text-anchor="middle">100%</text>
+<rect x="584" y="666" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="633.0" y="684.0" class="small" text-anchor="middle">100%</text>
+<rect x="692" y="666" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="741.0" y="684.0" class="small" text-anchor="middle">100%</text>
+<rect x="800" y="666" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="849.0" y="684.0" class="small" text-anchor="middle">100%</text>
+<text x="40.0" y="720.0" class="small" text-anchor="start">rename-t2-01 (rename)</text>
+<rect x="260" y="702" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="309.0" y="720.0" class="small" text-anchor="middle">100%</text>
+<rect x="368" y="702" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="417.0" y="720.0" class="small" text-anchor="middle">100%</text>
+<rect x="476" y="702" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="525.0" y="720.0" class="small" text-anchor="middle">100%</text>
+<rect x="584" y="702" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="633.0" y="720.0" class="small" text-anchor="middle">100%</text>
+<rect x="692" y="702" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="741.0" y="720.0" class="small" text-anchor="middle">100%</text>
+<rect x="800" y="702" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="849.0" y="720.0" class="small" text-anchor="middle">100%</text>
+<text x="40.0" y="756.0" class="small" text-anchor="start">rename-t2-02 (rename)</text>
+<rect x="260" y="738" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="309.0" y="756.0" class="small" text-anchor="middle">100%</text>
+<rect x="368" y="738" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="417.0" y="756.0" class="small" text-anchor="middle">100%</text>
+<rect x="476" y="738" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="525.0" y="756.0" class="small" text-anchor="middle">100%</text>
+<rect x="584" y="738" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="633.0" y="756.0" class="small" text-anchor="middle">100%</text>
+<rect x="692" y="738" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="741.0" y="756.0" class="small" text-anchor="middle">100%</text>
+<rect x="800" y="738" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="849.0" y="756.0" class="small" text-anchor="middle">100%</text>
+<text x="40.0" y="792.0" class="small" text-anchor="start">rename-t2-03 (rename)</text>
+<rect x="260" y="774" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="309.0" y="792.0" class="small" text-anchor="middle">100%</text>
+<rect x="368" y="774" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="417.0" y="792.0" class="small" text-anchor="middle">100%</text>
+<rect x="476" y="774" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="525.0" y="792.0" class="small" text-anchor="middle">100%</text>
+<rect x="584" y="774" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="633.0" y="792.0" class="small" text-anchor="middle">100%</text>
+<rect x="692" y="774" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="741.0" y="792.0" class="small" text-anchor="middle">100%</text>
+<rect x="800" y="774" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="849.0" y="792.0" class="small" text-anchor="middle">100%</text>
+<text x="40.0" y="828.0" class="small" text-anchor="start">rename-t2-04 (rename)</text>
+<rect x="260" y="810" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="309.0" y="828.0" class="small" text-anchor="middle">100%</text>
+<rect x="368" y="810" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="417.0" y="828.0" class="small" text-anchor="middle">100%</text>
+<rect x="476" y="810" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="525.0" y="828.0" class="small" text-anchor="middle">100%</text>
+<rect x="584" y="810" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="633.0" y="828.0" class="small" text-anchor="middle">100%</text>
+<rect x="692" y="810" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="741.0" y="828.0" class="small" text-anchor="middle">100%</text>
+<rect x="800" y="810" width="98" height="26" fill="#3f9b68" rx="4"/>
+<text x="849.0" y="828.0" class="small" text-anchor="middle">100%</text>
+</svg>

@@ -1,0 +1,21 @@
+task_id,category,tier,source,grader,provenance
+bugfix-t2-01,bug_fix,2,controlled,tasks/graders/bugfix-t2-01_test.py,"controlled, DeepSWE-style behavior verifier, authored 2026-06-04"
+bugfix-t2-02,bug_fix,2,controlled,tasks/graders/bugfix-t2-02_test.py,"controlled, authored 2026-06-04"
+bugfix-t2-03,bug_fix,2,controlled,tasks/graders/bugfix-t2-03_test.py,"controlled, authored 2026-06-04"
+bugfix-t2-04,bug_fix,2,controlled,tasks/graders/bugfix-t2-04_test.py,"controlled, authored 2026-06-04"
+rename-t2-01,rename,2,controlled,tasks/graders/rename-t2-01_test.py,"controlled, authored 2026-06-04"
+rename-t2-02,rename,2,controlled,tasks/graders/rename-t2-02_test.py,"controlled, authored 2026-06-04"
+rename-t2-03,rename,2,controlled,tasks/graders/rename-t2-03_test.py,"controlled, authored 2026-06-04"
+rename-t2-04,rename,2,controlled,tasks/graders/rename-t2-04_test.py,"controlled, authored 2026-06-04"
+addtests-t2-01,add_tests,2,controlled,tasks/graders/addtests-t2-01_test.py,"controlled, authored 2026-06-04"
+addtests-t2-02,add_tests,2,controlled,tasks/graders/addtests-t2-02_test.py,"controlled, authored 2026-06-04"
+addtests-t2-03,add_tests,2,controlled,tasks/graders/addtests-t2-03_test.py,"controlled, authored 2026-06-04"
+addtests-t2-04,add_tests,2,controlled,tasks/graders/addtests-t2-04_test.py,"controlled, authored 2026-06-04"
+addlog-t2-01,add_logging,2,controlled,tasks/graders/addlog-t2-01_test.py,"controlled, authored 2026-06-04"
+addlog-t2-02,add_logging,2,controlled,tasks/graders/addlog-t2-02_test.py,"controlled, authored 2026-06-04"
+addlog-t2-03,add_logging,2,controlled,tasks/graders/addlog-t2-03_test.py,"controlled, authored 2026-06-04"
+addlog-t2-04,add_logging,2,controlled,tasks/graders/addlog-t2-04_test.py,"controlled, authored 2026-06-04"
+bench-grade-school,benchmark,1,aider_polyglot,tasks/graders/bench-grade-school_test.py,Aider polyglot benchmark / Exercism Python track; exercise 'grade-school'; used under Exercism open-source license
+bench-phone-number,benchmark,1,aider_polyglot,tasks/graders/bench-phone-number_test.py,Aider polyglot benchmark / Exercism Python track; exercise 'phone-number'; used under Exercism open-source license
+bench-pig-latin,benchmark,1,aider_polyglot,tasks/graders/bench-pig-latin_test.py,Aider polyglot benchmark / Exercism Python track; exercise 'pig-latin'; used under Exercism open-source license
+bench-bottle-song,benchmark,1,aider_polyglot,tasks/graders/bench-bottle-song_test.py,Aider polyglot benchmark / Exercism Python track; exercise 'bottle-song'; used under Exercism open-source license

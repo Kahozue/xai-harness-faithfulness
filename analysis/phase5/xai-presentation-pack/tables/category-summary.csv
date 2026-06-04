@@ -1,0 +1,6 @@
+category,mean_tool_calls,mean_wall_time_s,n,success_count,success_rate,task_count
+add_logging,4.666667,16.174028,72,72,1.0,4
+add_tests,6.805556,20.175819,72,68,0.944444,4
+benchmark,10.625,53.460194,72,28,0.388889,4
+bug_fix,6.083333,20.543611,72,55,0.763889,4
+rename,15.638889,36.287194,72,72,1.0,4
