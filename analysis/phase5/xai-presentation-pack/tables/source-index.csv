@@ -1,8 +1,31 @@
 artifact,path,purpose
+canonical_content_draft,analysis/phase5/xai-presentation-pack/deck/content-draft.md,27-slide canonical PPT basis and speaker-structure draft
+canonical_deck_readme,analysis/phase5/xai-presentation-pack/deck/README.md,states that the old 24-slide HTML deck is discarded
 phase5_structure,docs/specs/2026-06-04-phase5-xai-presentation-structure.md,slide order and narrative scope
+phase5_slide_map,analysis/phase5/xai-presentation-pack/slide-data-map.json,per-slide table/chart/source mapping
+phase5_manifest,analysis/phase5/xai-presentation-pack/manifest.json,data pack inventory and generated artifact paths
+phase5_screenshots_readme,analysis/phase5/xai-presentation-pack/screenshots/README.md,execution-reality screenshot provenance and safety scan
+phase5_data_pack_report,docs/verification/2026-06-04-phase5-xai-data-pack-report.md,pack generation and verification report
+phase5_canonical_consistency_audit,docs/verification/2026-06-05-phase5-canonical-consistency-audit.md,27-slide canonical reference/path completeness audit
+study_design,docs/specs/2026-06-03-xai-harness-faithfulness-design.md,"original study design, pipeline, and environment controls"
+trace_policy,docs/specs/2026-06-04-trace-recording-policy.md,raw/private/public trace recording and hidden-thinking policy
+phase4_guardrails,docs/specs/2026-06-04-phase4-analysis-guardrails.md,"non-overclaim, task-sampling, harness-affinity, and XAI/HCI boundaries"
+phase2_isolation_reset,docs/verification/2026-06-04-phase2-isolation-reset.md,shared-HOME contamination finding and formal rerun/reset rationale
+phase2_completion,docs/verification/2026-06-04-phase2-completion-report.md,formal matrix completion and per-run isolation verification
+phase3_seed_selection,docs/verification/2026-06-04-phase3-seed-selection.md,decision-point selection and tool-family canonicalization
+phase3_completion,docs/verification/2026-06-04-phase3-completion-report.md,M1-M4 attribution completion and counterfactual repeat ranges
 phase4_metrics,analysis/phase4/metrics-summary.json,formal baseline metrics and existing figures
 phase4_case_pack,analysis/phase4/hci-case-pack.json,case walkthrough candidates and trace refs
 phase3_labels,analysis/phase3/hci-ground-truth-labels.json,selected decision-point labels
 phase4_report,docs/verification/2026-06-04-phase4-analysis-report.md,topline narrative and limitations
+dossier_overview,docs/dossier/00-overview.md,harness dossier index and evidence boundary
+dossier_claude_code,docs/dossier/claude-code.md,Claude Code prompt/tool/trace/environment evidence
+dossier_codex_cli,docs/dossier/codex-cli.md,Codex CLI prompt/tool/trace/environment evidence
+dossier_opencode,docs/dossier/opencode.md,OpenCode prompt/tool/trace/environment evidence
+dossier_hermes,docs/dossier/hermes.md,Hermes prompt/tool/trace/environment evidence
+dossier_hermes_memory,docs/dossier/hermes-memory.md,Hermes memory/context mechanism evidence
+dossier_cross_harness,docs/dossier/cross-harness-comparison.md,cross-harness mechanism comparison evidence
+runner_trace_schema,runner/trace_schema.py,normalized trace schema and evidence field boundary
+runner_phase5_pack,runner/phase5_xai_pack.py,phase5 data pack generation authority
 task_registry,tasks/registry.yaml,"task provenance, category, tier, grader"
 vps_private_raw,/data/harness-lab/private-audits and /data/harness-lab/runs,complete replay layer outside git

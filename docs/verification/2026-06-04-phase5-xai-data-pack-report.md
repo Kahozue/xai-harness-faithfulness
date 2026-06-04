@@ -21,7 +21,9 @@ Key files:
 - `analysis/phase5/xai-presentation-pack/slide-data-map.json`
 - `analysis/phase5/xai-presentation-pack/slide-ready-data.json`
 - `analysis/phase5/xai-presentation-pack/tables/chart-manifest.csv`
+- `analysis/phase5/xai-presentation-pack/tables/source-index.csv`
 - `analysis/phase5/xai-presentation-pack/deck/content-draft.md`
+- `docs/verification/2026-06-05-phase5-canonical-consistency-audit.md`
 
 Generated content:
 
@@ -31,6 +33,9 @@ Generated content:
   manifest rather than copied.
 - 27-slide data map aligned with
   `docs/specs/2026-06-04-phase5-xai-presentation-structure.md`.
+- Expanded source index covering canonical slide files, trace policy,
+  isolation/reset evidence, Phase 3 selection evidence, Phase 4 guardrails,
+  harness dossiers, runner schema, and generator provenance.
 - Slide 22 now uses `XAI-C03 / bugfix-t2-03 / OpenCode vs Hermes` and
   `analysis/phase5/xai-presentation-pack/charts/xai-case-card-03.svg`.
 
@@ -88,5 +93,6 @@ Verification result:
 - 25 generated CSV tables are non-empty.
 - 22 generated SVG charts parse as valid XML.
 - `slide-data-map.json` has 27 slides and every table/chart path resolves.
+- `source-index.csv` includes the expanded canonical evidence list.
 - No `deck/index.html` exists in the canonical pack.
 - No `.pptx` exists under `analysis/phase5/xai-presentation-pack/`.

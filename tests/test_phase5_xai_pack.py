@@ -21,6 +21,16 @@ def test_phase5_pack_data_keeps_xai_boundary():
         "HCI human-study" in slide["note"]
         for slide in data["slide_map"]
     )
+    source_artifacts = {row["artifact"] for row in data["tables"]["source_index"]}
+    assert {
+        "canonical_content_draft",
+        "trace_policy",
+        "phase2_isolation_reset",
+        "phase3_seed_selection",
+        "phase4_guardrails",
+        "dossier_cross_harness",
+        "runner_trace_schema",
+    } <= source_artifacts
     case_slide = next(slide for slide in data["slide_map"] if slide["slide"] == 22)
     assert case_slide["charts"] == ["charts/xai-case-card-03.svg"]
     assert "OpenCode vs Hermes" in case_slide["note"]
