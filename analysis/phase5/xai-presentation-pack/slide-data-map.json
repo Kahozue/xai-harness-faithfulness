@@ -75,6 +75,7 @@
   },
   {
     "charts": [
+      "charts/config-routing-grid.svg",
       "charts/config-success-bars.svg"
     ],
     "note": "Claude Code and Codex are anchor cells; OpenCode/Hermes form crossed cells.",
@@ -240,6 +241,7 @@
   },
   {
     "charts": [
+      "charts/attribution-action-map.svg",
       "analysis/phase4/figures/agent-card-matrix.svg"
     ],
     "note": "Translate evidence to prompt/tool-surface governance actions.",

@@ -13,6 +13,7 @@ from pathlib import Path
 from typing import Any, Iterable
 
 from runner import paths
+from runner.configs import CONFIGS
 from runner.phase4_analysis import _config_label
 from runner.provision import load_tasks
 
@@ -636,6 +637,82 @@ def _chart_trace_schema(data: dict[str, Any], output: Path) -> None:
     output.write_text(_svg(width, height, "\n".join(body)))
 
 
+def _chart_config_routing_matrix(data: dict[str, Any], output: Path) -> None:
+    harness_label = {
+        "claude_code": "Claude Code",
+        "opencode": "OpenCode",
+        "hermes": "Hermes",
+        "codex": "Codex",
+    }
+    provider_label = {"anthropic": "Anthropic native", "openai": "OpenAI native"}
+    harnesses: list[str] = []
+    models: list[str] = []
+    provider_by_model: dict[str, str] = {}
+    cell: dict[tuple[str, str], Any] = {}
+    for config in CONFIGS:
+        if config.harness not in harnesses:
+            harnesses.append(config.harness)
+        if config.model_role not in models:
+            models.append(config.model_role)
+        provider_by_model[config.model_role] = config.provider
+        cell[(config.model_role, config.harness)] = config
+    crossed = {h for h in harnesses if sum((m, h) in cell for m in models) > 1}
+
+    width = 1320
+    height = 200 + len(models) * 170
+    col_w = (width - 300) // max(len(harnesses), 1)
+    body = [
+        _text(40, 48, "6 configs: harness x model routing grid", "title"),
+        _text(40, 76, "Same model keeps one provider route across harnesses. OpenCode/Hermes are crossed cells; Claude Code/Codex are single-model anchors.", "subtitle"),
+    ]
+    for c, harness in enumerate(harnesses):
+        x = 300 + c * col_w
+        body.append(_text(x + (col_w - 30) / 2, 150, harness_label.get(harness, harness), "label", "middle"))
+    for r, model in enumerate(models):
+        y = 175 + r * 170
+        label = "Haiku 4.5" if model == "haiku" else "GPT-5.4-mini"
+        body.append(_text(40, y + 60, label, "label"))
+        body.append(_text(40, y + 84, provider_label.get(provider_by_model.get(model, ""), provider_by_model.get(model, "")), "small"))
+        for c, harness in enumerate(harnesses):
+            x = 300 + c * col_w
+            config = cell.get((model, harness))
+            if config is None:
+                body.append(f'<rect x="{x}" y="{y}" width="{col_w - 30}" height="130" fill="{PALETTE["paper"]}" stroke="{PALETTE["line"]}" stroke-dasharray="6 6" rx="8"/>')
+                body.append(_text(x + (col_w - 30) / 2, y + 70, "not run", "small", "middle"))
+                continue
+            is_crossed = harness in crossed
+            fill = PALETTE["panel"] if is_crossed else "#fdeed9"
+            tag = "crossed (interaction)" if is_crossed else "anchor"
+            body.append(f'<rect x="{x}" y="{y}" width="{col_w - 30}" height="130" fill="{fill}" stroke="{PALETTE["line"]}" rx="8"/>')
+            body.append(_text(x + 22, y + 46, f"c{config.id}", "title"))
+            body.append(_text(x + 22, y + 78, harness_label.get(harness, harness), "label"))
+            body.append(_text(x + 22, y + 106, tag, "small"))
+    output.write_text(_svg(width, height, "\n".join(body)))
+
+
+def _chart_action_map(data: dict[str, Any], output: Path) -> None:
+    rows = data["tables"]["action_implications"]
+    width = 1320
+    height = 160 + len(rows) * 132
+    body = [
+        _text(40, 48, "From attribution to action", "title"),
+        _text(40, 76, "Each XAI finding maps to a concrete prompt/tool-surface governance action; no HCI human-study claim is made.", "subtitle"),
+        _text(70, 124, "Finding (XAI evidence)", "small"),
+        _text(770, 124, "Governance action", "small"),
+    ]
+    for i, row in enumerate(rows):
+        y = 144 + i * 132
+        body.append(f'<rect x="60" y="{y}" width="600" height="108" fill="{PALETTE["panel"]}" stroke="{PALETTE["line"]}" rx="8"/>')
+        for j, line in enumerate(_wrap(str(row["finding"]), 50)[:4]):
+            body.append(_text(82, y + 34 + j * 22, line, "label"))
+        body.append(f'<line x1="676" y1="{y + 54}" x2="748" y2="{y + 54}" stroke="{PALETTE["slate"]}" stroke-width="3"/>')
+        body.append(f'<polygon points="748,{y + 54} 734,{y + 46} 734,{y + 62}" fill="{PALETTE["slate"]}"/>')
+        body.append(f'<rect x="756" y="{y}" width="504" height="108" fill="#eef6ef" stroke="{PALETTE["line"]}" rx="8"/>')
+        for j, line in enumerate(_wrap(str(row["action"]), 46)[:4]):
+            body.append(_text(778, y + 34 + j * 22, line, "label"))
+    output.write_text(_svg(width, height, "\n".join(body)))
+
+
 def _chart_case_card(case: dict[str, Any], output: Path, index: int) -> None:
     width = 1500
     height = 720
@@ -844,7 +921,7 @@ def _slide_map() -> list[dict[str, Any]]:
         {"slide": 5, "title": "Why white-box attribution", "tables": ["method_consistency.csv"], "charts": ["charts/method-evidence-ladder.svg"], "source": "phase3_attribution", "note": "Contrast black-box success with attribution evidence."},
         {"slide": 6, "title": "Design decisions and tradeoffs", "tables": ["design_tradeoffs.csv"], "charts": [], "source": "design spec / phase4 guardrails", "note": "Keep as rationale table."},
         {"slide": 7, "title": "Environment locks and reproducibility", "tables": ["environment_controls.csv"], "charts": ["charts/environment-controls-matrix.svg"], "source": "metrics-summary.environment_controls", "note": "Token/thinking/context boundary differs by harness; cite exact route."},
-        {"slide": 8, "title": "6 configs, routing, isolation", "tables": ["config_summary.csv"], "charts": ["charts/config-success-bars.svg"], "source": "metrics-summary.config_metadata", "note": "Claude Code and Codex are anchor cells; OpenCode/Hermes form crossed cells."},
+        {"slide": 8, "title": "6 configs, routing, isolation", "tables": ["config_summary.csv"], "charts": ["charts/config-routing-grid.svg", "charts/config-success-bars.svg"], "source": "metrics-summary.config_metadata", "note": "Claude Code and Codex are anchor cells; OpenCode/Hermes form crossed cells."},
         {"slide": 9, "title": "Task suite", "tables": ["task_suite.csv", "category_summary.csv"], "charts": ["charts/task-suite-composition.svg"], "source": "tasks/registry.yaml", "note": "Benchmark and controlled tasks have different provenance and should be separated."},
         {"slide": 10, "title": "Runner + normalized trace schema", "tables": ["trace_inventory.csv"], "charts": ["charts/trace-schema-evidence.svg", "charts/trace-inventory.svg"], "source": "traces + trace schema", "note": "Sanitized public trace plus VPS private/raw replay refs."},
         {"slide": 11, "title": "M1-M4 attribution methods", "tables": ["method_consistency.csv"], "charts": ["charts/method-evidence-ladder.svg"], "source": "phase3_attribution", "note": "State evidence boundary per method."},
@@ -857,7 +934,7 @@ def _slide_map() -> list[dict[str, Any]]:
         {"slide": 18, "title": "M1-M4 consistency", "tables": ["method_consistency.csv"], "charts": ["analysis/phase4/figures/method-consistency.svg", "charts/phase3-label-summary.svg"], "source": "metrics-summary.phase3_method_consistency", "note": "Labels are selected high-divergence decision points, not prevalence estimates."},
         {"slide": 19, "title": "Agent-card matrix", "tables": ["agent_card_matrix.csv"], "charts": ["analysis/phase4/figures/agent-card-matrix.svg"], "source": "metrics-summary.agent_cards", "note": "Dimensions are descriptive proxies for this suite only."},
         {"slide": 20, "title": "Concrete case walkthrough", "tables": ["case_candidates.csv"], "charts": ["charts/xai-case-card-01.svg", "charts/xai-case-card-02.svg", "charts/xai-case-card-03.svg"], "source": "phase4_case_pack", "note": "Use as XAI evidence walkthrough; do not present human-study claims."},
-        {"slide": 21, "title": "From attribution to action", "tables": ["action_implications.csv", "agent_card_matrix.csv"], "charts": ["analysis/phase4/figures/agent-card-matrix.svg"], "source": "agent_cards + cases", "note": "Translate evidence to prompt/tool-surface governance actions."},
+        {"slide": 21, "title": "From attribution to action", "tables": ["action_implications.csv", "agent_card_matrix.csv"], "charts": ["charts/attribution-action-map.svg", "analysis/phase4/figures/agent-card-matrix.svg"], "source": "agent_cards + cases", "note": "Translate evidence to prompt/tool-surface governance actions."},
         {"slide": 22, "title": "Limitations", "tables": ["limitations.csv"], "charts": [], "source": "phase4_report", "note": "Explicitly say 20-task Python suite, selected labels, and HCI deferred."},
         {"slide": 23, "title": "Future work", "tables": ["future_work.csv"], "charts": [], "source": "phase5_structure", "note": "Mention downstream HCI study only as future work."},
         {"slide": 24, "title": "Appendix", "tables": ["source_index.csv", "chart_manifest.csv"], "charts": [], "source": "all", "note": "Use for citations and artifact paths."},
@@ -985,6 +1062,8 @@ def _chart_manifest(generated: dict[str, str]) -> list[dict[str, Any]]:
         "environment-controls-matrix.svg": "Environment lock table as chart.",
         "task-suite-composition.svg": "Task category/source composition.",
         "trace-schema-evidence.svg": "Normalized trace schema evidence model.",
+        "config-routing-grid.svg": "Harness x model routing grid: anchor vs crossed interaction cells.",
+        "attribution-action-map.svg": "Map XAI findings to prompt/tool-surface governance actions.",
     }
     for name, path in sorted(generated.items()):
         rows.append({
@@ -1029,6 +1108,8 @@ def write_phase5_xai_pack(data: dict[str, Any], output_dir: str | Path = DEFAULT
         "environment-controls-matrix.svg": charts_dir / "environment-controls-matrix.svg",
         "task-suite-composition.svg": charts_dir / "task-suite-composition.svg",
         "trace-schema-evidence.svg": charts_dir / "trace-schema-evidence.svg",
+        "config-routing-grid.svg": charts_dir / "config-routing-grid.svg",
+        "attribution-action-map.svg": charts_dir / "attribution-action-map.svg",
     }
     _chart_trace_inventory(data, generated_charts["trace-inventory.svg"])
     _chart_config_success(data, generated_charts["config-success-bars.svg"])
@@ -1044,6 +1125,8 @@ def write_phase5_xai_pack(data: dict[str, Any], output_dir: str | Path = DEFAULT
     _chart_environment_controls(data, generated_charts["environment-controls-matrix.svg"])
     _chart_task_suite(data, generated_charts["task-suite-composition.svg"])
     _chart_trace_schema(data, generated_charts["trace-schema-evidence.svg"])
+    _chart_config_routing_matrix(data, generated_charts["config-routing-grid.svg"])
+    _chart_action_map(data, generated_charts["attribution-action-map.svg"])
 
     for i, case in enumerate(_read_json(PHASE4_CASE_PACK).get("cases", []), start=1):
         path = charts_dir / f"xai-case-card-{i:02d}.svg"

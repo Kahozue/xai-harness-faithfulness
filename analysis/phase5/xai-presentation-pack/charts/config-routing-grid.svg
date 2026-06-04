@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="540" viewBox="0 0 1320 540">
+<rect width="1320" height="540" fill="#ffffff"/>
+<style>
+  text { font-family: Arial, Helvetica, sans-serif; fill: #1f2933; }
+  .title { font-size: 28px; font-weight: 700; }
+  .subtitle { font-size: 15px; fill: #64748b; }
+  .label { font-size: 14px; }
+  .small { font-size: 12px; fill: #64748b; }
+  .axis { stroke: #d7dee8; stroke-width: 1; }
+</style>
+<text x="40.0" y="48.0" class="title" text-anchor="start">6 configs: harness x model routing grid</text>
+<text x="40.0" y="76.0" class="subtitle" text-anchor="start">Same model keeps one provider route across harnesses. OpenCode/Hermes are crossed cells; Claude Code/Codex are single-model anchors.</text>
+<text x="412.5" y="150.0" class="label" text-anchor="middle">Claude Code</text>
+<text x="667.5" y="150.0" class="label" text-anchor="middle">OpenCode</text>
+<text x="922.5" y="150.0" class="label" text-anchor="middle">Hermes</text>
+<text x="1177.5" y="150.0" class="label" text-anchor="middle">Codex</text>
+<text x="40.0" y="235.0" class="label" text-anchor="start">Haiku 4.5</text>
+<text x="40.0" y="259.0" class="small" text-anchor="start">Anthropic native</text>
+<rect x="300" y="175" width="225" height="130" fill="#fdeed9" stroke="#d7dee8" rx="8"/>
+<text x="322.0" y="221.0" class="title" text-anchor="start">c1</text>
+<text x="322.0" y="253.0" class="label" text-anchor="start">Claude Code</text>
+<text x="322.0" y="281.0" class="small" text-anchor="start">anchor</text>
+<rect x="555" y="175" width="225" height="130" fill="#f7f9fc" stroke="#d7dee8" rx="8"/>
+<text x="577.0" y="221.0" class="title" text-anchor="start">c2</text>
+<text x="577.0" y="253.0" class="label" text-anchor="start">OpenCode</text>
+<text x="577.0" y="281.0" class="small" text-anchor="start">crossed (interaction)</text>
+<rect x="810" y="175" width="225" height="130" fill="#f7f9fc" stroke="#d7dee8" rx="8"/>
+<text x="832.0" y="221.0" class="title" text-anchor="start">c3</text>
+<text x="832.0" y="253.0" class="label" text-anchor="start">Hermes</text>
+<text x="832.0" y="281.0" class="small" text-anchor="start">crossed (interaction)</text>
+<rect x="1065" y="175" width="225" height="130" fill="#ffffff" stroke="#d7dee8" stroke-dasharray="6 6" rx="8"/>
+<text x="1177.5" y="245.0" class="small" text-anchor="middle">not run</text>
+<text x="40.0" y="405.0" class="label" text-anchor="start">GPT-5.4-mini</text>
+<text x="40.0" y="429.0" class="small" text-anchor="start">OpenAI native</text>
+<rect x="300" y="345" width="225" height="130" fill="#ffffff" stroke="#d7dee8" stroke-dasharray="6 6" rx="8"/>
+<text x="412.5" y="415.0" class="small" text-anchor="middle">not run</text>
+<rect x="555" y="345" width="225" height="130" fill="#f7f9fc" stroke="#d7dee8" rx="8"/>
+<text x="577.0" y="391.0" class="title" text-anchor="start">c4</text>
+<text x="577.0" y="423.0" class="label" text-anchor="start">OpenCode</text>
+<text x="577.0" y="451.0" class="small" text-anchor="start">crossed (interaction)</text>
+<rect x="810" y="345" width="225" height="130" fill="#f7f9fc" stroke="#d7dee8" rx="8"/>
+<text x="832.0" y="391.0" class="title" text-anchor="start">c5</text>
+<text x="832.0" y="423.0" class="label" text-anchor="start">Hermes</text>
+<text x="832.0" y="451.0" class="small" text-anchor="start">crossed (interaction)</text>
+<rect x="1065" y="345" width="225" height="130" fill="#fdeed9" stroke="#d7dee8" rx="8"/>
+<text x="1087.0" y="391.0" class="title" text-anchor="start">c6</text>
+<text x="1087.0" y="423.0" class="label" text-anchor="start">Codex</text>
+<text x="1087.0" y="451.0" class="small" text-anchor="start">anchor</text>
+</svg>

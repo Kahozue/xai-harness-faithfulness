@@ -43,11 +43,25 @@
       "use": "RQ4: condensed descriptive agent-card proxy dimensions."
     },
     {
+      "chart_id": "attribution-action-map",
+      "path": "analysis/phase5/xai-presentation-pack/charts/attribution-action-map.svg",
+      "recommended_slide": "",
+      "status": "generated_phase5_pack",
+      "use": "Map XAI findings to prompt/tool-surface governance actions."
+    },
+    {
       "chart_id": "category-success-cost",
       "path": "analysis/phase5/xai-presentation-pack/charts/category-success-cost.svg",
       "recommended_slide": "",
       "status": "generated_phase5_pack",
       "use": "Category success vs tool-call effort."
+    },
+    {
+      "chart_id": "config-routing-grid",
+      "path": "analysis/phase5/xai-presentation-pack/charts/config-routing-grid.svg",
+      "recommended_slide": "",
+      "status": "generated_phase5_pack",
+      "use": "Harness x model routing grid: anchor vs crossed interaction cells."
     },
     {
       "chart_id": "config-success-bars",
@@ -298,6 +312,7 @@
     },
     {
       "charts": [
+        "charts/config-routing-grid.svg",
         "charts/config-success-bars.svg"
       ],
       "note": "Claude Code and Codex are anchor cells; OpenCode/Hermes form crossed cells.",
@@ -463,6 +478,7 @@
     },
     {
       "charts": [
+        "charts/attribution-action-map.svg",
         "analysis/phase4/figures/agent-card-matrix.svg"
       ],
       "note": "Translate evidence to prompt/tool-surface governance actions.",

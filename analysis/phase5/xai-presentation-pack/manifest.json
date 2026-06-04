@@ -36,7 +36,9 @@
       }
     },
     "generated": {
+      "attribution-action-map.svg": "analysis/phase5/xai-presentation-pack/charts/attribution-action-map.svg",
       "category-success-cost.svg": "analysis/phase5/xai-presentation-pack/charts/category-success-cost.svg",
+      "config-routing-grid.svg": "analysis/phase5/xai-presentation-pack/charts/config-routing-grid.svg",
       "config-success-bars.svg": "analysis/phase5/xai-presentation-pack/charts/config-success-bars.svg",
       "controlled-vs-benchmark.svg": "analysis/phase5/xai-presentation-pack/charts/controlled-vs-benchmark.svg",
       "environment-controls-matrix.svg": "analysis/phase5/xai-presentation-pack/charts/environment-controls-matrix.svg",

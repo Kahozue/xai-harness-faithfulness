@@ -35,7 +35,9 @@ Scope: data, chart assets, source mapping, and slide-ready analysis for the XAI 
 | `analysis/phase4/figures/disagreement-success-scatter.svg` | existing_phase4 | RQ2: sequence disagreement is almost unrelated to success gap here. |
 | `analysis/phase4/figures/method-consistency.svg` | existing_phase4 | RQ1: M1-M4 agreement over selected high-divergence decision points. |
 | `analysis/phase4/figures/agent-card-matrix.svg` | existing_phase4 | RQ4: condensed descriptive agent-card proxy dimensions. |
+| `analysis/phase5/xai-presentation-pack/charts/attribution-action-map.svg` | generated_phase5_pack | Map XAI findings to prompt/tool-surface governance actions. |
 | `analysis/phase5/xai-presentation-pack/charts/category-success-cost.svg` | generated_phase5_pack | Category success vs tool-call effort. |
+| `analysis/phase5/xai-presentation-pack/charts/config-routing-grid.svg` | generated_phase5_pack | Harness x model routing grid: anchor vs crossed interaction cells. |
 | `analysis/phase5/xai-presentation-pack/charts/config-success-bars.svg` | generated_phase5_pack | Topline config success comparison. |
 | `analysis/phase5/xai-presentation-pack/charts/controlled-vs-benchmark.svg` | generated_phase5_pack | Controlled vs benchmark split. |
 | `analysis/phase5/xai-presentation-pack/charts/environment-controls-matrix.svg` | generated_phase5_pack | Environment lock table as chart. |

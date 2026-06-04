@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="688" viewBox="0 0 1320 688">
+<rect width="1320" height="688" fill="#ffffff"/>
+<style>
+  text { font-family: Arial, Helvetica, sans-serif; fill: #1f2933; }
+  .title { font-size: 28px; font-weight: 700; }
+  .subtitle { font-size: 15px; fill: #64748b; }
+  .label { font-size: 14px; }
+  .small { font-size: 12px; fill: #64748b; }
+  .axis { stroke: #d7dee8; stroke-width: 1; }
+</style>
+<text x="40.0" y="48.0" class="title" text-anchor="start">From attribution to action</text>
+<text x="40.0" y="76.0" class="subtitle" text-anchor="start">Each XAI finding maps to a concrete prompt/tool-surface governance action; no HCI human-study claim is made.</text>
+<text x="70.0" y="124.0" class="small" text-anchor="start">Finding (XAI evidence)</text>
+<text x="770.0" y="124.0" class="small" text-anchor="start">Governance action</text>
+<rect x="60" y="144" width="600" height="108" fill="#f7f9fc" stroke="#d7dee8" rx="8"/>
+<text x="82.0" y="178.0" class="label" text-anchor="start">Tool path diverges even when success is unchanged</text>
+<line x1="676" y1="198" x2="748" y2="198" stroke="#475569" stroke-width="3"/>
+<polygon points="748,198 734,190 734,206" fill="#475569"/>
+<rect x="756" y="144" width="504" height="108" fill="#eef6ef" stroke="#d7dee8" rx="8"/>
+<text x="778.0" y="178.0" class="label" text-anchor="start">Show evidence path, not only pass/fail status.</text>
+<rect x="60" y="276" width="600" height="108" fill="#f7f9fc" stroke="#d7dee8" rx="8"/>
+<text x="82.0" y="310.0" class="label" text-anchor="start">First-tool strategies differ by harness</text>
+<line x1="676" y1="330" x2="748" y2="330" stroke="#475569" stroke-width="3"/>
+<polygon points="748,330 734,322 734,338" fill="#475569"/>
+<rect x="756" y="276" width="504" height="108" fill="#eef6ef" stroke="#d7dee8" rx="8"/>
+<text x="778.0" y="310.0" class="label" text-anchor="start">Expose or standardize initial discovery</text>
+<text x="778.0" y="332.0" class="label" text-anchor="start">affordances when governance matters.</text>
+<rect x="60" y="408" width="600" height="108" fill="#f7f9fc" stroke="#d7dee8" rx="8"/>
+<text x="82.0" y="442.0" class="label" text-anchor="start">Benchmark failures cluster by category</text>
+<line x1="676" y1="462" x2="748" y2="462" stroke="#475569" stroke-width="3"/>
+<polygon points="748,462 734,454 734,470" fill="#475569"/>
+<rect x="756" y="408" width="504" height="108" fill="#eef6ef" stroke="#d7dee8" rx="8"/>
+<text x="778.0" y="442.0" class="label" text-anchor="start">Separate high-risk task classes and require</text>
+<text x="778.0" y="464.0" class="label" text-anchor="start">replay inspection.</text>
+<rect x="60" y="540" width="600" height="108" fill="#f7f9fc" stroke="#d7dee8" rx="8"/>
+<text x="82.0" y="574.0" class="label" text-anchor="start">M1-M4 agreement is partial</text>
+<line x1="676" y1="594" x2="748" y2="594" stroke="#475569" stroke-width="3"/>
+<polygon points="748,594 734,586 734,602" fill="#475569"/>
+<rect x="756" y="540" width="504" height="108" fill="#eef6ef" stroke="#d7dee8" rx="8"/>
+<text x="778.0" y="574.0" class="label" text-anchor="start">Use confidence labels and caveats on agent</text>
+<text x="778.0" y="596.0" class="label" text-anchor="start">cards.</text>
+</svg>
