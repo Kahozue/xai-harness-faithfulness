@@ -1,7 +1,6 @@
 # xai-harness-faithfulness 設計規格（Design Spec）
 
 - 文件版本：v1（2026-06-03）
-- 作者：陳政顯　7114029018
 - 課程：xAI 期末專題
 - 狀態：已通過 brainstorming 設計核准，待 writing-plans 產出實作計畫
 - 對應 repo：`xai-harness-faithfulness`（GitHub: `anonymous/xai-harness-faithfulness`）
