@@ -1,0 +1,474 @@
+<!doctype html>
+<!--
+  xAI 期末簡報 — Faithfulness of the Harness
+  Built with open-design simple-deck seed + "clean / minimal" design system.
+  Single-file horizontal-swipe HTML deck. Charts referenced from ../charts,
+  ../screenshots, and ../../../phase4/figures. Main language: 繁體中文.
+  Nav script is the proven simple-deck script — do not rewrite.
+-->
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Faithfulness of the Harness · 歸因 Agent 的工具選擇分歧</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Roboto:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&family=Inconsolata:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* clean / minimal design system tokens */
+      --bg:      #ffffff;
+      --surface: #ffffff;
+      --fg:      #111827;
+      --muted:   #6b7280;
+      --border:  #e5e7eb;
+      --accent:  #3b82f6;
+
+      --accent-soft: color-mix(in oklch, var(--accent) 14%, transparent);
+
+      --font-display: 'Poppins', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', system-ui, sans-serif;
+      --font-body:    'Roboto', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', system-ui, sans-serif;
+      --font-mono:    'Inconsolata', ui-monospace, 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; }
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-body);
+      font-size: 18px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+    }
+    body::-webkit-scrollbar { display: none; }
+    p { text-wrap: pretty; }
+    h1, h2, h3 { text-wrap: balance; }
+
+    /* ─── slide surface ─────────────────────────────────────────────── */
+    .slide {
+      flex: 0 0 100vw;
+      width: 100vw;
+      height: 100vh;
+      scroll-snap-align: start;
+      padding: clamp(44px, 6vw, 88px) clamp(48px, 8vw, 112px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .slide.light { background: var(--bg); color: var(--fg); }
+    .slide.dark  { background: var(--fg); color: var(--bg); }
+    .slide.dark .muted  { color: rgba(255,255,255,0.7); }
+    .slide.dark .border { border-color: rgba(255,255,255,0.18); }
+    .slide.hero { padding-block: clamp(56px, 8vw, 120px); }
+    .slide.center { align-items: center; text-align: center; justify-content: center; }
+    .slide.center .body { margin-inline: auto; }
+
+    /* ─── eyebrow ───────────────────────────────────────────────────── */
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 24px;
+    }
+
+    /* ─── type ──────────────────────────────────────────────────────── */
+    .h-hero {
+      font-family: var(--font-display);
+      font-size: clamp(48px, 7vw, 100px);
+      line-height: 1.06;
+      letter-spacing: -0.025em;
+      font-weight: 700;
+      margin: 0 0 22px;
+      max-width: 18ch;
+    }
+    .h-xl {
+      font-family: var(--font-display);
+      font-size: clamp(34px, 4.4vw, 56px);
+      line-height: 1.14;
+      letter-spacing: -0.018em;
+      font-weight: 600;
+      margin: 0 0 20px;
+      max-width: 22ch;
+    }
+    .h-md {
+      font-family: var(--font-display);
+      font-size: clamp(26px, 3vw, 38px);
+      line-height: 1.2;
+      letter-spacing: -0.012em;
+      font-weight: 600;
+      margin: 0 0 14px;
+      max-width: 26ch;
+    }
+    .lead {
+      font-size: clamp(18px, 1.5vw, 23px);
+      line-height: 1.6;
+      color: var(--muted);
+      max-width: 54ch;
+      margin: 0;
+    }
+    .slide.dark .lead { color: rgba(255,255,255,0.78); }
+    .meta { font-family: var(--font-mono); font-size: 13px; color: var(--muted); margin-top: 28px; letter-spacing: 0.02em; }
+
+    /* ─── big stat ──────────────────────────────────────────────────── */
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: clamp(140px, 22vw, 280px);
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      color: var(--accent);
+      font-weight: 700;
+      margin: 0 0 18px;
+    }
+    .stat-num .unit { font-size: 0.32em; opacity: 0.85; margin-left: 8px; letter-spacing: 0; }
+    .stat-caption {
+      font-size: clamp(19px, 1.6vw, 25px);
+      color: rgba(255,255,255,0.78);
+      max-width: 30ch;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* ─── research-question grid (2x2) ──────────────────────────────── */
+    .rq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 44px; margin-top: 30px; max-width: 1100px; }
+    .rq { border-top: 2px solid var(--accent); padding-top: 14px; }
+    .rq .nb { font-family: var(--font-mono); font-size: 13px; color: var(--accent); letter-spacing: 0.06em; }
+    .rq h3 { font-family: var(--font-display); font-size: 20px; font-weight: 600; margin: 6px 0; letter-spacing: -0.005em; }
+    .rq p  { color: var(--muted); margin: 0; font-size: 15px; line-height: 1.55; }
+    .slide.dark .rq p { color: rgba(255,255,255,0.72); }
+
+    /* ─── three-point row ───────────────────────────────────────────── */
+    .pt-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 36px; }
+    .pt { border-top: 2px solid var(--accent); padding-top: 16px; }
+    .pt h3 { font-family: var(--font-display); font-size: 19px; font-weight: 600; margin: 0 0 8px; letter-spacing: -0.005em; }
+    .pt p  { color: var(--muted); margin: 0; font-size: 15px; line-height: 1.55; }
+    .slide.dark .pt p { color: rgba(255,255,255,0.72); }
+
+    /* ─── before / after ────────────────────────────────────────────── */
+    .ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; margin-top: 30px; }
+    .ba-col .ba-label { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
+    .ba-col h3 { font-family: var(--font-display); font-size: 28px; line-height: 1.18; margin: 0 0 14px; max-width: 18ch; font-weight: 600; }
+    .ba-col p  { color: var(--muted); font-size: 16px; line-height: 1.55; margin: 0; }
+
+    /* ─── figure slide (chart / screenshot) ─────────────────────────── */
+    .slide.fig-slide { justify-content: flex-start; padding-block: clamp(30px, 4vw, 56px); }
+    .fig { flex: 1 1 auto; min-height: 0; width: 100%; display: grid; place-items: center; margin: 10px 0 8px; }
+    .fig img { max-width: 100%; max-height: 48vh; object-fit: contain; background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 10px; }
+    .fig-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; flex: 1 1 auto; min-height: 0; width: 100%; margin: 10px 0 8px; }
+    .fig-2col figure { margin: 0; display: flex; flex-direction: column; min-height: 0; }
+    .fig-2col img { width: 100%; flex: 1 1 auto; min-height: 0; max-height: 50vh; object-fit: contain; background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 8px; }
+    .fig-2col figcaption { font-family: var(--font-mono); font-size: 12px; color: var(--muted); margin-top: 8px; letter-spacing: 0.02em; }
+    .slide.dark .fig-2col figcaption { color: rgba(255,255,255,0.6); }
+    .fig-cap { color: var(--muted); font-size: 15.5px; line-height: 1.55; max-width: 92ch; margin: 0; }
+    .slide.dark .fig-cap { color: rgba(255,255,255,0.72); }
+    .fig-cap b { color: var(--accent); font-weight: 600; }
+
+    /* ─── chrome ────────────────────────────────────────────────────── */
+    .deck-counter {
+      position: fixed; bottom: 22px; right: 30px;
+      font-family: var(--font-mono); font-size: 12px;
+      color: var(--fg); background: var(--surface);
+      padding: 6px 12px; border-radius: 999px; border: 1px solid var(--border);
+      letter-spacing: 0.04em; z-index: 10;
+    }
+    .deck-hint {
+      position: fixed; bottom: 22px; left: 30px;
+      font-family: var(--font-mono); font-size: 11px;
+      color: var(--muted); letter-spacing: 0.04em; z-index: 10;
+    }
+    .deck-progress {
+      position: fixed; top: 0; left: 0; height: 3px;
+      background: var(--accent); width: 0; z-index: 10;
+      transition: width 0.18s ease;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 01 ───────────────────────────────────────────────────────────── -->
+  <section class="slide hero light center" data-screen-label="01 封面">
+    <div class="eyebrow">xAI 期末專題 · 陳政顯 7114029018 · 2026</div>
+    <h1 class="h-hero">Faithfulness of the Harness</h1>
+    <p class="lead">歸因 Agent 的工具選擇分歧。同一個模型、同一個任務，只換 harness，工具路徑就不一樣——這差異是誰造成的？</p>
+  </section>
+
+  <!-- 02 ───────────────────────────────────────────────────────────── -->
+  <section class="slide light" data-screen-label="02 背景與動機">
+    <p class="eyebrow">背景與動機</p>
+    <h2 class="h-xl">大家比的是成功率，但成功率藏不住分歧。</h2>
+    <p class="lead">LLM Agent 都靠 harness（Claude Code、Codex CLI、OpenCode、Hermes）在跑。固定模型、只換 harness，工具序列就分岔。黑箱跑分看不出「為什麼」，也就無從信任、重現與治理。</p>
+  </section>
+
+  <!-- 03 ───────────────────────────────────────────────────────────── -->
+  <section class="slide dark" data-screen-label="03 研究問題">
+    <p class="eyebrow">研究問題</p>
+    <h2 class="h-md">四個問題，貫穿全場。</h2>
+    <div class="rq-grid">
+      <div class="rq"><span class="nb">RQ1</span><h3>方法一致性</h3><p>四種白箱方法對同一決策點的歸因是否一致？不一致的比例與 pattern？</p></div>
+      <div class="rq"><span class="nb">RQ2</span><h3>分歧與失敗</h3><p>高分歧是否與任務失敗正相關？能否當成 governance trigger？</p></div>
+      <div class="rq"><span class="nb">RQ3</span><h3>效應分解</h3><p>harness 主效應、model 主效應、交互作用各解釋多少 tool 選擇差異？</p></div>
+      <div class="rq"><span class="nb">RQ4</span><h3>治理卡片</h3><p>能否轉成 agent-card：fidelity / stability / robustness / actionability / governability？</p></div>
+    </div>
+  </section>
+
+  <!-- 04 ───────────────────────────────────────────────────────────── -->
+  <section class="slide light fig-slide" data-screen-label="04 研究設計">
+    <p class="eyebrow">方法</p>
+    <h2 class="h-md">固定任務、變動 harness/model、白箱拆解。</h2>
+    <div class="fig"><img src="../charts/research-design-pipeline.svg" alt="研究設計 pipeline"></div>
+    <p class="fig-cap">4 harness × 2 模型 × 6 config × 20 task × 3 重複 = <b>360 條正規化 trace</b>；全程版本釘死，先 pilot 驗管線再放大全量。</p>
+  </section>
+
+  <!-- 05 ───────────────────────────────────────────────────────────── -->
+  <section class="slide light" data-screen-label="05 為何白箱">
+    <p class="eyebrow">方法取捨</p>
+    <h2 class="h-md">從「只看成功率」到「拆開歸因」。</h2>
+    <div class="ba-grid">
+      <div class="ba-col">
+        <p class="ba-label">黑箱跑分</p>
+        <h3>只知道成功或失敗。</h3>
+        <p>同樣 PASS，工具路徑可能完全不同；黑箱答不出分歧從哪來，也無法指向修正點。</p>
+      </div>
+      <div class="ba-col">
+        <p class="ba-label" style="color: var(--accent);">白箱 M1–M4</p>
+        <h3>把分歧拆開、可稽核。</h3>
+        <p>沿 system prompt / tool 定義 / 行為 counterfactual / planning-loop 四層歸因，並標清楚每種證據的邊界。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 ───────────────────────────────────────────────────────────── -->
+  <section class="slide dark" data-screen-label="06 設計取捨">
+    <p class="eyebrow">設計取捨</p>
+    <h2 class="h-md">每個選擇都有理由，不是隨便定的。</h2>
+    <div class="pt-grid">
+      <div class="pt"><h3>只用 formal repeats 1–3</h3><p>避免 pilot 與 counterfactual 資料污染 baseline 統計。</p></div>
+      <div class="pt"><h3>受控與 benchmark 分流</h3><p>兩者出處與難度不同，混在一起會誤導結論。</p></div>
+      <div class="pt"><h3>OpenCode/Hermes 當交互格</h3><p>Claude Code、Codex 是錨點；交互作用只用交叉格估計。</p></div>
+    </div>
+  </section>
+
+  <!-- 07 ───────────────────────────────────────────────────────────── -->
+  <section class="slide light fig-slide" data-screen-label="07 環境鎖">
+    <p class="eyebrow">可重現性</p>
+    <h2 class="h-md">比較有意義的前提：條件一致。</h2>
+    <div class="fig"><img src="../charts/environment-controls-matrix.svg" alt="環境鎖與重現證據"></div>
+    <p class="fig-cap">版本 / 模型 snapshot / provider route / reasoning effort 全釘死；Claude Code 固定 <b>max_tokens=64000、thinking=63999、200k context</b>；raw log 留 git 外、sanitized trace 進 git。</p>
+  </section>
+
+  <!-- 08 ───────────────────────────────────────────────────────────── -->
+  <section class="slide light fig-slide" data-screen-label="08 6 configs 路由">
+    <p class="eyebrow">實驗設計</p>
+    <h2 class="h-md">6 格怎麼擺，才能分離 harness 與 model 效應。</h2>
+    <div class="fig"><img src="../charts/config-routing-grid.svg" alt="harness × model 路由設計格"></div>
+    <p class="fig-cap">同一模型在不同 harness 走<b>同一 provider route</b>；OpenCode/Hermes 是交叉格（估交互），Claude Code/Codex 是單模型錨點。</p>
+  </section>
+
+  <!-- 09 ───────────────────────────────────────────────────────────── -->
+  <section class="slide dark fig-slide" data-screen-label="09 任務套件">
+    <p class="eyebrow">任務</p>
+    <h2 class="h-md">20 題、5 類各 4、可自動評分。</h2>
+    <div class="fig"><img src="../charts/task-suite-composition.svg" alt="任務套件組成"></div>
+    <p class="fig-cap">Tier 1 benchmark 錨點（Aider / Exercism 純 Python）+ Tier 2 受控題（DeepSWE 風格）；難度校準避免「全失敗、無分歧訊號」。</p>
+  </section>
+
+  <!-- 10 ───────────────────────────────────────────────────────────── -->
+  <section class="slide light fig-slide" data-screen-label="10 Trace schema">
+    <p class="eyebrow">紀錄方法</p>
+    <h2 class="h-md">四種 harness，一種可比的 trace。</h2>
+    <div class="fig"><img src="../charts/trace-schema-evidence.svg" alt="正規化 trace schema"></div>
+    <p class="fig-cap">正規化 JSON：有序 tool 序列、outcome、replay refs；hidden chain-of-thought 不入庫，只留可見的 tool 路徑與 metadata。</p>
+  </section>
+
+  <!-- 11 ───────────────────────────────────────────────────────────── -->
+  <section class="slide light fig-slide" data-screen-label="11 M1–M4 方法">
+    <p class="eyebrow">歸因方法</p>
+    <h2 class="h-md">四種白箱方法，各看一層。</h2>
+    <div class="fig"><img src="../charts/method-evidence-ladder.svg" alt="M1–M4 證據階梯"></div>
+    <p class="fig-cap">M1 system prompt、M2 tool affordance（source-derived 邊界）；M3 直接 counterfactual 執行；M4 planning-loop trace。每法都標清楚證據邊界。</p>
+  </section>
+
+  <!-- 12 ───────────────────────────────────────────────────────────── -->
+  <section class="slide dark fig-slide" data-screen-label="12 執行實況">
+    <p class="eyebrow">執行實況</p>
+    <h2 class="h-md">不是紙上談兵：它真的在跑、trace 真的被擷取。</h2>
+    <div class="fig-2col">
+      <figure><img src="../screenshots/runner-cli-execution.png" alt="runner CLI 執行實況"><figcaption>runner CLI — 真實 formal Phase 2 事件流</figcaption></figure>
+      <figure><img src="../screenshots/claude-trace-system-prompt.png" alt="claude-trace system prompt"><figcaption>claude-trace — 真實 system prompt 與 tool 序列</figcaption></figure>
+    </div>
+    <p class="fig-cap">真截圖、已去敏（無 API key / PII）。system prompt 為刻意展示的 xAI 證據。</p>
+  </section>
+
+  <!-- 13 ───────────────────────────────────────────────────────────── -->
+  <section class="slide hero dark center" data-screen-label="13 資料規模">
+    <div class="stat-num">360<span class="unit">traces</span></div>
+    <p class="stat-caption">條 formal trace（6 config × 20 task × 3 重複）。整體成功率 81.9%。</p>
+  </section>
+
+  <!-- 14 ───────────────────────────────────────────────────────────── -->
+  <section class="slide light fig-slide" data-screen-label="14 受控 vs benchmark">
+    <p class="eyebrow">先分流</p>
+    <h2 class="h-md">受控題與 benchmark 題分開看。</h2>
+    <div class="fig"><img src="../charts/controlled-vs-benchmark.svg" alt="受控 vs benchmark 分流"></div>
+    <p class="fig-cap">受控 <b>92.7%</b>、benchmark <b>38.9%</b>。把 benchmark 的低成功率混進受控結論會嚴重誤導。</p>
+  </section>
+
+  <!-- 15 ───────────────────────────────────────────────────────────── -->
+  <section class="slide light fig-slide" data-screen-label="15 Jaccard 矩陣">
+    <p class="eyebrow">RQ3 · 分歧有多大</p>
+    <h2 class="h-md">工具集合的重疊度：Jaccard 矩陣。</h2>
+    <div class="fig"><img src="../../../phase4/figures/jaccard-matrix.svg" alt="Jaccard 相似度矩陣"></div>
+    <p class="fig-cap">跨 config 的 tool-family Jaccard 相似度（對角線=自身）。值越低代表工具集合分歧越大。</p>
+  </section>
+
+  <!-- 16 ───────────────────────────────────────────────────────────── -->
+  <section class="slide dark fig-slide" data-screen-label="16 Factorial 分解">
+    <p class="eyebrow">RQ3 · 誰造成的</p>
+    <h2 class="h-md">harness、model、交互各貢獻多少。</h2>
+    <div class="fig"><img src="../../../phase4/figures/factorial-contrast-bars.svg" alt="factorial 對比長條"></div>
+    <p class="fig-cap">描述性對比；Claude Code/Codex 是錨點、未完全交叉，因此交互估計只用 OpenCode/Hermes 交叉格，不做因果過度宣稱。</p>
+  </section>
+
+  <!-- 17 ───────────────────────────────────────────────────────────── -->
+  <section class="slide light fig-slide" data-screen-label="17 分歧 vs 成敗">
+    <p class="eyebrow">RQ2 · 分歧重要嗎</p>
+    <h2 class="h-md">工具分歧與任務成敗，幾乎無關。</h2>
+    <div class="fig"><img src="../../../phase4/figures/disagreement-success-scatter.svg" alt="分歧 vs 成敗散點"></div>
+    <p class="fig-cap">Pearson <b>r ≈ 0.003</b>（n=300）。這是發現，不是「沒有風險」的證明——目前資料下，<b>不能單用分歧當 governance trigger</b>。</p>
+  </section>
+
+  <!-- 18 ───────────────────────────────────────────────────────────── -->
+  <section class="slide light fig-slide" data-screen-label="18 M1–M4 一致性">
+    <p class="eyebrow">RQ1 · 四法一致嗎</p>
+    <h2 class="h-md">同一決策點，四種方法看法。</h2>
+    <div class="fig"><img src="../../../phase4/figures/method-consistency.svg" alt="M1–M4 一致性矩陣"></div>
+    <p class="fig-cap">全員一致 <b>10/20（50%）</b>；標籤分布 harness 6 / 交互 8 / model 6。選樣為高分歧子集，非全體普遍率。</p>
+  </section>
+
+  <!-- 19 ───────────────────────────────────────────────────────────── -->
+  <section class="slide dark fig-slide" data-screen-label="19 Agent-card">
+    <p class="eyebrow">RQ4 · 濃縮成卡片</p>
+    <h2 class="h-md">每個 harness 的五維治理卡。</h2>
+    <div class="fig"><img src="../../../phase4/figures/agent-card-matrix.svg" alt="agent-card 五維矩陣"></div>
+    <p class="fig-cap">fidelity / stability / robustness / actionability / governability，為本受控 suite 的<b>描述性 proxy</b>，非外部穩健性宣稱。</p>
+  </section>
+
+  <!-- 20 ───────────────────────────────────────────────────────────── -->
+  <section class="slide light fig-slide" data-screen-label="20 案例走查">
+    <p class="eyebrow">具體案例</p>
+    <h2 class="h-md">把「分歧 → 歸因 → 卡片」串成一條。</h2>
+    <div class="fig"><img src="../charts/xai-case-card-01.svg" alt="具體案例走查卡"></div>
+    <p class="fig-cap">一個真實 decision point 的左右對照（含 M3 修改前後），讓抽象的歸因變成可檢視的具體證據。</p>
+  </section>
+
+  <!-- 21 ───────────────────────────────────────────────────────────── -->
+  <section class="slide light fig-slide" data-screen-label="21 從歸因到行動">
+    <p class="eyebrow">所以呢</p>
+    <h2 class="h-md">歸因不是終點。</h2>
+    <div class="fig"><img src="../charts/attribution-action-map.svg" alt="歸因到治理行動對應"></div>
+    <p class="fig-cap">每個 xAI 發現，對應到具體的 prompt / tool-surface 治理行動與 agent-card 註記。</p>
+  </section>
+
+  <!-- 22 ───────────────────────────────────────────────────────────── -->
+  <section class="slide dark" data-screen-label="22 限制">
+    <p class="eyebrow">限制與非過度宣稱</p>
+    <h2 class="h-md">先誠實劃清界線。</h2>
+    <div class="pt-grid">
+      <div class="pt"><h3>只支持這 20 題 suite</h3><p>純 Python 受控題，不外推到所有 coding-agent 工作；benchmark 與受控分開呈現。</p></div>
+      <div class="pt"><h3>小模型 + 子集偏誤</h3><p>兩模型偏小、有難度天花板；M1–M4 跑在高分歧子集，非普遍率估計。</p></div>
+      <div class="pt"><h3>M1/M2 為 source-derived</h3><p>閉源/原生 harness 可 patch 程度不同，不宣稱所有 harness 都做了 uniform runtime ablation。</p></div>
+    </div>
+  </section>
+
+  <!-- 23 ───────────────────────────────────────────────────────────── -->
+  <section class="slide light" data-screen-label="23 未來展望">
+    <p class="eyebrow">未來展望</p>
+    <h2 class="h-md">下一步怎麼補。</h2>
+    <div class="pt-grid">
+      <div class="pt"><h3>跨語言、大型 repo</h3><p>把 suite 推到非 Python、多框架、長 horizon，檢驗結論穩健性。</p></div>
+      <div class="pt"><h3>新版 harness 重跑</h3><p>釘死舊版未含新機制（如 /goal）；在新版上重跑驗證歸因是否穩定。</p></div>
+      <div class="pt"><h3>下游使用者研究</h3><p>本 trace 資料庫作為後續 HCI 歸因使用者研究的 ground truth。</p></div>
+    </div>
+  </section>
+
+  <!-- 24 ───────────────────────────────────────────────────────────── -->
+  <section class="slide hero dark center" data-screen-label="24 結語">
+    <div class="eyebrow">收束</div>
+    <h2 class="h-hero">換個 harness，路徑就不同——而我們能說清楚為什麼。</h2>
+    <p class="lead">白箱歸因把分歧拆成 harness／model／交互，並濃縮成一張可檢查的 agent-card。</p>
+  </section>
+
+  <!-- chrome -->
+  <div class="deck-progress" id="deck-progress" aria-hidden></div>
+  <div class="deck-counter"  id="deck-counter">1 / 24</div>
+  <div class="deck-hint">← / → · 捲動 · 滑動</div>
+
+  <script>
+    /* simple-deck proven iframe nav — do not rewrite */
+    (function () {
+      var slides   = document.querySelectorAll('.slide');
+      var counter  = document.getElementById('deck-counter');
+      var progress = document.getElementById('deck-progress');
+      var KEY      = 'od-deck-pos-xai';
+      var active   = 0;
+
+      function scroller() {
+        if (document.body.scrollWidth > document.body.clientWidth + 1) return document.body;
+        return document.scrollingElement || document.documentElement;
+      }
+      function setActive(i) {
+        active = i;
+        if (counter)  counter.textContent  = (i + 1) + ' / ' + slides.length;
+        if (progress) progress.style.width = (((i + 1) / slides.length) * 100) + '%';
+        try { localStorage.setItem(KEY, String(i)); } catch (_) {}
+      }
+      function go(i) {
+        var next = Math.max(0, Math.min(slides.length - 1, i));
+        setActive(next);
+        scroller().scrollTo({ left: next * window.innerWidth, behavior: 'smooth' });
+      }
+      function syncFromScroll() {
+        var i = Math.round(scroller().scrollLeft / window.innerWidth);
+        if (i !== active && i >= 0 && i < slides.length) setActive(i);
+      }
+      function onKey(e) {
+        var t = e.target;
+        if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA')) return;
+        if      (e.key === 'ArrowRight' || e.key === ' '       || e.key === 'PageDown') { e.preventDefault(); go(active + 1); }
+        else if (e.key === 'ArrowLeft'  || e.key === 'PageUp')                            { e.preventDefault(); go(active - 1); }
+        else if (e.key === 'Home')                                                        { e.preventDefault(); go(0); }
+        else if (e.key === 'End')                                                         { e.preventDefault(); go(slides.length - 1); }
+      }
+
+      window.addEventListener('keydown', onKey, true);
+      document.addEventListener('keydown', onKey, true);
+      document.addEventListener('scroll', syncFromScroll, { passive: true, capture: true });
+      window.addEventListener('scroll', syncFromScroll,   { passive: true });
+
+      document.body.setAttribute('tabindex', '-1');
+      document.body.style.outline = 'none';
+      function focusDeck() { try { window.focus(); document.body.focus({ preventScroll: true }); } catch (_) {} }
+      document.addEventListener('mousedown', focusDeck);
+      window.addEventListener('load', focusDeck);
+      focusDeck();
+
+      try {
+        var saved = parseInt(localStorage.getItem(KEY) || '0', 10);
+        if (!isNaN(saved) && saved >= 0 && saved < slides.length) {
+          setActive(saved);
+          scroller().scrollTo({ left: saved * window.innerWidth, behavior: 'instant' });
+        } else { setActive(0); }
+      } catch (_) { setActive(0); }
+    })();
+  </script>
+</body>
+</html>
