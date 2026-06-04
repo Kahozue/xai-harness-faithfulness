@@ -3,7 +3,7 @@ from __future__ import annotations
 import os
 from pathlib import Path
 
-REPO = Path("/data/repos/xai-harness-faithfulness")
+REPO = Path(os.environ.get("XAI_REPO", "/data/repos/xai-harness-faithfulness"))
 LAB = Path("/data/harness-lab")
 LAB_HOME = LAB / "home"
 LAB_BIN = LAB / "bin"
