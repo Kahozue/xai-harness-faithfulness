@@ -126,11 +126,13 @@
   },
   {
     "charts": [
+      "screenshots/runner-cli-execution.png",
+      "screenshots/claude-trace-system-prompt.png",
       "charts/trace-inventory.svg"
     ],
-    "note": "If using screenshots, take them from VPS raw/private layer; not generated here.",
+    "note": "Real sanitized screenshots from the VPS private layer (see screenshots/README.md); the system prompt is deliberately shown per user decision 2026-06-04; secret/PII scan clean.",
     "slide": 12,
-    "source": "raw/private refs",
+    "source": "raw/private refs + sanitized screenshots",
     "tables": [
       "source_index.csv"
     ],
