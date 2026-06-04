@@ -1,0 +1,69 @@
+{
+  "config_id": 3,
+  "decision_points": [],
+  "env_lock_ref": "ENVIRONMENT.lock.md@88efa42",
+  "evidence_levels": {
+    "reasoning_steps": "unknown",
+    "system_present": "direct",
+    "tokens": "unknown",
+    "tool_calls": "direct"
+  },
+  "harness": "hermes",
+  "harness_version": "0.13.0",
+  "intervention": {
+    "id": "PH3-DP-010-M3-direct-file",
+    "method": "M3",
+    "note": "counterfactual: exact target file/function disclosed; inspect target file directly before broad discovery",
+    "prompt_suffix": "Phase 3 M3 counterfactual: 已知目標實作在 calckit/stats.py 的 mean 函式。請先直接檢查該檔案，再做最小修改；除非直接檢查後仍不足，否則不要先做廣泛專案搜尋。"
+  },
+  "model": "claude-haiku-4-5-20251001",
+  "model_snapshot": "claude-haiku-4-5-20251001",
+  "outcome": {
+    "final_diff_path": null,
+    "grader_detail": "..                                                                       [100%]\n2 passed in 0.01s",
+    "launch_returncode": 0,
+    "launch_timed_out": false,
+    "success": true
+  },
+  "private_audit_path": "/data/harness-lab/private-audits/3/bugfix-t2-04/310.md",
+  "raw_artifacts": {
+    "session_json": "/data/harness-lab/runs/3/bugfix-t2-04/310/raw/trace.session.json",
+    "stdout_log": "/data/harness-lab/runs/3/bugfix-t2-04/310/raw/hermes.log"
+  },
+  "raw_log_path": "/data/harness-lab/runs/3/bugfix-t2-04/310/raw",
+  "reasoning_effort": "high",
+  "reasoning_steps": [],
+  "repeat_index": 310,
+  "run_id": "c3__hermes__bugfix-t2-04__r310",
+  "runtime_budget": {
+    "context_window_tokens": null,
+    "effort_source": "hermes -z -m MODEL --provider PROVIDER --yolo; no explicit effort flag",
+    "max_output_tokens": null,
+    "thinking_budget_tokens": null
+  },
+  "system_present": true,
+  "task_category": "bug_fix",
+  "task_id": "bugfix-t2-04",
+  "timestamp": "2026-06-04T03:10:24.602030Z",
+  "tokens": {
+    "cached_input": null,
+    "input": null,
+    "output": null
+  },
+  "tool_calls": [
+    {
+      "args_summary": "path=calckit/stats.py",
+      "step": 1,
+      "tool_name": "read_file",
+      "ts": null
+    },
+    {
+      "args_summary": "path=calckit/stats.py,mode=replace,old_string=def mean(xs: Sequence[float]) -> float:\\n    if not xs:\\n        raise ValueError(\"empty sequence\")\\n    return sum(xs) ,new_string=def mean(xs: Sequence[float]) -> float:\\n    if not xs:\\n        raise ValueError(\"empty sequence\")\\n    return sum(xs) ",
+      "step": 2,
+      "tool_name": "patch",
+      "ts": null
+    }
+  ],
+  "turns": 3,
+  "wall_time_s": 11.881
+}

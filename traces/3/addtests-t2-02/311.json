@@ -1,0 +1,87 @@
+{
+  "config_id": 3,
+  "decision_points": [],
+  "env_lock_ref": "ENVIRONMENT.lock.md@88efa42",
+  "evidence_levels": {
+    "reasoning_steps": "unknown",
+    "system_present": "direct",
+    "tokens": "unknown",
+    "tool_calls": "direct"
+  },
+  "harness": "hermes",
+  "harness_version": "0.13.0",
+  "intervention": {
+    "id": "PH3-DP-011-M3-direct-file",
+    "method": "M3",
+    "note": "counterfactual: exact target file/function disclosed; inspect target file directly before broad discovery",
+    "prompt_suffix": "Phase 3 M3 counterfactual: 已知要補測的是 calckit/money.py 的 format_amount 負數與零行為，目標測試檔是 tests/test_format_extra.py。請先直接檢查 calckit/money.py 與既有 tests，再建立最小測試；不要先做廣泛專案搜尋。"
+  },
+  "model": "claude-haiku-4-5-20251001",
+  "model_snapshot": "claude-haiku-4-5-20251001",
+  "outcome": {
+    "final_diff_path": null,
+    "grader_detail": "..                                                                       [100%]\n2 passed in 0.32s",
+    "launch_returncode": 0,
+    "launch_timed_out": false,
+    "success": true
+  },
+  "private_audit_path": "/data/harness-lab/private-audits/3/addtests-t2-02/311.md",
+  "raw_artifacts": {
+    "session_json": "/data/harness-lab/runs/3/addtests-t2-02/311/raw/trace.session.json",
+    "stdout_log": "/data/harness-lab/runs/3/addtests-t2-02/311/raw/hermes.log"
+  },
+  "raw_log_path": "/data/harness-lab/runs/3/addtests-t2-02/311/raw",
+  "reasoning_effort": "high",
+  "reasoning_steps": [],
+  "repeat_index": 311,
+  "run_id": "c3__hermes__addtests-t2-02__r311",
+  "runtime_budget": {
+    "context_window_tokens": null,
+    "effort_source": "hermes -z -m MODEL --provider PROVIDER --yolo; no explicit effort flag",
+    "max_output_tokens": null,
+    "thinking_budget_tokens": null
+  },
+  "system_present": true,
+  "task_category": "add_tests",
+  "task_id": "addtests-t2-02",
+  "timestamp": "2026-06-04T03:10:53.929705Z",
+  "tokens": {
+    "cached_input": null,
+    "input": null,
+    "output": null
+  },
+  "tool_calls": [
+    {
+      "args_summary": "path=calckit/money.py",
+      "step": 1,
+      "tool_name": "read_file",
+      "ts": null
+    },
+    {
+      "args_summary": "path=tests",
+      "step": 2,
+      "tool_name": "read_file",
+      "ts": null
+    },
+    {
+      "args_summary": "path=./tests",
+      "step": 3,
+      "tool_name": "search_files",
+      "ts": null
+    },
+    {
+      "args_summary": "path=./tests/test_basic.py",
+      "step": 4,
+      "tool_name": "read_file",
+      "ts": null
+    },
+    {
+      "args_summary": "path=./tests/test_format_extra.py",
+      "step": 5,
+      "tool_name": "write_file",
+      "ts": null
+    }
+  ],
+  "turns": 5,
+  "wall_time_s": 16.195
+}

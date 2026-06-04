@@ -14,6 +14,14 @@ from runner.phase3_selection import (
     build_phase3_seed_manifest,
     write_phase3_seed_outputs,
 )
+from runner.phase3_attribution import (
+    DEFAULT_ATTRIBUTION_PATH,
+    DEFAULT_HCI_LABELS_PATH,
+    DEFAULT_REPORT_PATH as DEFAULT_PHASE3_ATTRIBUTION_REPORT_PATH,
+    build_phase3_attribution,
+    validate_phase3_attribution,
+    write_phase3_attribution_outputs,
+)
 from runner.provision import load_tasks
 from runner.phase2_validation import validate_phase2
 from runner.runner import DEFAULT_TIMEOUT_S, run_once
@@ -131,6 +139,17 @@ def main(argv: list[str] | None = None) -> int:
     phase3_select.add_argument("--report", default=str(DEFAULT_REPORT_PATH))
     phase3_select.add_argument("--dry-run", action="store_true", help="print the manifest without writing files")
     phase3_select.add_argument("--indent", type=int, default=2, help="JSON indentation; use 0 for one line")
+
+    phase3_attr = sub.add_parser(
+        "phase3-attribution",
+        help="build Phase 3 M1-M4 attribution records and HCI ground-truth labels",
+    )
+    phase3_attr.add_argument("--seed-manifest", default=str(DEFAULT_MANIFEST_PATH))
+    phase3_attr.add_argument("--output", default=str(DEFAULT_ATTRIBUTION_PATH))
+    phase3_attr.add_argument("--hci-labels", default=str(DEFAULT_HCI_LABELS_PATH))
+    phase3_attr.add_argument("--report", default=str(DEFAULT_PHASE3_ATTRIBUTION_REPORT_PATH))
+    phase3_attr.add_argument("--dry-run", action="store_true", help="print the attribution JSON without writing files")
+    phase3_attr.add_argument("--indent", type=int, default=2, help="JSON indentation; use 0 for one line")
 
     args = parser.parse_args(argv)
     if args.cmd == "run":
@@ -283,6 +302,31 @@ def main(argv: list[str] | None = None) -> int:
             "report": str(report_path),
         }, ensure_ascii=False, indent=indent, sort_keys=True))
         return 0
+
+    if args.cmd == "phase3-attribution":
+        attribution = build_phase3_attribution(args.seed_manifest)
+        validation = validate_phase3_attribution(attribution)
+        indent = None if args.indent == 0 else args.indent
+        if args.dry_run:
+            print(json.dumps({**attribution, "validation": validation}, ensure_ascii=False, indent=indent, sort_keys=True))
+            return 0 if validation["ok"] else 1
+        attribution_path, hci_path, report_path = write_phase3_attribution_outputs(
+            attribution,
+            args.output,
+            args.hci_labels,
+            args.report,
+        )
+        print(json.dumps({
+            "ok": validation["ok"],
+            "failures": validation["failures"],
+            "selected_seeds": attribution["selected_seed_count"],
+            "decision_points": attribution["decision_point_count"],
+            "hci_labels": attribution["hci_label_count"],
+            "attribution": str(attribution_path),
+            "hci_ground_truth_labels": str(hci_path),
+            "report": str(report_path),
+        }, ensure_ascii=False, indent=indent, sort_keys=True))
+        return 0 if validation["ok"] else 1
 
     parser.error(f"unknown command: {args.cmd}")
     return 2

@@ -1,0 +1,1249 @@
+{
+  "label_count": 20,
+  "labels": [
+    {
+      "confidence": "high",
+      "config_pair": [
+        2,
+        3
+      ],
+      "contrast": {
+        "left_dominant_family_sequence": [
+          "shell",
+          "read",
+          "read",
+          "read",
+          "plan",
+          "edit",
+          "read",
+          "shell",
+          "shell",
+          "shell",
+          "plan"
+        ],
+        "left_first_tool_families": {
+          "read": 2,
+          "shell": 1
+        },
+        "right_dominant_family_sequence": [
+          "read",
+          "edit"
+        ],
+        "right_first_tool_families": {
+          "read": 3
+        }
+      },
+      "decision_kind": "initial_tool_strategy",
+      "detail_label": "tool_path_style",
+      "factorial_label": "harness_main_effect",
+      "label_id": "PH3-DP-001-A-initial-strategy",
+      "left": {
+        "baseline_traces": [
+          "traces/2/bugfix-t2-03/1.json",
+          "traces/2/bugfix-t2-03/2.json",
+          "traces/2/bugfix-t2-03/3.json"
+        ],
+        "config": 2,
+        "harness": "opencode",
+        "model": "claude-haiku-4-5-20251001"
+      },
+      "method_agreement": {
+        "agreement_count": 4,
+        "labels": {
+          "harness_main_effect": 4
+        },
+        "method_count": 4,
+        "primary_label": "harness_main_effect",
+        "unanimous": true
+      },
+      "right": {
+        "baseline_traces": [
+          "traces/3/bugfix-t2-03/1.json",
+          "traces/3/bugfix-t2-03/2.json",
+          "traces/3/bugfix-t2-03/3.json"
+        ],
+        "config": 3,
+        "harness": "hermes",
+        "model": "claude-haiku-4-5-20251001"
+      },
+      "seed_id": "PH3-DP-001",
+      "task_category": "bug_fix",
+      "task_id": "bugfix-t2-03"
+    },
+    {
+      "confidence": "high",
+      "config_pair": [
+        2,
+        3
+      ],
+      "contrast": {
+        "baseline_success": {
+          "left": "0/3",
+          "right": "0/3"
+        },
+        "semantic_counterfactual_repeat": 401
+      },
+      "decision_kind": "semantic_output_convention",
+      "detail_label": "task_prompt_semantic_convention",
+      "factorial_label": "interaction",
+      "label_id": "PH3-DP-001-B-currency-convention",
+      "left": {
+        "baseline_traces": [
+          "traces/2/bugfix-t2-03/1.json",
+          "traces/2/bugfix-t2-03/2.json",
+          "traces/2/bugfix-t2-03/3.json"
+        ],
+        "config": 2,
+        "harness": "opencode",
+        "model": "claude-haiku-4-5-20251001"
+      },
+      "method_agreement": {
+        "agreement_count": 4,
+        "labels": {
+          "interaction": 4
+        },
+        "method_count": 4,
+        "primary_label": "interaction",
+        "unanimous": true
+      },
+      "right": {
+        "baseline_traces": [
+          "traces/3/bugfix-t2-03/1.json",
+          "traces/3/bugfix-t2-03/2.json",
+          "traces/3/bugfix-t2-03/3.json"
+        ],
+        "config": 3,
+        "harness": "hermes",
+        "model": "claude-haiku-4-5-20251001"
+      },
+      "seed_id": "PH3-DP-001",
+      "task_category": "bug_fix",
+      "task_id": "bugfix-t2-03"
+    },
+    {
+      "confidence": "high",
+      "config_pair": [
+        2,
+        3
+      ],
+      "contrast": {
+        "left_dominant_family_sequence": [
+          "read",
+          "shell",
+          "read",
+          "read",
+          "plan",
+          "edit",
+          "shell",
+          "shell",
+          "plan"
+        ],
+        "left_first_tool_families": {
+          "read": 3
+        },
+        "right_dominant_family_sequence": [
+          "read",
+          "search",
+          "edit"
+        ],
+        "right_first_tool_families": {
+          "read": 3
+        }
+      },
+      "decision_kind": "initial_tool_strategy",
+      "detail_label": "tool_path_style",
+      "factorial_label": "harness_main_effect",
+      "label_id": "PH3-DP-002-A-initial-strategy",
+      "left": {
+        "baseline_traces": [
+          "traces/2/addtests-t2-04/1.json",
+          "traces/2/addtests-t2-04/2.json",
+          "traces/2/addtests-t2-04/3.json"
+        ],
+        "config": 2,
+        "harness": "opencode",
+        "model": "claude-haiku-4-5-20251001"
+      },
+      "method_agreement": {
+        "agreement_count": 4,
+        "labels": {
+          "harness_main_effect": 4
+        },
+        "method_count": 4,
+        "primary_label": "harness_main_effect",
+        "unanimous": true
+      },
+      "right": {
+        "baseline_traces": [
+          "traces/3/addtests-t2-04/1.json",
+          "traces/3/addtests-t2-04/2.json",
+          "traces/3/addtests-t2-04/3.json"
+        ],
+        "config": 3,
+        "harness": "hermes",
+        "model": "claude-haiku-4-5-20251001"
+      },
+      "seed_id": "PH3-DP-002",
+      "task_category": "add_tests",
+      "task_id": "addtests-t2-04"
+    },
+    {
+      "confidence": "high",
+      "config_pair": [
+        1,
+        2
+      ],
+      "contrast": {
+        "left_dominant_family_sequence": [
+          "shell",
+          "search",
+          "read",
+          "read",
+          "edit",
+          "read",
+          "shell"
+        ],
+        "left_first_tool_families": {
+          "read": 2,
+          "shell": 1
+        },
+        "right_dominant_family_sequence": [
+          "shell",
+          "read",
+          "read",
+          "read",
+          "plan",
+          "edit",
+          "read",
+          "shell",
+          "shell",
+          "shell",
+          "plan"
+        ],
+        "right_first_tool_families": {
+          "read": 2,
+          "shell": 1
+        }
+      },
+      "decision_kind": "initial_tool_strategy",
+      "detail_label": "tool_path_style",
+      "factorial_label": "harness_main_effect",
+      "label_id": "PH3-DP-003-A-initial-strategy",
+      "left": {
+        "baseline_traces": [
+          "traces/1/bugfix-t2-03/1.json",
+          "traces/1/bugfix-t2-03/2.json",
+          "traces/1/bugfix-t2-03/3.json"
+        ],
+        "config": 1,
+        "harness": "claude_code",
+        "model": "claude-haiku-4-5-20251001"
+      },
+      "method_agreement": {
+        "agreement_count": 4,
+        "labels": {
+          "harness_main_effect": 4
+        },
+        "method_count": 4,
+        "primary_label": "harness_main_effect",
+        "unanimous": true
+      },
+      "right": {
+        "baseline_traces": [
+          "traces/2/bugfix-t2-03/1.json",
+          "traces/2/bugfix-t2-03/2.json",
+          "traces/2/bugfix-t2-03/3.json"
+        ],
+        "config": 2,
+        "harness": "opencode",
+        "model": "claude-haiku-4-5-20251001"
+      },
+      "seed_id": "PH3-DP-003",
+      "task_category": "bug_fix",
+      "task_id": "bugfix-t2-03"
+    },
+    {
+      "confidence": "high",
+      "config_pair": [
+        1,
+        2
+      ],
+      "contrast": {
+        "baseline_success": {
+          "left": "0/3",
+          "right": "0/3"
+        },
+        "semantic_counterfactual_repeat": 403
+      },
+      "decision_kind": "semantic_output_convention",
+      "detail_label": "task_prompt_semantic_convention",
+      "factorial_label": "interaction",
+      "label_id": "PH3-DP-003-B-currency-convention",
+      "left": {
+        "baseline_traces": [
+          "traces/1/bugfix-t2-03/1.json",
+          "traces/1/bugfix-t2-03/2.json",
+          "traces/1/bugfix-t2-03/3.json"
+        ],
+        "config": 1,
+        "harness": "claude_code",
+        "model": "claude-haiku-4-5-20251001"
+      },
+      "method_agreement": {
+        "agreement_count": 4,
+        "labels": {
+          "interaction": 4
+        },
+        "method_count": 4,
+        "primary_label": "interaction",
+        "unanimous": true
+      },
+      "right": {
+        "baseline_traces": [
+          "traces/2/bugfix-t2-03/1.json",
+          "traces/2/bugfix-t2-03/2.json",
+          "traces/2/bugfix-t2-03/3.json"
+        ],
+        "config": 2,
+        "harness": "opencode",
+        "model": "claude-haiku-4-5-20251001"
+      },
+      "seed_id": "PH3-DP-003",
+      "task_category": "bug_fix",
+      "task_id": "bugfix-t2-03"
+    },
+    {
+      "confidence": "high",
+      "config_pair": [
+        5,
+        6
+      ],
+      "contrast": {
+        "left_dominant_family_sequence": [
+          "search",
+          "search",
+          "read",
+          "edit"
+        ],
+        "left_first_tool_families": {
+          "search": 3
+        },
+        "right_dominant_family_sequence": [
+          "shell",
+          "shell",
+          "edit",
+          "shell",
+          "shell",
+          "shell"
+        ],
+        "right_first_tool_families": {
+          "shell": 3
+        }
+      },
+      "decision_kind": "initial_tool_strategy",
+      "detail_label": "tool_path_style",
+      "factorial_label": "harness_main_effect",
+      "label_id": "PH3-DP-004-A-initial-strategy",
+      "left": {
+        "baseline_traces": [
+          "traces/5/bugfix-t2-03/1.json",
+          "traces/5/bugfix-t2-03/2.json",
+          "traces/5/bugfix-t2-03/3.json"
+        ],
+        "config": 5,
+        "harness": "hermes",
+        "model": "gpt-5.4-mini-2026-03-17"
+      },
+      "method_agreement": {
+        "agreement_count": 3,
+        "labels": {
+          "harness_main_effect": 3,
+          "interaction": 1
+        },
+        "method_count": 4,
+        "primary_label": "harness_main_effect",
+        "unanimous": false
+      },
+      "right": {
+        "baseline_traces": [
+          "traces/6/bugfix-t2-03/1.json",
+          "traces/6/bugfix-t2-03/2.json",
+          "traces/6/bugfix-t2-03/3.json"
+        ],
+        "config": 6,
+        "harness": "codex",
+        "model": "gpt-5.4-mini-2026-03-17"
+      },
+      "seed_id": "PH3-DP-004",
+      "task_category": "bug_fix",
+      "task_id": "bugfix-t2-03"
+    },
+    {
+      "confidence": "high",
+      "config_pair": [
+        5,
+        6
+      ],
+      "contrast": {
+        "baseline_success": {
+          "left": "0/3",
+          "right": "1/3"
+        },
+        "semantic_counterfactual_repeat": 404
+      },
+      "decision_kind": "semantic_output_convention",
+      "detail_label": "task_prompt_semantic_convention",
+      "factorial_label": "interaction",
+      "label_id": "PH3-DP-004-B-currency-convention",
+      "left": {
+        "baseline_traces": [
+          "traces/5/bugfix-t2-03/1.json",
+          "traces/5/bugfix-t2-03/2.json",
+          "traces/5/bugfix-t2-03/3.json"
+        ],
+        "config": 5,
+        "harness": "hermes",
+        "model": "gpt-5.4-mini-2026-03-17"
+      },
+      "method_agreement": {
+        "agreement_count": 4,
+        "labels": {
+          "interaction": 4
+        },
+        "method_count": 4,
+        "primary_label": "interaction",
+        "unanimous": true
+      },
+      "right": {
+        "baseline_traces": [
+          "traces/6/bugfix-t2-03/1.json",
+          "traces/6/bugfix-t2-03/2.json",
+          "traces/6/bugfix-t2-03/3.json"
+        ],
+        "config": 6,
+        "harness": "codex",
+        "model": "gpt-5.4-mini-2026-03-17"
+      },
+      "seed_id": "PH3-DP-004",
+      "task_category": "bug_fix",
+      "task_id": "bugfix-t2-03"
+    },
+    {
+      "confidence": "medium",
+      "config_pair": [
+        5,
+        6
+      ],
+      "contrast": {
+        "baseline_success_gap": 0.333333,
+        "direct_counterfactual_repeat": 304,
+        "left_success": "0/3",
+        "right_success": "1/3"
+      },
+      "decision_kind": "task_success_gap",
+      "detail_label": "counterfactual_success_gap",
+      "factorial_label": "interaction",
+      "label_id": "PH3-DP-004-C-success-gap",
+      "left": {
+        "baseline_traces": [
+          "traces/5/bugfix-t2-03/1.json",
+          "traces/5/bugfix-t2-03/2.json",
+          "traces/5/bugfix-t2-03/3.json"
+        ],
+        "config": 5,
+        "harness": "hermes",
+        "model": "gpt-5.4-mini-2026-03-17"
+      },
+      "method_agreement": {
+        "agreement_count": 2,
+        "labels": {
+          "harness_main_effect": 2,
+          "interaction": 2
+        },
+        "method_count": 4,
+        "primary_label": "harness_main_effect",
+        "unanimous": false
+      },
+      "right": {
+        "baseline_traces": [
+          "traces/6/bugfix-t2-03/1.json",
+          "traces/6/bugfix-t2-03/2.json",
+          "traces/6/bugfix-t2-03/3.json"
+        ],
+        "config": 6,
+        "harness": "codex",
+        "model": "gpt-5.4-mini-2026-03-17"
+      },
+      "seed_id": "PH3-DP-004",
+      "task_category": "bug_fix",
+      "task_id": "bugfix-t2-03"
+    },
+    {
+      "confidence": "high",
+      "config_pair": [
+        5,
+        6
+      ],
+      "contrast": {
+        "left_dominant_family_sequence": [
+          "search",
+          "search",
+          "read",
+          "edit"
+        ],
+        "left_first_tool_families": {
+          "search": 3
+        },
+        "right_dominant_family_sequence": [
+          "shell",
+          "shell",
+          "edit",
+          "shell",
+          "shell"
+        ],
+        "right_first_tool_families": {
+          "shell": 3
+        }
+      },
+      "decision_kind": "initial_tool_strategy",
+      "detail_label": "tool_path_style",
+      "factorial_label": "harness_main_effect",
+      "label_id": "PH3-DP-005-A-initial-strategy",
+      "left": {
+        "baseline_traces": [
+          "traces/5/addlog-t2-03/1.json",
+          "traces/5/addlog-t2-03/2.json",
+          "traces/5/addlog-t2-03/3.json"
+        ],
+        "config": 5,
+        "harness": "hermes",
+        "model": "gpt-5.4-mini-2026-03-17"
+      },
+      "method_agreement": {
+        "agreement_count": 4,
+        "labels": {
+          "harness_main_effect": 4
+        },
+        "method_count": 4,
+        "primary_label": "harness_main_effect",
+        "unanimous": true
+      },
+      "right": {
+        "baseline_traces": [
+          "traces/6/addlog-t2-03/1.json",
+          "traces/6/addlog-t2-03/2.json",
+          "traces/6/addlog-t2-03/3.json"
+        ],
+        "config": 6,
+        "harness": "codex",
+        "model": "gpt-5.4-mini-2026-03-17"
+      },
+      "seed_id": "PH3-DP-005",
+      "task_category": "add_logging",
+      "task_id": "addlog-t2-03"
+    },
+    {
+      "confidence": "high",
+      "config_pair": [
+        4,
+        6
+      ],
+      "contrast": {
+        "left_dominant_family_sequence": [
+          "search",
+          "search",
+          "read",
+          "edit",
+          "read"
+        ],
+        "left_first_tool_families": {
+          "search": 3
+        },
+        "right_dominant_family_sequence": [
+          "shell",
+          "shell",
+          "edit",
+          "shell",
+          "shell"
+        ],
+        "right_first_tool_families": {
+          "shell": 3
+        }
+      },
+      "decision_kind": "initial_tool_strategy",
+      "detail_label": "tool_path_style",
+      "factorial_label": "harness_main_effect",
+      "label_id": "PH3-DP-006-A-initial-strategy",
+      "left": {
+        "baseline_traces": [
+          "traces/4/addlog-t2-04/1.json",
+          "traces/4/addlog-t2-04/2.json",
+          "traces/4/addlog-t2-04/3.json"
+        ],
+        "config": 4,
+        "harness": "opencode",
+        "model": "gpt-5.4-mini-2026-03-17"
+      },
+      "method_agreement": {
+        "agreement_count": 4,
+        "labels": {
+          "harness_main_effect": 4
+        },
+        "method_count": 4,
+        "primary_label": "harness_main_effect",
+        "unanimous": true
+      },
+      "right": {
+        "baseline_traces": [
+          "traces/6/addlog-t2-04/1.json",
+          "traces/6/addlog-t2-04/2.json",
+          "traces/6/addlog-t2-04/3.json"
+        ],
+        "config": 6,
+        "harness": "codex",
+        "model": "gpt-5.4-mini-2026-03-17"
+      },
+      "seed_id": "PH3-DP-006",
+      "task_category": "add_logging",
+      "task_id": "addlog-t2-04"
+    },
+    {
+      "confidence": "high",
+      "config_pair": [
+        2,
+        4
+      ],
+      "contrast": {
+        "left_dominant_family_sequence": [
+          "shell",
+          "read",
+          "read",
+          "read",
+          "shell",
+          "shell",
+          "shell",
+          "shell",
+          "shell"
+        ],
+        "left_first_tool_families": {
+          "read": 1,
+          "shell": 2
+        },
+        "right_dominant_family_sequence": [
+          "plan",
+          "search",
+          "search",
+          "search",
+          "read",
+          "search",
+          "search",
+          "search",
+          "edit",
+          "edit",
+          "shell",
+          "shell",
+          "plan"
+        ],
+        "right_first_tool_families": {
+          "plan": 2,
+          "search": 1
+        }
+      },
+      "decision_kind": "initial_tool_strategy",
+      "detail_label": "tool_path_style",
+      "factorial_label": "model_main_effect",
+      "label_id": "PH3-DP-007-A-initial-strategy",
+      "left": {
+        "baseline_traces": [
+          "traces/2/bench-bottle-song/1.json",
+          "traces/2/bench-bottle-song/2.json",
+          "traces/2/bench-bottle-song/3.json"
+        ],
+        "config": 2,
+        "harness": "opencode",
+        "model": "claude-haiku-4-5-20251001"
+      },
+      "method_agreement": {
+        "agreement_count": 3,
+        "labels": {
+          "interaction": 1,
+          "model_main_effect": 3
+        },
+        "method_count": 4,
+        "primary_label": "model_main_effect",
+        "unanimous": false
+      },
+      "right": {
+        "baseline_traces": [
+          "traces/4/bench-bottle-song/1.json",
+          "traces/4/bench-bottle-song/2.json",
+          "traces/4/bench-bottle-song/3.json"
+        ],
+        "config": 4,
+        "harness": "opencode",
+        "model": "gpt-5.4-mini-2026-03-17"
+      },
+      "seed_id": "PH3-DP-007",
+      "task_category": "benchmark",
+      "task_id": "bench-bottle-song"
+    },
+    {
+      "confidence": "medium",
+      "config_pair": [
+        2,
+        4
+      ],
+      "contrast": {
+        "baseline_success_gap": 0.666667,
+        "direct_counterfactual_repeat": 307,
+        "left_success": "1/3",
+        "right_success": "3/3"
+      },
+      "decision_kind": "task_success_gap",
+      "detail_label": "counterfactual_success_gap",
+      "factorial_label": "interaction",
+      "label_id": "PH3-DP-007-C-success-gap",
+      "left": {
+        "baseline_traces": [
+          "traces/2/bench-bottle-song/1.json",
+          "traces/2/bench-bottle-song/2.json",
+          "traces/2/bench-bottle-song/3.json"
+        ],
+        "config": 2,
+        "harness": "opencode",
+        "model": "claude-haiku-4-5-20251001"
+      },
+      "method_agreement": {
+        "agreement_count": 2,
+        "labels": {
+          "interaction": 2,
+          "model_main_effect": 2
+        },
+        "method_count": 4,
+        "primary_label": "model_main_effect",
+        "unanimous": false
+      },
+      "right": {
+        "baseline_traces": [
+          "traces/4/bench-bottle-song/1.json",
+          "traces/4/bench-bottle-song/2.json",
+          "traces/4/bench-bottle-song/3.json"
+        ],
+        "config": 4,
+        "harness": "opencode",
+        "model": "gpt-5.4-mini-2026-03-17"
+      },
+      "seed_id": "PH3-DP-007",
+      "task_category": "benchmark",
+      "task_id": "bench-bottle-song"
+    },
+    {
+      "confidence": "high",
+      "config_pair": [
+        2,
+        4
+      ],
+      "contrast": {
+        "left_dominant_family_sequence": [
+          "shell",
+          "shell",
+          "read",
+          "read",
+          "shell",
+          "plan",
+          "edit",
+          "shell",
+          "plan",
+          "read"
+        ],
+        "left_first_tool_families": {
+          "read": 1,
+          "shell": 2
+        },
+        "right_dominant_family_sequence": [
+          "search",
+          "search",
+          "search",
+          "read",
+          "search",
+          "search",
+          "search",
+          "search",
+          "read",
+          "read",
+          "edit",
+          "shell"
+        ],
+        "right_first_tool_families": {
+          "search": 3
+        }
+      },
+      "decision_kind": "initial_tool_strategy",
+      "detail_label": "tool_path_style",
+      "factorial_label": "model_main_effect",
+      "label_id": "PH3-DP-008-A-initial-strategy",
+      "left": {
+        "baseline_traces": [
+          "traces/2/bench-pig-latin/1.json",
+          "traces/2/bench-pig-latin/2.json",
+          "traces/2/bench-pig-latin/3.json"
+        ],
+        "config": 2,
+        "harness": "opencode",
+        "model": "claude-haiku-4-5-20251001"
+      },
+      "method_agreement": {
+        "agreement_count": 3,
+        "labels": {
+          "interaction": 1,
+          "model_main_effect": 3
+        },
+        "method_count": 4,
+        "primary_label": "model_main_effect",
+        "unanimous": false
+      },
+      "right": {
+        "baseline_traces": [
+          "traces/4/bench-pig-latin/1.json",
+          "traces/4/bench-pig-latin/2.json",
+          "traces/4/bench-pig-latin/3.json"
+        ],
+        "config": 4,
+        "harness": "opencode",
+        "model": "gpt-5.4-mini-2026-03-17"
+      },
+      "seed_id": "PH3-DP-008",
+      "task_category": "benchmark",
+      "task_id": "bench-pig-latin"
+    },
+    {
+      "confidence": "medium",
+      "config_pair": [
+        2,
+        4
+      ],
+      "contrast": {
+        "baseline_success_gap": 0.333333,
+        "direct_counterfactual_repeat": 308,
+        "left_success": "2/3",
+        "right_success": "3/3"
+      },
+      "decision_kind": "task_success_gap",
+      "detail_label": "counterfactual_success_gap",
+      "factorial_label": "interaction",
+      "label_id": "PH3-DP-008-C-success-gap",
+      "left": {
+        "baseline_traces": [
+          "traces/2/bench-pig-latin/1.json",
+          "traces/2/bench-pig-latin/2.json",
+          "traces/2/bench-pig-latin/3.json"
+        ],
+        "config": 2,
+        "harness": "opencode",
+        "model": "claude-haiku-4-5-20251001"
+      },
+      "method_agreement": {
+        "agreement_count": 2,
+        "labels": {
+          "interaction": 2,
+          "model_main_effect": 2
+        },
+        "method_count": 4,
+        "primary_label": "model_main_effect",
+        "unanimous": false
+      },
+      "right": {
+        "baseline_traces": [
+          "traces/4/bench-pig-latin/1.json",
+          "traces/4/bench-pig-latin/2.json",
+          "traces/4/bench-pig-latin/3.json"
+        ],
+        "config": 4,
+        "harness": "opencode",
+        "model": "gpt-5.4-mini-2026-03-17"
+      },
+      "seed_id": "PH3-DP-008",
+      "task_category": "benchmark",
+      "task_id": "bench-pig-latin"
+    },
+    {
+      "confidence": "high",
+      "config_pair": [
+        2,
+        4
+      ],
+      "contrast": {
+        "left_dominant_family_sequence": [
+          "read",
+          "shell",
+          "read",
+          "shell",
+          "shell",
+          "shell",
+          "edit",
+          "shell"
+        ],
+        "left_first_tool_families": {
+          "read": 2,
+          "shell": 1
+        },
+        "right_dominant_family_sequence": [
+          "plan",
+          "search",
+          "search",
+          "read",
+          "edit",
+          "webfetch",
+          "webfetch",
+          "webfetch",
+          "webfetch",
+          "edit",
+          "read",
+          "shell",
+          "plan"
+        ],
+        "right_first_tool_families": {
+          "plan": 1,
+          "search": 2
+        }
+      },
+      "decision_kind": "initial_tool_strategy",
+      "detail_label": "tool_path_style",
+      "factorial_label": "model_main_effect",
+      "label_id": "PH3-DP-009-A-initial-strategy",
+      "left": {
+        "baseline_traces": [
+          "traces/2/bench-grade-school/1.json",
+          "traces/2/bench-grade-school/2.json",
+          "traces/2/bench-grade-school/3.json"
+        ],
+        "config": 2,
+        "harness": "opencode",
+        "model": "claude-haiku-4-5-20251001"
+      },
+      "method_agreement": {
+        "agreement_count": 3,
+        "labels": {
+          "interaction": 1,
+          "model_main_effect": 3
+        },
+        "method_count": 4,
+        "primary_label": "model_main_effect",
+        "unanimous": false
+      },
+      "right": {
+        "baseline_traces": [
+          "traces/4/bench-grade-school/1.json",
+          "traces/4/bench-grade-school/2.json",
+          "traces/4/bench-grade-school/3.json"
+        ],
+        "config": 4,
+        "harness": "opencode",
+        "model": "gpt-5.4-mini-2026-03-17"
+      },
+      "seed_id": "PH3-DP-009",
+      "task_category": "benchmark",
+      "task_id": "bench-grade-school"
+    },
+    {
+      "confidence": "medium",
+      "config_pair": [
+        2,
+        4
+      ],
+      "contrast": {
+        "baseline_success_gap": 0.333333,
+        "direct_counterfactual_repeat": 309,
+        "left_success": "0/3",
+        "right_success": "1/3"
+      },
+      "decision_kind": "task_success_gap",
+      "detail_label": "counterfactual_success_gap",
+      "factorial_label": "interaction",
+      "label_id": "PH3-DP-009-C-success-gap",
+      "left": {
+        "baseline_traces": [
+          "traces/2/bench-grade-school/1.json",
+          "traces/2/bench-grade-school/2.json",
+          "traces/2/bench-grade-school/3.json"
+        ],
+        "config": 2,
+        "harness": "opencode",
+        "model": "claude-haiku-4-5-20251001"
+      },
+      "method_agreement": {
+        "agreement_count": 2,
+        "labels": {
+          "interaction": 2,
+          "model_main_effect": 2
+        },
+        "method_count": 4,
+        "primary_label": "model_main_effect",
+        "unanimous": false
+      },
+      "right": {
+        "baseline_traces": [
+          "traces/4/bench-grade-school/1.json",
+          "traces/4/bench-grade-school/2.json",
+          "traces/4/bench-grade-school/3.json"
+        ],
+        "config": 4,
+        "harness": "opencode",
+        "model": "gpt-5.4-mini-2026-03-17"
+      },
+      "seed_id": "PH3-DP-009",
+      "task_category": "benchmark",
+      "task_id": "bench-grade-school"
+    },
+    {
+      "confidence": "high",
+      "config_pair": [
+        3,
+        5
+      ],
+      "contrast": {
+        "left_dominant_family_sequence": [
+          "read",
+          "edit"
+        ],
+        "left_first_tool_families": {
+          "read": 3
+        },
+        "right_dominant_family_sequence": [
+          "search",
+          "search",
+          "read",
+          "search",
+          "search",
+          "read",
+          "edit",
+          "shell",
+          "shell"
+        ],
+        "right_first_tool_families": {
+          "search": 3
+        }
+      },
+      "decision_kind": "initial_tool_strategy",
+      "detail_label": "tool_path_style",
+      "factorial_label": "model_main_effect",
+      "label_id": "PH3-DP-010-A-initial-strategy",
+      "left": {
+        "baseline_traces": [
+          "traces/3/bugfix-t2-04/1.json",
+          "traces/3/bugfix-t2-04/2.json",
+          "traces/3/bugfix-t2-04/3.json"
+        ],
+        "config": 3,
+        "harness": "hermes",
+        "model": "claude-haiku-4-5-20251001"
+      },
+      "method_agreement": {
+        "agreement_count": 4,
+        "labels": {
+          "model_main_effect": 4
+        },
+        "method_count": 4,
+        "primary_label": "model_main_effect",
+        "unanimous": true
+      },
+      "right": {
+        "baseline_traces": [
+          "traces/5/bugfix-t2-04/1.json",
+          "traces/5/bugfix-t2-04/2.json",
+          "traces/5/bugfix-t2-04/3.json"
+        ],
+        "config": 5,
+        "harness": "hermes",
+        "model": "gpt-5.4-mini-2026-03-17"
+      },
+      "seed_id": "PH3-DP-010",
+      "task_category": "bug_fix",
+      "task_id": "bugfix-t2-04"
+    },
+    {
+      "confidence": "high",
+      "config_pair": [
+        3,
+        5
+      ],
+      "contrast": {
+        "left_dominant_family_sequence": [
+          "read",
+          "search",
+          "search",
+          "read",
+          "edit"
+        ],
+        "left_first_tool_families": {
+          "read": 3
+        },
+        "right_dominant_family_sequence": [
+          "search",
+          "search",
+          "read",
+          "read",
+          "edit",
+          "shell",
+          "edit",
+          "shell"
+        ],
+        "right_first_tool_families": {
+          "search": 3
+        }
+      },
+      "decision_kind": "initial_tool_strategy",
+      "detail_label": "tool_path_style",
+      "factorial_label": "model_main_effect",
+      "label_id": "PH3-DP-011-A-initial-strategy",
+      "left": {
+        "baseline_traces": [
+          "traces/3/addtests-t2-02/1.json",
+          "traces/3/addtests-t2-02/2.json",
+          "traces/3/addtests-t2-02/3.json"
+        ],
+        "config": 3,
+        "harness": "hermes",
+        "model": "claude-haiku-4-5-20251001"
+      },
+      "method_agreement": {
+        "agreement_count": 3,
+        "labels": {
+          "interaction": 1,
+          "model_main_effect": 3
+        },
+        "method_count": 4,
+        "primary_label": "model_main_effect",
+        "unanimous": false
+      },
+      "right": {
+        "baseline_traces": [
+          "traces/5/addtests-t2-02/1.json",
+          "traces/5/addtests-t2-02/2.json",
+          "traces/5/addtests-t2-02/3.json"
+        ],
+        "config": 5,
+        "harness": "hermes",
+        "model": "gpt-5.4-mini-2026-03-17"
+      },
+      "seed_id": "PH3-DP-011",
+      "task_category": "add_tests",
+      "task_id": "addtests-t2-02"
+    },
+    {
+      "confidence": "medium",
+      "config_pair": [
+        3,
+        5
+      ],
+      "contrast": {
+        "baseline_success_gap": 0.666667,
+        "direct_counterfactual_repeat": 311,
+        "left_success": "3/3",
+        "right_success": "1/3"
+      },
+      "decision_kind": "task_success_gap",
+      "detail_label": "counterfactual_success_gap",
+      "factorial_label": "interaction",
+      "label_id": "PH3-DP-011-C-success-gap",
+      "left": {
+        "baseline_traces": [
+          "traces/3/addtests-t2-02/1.json",
+          "traces/3/addtests-t2-02/2.json",
+          "traces/3/addtests-t2-02/3.json"
+        ],
+        "config": 3,
+        "harness": "hermes",
+        "model": "claude-haiku-4-5-20251001"
+      },
+      "method_agreement": {
+        "agreement_count": 2,
+        "labels": {
+          "interaction": 2,
+          "model_main_effect": 2
+        },
+        "method_count": 4,
+        "primary_label": "model_main_effect",
+        "unanimous": false
+      },
+      "right": {
+        "baseline_traces": [
+          "traces/5/addtests-t2-02/1.json",
+          "traces/5/addtests-t2-02/2.json",
+          "traces/5/addtests-t2-02/3.json"
+        ],
+        "config": 5,
+        "harness": "hermes",
+        "model": "gpt-5.4-mini-2026-03-17"
+      },
+      "seed_id": "PH3-DP-011",
+      "task_category": "add_tests",
+      "task_id": "addtests-t2-02"
+    },
+    {
+      "confidence": "high",
+      "config_pair": [
+        3,
+        5
+      ],
+      "contrast": {
+        "left_dominant_family_sequence": [
+          "read",
+          "edit",
+          "edit",
+          "read"
+        ],
+        "left_first_tool_families": {
+          "read": 3
+        },
+        "right_dominant_family_sequence": [
+          "search",
+          "search",
+          "read",
+          "edit"
+        ],
+        "right_first_tool_families": {
+          "search": 3
+        }
+      },
+      "decision_kind": "initial_tool_strategy",
+      "detail_label": "tool_path_style",
+      "factorial_label": "model_main_effect",
+      "label_id": "PH3-DP-012-A-initial-strategy",
+      "left": {
+        "baseline_traces": [
+          "traces/3/addlog-t2-01/1.json",
+          "traces/3/addlog-t2-01/2.json",
+          "traces/3/addlog-t2-01/3.json"
+        ],
+        "config": 3,
+        "harness": "hermes",
+        "model": "claude-haiku-4-5-20251001"
+      },
+      "method_agreement": {
+        "agreement_count": 4,
+        "labels": {
+          "model_main_effect": 4
+        },
+        "method_count": 4,
+        "primary_label": "model_main_effect",
+        "unanimous": true
+      },
+      "right": {
+        "baseline_traces": [
+          "traces/5/addlog-t2-01/1.json",
+          "traces/5/addlog-t2-01/2.json",
+          "traces/5/addlog-t2-01/3.json"
+        ],
+        "config": 5,
+        "harness": "hermes",
+        "model": "gpt-5.4-mini-2026-03-17"
+      },
+      "seed_id": "PH3-DP-012",
+      "task_category": "add_logging",
+      "task_id": "addlog-t2-01"
+    }
+  ],
+  "phase": "phase3_hci_ground_truth_labels",
+  "schema_version": 1
+}

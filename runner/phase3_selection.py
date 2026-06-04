@@ -16,8 +16,8 @@ from runner import paths
 FORMAL_REPEATS = (1, 2, 3)
 SUCCESS_GAP_WEIGHT = 0.25
 DEFAULT_PER_STRATUM = 3
-DEFAULT_MANIFEST_PATH = paths.REPO / "analysis" / "phase3" / "decision-point-seeds.json"
-DEFAULT_REPORT_PATH = paths.REPO / "docs" / "verification" / "2026-06-04-phase3-seed-selection.md"
+DEFAULT_MANIFEST_PATH = Path("analysis") / "phase3" / "decision-point-seeds.json"
+DEFAULT_REPORT_PATH = Path("docs") / "verification" / "2026-06-04-phase3-seed-selection.md"
 
 TOOL_FAMILIES = {
     "bash": "shell",

@@ -1,0 +1,83 @@
+{
+  "config_id": 1,
+  "decision_points": [],
+  "env_lock_ref": "ENVIRONMENT.lock.md@88efa42",
+  "evidence_levels": {
+    "reasoning_steps": "direct",
+    "system_present": "direct",
+    "tokens": "direct",
+    "tool_calls": "direct"
+  },
+  "harness": "claude_code",
+  "harness_version": "2.1.88",
+  "intervention": {
+    "id": "PH3-DP-003-M3-direct-file",
+    "method": "M3",
+    "note": "counterfactual: exact target file/function disclosed; inspect target file directly before broad discovery",
+    "prompt_suffix": "Phase 3 M3 counterfactual: 已知目標實作在 calckit/money.py 的 format_amount 函式。請先直接檢查該檔案，再做最小修改；除非直接檢查後仍不足，否則不要先做廣泛專案搜尋。"
+  },
+  "model": "claude-haiku-4-5-20251001",
+  "model_snapshot": "claude-haiku-4-5-20251001",
+  "outcome": {
+    "final_diff_path": null,
+    "grader_detail": "E         ?  -\nE         + -$12.50\nE         ? +\n\n_hidden_grader_test.py:5: AssertionError\n=========================== short test summary info ============================\nFAILED _hidden_grader_test.py::test_negative_keeps_sign - AssertionError: ass...\n1 failed, 1 passed in 0.02s",
+    "launch_returncode": 0,
+    "launch_timed_out": false,
+    "success": false
+  },
+  "private_audit_path": "/data/harness-lab/private-audits/1/bugfix-t2-03/303.md",
+  "raw_artifacts": {
+    "launch_log": "/data/harness-lab/runs/1/bugfix-t2-03/303/raw/claude_code.log",
+    "trace_html": "/data/harness-lab/runs/1/bugfix-t2-03/303/raw/log-2026-06-04-03-04-15.html",
+    "trace_jsonl": "/data/harness-lab/runs/1/bugfix-t2-03/303/raw/log-2026-06-04-03-04-15.jsonl"
+  },
+  "raw_log_path": "/data/harness-lab/runs/1/bugfix-t2-03/303/raw",
+  "reasoning_effort": "high",
+  "reasoning_steps": [
+    {
+      "present": true,
+      "type": "thinking"
+    },
+    {
+      "present": true,
+      "type": "thinking"
+    },
+    {
+      "present": true,
+      "type": "thinking"
+    }
+  ],
+  "repeat_index": 303,
+  "run_id": "c1__claude_code__bugfix-t2-03__r303",
+  "runtime_budget": {
+    "context_window_tokens": 200000,
+    "effort_source": "cli --effort high + env budgets",
+    "max_output_tokens": 64000,
+    "thinking_budget_tokens": 63999
+  },
+  "system_present": true,
+  "task_category": "bug_fix",
+  "task_id": "bugfix-t2-03",
+  "timestamp": "2026-06-04T03:04:37.315122Z",
+  "tokens": {
+    "cached_input": 25743,
+    "input": 7,
+    "output": 2422
+  },
+  "tool_calls": [
+    {
+      "args_summary": "file_path=/data/harness-lab/runs/1/bugfix-t2-03/303/workdir/calckit/money.py",
+      "step": 1,
+      "tool_name": "Read",
+      "ts": null
+    },
+    {
+      "args_summary": "file_path=/data/harness-lab/runs/1/bugfix-t2-03/303/workdir/calckit/money.py",
+      "step": 2,
+      "tool_name": "Edit",
+      "ts": null
+    }
+  ],
+  "turns": 3,
+  "wall_time_s": 21.907
+}

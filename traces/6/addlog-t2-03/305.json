@@ -1,0 +1,107 @@
+{
+  "config_id": 6,
+  "decision_points": [],
+  "env_lock_ref": "ENVIRONMENT.lock.md@88efa42",
+  "evidence_levels": {
+    "reasoning_steps": "direct",
+    "system_present": "source-derived",
+    "tokens": "direct",
+    "tool_calls": "direct"
+  },
+  "harness": "codex",
+  "harness_version": "0.136.0",
+  "intervention": {
+    "id": "PH3-DP-005-M3-direct-file",
+    "method": "M3",
+    "note": "counterfactual: exact target file/function disclosed; inspect target file directly before broad discovery",
+    "prompt_suffix": "Phase 3 M3 counterfactual: 已知目標實作在 calckit/stats.py 的 mean 函式。請先直接檢查該檔案，再加入最小 logging；除非直接檢查後仍不足，否則不要先做廣泛專案搜尋。"
+  },
+  "model": "gpt-5.4-mini-2026-03-17",
+  "model_snapshot": "gpt-5.4-mini-2026-03-17",
+  "outcome": {
+    "final_diff_path": null,
+    "grader_detail": "..                                                                       [100%]\n2 passed in 0.01s",
+    "launch_returncode": 0,
+    "launch_timed_out": false,
+    "success": true
+  },
+  "private_audit_path": "/data/harness-lab/private-audits/6/addlog-t2-03/305.md",
+  "raw_artifacts": {
+    "session_jsonl": "/data/harness-lab/runs/6/addlog-t2-03/305/raw/trace.session.jsonl",
+    "stderr_log": "/data/harness-lab/runs/6/addlog-t2-03/305/raw/harness.stderr.log",
+    "stdout_jsonl": "/data/harness-lab/runs/6/addlog-t2-03/305/raw/codex.log"
+  },
+  "raw_log_path": "/data/harness-lab/runs/6/addlog-t2-03/305/raw",
+  "reasoning_effort": "high",
+  "reasoning_steps": [
+    {
+      "present": true,
+      "ts": "2026-06-04T03:05:20.005Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-04T03:05:21.771Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-04T03:05:23.246Z",
+      "type": "reasoning"
+    },
+    {
+      "present": true,
+      "ts": "2026-06-04T03:05:24.461Z",
+      "type": "reasoning"
+    },
+    {
+      "tokens": 140,
+      "type": "reasoning_tokens"
+    }
+  ],
+  "repeat_index": 305,
+  "run_id": "c6__codex__addlog-t2-03__r305",
+  "runtime_budget": {
+    "context_window_tokens": 258400,
+    "effort_source": "$LAB_HOME/.codex/config.toml reasoning_effort=high",
+    "max_output_tokens": null,
+    "thinking_budget_tokens": null
+  },
+  "system_present": true,
+  "task_category": "add_logging",
+  "task_id": "addlog-t2-03",
+  "timestamp": "2026-06-04T03:05:25.468396Z",
+  "tokens": {
+    "cached_input": 31360,
+    "input": 43168,
+    "output": 770
+  },
+  "tool_calls": [
+    {
+      "args_summary": "command=/bin/bash -lc \"sed -n '1,220p' calckit/stats.py\"",
+      "step": 1,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc 'rg -n \"def mean|logger|logging\" calckit/stats.py'",
+      "step": 2,
+      "tool_name": "command_execution",
+      "ts": null
+    },
+    {
+      "args_summary": "changes=/data/harness-lab/runs/6/addlog-t2-03/305/workdir/calckit/stats.py:update",
+      "step": 3,
+      "tool_name": "file_change",
+      "ts": null
+    },
+    {
+      "args_summary": "command=/bin/bash -lc \"sed -n '1,120p' calckit/stats.py\"",
+      "step": 4,
+      "tool_name": "command_execution",
+      "ts": null
+    }
+  ],
+  "turns": 1,
+  "wall_time_s": 6.985
+}

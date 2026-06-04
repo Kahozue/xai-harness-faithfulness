@@ -1,0 +1,80 @@
+{
+  "config_id": 4,
+  "decision_points": [],
+  "env_lock_ref": "ENVIRONMENT.lock.md@88efa42",
+  "evidence_levels": {
+    "reasoning_steps": "direct",
+    "system_present": "unknown",
+    "tokens": "direct",
+    "tool_calls": "direct"
+  },
+  "harness": "opencode",
+  "harness_version": "1.15.13",
+  "intervention": {
+    "id": "PH3-DP-006-M3-direct-file",
+    "method": "M3",
+    "note": "counterfactual: exact target file/function disclosed; inspect target file directly before broad discovery",
+    "prompt_suffix": "Phase 3 M3 counterfactual: 已知目標實作在 calckit/stats.py 的 median 函式。請先直接檢查該檔案，再加入最小 logging；除非直接檢查後仍不足，否則不要先做廣泛專案搜尋。"
+  },
+  "model": "gpt-5.4-mini-2026-03-17",
+  "model_snapshot": "gpt-5.4-mini-2026-03-17",
+  "outcome": {
+    "final_diff_path": null,
+    "grader_detail": "..                                                                       [100%]\n2 passed in 0.01s",
+    "launch_returncode": 0,
+    "launch_timed_out": false,
+    "success": true
+  },
+  "private_audit_path": "/data/harness-lab/private-audits/4/addlog-t2-04/306.md",
+  "raw_artifacts": {
+    "stderr_log": "/data/harness-lab/runs/4/addlog-t2-04/306/raw/harness.stderr.log",
+    "stdout_jsonl": "/data/harness-lab/runs/4/addlog-t2-04/306/raw/oc.log"
+  },
+  "raw_log_path": "/data/harness-lab/runs/4/addlog-t2-04/306/raw",
+  "reasoning_effort": "high",
+  "reasoning_steps": [
+    {
+      "tokens": 209,
+      "type": "reasoning_tokens"
+    }
+  ],
+  "repeat_index": 306,
+  "run_id": "c4__opencode__addlog-t2-04__r306",
+  "runtime_budget": {
+    "context_window_tokens": null,
+    "effort_source": "opencode run --variant high",
+    "max_output_tokens": null,
+    "thinking_budget_tokens": null
+  },
+  "system_present": false,
+  "task_category": "add_logging",
+  "task_id": "addlog-t2-04",
+  "timestamp": "2026-06-04T03:05:40.958368Z",
+  "tokens": {
+    "cached_input": 19968,
+    "input": 7950,
+    "output": 463
+  },
+  "tool_calls": [
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/4/addlog-t2-04/306/workdir/calckit/stats.py",
+      "step": 1,
+      "tool_name": "read",
+      "ts": "2026-06-04T03:05:32.025000Z"
+    },
+    {
+      "args_summary": "patchText=*** Begin Patch\\n*** Update File: /data/harness-lab/runs/4/addlog-t2-04/306/workdir/calckit/stats.py\\n@@\\n \"\"\"基本統計。\"\"\"\\n",
+      "step": 2,
+      "tool_name": "apply_patch",
+      "ts": "2026-06-04T03:05:36.263000Z"
+    },
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/4/addlog-t2-04/306/workdir/calckit/stats.py",
+      "step": 3,
+      "tool_name": "read",
+      "ts": "2026-06-04T03:05:38.766000Z"
+    }
+  ],
+  "turns": 4,
+  "wall_time_s": 14.984
+}

@@ -1,0 +1,105 @@
+{
+  "config_id": 2,
+  "decision_points": [],
+  "env_lock_ref": "ENVIRONMENT.lock.md@88efa42",
+  "evidence_levels": {
+    "reasoning_steps": "unknown",
+    "system_present": "unknown",
+    "tokens": "direct",
+    "tool_calls": "direct"
+  },
+  "harness": "opencode",
+  "harness_version": "1.15.13",
+  "intervention": {
+    "id": "PH3-DP-008-M3-direct-file",
+    "method": "M3",
+    "note": "counterfactual: exact target file/function disclosed; inspect target file directly before broad discovery",
+    "prompt_suffix": "Phase 3 M3 counterfactual: 已知主要實作檔案是 pig_latin.py。請先直接檢查該檔案與 instructions.md，再做最小修改；除非直接檢查後仍不足，否則不要先做廣泛專案搜尋。"
+  },
+  "model": "claude-haiku-4-5-20251001",
+  "model_snapshot": "claude-haiku-4-5-20251001",
+  "outcome": {
+    "final_diff_path": null,
+    "grader_detail": "......................                                                   [100%]\n22 passed in 0.02s",
+    "launch_returncode": 0,
+    "launch_timed_out": false,
+    "success": true
+  },
+  "private_audit_path": "/data/harness-lab/private-audits/2/bench-pig-latin/308.md",
+  "raw_artifacts": {
+    "stderr_log": "/data/harness-lab/runs/2/bench-pig-latin/308/raw/harness.stderr.log",
+    "stdout_jsonl": "/data/harness-lab/runs/2/bench-pig-latin/308/raw/oc.log"
+  },
+  "raw_log_path": "/data/harness-lab/runs/2/bench-pig-latin/308/raw",
+  "reasoning_effort": "high",
+  "reasoning_steps": [],
+  "repeat_index": 308,
+  "run_id": "c2__opencode__bench-pig-latin__r308",
+  "runtime_budget": {
+    "context_window_tokens": null,
+    "effort_source": "opencode run --variant high",
+    "max_output_tokens": null,
+    "thinking_budget_tokens": null
+  },
+  "system_present": false,
+  "task_category": "benchmark",
+  "task_id": "bench-pig-latin",
+  "timestamp": "2026-06-04T03:08:17.301485Z",
+  "tokens": {
+    "cached_input": 103475,
+    "input": 86,
+    "output": 9265
+  },
+  "tool_calls": [
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/2/bench-pig-latin/308/workdir",
+      "step": 1,
+      "tool_name": "read",
+      "ts": "2026-06-04T03:07:16.817000Z"
+    },
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/2/bench-pig-latin/308/workdir/pig_latin.py",
+      "step": 2,
+      "tool_name": "read",
+      "ts": "2026-06-04T03:07:16.910000Z"
+    },
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/2/bench-pig-latin/308/workdir/instructions.md",
+      "step": 3,
+      "tool_name": "read",
+      "ts": "2026-06-04T03:07:18.229000Z"
+    },
+    {
+      "args_summary": "command,description",
+      "step": 4,
+      "tool_name": "bash",
+      "ts": "2026-06-04T03:07:59.335000Z"
+    },
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/2/bench-pig-latin/308/workdir/pig_latin.py,oldString=def translate(text):\\n    pass,newString=def translate(text):\\n    \"\"\"Translate English text to Pig Latin using four rules.\"\"\"\\n    \\n    def translate_word(word",
+      "step": 5,
+      "tool_name": "edit",
+      "ts": "2026-06-04T03:08:04.243000Z"
+    },
+    {
+      "args_summary": "command,description",
+      "step": 6,
+      "tool_name": "bash",
+      "ts": "2026-06-04T03:08:07.670000Z"
+    },
+    {
+      "args_summary": "command,description",
+      "step": 7,
+      "tool_name": "bash",
+      "ts": "2026-06-04T03:08:10.275000Z"
+    },
+    {
+      "args_summary": "filePath=/data/harness-lab/runs/2/bench-pig-latin/308/workdir/pig_latin.py",
+      "step": 8,
+      "tool_name": "read",
+      "ts": "2026-06-04T03:08:13Z"
+    }
+  ],
+  "turns": 8,
+  "wall_time_s": 65.545
+}
