@@ -110,6 +110,13 @@ def _load_task(task_id: str) -> dict:
     return tasks[task_id]
 
 
+def _task_prompt(task: dict, prompt_suffix: str | None = None) -> str:
+    prompt = str(task["prompt"])
+    if not prompt_suffix:
+        return prompt
+    return prompt.rstrip() + "\n\n" + prompt_suffix.strip() + "\n"
+
+
 def _merge_artifacts(primary: dict[str, Path], extra: dict[str, Path]) -> dict[str, Path]:
     merged = dict(primary)
     existing = {Path(p).resolve() for p in merged.values() if p}
@@ -165,6 +172,8 @@ def run_once(
     timeout_s: int = DEFAULT_TIMEOUT_S,
     secrets: dict | None = None,
     overwrite: bool = False,
+    prompt_suffix: str | None = None,
+    intervention: dict[str, Any] | None = None,
 ) -> dict:
     cfg = get_config(config_id)
     task = _load_task(task_id)
@@ -180,7 +189,8 @@ def run_once(
     env = dict(os.environ)
     env.update(adapter.env(secrets, cfg.model_snapshot))
     env.update(isolation.env_for_run_home(cfg.harness, run_home))
-    cmd = adapter.command(task["prompt"], cfg.model_snapshot, cfg.provider, workdir=workdir)
+    prompt = _task_prompt(task, prompt_suffix)
+    cmd = adapter.command(prompt, cfg.model_snapshot, cfg.provider, workdir=workdir)
 
     started = time.time()
     launch_timed_out = False
@@ -257,6 +267,10 @@ def run_once(
         evidence_levels=norm.get("evidence_levels", {}),
     ).to_dict()
     trace["raw_artifacts"] = saved_raw
+    if prompt_suffix or intervention:
+        trace["intervention"] = dict(intervention or {})
+        if prompt_suffix:
+            trace["intervention"]["prompt_suffix"] = prompt_suffix.strip()
     audit_path = persist.save_private_audit(trace, build_private_audit(trace))
     trace["private_audit_path"] = str(audit_path)
     validate_trace(trace)

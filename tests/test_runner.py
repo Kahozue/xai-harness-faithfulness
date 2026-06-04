@@ -42,6 +42,15 @@ class _MockAdapter:
         }
 
 
+class _PromptCaptureAdapter(_MockAdapter):
+    def __init__(self):
+        self.prompt = ""
+
+    def command(self, prompt, model_snapshot, provider, workdir=None):
+        self.prompt = prompt
+        return super().command(prompt, model_snapshot, provider, workdir=workdir)
+
+
 def test_run_once_produces_valid_trace_and_persists(monkeypatch, tmp_path):
     runs = tmp_path / "runs"
     traces = tmp_path / "traces"
@@ -78,6 +87,36 @@ def test_run_once_produces_valid_trace_and_persists(monkeypatch, tmp_path):
     assert saved["raw_log_path"] == str(raw_dir)
     assert saved["raw_artifacts"]["mock_raw"].endswith("mock.raw")
     assert saved["private_audit_path"].endswith("private/1/bugfix-t2-01/0.md")
+
+
+def test_run_once_records_phase3_prompt_suffix_intervention(monkeypatch, tmp_path):
+    runs = tmp_path / "runs"
+    traces = tmp_path / "traces"
+    adapter = _PromptCaptureAdapter()
+
+    monkeypatch.setattr(R, "get_adapter", lambda harness: adapter)
+    monkeypatch.setattr(R, "run_grader", lambda task, wd: SimpleNamespace(success=True, detail="ok"))
+    monkeypatch.setattr(R.persist, "run_dir", lambda c, t, r: runs / str(c) / t / str(r))
+    monkeypatch.setattr(R.persist, "trace_path", lambda c, t, r: traces / str(c) / t / f"{r}.json")
+    monkeypatch.setattr(R.persist, "private_audit_path", lambda c, t, r: traces / "private" / str(c) / t / f"{r}.md")
+
+    trace = R.run_once(
+        1,
+        "bugfix-t2-01",
+        301,
+        secrets={"ANTHROPIC_API_KEY": "x"},
+        prompt_suffix="Phase 3 counterfactual: first inspect the exact target file, then edit.",
+        intervention={"id": "PH3-DP-001-M3-read-first", "method": "M3"},
+    )
+
+    assert "Phase 3 counterfactual" in adapter.prompt
+    assert trace["intervention"] == {
+        "id": "PH3-DP-001-M3-read-first",
+        "method": "M3",
+        "prompt_suffix": "Phase 3 counterfactual: first inspect the exact target file, then edit.",
+    }
+    saved = json.loads((traces / "1" / "bugfix-t2-01" / "301.json").read_text())
+    assert saved["intervention"]["method"] == "M3"
 
 
 def test_run_once_refuses_to_overwrite_existing_trace(monkeypatch, tmp_path):

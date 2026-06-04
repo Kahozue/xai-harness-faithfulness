@@ -3,9 +3,17 @@ from __future__ import annotations
 
 import argparse
 import json
+from pathlib import Path
 
 from runner import persist
 from runner.configs import CONFIGS
+from runner.phase3_selection import (
+    DEFAULT_MANIFEST_PATH,
+    DEFAULT_PER_STRATUM,
+    DEFAULT_REPORT_PATH,
+    build_phase3_seed_manifest,
+    write_phase3_seed_outputs,
+)
 from runner.provision import load_tasks
 from runner.phase2_validation import validate_phase2
 from runner.runner import DEFAULT_TIMEOUT_S, run_once
@@ -66,6 +74,14 @@ def _existing(planned: list[dict]) -> list[str]:
     ]
 
 
+def _prompt_suffix(inline: str | None, file_path: str | None) -> str | None:
+    if inline and file_path:
+        raise ValueError("use either --prompt-suffix or --prompt-suffix-file, not both")
+    if file_path:
+        return Path(file_path).read_text()
+    return inline
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="runner")
     sub = parser.add_subparsers(dest="cmd", required=True)
@@ -76,6 +92,11 @@ def main(argv: list[str] | None = None) -> int:
     run.add_argument("--repeat", type=int, default=0)
     run.add_argument("--timeout", type=int, default=DEFAULT_TIMEOUT_S)
     run.add_argument("--overwrite", action="store_true", help="intentionally replace an existing trace")
+    run.add_argument("--prompt-suffix", help="append a Phase 3 counterfactual instruction to the task prompt")
+    run.add_argument("--prompt-suffix-file", help="append a Phase 3 counterfactual instruction read from a file")
+    run.add_argument("--intervention-id", help="stable Phase 3 intervention id recorded in the trace")
+    run.add_argument("--intervention-method", help="Phase 3 method label such as M3")
+    run.add_argument("--intervention-note", help="short public note recorded in the trace")
 
     pilot = sub.add_parser("pilot", help="run or list the default 2 config x 3 task pilot")
     pilot.add_argument("--repeat", type=int, default=0)
@@ -101,10 +122,40 @@ def main(argv: list[str] | None = None) -> int:
     phase2_validate.add_argument("--task", action="append", dest="tasks", help="limit to a task id; repeatable")
     phase2_validate.add_argument("--indent", type=int, default=2, help="JSON indentation; use 0 for one line")
 
+    phase3_select = sub.add_parser(
+        "phase3-select",
+        help="select high-divergence Phase 2 seeds for Phase 3 M1-M4 attribution",
+    )
+    phase3_select.add_argument("--per-stratum", type=int, default=DEFAULT_PER_STRATUM)
+    phase3_select.add_argument("--output", default=str(DEFAULT_MANIFEST_PATH))
+    phase3_select.add_argument("--report", default=str(DEFAULT_REPORT_PATH))
+    phase3_select.add_argument("--dry-run", action="store_true", help="print the manifest without writing files")
+    phase3_select.add_argument("--indent", type=int, default=2, help="JSON indentation; use 0 for one line")
+
     args = parser.parse_args(argv)
     if args.cmd == "run":
         try:
-            trace = run_once(args.config, args.task, args.repeat, args.timeout, overwrite=args.overwrite)
+            prompt_suffix = _prompt_suffix(args.prompt_suffix, args.prompt_suffix_file)
+        except ValueError as exc:
+            print(json.dumps({"error": "invalid_intervention", "detail": str(exc)}, ensure_ascii=False))
+            return 2
+        intervention = {
+            key: value for key, value in {
+                "id": args.intervention_id,
+                "method": args.intervention_method,
+                "note": args.intervention_note,
+            }.items() if value
+        } or None
+        try:
+            trace = run_once(
+                args.config,
+                args.task,
+                args.repeat,
+                args.timeout,
+                overwrite=args.overwrite,
+                prompt_suffix=prompt_suffix,
+                intervention=intervention,
+            )
         except FileExistsError as exc:
             print(json.dumps({"error": "trace_exists", "detail": str(exc)}, ensure_ascii=False))
             return 1
@@ -212,6 +263,26 @@ def main(argv: list[str] | None = None) -> int:
         indent = None if args.indent == 0 else args.indent
         print(json.dumps(report, ensure_ascii=False, indent=indent, sort_keys=True))
         return 0 if report["ok"] else 1
+
+    if args.cmd == "phase3-select":
+        try:
+            manifest = build_phase3_seed_manifest(per_stratum=args.per_stratum)
+        except ValueError as exc:
+            print(json.dumps({"ok": False, "error": "invalid_plan", "detail": str(exc)}, ensure_ascii=False))
+            return 2
+        indent = None if args.indent == 0 else args.indent
+        if args.dry_run:
+            print(json.dumps(manifest, ensure_ascii=False, indent=indent, sort_keys=True))
+            return 0
+        manifest_path, report_path = write_phase3_seed_outputs(manifest, args.output, args.report)
+        print(json.dumps({
+            "ok": True,
+            "selected": len(manifest["selected"]),
+            "candidates": len(manifest["candidates"]),
+            "manifest": str(manifest_path),
+            "report": str(report_path),
+        }, ensure_ascii=False, indent=indent, sort_keys=True))
+        return 0
 
     parser.error(f"unknown command: {args.cmd}")
     return 2
