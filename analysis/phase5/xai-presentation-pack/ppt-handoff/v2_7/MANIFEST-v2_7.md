@@ -26,3 +26,7 @@ v2_7 修訂重點:
 - Slide 05、07、09、11、12、13、16、17、22、27、28 改為正式簡報語氣。
 - Slide 07 補上 20 題任務類型；Slide 27 加入平均 token 用量分析。
 - 可見文字移除長破折號與 en dash。
+- Slide 09 新增第六張取捨卡「reasoning effort 全部固定為 high」，補上 proposal 取捨③理由（低 effort 會把失敗誤歸因到模型 under-utilization 而非 harness），版面改為均衡 2x3。
+
+PPTX 交付:
+- `../xAI-faithfulness-harness-v2_7.pptx`（28 頁、16:9）由 `build-pptx-v2_7.py` 把 `preview/slide-01..28.png` 每頁整頁鋪滿生成；單頁重渲染用 `render-slide.py`（系統 Chrome，對齊 macOS 字型）。

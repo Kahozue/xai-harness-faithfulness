@@ -936,7 +936,6 @@
       background: var(--surface);
     }
     .tradeoff-cards article:first-child {
-      grid-row: span 2;
       border-left: 8px solid var(--accent-2);
       background: color-mix(in srgb, var(--accent-2) 8%, var(--bg));
     }
@@ -1660,6 +1659,10 @@
       <span class="pill accent">延後宣稱</span>
       <h3>排除 Antigravity CLI</h3>
       <p>版本時點與 harness 成熟度會把不穩定變因帶進 baseline。</p>
+    </article><article>
+      <span class="pill warn">對齊變因</span>
+      <h3>reasoning effort 全部固定為 high</h3>
+      <p>低 effort 可能讓失敗來自模型 under-utilization 而非 harness 設計；固定 high 才能把工具路徑差異歸因到 harness。</p>
     </article>
   </div>
     
