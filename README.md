@@ -59,7 +59,7 @@ traces keep `decision_points=[]`; Phase 3 attribution labels live under
 `analysis/phase3/` and combine source/dossier M1/M2 evidence, direct M3
 counterfactual traces, and M4 trace review.
 
-Current committed status: Phase 2 formal baselines and Phase 3 attribution/HCI labels are complete. The Phase 3 interface for downstream analysis is `analysis/phase3/hci-ground-truth-labels.json`.
+Current committed status: Phase 2 formal baselines, Phase 3 attribution/HCI labels, Phase 4 analysis, and the Phase 5 xAI presentation (v2_7 deck + delivered `.pptx`) are complete; the HCI human study is still pending. The Phase 3 interface for downstream analysis is `analysis/phase3/hci-ground-truth-labels.json`.
 
 ## Research Questions
 
@@ -78,6 +78,8 @@ runner/            Experiment runner, adapters, validators, Phase 3 analysis com
 tasks/             Agentic task suite and graders
 traces/            Committed normalized public traces
 analysis/phase3/   Phase 3 seed manifest, attribution records, HCI labels
+analysis/phase4/   Phase 4 metrics, figures, HCI case pack, teacher-requirements traceability
+analysis/phase5/   xAI presentation pack (runner-generated charts/tables), v2_7 deck, delivered .pptx
 docs/specs/        Study design and trace recording policy
 docs/verification/ Phase completion reports and validation notes
 ```
