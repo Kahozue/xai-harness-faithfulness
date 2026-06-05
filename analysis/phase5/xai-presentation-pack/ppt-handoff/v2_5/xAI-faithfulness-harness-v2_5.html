@@ -1,0 +1,2371 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Faithfulness of the Harness · xAI 期末簡報 v2_5</title>
+  <style>
+    :root {
+      --bg: #f4f5f1;
+      --surface: #ffffff;
+      --fg: #1e2428;
+      --muted: #5b6468;
+      --soft: #e9eee9;
+      --border: #ccd5cf;
+      --accent: #0f6d6f;
+      --accent-2: #a85234;
+      --dark: #20262a;
+      --dark-soft: #2b3337;
+      --dark-text: #f4f5f1;
+      --shell: #1e2428;
+      --deck-scale: 1;
+      --font-display: "Noto Serif TC", "Source Han Serif TC", "Songti TC", Georgia, serif;
+      --font-body: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", system-ui, sans-serif;
+      --font-mono: "SF Mono", "JetBrains Mono", ui-monospace, Menlo, monospace;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      background: var(--shell);
+      color: var(--fg);
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: geometricPrecision;
+    }
+    .deck-stage {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 1920px;
+      height: 1080px;
+      background: var(--bg);
+      transform: translate(-50%, -50%) scale(var(--deck-scale));
+      transform-origin: center;
+      overflow: hidden;
+    }
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: none;
+      flex-direction: column;
+      padding: 58px 82px 68px;
+      background: var(--bg);
+      color: var(--fg);
+      overflow: hidden;
+    }
+    .slide.active { display: flex; }
+    .slide.dark { background: var(--dark); color: var(--dark-text); }
+    .page-top {
+      height: 34px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 14px;
+      letter-spacing: 0;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 18px;
+      flex: 0 0 auto;
+    }
+    .dark .page-top {
+      color: color-mix(in srgb, var(--dark-text) 62%, transparent);
+      border-color: color-mix(in srgb, var(--dark-text) 16%, transparent);
+    }
+    .slide-body {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 34px;
+      padding-top: 34px;
+    }
+    .slide-body.cover { justify-content: center; }
+    .slide-body.centered { align-items: center; text-align: center; }
+    .kicker {
+      margin: 0 0 14px;
+      font-family: var(--font-mono);
+      font-size: 16px;
+      line-height: 1.35;
+      color: var(--accent);
+      letter-spacing: 0;
+    }
+    .dark .kicker { color: color-mix(in srgb, var(--accent) 70%, var(--dark-text)); }
+    .title {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: 58px;
+      line-height: 1.12;
+      letter-spacing: 0;
+      font-weight: 650;
+      max-width: 1120px;
+    }
+    .tight-title {
+      font-size: 52px;
+      max-width: 1320px;
+    }
+    .lead {
+      margin: 16px 0 0;
+      font-size: 27px;
+      line-height: 1.55;
+      max-width: 1120px;
+      color: var(--muted);
+      letter-spacing: 0;
+    }
+    .tight-lead {
+      font-size: 24px;
+      max-width: 1280px;
+      margin-top: 12px;
+    }
+    .dark .lead { color: color-mix(in srgb, var(--dark-text) 76%, transparent); }
+    p { margin: 0; }
+    strong { font-weight: 650; }
+    .small-note, .boundary {
+      font-family: var(--font-mono);
+      font-size: 17px;
+      line-height: 1.5;
+      color: var(--muted);
+      letter-spacing: 0;
+    }
+    .boundary {
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+      max-width: 1420px;
+    }
+    .dark .boundary, .dark .small-note {
+      color: color-mix(in srgb, var(--dark-text) 66%, transparent);
+      border-color: color-mix(in srgb, var(--dark-text) 16%, transparent);
+    }
+    .cover-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 92px;
+      align-items: end;
+    }
+    .cover-title {
+      margin: 0;
+      max-width: 10ch;
+      font-family: var(--font-display);
+      font-size: 112px;
+      line-height: 1.02;
+      letter-spacing: 0;
+      font-weight: 720;
+    }
+    .cover-subtitle {
+      margin-top: 28px;
+      font-size: 42px;
+      line-height: 1.25;
+      color: var(--fg);
+      font-weight: 560;
+      letter-spacing: 0;
+    }
+    .cover-claim {
+      border-left: 6px solid var(--accent);
+      padding-left: 36px;
+      font-size: 29px;
+      line-height: 1.62;
+      color: var(--fg);
+    }
+    .cover-claim .rule {
+      width: 86px;
+      height: 2px;
+      background: var(--fg);
+      margin-bottom: 26px;
+    }
+    .duo-cards, .case-deep, .two-charts, .screenshot-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 34px;
+    }
+    .case-card, .metric, .callout-panel, .schema-grid > div, .method-grid > div, .rq-grid > div, .zone, .flow-list > div, .closing-grid > div {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface);
+    }
+    .dark .case-card, .dark .metric, .dark .callout-panel, .dark .schema-grid > div, .dark .method-grid > div, .dark .rq-grid > div, .dark .zone, .dark .flow-list > div, .dark .closing-grid > div {
+      border-color: color-mix(in srgb, var(--dark-text) 16%, transparent);
+      background: var(--dark-soft);
+    }
+    .case-card {
+      padding: 30px;
+      min-height: 230px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      font-size: 24px;
+      line-height: 1.48;
+    }
+    .case-card.large { min-height: 320px; }
+    .case-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 22px;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 18px;
+      color: var(--muted);
+    }
+    .case-head strong {
+      color: var(--accent-2);
+      font-size: 22px;
+    }
+    .dark .case-head { color: color-mix(in srgb, var(--dark-text) 66%, transparent); }
+    .path-line {
+      font-family: var(--font-mono);
+      font-size: 21px;
+      line-height: 1.55;
+      color: var(--fg);
+      word-break: keep-all;
+    }
+    .path-arrow { color: var(--accent); padding: 0 8px; }
+    .dark .path-line { color: var(--dark-text); }
+    .rq-grid, .method-grid, .schema-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .rq-grid > div, .method-grid > div, .schema-grid > div {
+      padding: 26px;
+      min-height: 190px;
+    }
+    .rq-grid strong, .method-grid span {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 22px;
+      color: var(--accent);
+      margin-bottom: 18px;
+    }
+    .rq-grid p, .method-grid p, .schema-grid p {
+      font-size: 22px;
+      line-height: 1.48;
+      color: var(--muted);
+    }
+    .dark .rq-grid p, .dark .method-grid p, .dark .schema-grid p { color: color-mix(in srgb, var(--dark-text) 72%, transparent); }
+    .method-grid h3, .schema-grid strong {
+      display: block;
+      margin: 0 0 14px;
+      font-size: 25px;
+      line-height: 1.24;
+      color: inherit;
+      letter-spacing: 0;
+    }
+    .od-table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      font-size: 21px;
+      line-height: 1.36;
+      background: transparent;
+    }
+    .od-table th, .od-table td {
+      border-top: 1px solid var(--border);
+      padding: 15px 14px;
+      vertical-align: top;
+      text-align: left;
+    }
+    .od-table th {
+      font-family: var(--font-mono);
+      font-size: 15px;
+      color: var(--accent);
+      font-weight: 650;
+    }
+    .od-table td { color: var(--fg); }
+    .dark .od-table th, .dark .od-table td {
+      border-color: color-mix(in srgb, var(--dark-text) 16%, transparent);
+    }
+    .dark .od-table td { color: var(--dark-text); }
+    .od-table.compact td { font-size: 20px; }
+    .od-table.dense td { font-size: 18px; line-height: 1.32; }
+    .od-table.env td, .od-table.env th { font-size: 18px; }
+    .od-table.trade td, .od-table.action td, .od-table.future td, .od-table.limits td { font-size: 23px; line-height: 1.42; }
+    .od-table.mini td, .od-table.mini th { font-size: 17px; padding: 12px 10px; }
+    .pipeline-row {
+      display: grid;
+      gap: 16px;
+    }
+    .pipeline-row.five { grid-template-columns: repeat(5, 1fr); }
+    .pipeline-row.many { grid-template-columns: repeat(9, 1fr); }
+    .pipe-step {
+      border-top: 4px solid var(--accent);
+      padding-top: 18px;
+      min-height: 130px;
+      position: relative;
+    }
+    .pipe-step span {
+      font-family: var(--font-mono);
+      color: var(--muted);
+      font-size: 16px;
+    }
+    .pipe-step strong {
+      display: block;
+      margin-top: 12px;
+      font-size: 24px;
+      line-height: 1.22;
+    }
+    .metric-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .metric { padding: 26px; min-height: 160px; }
+    .metric-value {
+      font-family: var(--font-mono);
+      font-size: 46px;
+      line-height: 1;
+      color: var(--accent-2);
+      margin-bottom: 18px;
+      letter-spacing: 0;
+    }
+    .metric-label {
+      font-size: 23px;
+      font-weight: 650;
+      margin-bottom: 8px;
+    }
+    .metric-note { font-size: 18px; color: var(--muted); line-height: 1.35; }
+    .config-grid {
+      display: grid;
+      grid-template-columns: 220px repeat(4, 1fr);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      font-size: 25px;
+      line-height: 1.28;
+    }
+    .config-grid > div {
+      min-height: 124px;
+      padding: 22px;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--surface);
+      font-weight: 620;
+    }
+    .config-grid > div:nth-child(5n) { border-right: 0; }
+    .config-grid small {
+      color: var(--muted);
+      font-size: 18px;
+      margin-top: 8px;
+    }
+    .config-grid .crossed { background: color-mix(in srgb, var(--accent) 13%, var(--surface)); border-top: 4px solid var(--accent); }
+    .config-grid .anchor { background: color-mix(in srgb, var(--accent-2) 14%, var(--surface)); border-top: 4px solid var(--accent-2); }
+    .config-grid .empty { background: var(--soft); color: var(--muted); }
+    .split {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 34px;
+      align-items: stretch;
+      min-height: 0;
+    }
+    .charts-plus { grid-template-columns: 1.15fr 0.85fr; }
+    .chart-panel {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface);
+      padding: 18px;
+      min-height: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .wide-chart { height: 720px; }
+    .dark .chart-panel {
+      border-color: color-mix(in srgb, var(--dark-text) 16%, transparent);
+      background: var(--surface);
+    }
+    .chart-img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-height: 660px;
+    }
+    .chart-img.contain { object-fit: contain; }
+    .two-charts { min-height: 620px; }
+    .flow-list {
+      display: grid;
+      gap: 16px;
+      align-content: center;
+    }
+    .flow-list > div {
+      padding: 23px;
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      align-items: center;
+      font-size: 27px;
+    }
+    .flow-list span {
+      font-family: var(--font-mono);
+      color: var(--accent);
+    }
+    .isolation {
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 36px;
+      align-items: stretch;
+    }
+    .outer {
+      padding: 34px;
+      background: var(--dark-soft);
+    }
+    .outer h3 {
+      margin: 0 0 26px;
+      font-size: 32px;
+      font-family: var(--font-display);
+      letter-spacing: 0;
+    }
+    .zone-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+    .zone {
+      padding: 28px;
+      min-height: 164px;
+    }
+    .zone strong { display: block; font-size: 27px; margin-bottom: 12px; }
+    .zone span { color: color-mix(in srgb, var(--dark-text) 72%, transparent); font-size: 21px; line-height: 1.42; }
+    .zone.danger { border-color: var(--accent-2); }
+    .barrier {
+      border: 2px dashed var(--accent-2);
+      border-radius: 6px;
+      display: grid;
+      place-items: center;
+      font-family: var(--font-mono);
+      color: var(--accent-2);
+      font-size: 22px;
+      text-align: center;
+      padding: 24px;
+    }
+    .schema-grid { grid-template-columns: repeat(5, 1fr); }
+    .screenshot-grid {
+      min-height: 660px;
+      align-items: stretch;
+    }
+    figure { margin: 0; display: flex; flex-direction: column; min-height: 0; gap: 12px; }
+    figcaption {
+      font-family: var(--font-mono);
+      font-size: 16px;
+      color: color-mix(in srgb, var(--dark-text) 66%, transparent);
+    }
+    .screenshot-frame {
+      flex: 1;
+      min-height: 0;
+      border: 1px solid color-mix(in srgb, var(--dark-text) 16%, transparent);
+      border-radius: 6px;
+      background: var(--fg);
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      padding: 10px;
+    }
+    .screenshot-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    .stacked-metrics {
+      display: grid;
+      gap: 18px;
+      align-content: center;
+    }
+    .callout-panel {
+      padding: 44px;
+      font-size: 29px;
+      line-height: 1.5;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 28px;
+    }
+    .callout-panel strong {
+      font-family: var(--font-display);
+      font-size: 42px;
+      line-height: 1.18;
+      letter-spacing: 0;
+    }
+    .metric-inline {
+      font-family: var(--font-mono);
+      color: var(--accent-2);
+      font-size: 68px;
+      line-height: 1;
+    }
+    .method-mini {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+    .method-mini span {
+      display: block;
+      border-top: 3px solid var(--accent);
+      padding-top: 15px;
+      font-size: 21px;
+      line-height: 1.35;
+      color: var(--muted);
+    }
+    .dark .method-mini span {
+      color: color-mix(in srgb, var(--dark-text) 70%, transparent);
+    }
+    .limit-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px 34px;
+      border-top: 1px solid var(--border);
+      padding-top: 12px;
+    }
+    .limit-item {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 22px;
+      align-items: start;
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0 13px;
+      min-height: 70px;
+    }
+    .limit-item strong {
+      font-size: 20px;
+      line-height: 1.28;
+      color: var(--fg);
+    }
+    .limit-item p {
+      font-size: 19px;
+      line-height: 1.34;
+      color: var(--muted);
+    }
+    .closing {
+      max-width: 1450px;
+    }
+    .closing h2 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: 68px;
+      line-height: 1.16;
+      font-weight: 680;
+      letter-spacing: 0;
+    }
+    .closing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 58px;
+      text-align: left;
+    }
+    .closing-grid > div { padding: 26px; }
+    .closing-grid strong {
+      font-family: var(--font-mono);
+      color: var(--accent);
+      font-size: 28px;
+    }
+    .closing-grid p {
+      margin-top: 14px;
+      color: color-mix(in srgb, var(--dark-text) 78%, transparent);
+      font-size: 23px;
+      line-height: 1.44;
+    }
+    /* v3 visual system override: uniform report surface + stronger hierarchy. */
+    :root {
+      --bg: #ffffff;
+      --surface: #f6f8fb;
+      --surface-strong: #eef3f8;
+      --fg: #182027;
+      --muted: #3f4d58;
+      --soft: #edf2f7;
+      --border: #c6d2de;
+      --accent: #36618e;
+      --accent-2: #c4542e;
+      --warn: #e69f00;
+      --success: #009e73;
+      --shell: #20262a;
+    }
+    .slide,
+    .slide.dark {
+      background: var(--bg);
+      color: var(--fg);
+    }
+    .page-top,
+    .dark .page-top {
+      height: 38px;
+      color: var(--muted);
+      border-color: var(--border);
+      font-size: 16px;
+      font-weight: 700;
+    }
+    .slide-body {
+      gap: 30px;
+      padding-top: 32px;
+    }
+    .kicker,
+    .dark .kicker {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      padding: 7px 16px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--surface-strong);
+      color: var(--accent);
+      font-family: var(--font-body);
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.35;
+      margin-bottom: 14px;
+    }
+    .title {
+      font-size: 56px;
+      font-weight: 780;
+      max-width: 1260px;
+    }
+    .lead,
+    .dark .lead {
+      color: var(--muted);
+      font-weight: 520;
+      font-size: 26px;
+    }
+    .boundary,
+    .dark .boundary {
+      border: 1px solid var(--border);
+      border-left: 8px solid var(--accent);
+      border-radius: 6px;
+      padding: 16px 20px;
+      background: var(--surface-strong);
+      color: var(--fg);
+      font-size: 22px;
+      font-weight: 760;
+      line-height: 1.45;
+    }
+    .cover-grid {
+      grid-template-columns: 0.92fr 1.08fr;
+      align-items: center;
+      gap: 86px;
+    }
+    .cover-title {
+      max-width: 11ch;
+      font-size: 122px;
+      line-height: 0.98;
+    }
+    .cover-subtitle {
+      font-weight: 800;
+      font-size: 44px;
+    }
+    .author-line {
+      display: inline-block;
+      margin-top: 32px;
+      padding: 12px 20px;
+      border-radius: 999px;
+      background: var(--fg);
+      color: var(--bg);
+      font-size: 24px;
+      font-weight: 800;
+    }
+    .cover-claim {
+      border: 1px solid var(--border);
+      border-left: 10px solid var(--accent);
+      border-radius: 8px;
+      background: var(--surface);
+      padding: 44px;
+      box-shadow: none;
+    }
+    .case-card,
+    .metric,
+    .callout-panel,
+    .schema-grid > div,
+    .method-grid > div,
+    .rq-grid > div,
+    .zone,
+    .flow-list > div,
+    .closing-grid > div,
+    .dark .case-card,
+    .dark .metric,
+    .dark .callout-panel,
+    .dark .schema-grid > div,
+    .dark .method-grid > div,
+    .dark .rq-grid > div,
+    .dark .zone,
+    .dark .flow-list > div,
+    .dark .closing-grid > div {
+      border-color: var(--border);
+      background: var(--surface);
+      color: var(--fg);
+    }
+    .rq-grid p,
+    .method-grid p,
+    .schema-grid p,
+    .dark .rq-grid p,
+    .dark .method-grid p,
+    .dark .schema-grid p {
+      color: var(--fg);
+      font-weight: 560;
+    }
+    .case-head,
+    .dark .case-head {
+      color: var(--muted);
+      font-weight: 760;
+    }
+    .path-line,
+    .dark .path-line {
+      color: var(--fg);
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 32px;
+      padding: 5px 12px;
+      margin: 0 8px 8px 0;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--surface-strong);
+      color: var(--fg);
+      font-size: 16px;
+      line-height: 1.2;
+      font-weight: 800;
+      white-space: normal;
+    }
+    .pill.accent {
+      color: var(--accent);
+      border-color: color-mix(in srgb, var(--accent) 36%, var(--border));
+      background: color-mix(in srgb, var(--accent) 11%, var(--bg));
+    }
+    .pill.warn {
+      color: #8c5a00;
+      border-color: color-mix(in srgb, var(--warn) 42%, var(--border));
+      background: color-mix(in srgb, var(--warn) 18%, var(--bg));
+    }
+    .pill.harness {
+      min-width: 132px;
+      color: var(--bg);
+      background: var(--fg);
+      border-color: var(--fg);
+    }
+    .pill.route-a {
+      color: var(--accent);
+      background: color-mix(in srgb, var(--accent) 12%, var(--bg));
+    }
+    .pill.route-b {
+      color: var(--accent-2);
+      background: color-mix(in srgb, var(--accent-2) 12%, var(--bg));
+    }
+    .pill.metric-pill {
+      color: var(--fg);
+      background: var(--bg);
+    }
+    .pill.empty-pill {
+      color: #7d8790;
+      background: #f1f3f5;
+      border-style: dashed;
+    }
+    .pill.soft-pill {
+      color: var(--muted);
+      background: #eef2f7;
+    }
+    .mechanism-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .mechanism-card {
+      min-height: 290px;
+      padding: 24px 26px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+      display: grid;
+      gap: 18px;
+    }
+    .mechanism-card header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .mechanism-card h3 {
+      margin: 0;
+      font-size: 30px;
+      line-height: 1.1;
+    }
+    .mechanism-focus {
+      font-size: 22px;
+      line-height: 1.42;
+      color: var(--fg);
+      font-weight: 700;
+    }
+    .mechanism-rows {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 16px;
+    }
+    .mechanism-rows div {
+      border-top: 1px solid var(--border);
+      padding-top: 10px;
+    }
+    .mechanism-rows span {
+      display: block;
+      color: var(--accent);
+      font-size: 15px;
+      font-weight: 800;
+      margin-bottom: 5px;
+    }
+    .mechanism-rows strong {
+      display: block;
+      font-size: 18px;
+      line-height: 1.3;
+      font-weight: 700;
+    }
+    .pipeline-row.five {
+      grid-template-columns: repeat(5, 1fr);
+    }
+    .pipe-step {
+      border: 1px solid var(--border);
+      border-top: 6px solid var(--accent);
+      border-radius: 6px;
+      padding: 18px;
+      background: var(--surface);
+    }
+    .pipe-step span {
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 18px;
+    }
+    .stat-band {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface-strong);
+    }
+    .stat-card {
+      padding: 18px 20px;
+      border-left: 6px solid var(--accent-2);
+      background: var(--bg);
+      border-radius: 6px;
+    }
+    .stat-card strong {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--accent-2);
+      font-family: var(--font-mono);
+      font-size: 38px;
+      line-height: 1.05;
+    }
+    .stat-card span {
+      display: block;
+      color: var(--fg);
+      font-size: 23px;
+      font-weight: 800;
+    }
+    .stat-card p {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.32;
+      font-weight: 560;
+    }
+    .tradeoff-cards {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr 1fr;
+      gap: 22px;
+    }
+    .tradeoff-cards article {
+      min-height: 205px;
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+    }
+    .tradeoff-cards article:first-child {
+      grid-row: span 2;
+      border-left: 8px solid var(--accent-2);
+      background: color-mix(in srgb, var(--accent-2) 8%, var(--bg));
+    }
+    .tradeoff-cards h3 {
+      margin: 8px 0 12px;
+      font-size: 27px;
+      line-height: 1.22;
+    }
+    .tradeoff-cards p {
+      color: var(--muted);
+      font-size: 21px;
+      line-height: 1.42;
+      font-weight: 560;
+    }
+    .od-table th {
+      font-family: var(--font-body);
+      font-size: 18px;
+      font-weight: 800;
+    }
+    .matrix-table {
+      border-collapse: separate;
+      border-spacing: 0 10px;
+    }
+    .matrix-table th {
+      border: 0;
+      padding: 0 10px 2px;
+    }
+    .matrix-table th span {
+      display: inline-flex;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--fg);
+      color: var(--bg);
+      font-size: 16px;
+    }
+    .matrix-table td {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+      font-size: 18px;
+      font-weight: 560;
+    }
+    .matrix-table td:first-child {
+      border-left: 1px solid var(--border);
+      border-radius: 8px 0 0 8px;
+    }
+    .matrix-table td:last-child {
+      border-right: 1px solid var(--border);
+      border-radius: 0 8px 8px 0;
+    }
+    .task-reasons > div {
+      grid-template-columns: 58px 1fr;
+      gap: 4px 14px;
+      background: var(--surface);
+    }
+    .task-reasons p {
+      grid-column: 2;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.3;
+      font-weight: 560;
+    }
+    figcaption {
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .screenshot-frame {
+      border-color: var(--border);
+      background: #11151a;
+    }
+    .conclusion-bar {
+      border: 1px solid var(--border);
+      border-left: 8px solid var(--accent);
+      border-radius: 6px;
+      padding: 16px 22px;
+      background: var(--surface-strong);
+      color: var(--fg);
+      font-size: 24px;
+      line-height: 1.42;
+      font-weight: 760;
+    }
+    .factorial-cards {
+      display: grid;
+      gap: 18px;
+      align-content: center;
+    }
+    .factorial-cards article {
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+    }
+    .factorial-cards h3 {
+      margin: 0 0 14px;
+      font-size: 26px;
+    }
+    .factorial-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .factorial-metrics .pill {
+      flex-direction: column;
+      align-items: flex-start;
+      min-width: 118px;
+      padding: 10px 12px;
+    }
+    .factorial-metrics strong {
+      font-size: 28px;
+      line-height: 1;
+      color: var(--accent-2);
+    }
+    .factorial-metrics span {
+      margin-top: 4px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .factorial-cards p {
+      margin-top: 8px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .callout-panel strong {
+      color: var(--fg);
+    }
+    .metric-inline {
+      color: var(--accent-2);
+    }
+    .method-mini span,
+    .dark .method-mini span {
+      color: var(--fg);
+      border-top-color: var(--accent);
+      font-weight: 700;
+    }
+    .agent-proxy-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      align-content: stretch;
+    }
+    .agent-proxy-list article {
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+    }
+    .agent-proxy-list h3 {
+      margin: 0 0 10px;
+      font-size: 19px;
+      line-height: 1.2;
+    }
+    .proxy-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+    }
+    .proxy-metric {
+      display: grid;
+      gap: 2px;
+      padding: 6px 7px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--bg);
+    }
+    .proxy-metric em {
+      color: var(--accent);
+      font-size: 11px;
+      font-style: normal;
+      font-weight: 850;
+      line-height: 1;
+    }
+    .proxy-metric strong {
+      color: var(--fg);
+      font-family: var(--font-mono);
+      font-size: 14px;
+      line-height: 1.05;
+    }
+    .agent-proxy-list p {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 650;
+      line-height: 1.25;
+    }
+    .limit-groups {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 24px;
+    }
+    .limit-group {
+      position: relative;
+      min-height: 235px;
+      padding: 28px 30px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--surface);
+      overflow: hidden;
+    }
+    .limit-group::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 10px;
+      background: var(--accent);
+    }
+    .limit-group.g2::before { background: var(--warn); }
+    .limit-group.g3::before { background: var(--success); }
+    .limit-group.g4::before { background: var(--accent-2); }
+    .limit-nb {
+      font-family: var(--font-mono);
+      color: var(--accent);
+      font-size: 18px;
+      font-weight: 800;
+    }
+    .limit-group h3 {
+      margin: 8px 0 10px;
+      font-size: 34px;
+      line-height: 1.05;
+    }
+    .limit-group p {
+      color: var(--fg);
+      font-size: 22px;
+      line-height: 1.38;
+      font-weight: 680;
+      margin-bottom: 18px;
+    }
+    .closing {
+      max-width: 1540px;
+    }
+    .closing h2 {
+      color: var(--fg);
+      font-size: 72px;
+      line-height: 1.12;
+    }
+    .closing-grid {
+      gap: 28px;
+      margin-top: 58px;
+    }
+    .closing-grid > div {
+      min-height: 220px;
+      padding: 30px;
+      border-top: 8px solid var(--accent);
+      background: var(--surface);
+    }
+    .closing-grid > div:nth-child(2) { border-top-color: var(--warn); }
+    .closing-grid > div:nth-child(3) { border-top-color: var(--accent-2); }
+    .closing-grid strong {
+      color: var(--accent);
+      font-size: 44px;
+    }
+    .closing-grid h3 {
+      margin: 14px 0 12px;
+      font-size: 32px;
+      line-height: 1.1;
+    }
+    .closing-grid p {
+      color: var(--fg);
+      font-size: 27px;
+      font-weight: 680;
+    }
+    .deck-counter {
+      position: fixed;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: none;
+      align-items: center;
+      gap: 4px;
+      background: color-mix(in srgb, var(--shell) 88%, transparent);
+      color: var(--dark-text);
+      padding: 5px;
+      border-radius: 6px;
+      border: 1px solid color-mix(in srgb, var(--dark-text) 14%, transparent);
+      font: 12px/1 var(--font-mono);
+      letter-spacing: 0;
+      z-index: 1000;
+    }
+    .deck-counter button {
+      width: 34px;
+      height: 34px;
+      background: transparent;
+      color: var(--dark-text);
+      border: 0;
+      border-radius: 4px;
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+    }
+    .deck-counter button:hover { background: color-mix(in srgb, var(--dark-text) 10%, transparent); }
+    .deck-counter button[disabled] { opacity: 0.28; cursor: default; }
+    .deck-count { padding: 0 12px; }
+    .deck-count .total { color: color-mix(in srgb, var(--dark-text) 50%, transparent); }
+    @media print {
+      @page { size: 1920px 1080px; margin: 0; }
+      html, body {
+        width: 1920px !important;
+        height: auto !important;
+        overflow: visible !important;
+        background: var(--bg) !important;
+      }
+      .deck-stage {
+        position: static !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        width: 1920px !important;
+        height: auto !important;
+        overflow: visible !important;
+      }
+      .slide {
+        display: flex !important;
+        position: relative !important;
+        inset: auto !important;
+        width: 1920px !important;
+        height: 1080px !important;
+        page-break-after: always;
+        break-after: page;
+      }
+      .slide:last-child { page-break-after: auto; break-after: auto; }
+      .deck-counter { display: none !important; }
+    }
+    /* v2_5 additions */
+    mark.leak {
+      background: color-mix(in srgb, var(--warn) 34%, transparent);
+      color: #7a3c00;
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-weight: 800;
+    }
+    .od-table.compact th { font-size: 21px; }
+    .rq-legend {
+      font-family: var(--font-mono);
+      font-size: 17px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .env-legend {
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .env-legend b { color: var(--accent); font-family: var(--font-mono); }
+    .cell-mark {
+      font-style: normal;
+      font-size: 13px;
+      margin-left: 4px;
+      color: var(--accent-2);
+      vertical-align: super;
+    }
+    .cell-mark.soft { color: var(--muted); }
+    .matrix-table td .pinned-pill {
+      border-color: color-mix(in srgb, var(--accent-2) 45%, var(--border));
+      font-weight: 800;
+    }
+    .matrix-table td .default-pill { background: var(--surface-strong); }
+    .case-context {
+      border-left: 6px solid var(--accent);
+      background: var(--surface-strong);
+      border-radius: 0 6px 6px 0;
+      padding: 12px 18px;
+      font-size: 19px;
+      line-height: 1.5;
+      color: var(--fg);
+      font-weight: 600;
+    }
+    .big-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--fg);
+      color: var(--bg);
+      font-family: var(--font-mono);
+      font-size: 19px;
+      font-weight: 800;
+    }
+    .pipe-step p {
+      margin-top: 8px;
+      font-size: 14px;
+      line-height: 1.3;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .case-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .gallery-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+      padding: 16px 18px;
+      display: grid;
+      gap: 8px;
+      align-content: start;
+    }
+    .gallery-card header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px 10px;
+    }
+    .gc-id { font-family: var(--font-mono); font-weight: 800; color: var(--accent-2); font-size: 18px; }
+    .gc-task { font-family: var(--font-mono); font-size: 13px; color: var(--muted); flex: 1; min-width: 0; }
+    .gc-side {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2px 10px;
+      border-top: 1px solid var(--border);
+      padding-top: 7px;
+    }
+    .gc-cfg { font-family: var(--font-mono); font-size: 14px; font-weight: 700; color: var(--fg); }
+    .gc-succ { font-family: var(--font-mono); font-size: 15px; font-weight: 800; color: var(--accent-2); }
+    .gc-path { grid-column: 1 / -1; font-family: var(--font-mono); font-size: 12.5px; line-height: 1.5; color: var(--muted); word-break: break-word; }
+    .gc-find { font-size: 14.5px; line-height: 1.4; color: var(--fg); font-weight: 650; }
+    .gc-meta { font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+    .case-deep.tight .case-card.large { min-height: 196px; }
+    .thinking-reveal {
+      border: 1px solid var(--border);
+      border-left: 8px solid var(--accent-2);
+      border-radius: 8px;
+      background: color-mix(in srgb, var(--accent-2) 6%, var(--bg));
+      padding: 16px 22px;
+    }
+    .tr-label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--accent-2);
+      margin-bottom: 12px;
+    }
+    .tr-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 24px; }
+    .tr-grid > div { display: grid; gap: 6px; align-content: start; }
+    .tr-grid strong { font-size: 18px; color: var(--fg); }
+    .tr-grid p { font-size: 18px; line-height: 1.42; color: var(--fg); font-weight: 600; }
+    code {
+      font-family: var(--font-mono);
+      font-size: 16px;
+      background: var(--surface-strong);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2px 8px;
+      color: var(--accent-2);
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <div class="deck-stage" id="deck-stage">
+    
+    <section class="slide light active" data-screen-label="01 Cover">
+      <div class="page-top">
+        <span>工具路徑歸因研究</span>
+        <span>01 / 28</span>
+      </div>
+      <div class="slide-body cover">
+        
+      <div class="cover-grid">
+        <div>
+          <p class="kicker">封面</p>
+          <h1 class="cover-title">Faithfulness of the Harness</h1>
+          <p class="cover-subtitle">歸因 agent 的工具路徑分歧</p>
+          <p class="author-line">7114029018 陳政顯</p>
+        </div>
+        <div class="cover-claim">
+          <div class="rule"></div>
+          <p>同任務、同可控環境，只換 harness 或 model route，工具路徑就會分岔。本研究將可觀測 trace、prompt/tool 表面與 counterfactual rerun 對齊，逐項評估這些歸因的證據支持度。</p>
+          <p class="small-note">pipeline-level XAI 研究</p>
+        </div>
+      </div>
+    
+      </div>
+    </section>
+
+    <section class="slide light" data-screen-label="02 Motivation">
+      <div class="page-top">
+        <span>工具路徑歸因研究</span>
+        <span>02 / 28</span>
+      </div>
+      <div class="slide-body ">
+        
+      
+    <div>
+      <p class="kicker">背景與動機</p>
+      <h1 class="title">成功率相同，工具路徑仍可能完全不同</h1>
+      <p class="lead">LLM coding agent 的行為由外層 harness 共同塑形：system prompt、tool schema、sub agent、workflow、/goal、MCP、skill、memory、session state、執行限制等等。只看 pass/fail，對 agent 行為的判斷會失真。</p>
+    </div>
+      <p class="case-context">案例 XAI-C01 · 任務 addtests-t2-04（add_tests，為 mean([]) 補一條 ValueError 測試）· 同 Haiku 4.5、只換 harness</p>
+      <div class="duo-cards">
+        <article class="case-card">
+          <div class="case-head"><span class="big-tag">c2 OpenCode / Haiku 4.5</span><strong>3/3 pass</strong></div>
+          <p class="path-line">read → shell → read → read → plan → edit → shell → shell → plan</p>
+          <p>先 shell 探查、反覆讀檔驗證；工具面小，路徑拉長到 9 步。</p>
+        </article>
+        <article class="case-card">
+          <div class="case-head"><span class="big-tag">c3 Hermes / Haiku 4.5</span><strong>3/3 pass</strong></div>
+          <p class="path-line">read → search → edit</p>
+          <p>search 與 memory affordance 讓探索壓縮成 3 步。</p>
+        </article>
+      </div>
+    
+      </div>
+    </section>
+
+    <section class="slide light" data-screen-label="03 Faithfulness And RQ">
+      <div class="page-top">
+        <span>工具路徑歸因研究</span>
+        <span>03 / 28</span>
+      </div>
+      <div class="slide-body ">
+        
+      
+    <div>
+      <p class="kicker">Faithfulness 定義與 RQ</p>
+      <h1 class="title">Faithfulness 是可檢驗的歸因支持度</h1>
+      <p class="lead">Faithfulness 指 observable evidence 是否足以支持「工具路徑分歧從何而來」的解釋；證據來自 trace、prompt/tool 表面與 counterfactual rerun。</p>
+    </div>
+      <div class="rq-grid">
+        <div><strong>RQ1</strong><p>四種歸因方法（M1–M4，見研究方法頁）對同一 decision point 的歸因是否一致？</p></div>
+        <div><strong>RQ2</strong><p>高 sequence disagreement 是否能作為失敗或治理觸發訊號？</p></div>
+        <div><strong>RQ3</strong><p>分歧主要來自 harness、model+provider route，或兩者交互？</p></div>
+        <div><strong>RQ4</strong><p>歸因結果能否濃縮成帶邊界的 agent-card？</p></div>
+      </div>
+      <p class="rq-legend">M1 prompt 證據 · M2 工具面 affordance · M3 反事實重跑 · M4 可見 trace（完整定義見研究方法頁）</p>
+      <p class="boundary">邊界：推理可見度依 provider 而定、且可主動補抓。<b>Anthropic／Haiku 的 thinking 可讀</b>——Claude Code 經 claude-trace 已存完整原文；OpenCode 以 logging proxy 補抓到全 20 題（之前 export 漏掉）；Hermes native 不開 extended thinking、強制開啟後同樣可擷取。<b>OpenAI／GPT-5.4-mini 的 reasoning 由 OpenAI 加密</b>，僅 summary 與 token 可讀。OpenCode 完整 system prompt 不在 export，但可在送往 provider 的請求攔截取得。</p>
+    
+      </div>
+    </section>
+
+    <section class="slide light" data-screen-label="04 Harness Scope">
+      <div class="page-top">
+        <span>工具路徑歸因研究</span>
+        <span>04 / 28</span>
+      </div>
+      <div class="slide-body ">
+        
+      
+    <div>
+      <p class="kicker">研究對象</p>
+      <h1 class="title">Harness 是模型外層的決策界面</h1>
+      <p class="lead">四個研究對象橫跨閉源原生、可觀測黑箱、多 provider 與開源通用 agent；這些差異是各 harness 的產品設計選擇，也是本研究要歸因的來源。</p>
+    </div>
+      <table class="od-table compact">
+    <thead><tr><th>Harness</th><th>版本</th><th>開放程度</th><th>白箱可見度</th><th>Provider</th></tr></thead>
+    <tbody><tr><td>Claude Code</td><td>2.1.88</td><td>closed-source CLI</td><td><mark class="leak">restored source tree</mark> (same 2.1.88) + claude-trace API capture</td><td>Anthropic native</td></tr><tr><td>Codex CLI</td><td>0.136.0</td><td>Node wrapper + native Rust core</td><td>observable black box (CLI help / session JSONL / trace)</td><td>OpenAI native</td></tr><tr><td>OpenCode</td><td>1.15.13</td><td>npm layer readable + native aarch64 core</td><td>metadata + session export (full prompt not exposed)</td><td>multi-provider</td></tr><tr><td>Hermes</td><td>0.13.0</td><td>open-source Python</td><td>full source readable</td><td>multi-provider</td></tr></tbody>
+  </table>
+    
+      </div>
+    </section>
+
+    <section class="slide light" data-screen-label="05 Mechanism Comparison">
+      <div class="page-top">
+        <span>工具路徑歸因研究</span>
+        <span>05 / 28</span>
+      </div>
+      <div class="slide-body ">
+        
+      
+    <div>
+      <p class="kicker">機制對照</p>
+      <h1 class="title">prompt、工具面、規劃、記憶，四個 harness 各給一套</h1>
+      <p class="lead">每個 harness 給 agent 的起手條件——工具面、規劃迴圈、記憶與可見證據——都會改變行為路徑。</p>
+    </div>
+      <div class="mechanism-cards">
+    <article class="mechanism-card">
+      <header><h3>Claude Code</h3><span class="pill accent">rich tools</span></header>
+      <p class="mechanism-focus">工具面完整，plan-mode 與 TodoWrite 讓探索有明確程序。</p>
+      <div class="mechanism-rows">
+        <div><span>Prompt</span><strong>大型 system prompt，含 20+ tool definitions</strong></div><div><span>Tools</span><strong>Read / Edit / Bash / Glob / Grep / TodoWrite</strong></div><div><span>Planning</span><strong>query loop + plan-mode</strong></div><div><span>Memory</span><strong>MEMORY.md + conversation state</strong></div>
+      </div>
+    </article><article class="mechanism-card">
+      <header><h3>Codex CLI</h3><span class="pill accent">native anchor</span></header>
+      <p class="mechanism-focus">外層工具少，核心原生；trace 解釋仰賴 CLI/session 可見面。</p>
+      <div class="mechanism-rows">
+        <div><span>Prompt</span><strong>layered base instructions</strong></div><div><span>Tools</span><strong>exec_command / apply_patch</strong></div><div><span>Planning</span><strong>inline commentary micro-plan</strong></div><div><span>Memory</span><strong>goals / state / sqlite memory</strong></div>
+      </div>
+    </article><article class="mechanism-card">
+      <header><h3>OpenCode</h3><span class="pill accent">small surface</span></header>
+      <p class="mechanism-focus">tool surface 小，常以 shell/read 建立現場感，路徑容易拉長。</p>
+      <div class="mechanism-rows">
+        <div><span>Prompt</span><strong>metadata 可見，full prompt 未完整外露</strong></div><div><span>Tools</span><strong>glob / read / edit / apply_patch</strong></div><div><span>Planning</span><strong>step_start → step_finish</strong></div><div><span>Memory</span><strong>sqlite session / part store</strong></div>
+      </div>
+    </article><article class="mechanism-card">
+      <header><h3>Hermes</h3><span class="pill accent">memory rich</span></header>
+      <p class="mechanism-focus">三層 prompt 與 memory/context affordance 讓起手策略不同。</p>
+      <div class="mechanism-rows">
+        <div><span>Prompt</span><strong>stable / context / volatile 三層</strong></div><div><span>Tools</span><strong>search_files / patch / execute_code 等</strong></div><div><span>Planning</span><strong>三層 prompt + tool loop</strong></div><div><span>Memory</span><strong>SOUL.md + USER.md / MEMORY.md + compression</strong></div>
+      </div>
+    </article>
+  </div>
+    
+      </div>
+    </section>
+
+    <section class="slide light" data-screen-label="06 M1 M4 Evidence">
+      <div class="page-top">
+        <span>工具路徑歸因研究</span>
+        <span>06 / 28</span>
+      </div>
+      <div class="slide-body ">
+        
+      
+    <div>
+      <p class="kicker">研究方法</p>
+      <h1 class="title">M1–M4：四種互補的歸因證據</h1>
+      <p class="lead">M1–M4 分別從靜態可見面、工具 affordance、反事實重跑與可見 trace 取證，讓每個歸因都能標出證據強弱與邊界。</p>
+    </div>
+      <div class="method-grid">
+        <div><span>M1</span><h3>System prompt evidence</h3><p>原始碼、官方文檔與擷取到的 request 中的 prompt 結構。</p></div>
+        <div><span>M2</span><h3>Tool-surface evidence</h3><p>工具集合、描述、可用 affordance 的差異。</p></div>
+        <div><span>M3</span><h3>Behavioral counterfactual</h3><p>改寫 task input 後重跑，觀察路徑與結果位移。</p></div>
+        <div><span>M4</span><h3>Planning-loop trace</h3><p>visible trace、tool-call sequence、reasoning markers。</p></div>
+      </div>
+      <p class="boundary">邊界：M1/M2 取自原始碼、官方文檔與工具面證據；閉源與原生工具的可 patch 程度不同。</p>
+    
+      </div>
+    </section>
+
+    <section class="slide light" data-screen-label="07 Study Design">
+      <div class="page-top">
+        <span>工具路徑歸因研究</span>
+        <span>07 / 28</span>
+      </div>
+      <div class="slide-body ">
+        
+      
+    <div>
+      <p class="kicker">研究設計</p>
+      <h1 class="title">鎖住任務、版本與 route，跑滿 6 × 20 × 3 = 360 trace</h1>
+      <p class="lead">formal baseline 由 6 configs × 20 tasks × 3 repeats 組成；pilot 與 counterfactual 重跑只作為案例與方法證據，不計入 baseline。</p>
+    </div>
+      <div class="pipeline-row five">
+        <div class="pipe-step"><span>01</span><strong>6 組配置</strong></div><div class="pipe-step"><span>02</span><strong>20 題任務</strong></div><div class="pipe-step"><span>03</span><strong>360 條 trace</strong></div><div class="pipe-step"><span>04</span><strong>M1–M4 歸因</strong></div><div class="pipe-step"><span>05</span><strong>Agent-card 收束</strong></div>
+      </div>
+      <div class="stat-band">
+        <article class="stat-card">
+    <strong>360 條 formal trace</strong>
+    <span>正式 baseline</span>
+    <p>6 組配置 × 20 題 × 3 repeats</p>
+  </article>
+        <article class="stat-card">
+    <strong>295/360 (81.9%)</strong>
+    <span>整體成功率</span>
+    <p>只計 formal baseline</p>
+  </article>
+        <article class="stat-card">
+    <strong>20 個高分歧決策點</strong>
+    <span>案例重跑</span>
+    <p>M3 反事實重跑，收束為 6 組 XAI 案例</p>
+  </article>
+      </div>
+    
+      </div>
+    </section>
+
+    <section class="slide light" data-screen-label="08 Config Grid">
+      <div class="page-top">
+        <span>工具路徑歸因研究</span>
+        <span>08 / 28</span>
+      </div>
+      <div class="slide-body ">
+        
+      
+    <div>
+      <p class="kicker">實驗配置</p>
+      <h1 class="title">6 組配置：2 anchor 定錨、4 crossed 看交互</h1>
+      <p class="lead">OpenCode/Hermes 同時搭 Haiku 4.5 與 GPT-5.4-mini，可觀察交互；Claude Code 與 Codex 只採原生 provider、不走轉發（reverse-proxy）。</p>
+    </div>
+      <div class="config-grid">
+        <div class="blank"></div><div>Claude Code</div><div>OpenCode</div><div>Hermes</div><div>Codex</div>
+        <div>Haiku 4.5<br><small>Anthropic</small></div><div class="anchor">c1 anchor</div><div class="crossed">c2 crossed</div><div class="crossed">c3 crossed</div><div class="empty">未跑</div>
+        <div>GPT-5.4-mini<br><small>OpenAI</small></div><div class="empty">未跑</div><div class="crossed">c4 crossed</div><div class="crossed">c5 crossed</div><div class="anchor">c6 anchor</div>
+      </div>
+      <p class="boundary">邊界：anchor cells 未完全交叉；交互解讀主要依賴 OpenCode/Hermes overlap。</p>
+    
+      </div>
+    </section>
+
+    <section class="slide light" data-screen-label="09 Design Tradeoffs">
+      <div class="page-top">
+        <span>工具路徑歸因研究</span>
+        <span>09 / 28</span>
+      </div>
+      <div class="slide-body ">
+        
+      
+    <div>
+      <p class="kicker">設計取捨</p>
+      <h1 class="title">刻意排除哪些變因，以及為什麼</h1>
+      <p class="lead">下列項目刻意排除在 baseline 之外，因為它們會引入難以控制的變因。</p>
+    </div>
+      <div class="tradeoff-cards">
+    <article>
+      <span class="pill warn">降低變因</span>
+      <h3>controlled 與 benchmark 分流</h3>
+      <p>benchmark rows 成功率低很多、provenance 也不同，合併讀會誤導。</p>
+    </article><article>
+      <span class="pill accent">避免混讀</span>
+      <h3>OpenCode/Hermes 作為 crossed cells</h3>
+      <p>Claude Code 與 Codex 只採原生、不走轉發，兩個 model 沒有完整交叉，交互訊號靠這兩格。</p>
+    </article><article>
+      <span class="pill accent">交互證據</span>
+      <h3>用 M1–M4 補足 success-only scoring</h3>
+      <p>success 無法指出 prompt、tool、model route 的交互來源。</p>
+    </article><article>
+      <span class="pill accent">選定 benchmark</span>
+      <h3>採 Aider / Exercism Python benchmark</h3>
+      <p>改用 provenance-backed、可在 aarch64 host 重跑的題庫，取代 SWE-bench Verified，更貼近工具路徑分歧分析。</p>
+    </article><article>
+      <span class="pill accent">延後宣稱</span>
+      <h3>排除 Antigravity CLI</h3>
+      <p>版本時點與 harness 成熟度會把不穩定變因帶進 baseline。</p>
+    </article>
+  </div>
+    
+      </div>
+    </section>
+
+    <section class="slide light" data-screen-label="10 Pipeline Detail">
+      <div class="page-top">
+        <span>工具路徑歸因研究</span>
+        <span>10 / 28</span>
+      </div>
+      <div class="slide-body ">
+        
+      
+    <div>
+      <p class="kicker">實驗管線</p>
+      <h1 class="title">一次 run 的完整管線：乾淨 repo → trace → 評分</h1>
+      <p class="lead">流程的目的，是讓工具路徑與結果都能追溯；成功率之外，還保留足以定位差異來源的證據面。</p>
+    </div>
+      <div class="pipeline-row many">
+        <div class="pipe-step"><span>01</span><strong>Provision target repo</strong><p>複製受保護 repo</p></div><div class="pipe-step"><span>02</span><strong>Fresh HOME</strong><p>每 run 全新 HOME</p></div><div class="pipe-step"><span>03</span><strong>Launch harness</strong><p>釘死版本啟動</p></div><div class="pipe-step"><span>04</span><strong>Inject route/effort</strong><p>注入 route + high</p></div><div class="pipe-step"><span>05</span><strong>Capture trace</strong><p>trace / JSONL 擷取</p></div><div class="pipe-step"><span>06</span><strong>Mutation guard</strong><p>改到即還原判 invalid</p></div><div class="pipe-step"><span>07</span><strong>Hidden pytest</strong><p>評分窗才放測試</p></div><div class="pipe-step"><span>08</span><strong>Normalize trace</strong><p>正規化統一 schema</p></div><div class="pipe-step"><span>09</span><strong>Persist audit</strong><p>public + private 留存</p></div>
+      </div>
+    
+      </div>
+    </section>
+
+    <section class="slide light" data-screen-label="11 Environment Lock">
+      <div class="page-top">
+        <span>工具路徑歸因研究</span>
+        <span>11 / 28</span>
+      </div>
+      <div class="slide-body ">
+        
+      
+    <div>
+      <p class="kicker">環境鎖與可重現性</p>
+      <h1 class="title">環境鎖：版本、route、effort、可觀測欄位全部釘住</h1>
+      <p class="lead">harness version、model snapshot、provider route、可控 effort 與 trace presence 一併記錄。</p>
+    </div>
+      <table class="od-table env matrix-table">
+    <thead><tr><th><span>Harness</span></th><th><span>Provider</span></th><th><span>Version</span></th><th><span>Effort</span></th><th><span>Output</span></th><th><span>Thinking</span></th><th><span>Context</span></th><th><span>n</span></th></tr></thead>
+    <tbody><tr>
+      <td><span class="pill harness">claude_code</span></td>
+      <td><span class="pill route-a">anthropic</span></td>
+      <td><strong>2.1.88</strong></td>
+      <td><span class="pill soft-pill">high</span></td>
+      <td><span class="pill metric-pill pinned-pill">64000<em class="cell-mark">✦</em></span></td>
+      <td><span class="pill metric-pill pinned-pill">63999<em class="cell-mark">✦</em></span></td>
+      <td><span class="pill metric-pill pinned-pill">200000<em class="cell-mark">✦</em></span></td>
+      <td><span class="pill metric-pill">60</span></td>
+    </tr><tr>
+      <td><span class="pill harness">opencode</span></td>
+      <td><span class="pill route-a">anthropic</span></td>
+      <td><strong>1.15.13</strong></td>
+      <td><span class="pill soft-pill">high</span></td>
+      <td><span class="pill metric-pill default-pill">64000<em class="cell-mark soft">○</em></span></td>
+      <td><span class="pill metric-pill default-pill">16000<em class="cell-mark soft">○</em></span></td>
+      <td><span class="pill metric-pill default-pill">200000<em class="cell-mark soft">○</em></span></td>
+      <td><span class="pill metric-pill">60</span></td>
+    </tr><tr>
+      <td><span class="pill harness">hermes</span></td>
+      <td><span class="pill route-a">anthropic</span></td>
+      <td><strong>0.13.0</strong></td>
+      <td><span class="pill soft-pill">high</span></td>
+      <td><span class="pill metric-pill default-pill">64000<em class="cell-mark soft">○</em></span></td>
+      <td><span class="pill empty-pill">0</span></td>
+      <td><span class="pill metric-pill default-pill">200000<em class="cell-mark soft">○</em></span></td>
+      <td><span class="pill metric-pill">60</span></td>
+    </tr><tr>
+      <td><span class="pill harness">opencode</span></td>
+      <td><span class="pill route-b">openai</span></td>
+      <td><strong>1.15.13</strong></td>
+      <td><span class="pill soft-pill">high</span></td>
+      <td><span class="pill metric-pill default-pill">128000<em class="cell-mark soft">○</em></span></td>
+      <td><span class="pill soft-pill">high</span></td>
+      <td><span class="pill metric-pill default-pill">400000<em class="cell-mark soft">○</em></span></td>
+      <td><span class="pill metric-pill">60</span></td>
+    </tr><tr>
+      <td><span class="pill harness">hermes</span></td>
+      <td><span class="pill route-b">openai</span></td>
+      <td><strong>0.13.0</strong></td>
+      <td><span class="pill soft-pill">high</span></td>
+      <td><span class="pill metric-pill default-pill">128000<em class="cell-mark soft">○</em></span></td>
+      <td><span class="pill soft-pill">high</span></td>
+      <td><span class="pill metric-pill default-pill">400000<em class="cell-mark soft">○</em></span></td>
+      <td><span class="pill metric-pill">60</span></td>
+    </tr><tr>
+      <td><span class="pill harness">codex</span></td>
+      <td><span class="pill route-b">openai</span></td>
+      <td><strong>0.136.0</strong></td>
+      <td><span class="pill soft-pill">high</span></td>
+      <td><span class="pill empty-pill">—</span></td>
+      <td><span class="pill soft-pill">high</span></td>
+      <td><span class="pill metric-pill default-pill">258400<em class="cell-mark soft">○</em></span></td>
+      <td><span class="pill metric-pill">60</span></td>
+    </tr></tbody>
+  </table>
+      <p class="env-legend">Output / Thinking / Context：<b>✦</b> 實驗顯式釘死 · <b>○</b> harness／模型預設窗口 · <b>high</b> 以 effort/variant=high 控制推理（仍有 reasoning token，非無推理）· <b>—</b> 該 harness 未暴露此旋鈕</p>
+      <p class="boundary">邊界：thinking budget 並不一致——Anthropic 路徑實際送出 Claude Code 63999、OpenCode 16000、Hermes 0（native 不開 extended thinking）；OpenAI 路徑 reasoning 加密、以 effort=high 控制。Output／Context 取各 harness／模型預設窗口，同一模型跨 harness 也可能不同（GPT-5.4-mini context：OpenCode 400000、Codex 258400）。</p>
+    
+      </div>
+    </section>
+
+    <section class="slide light" data-screen-label="12 Isolation">
+      <div class="page-top">
+        <span>工具路徑歸因研究</span>
+        <span>12 / 28</span>
+      </div>
+      <div class="slide-body ">
+        
+      
+    <div>
+      <p class="kicker">隔離與污染防護</p>
+      <h1 class="title">每次 run 都用全新 HOME，隔離 session／memory／log</h1>
+      <p class="lead">每次 run 建立 fresh HOME，不共用 session、history、memory、log；Hermes 另有 HERMES_HOME，hidden tests 僅在 grading window 出現。</p>
+    </div>
+      <div class="isolation">
+        <div class="zone outer">
+          <h3>Execution root</h3>
+          <div class="zone-grid">
+            <div class="zone"><strong>Fresh HOME</strong><span>session / history / logs isolated</span></div>
+            <div class="zone"><strong>Target repo copy</strong><span>mutation guard + restore</span></div>
+            <div class="zone"><strong>HERMES_HOME</strong><span>separate from production Hermes</span></div>
+            <div class="zone danger"><strong>Hidden grader</strong><span>copy in, run, remove</span></div>
+          </div>
+        </div>
+        <div class="barrier">no-touch barrier</div>
+      </div>
+    
+      </div>
+    </section>
+
+    <section class="slide light" data-screen-label="13 Task Suite">
+      <div class="page-top">
+        <span>工具路徑歸因研究</span>
+        <span>13 / 28</span>
+      </div>
+      <div class="slide-body ">
+        
+      
+    <div>
+      <p class="kicker">任務套件與評分</p>
+      <h1 class="title">20 題：5 類 × 4，hidden pytest 全綠才算過</h1>
+      <p class="lead">20 題分成 5 類 × 4；Tier 1 來自 benchmark provenance，Tier 2 是自撰受控 repo。評分採 hidden pytest / unittest，全綠才 pass。</p>
+    </div>
+      <div class="split charts-plus">
+        <div class="chart-panel"><img class="chart-img contain" src="assets/charts/task-suite-composition.svg" alt="Task suite composition chart" /></div>
+        <div class="flow-list task-reasons">
+    <div><span>01</span><strong>hidden test</strong><p>避免模型只學 patch 形狀，改用行為驗證。</p></div><div><span>02</span><strong>copy into repo</strong><p>grader 只在評分窗口出現，降低污染。</p></div><div><span>03</span><strong>run pytest / unittest</strong><p>使用 deterministic test，不交給 LLM judge。</p></div><div><span>04</span><strong>all green = pass</strong><p>全綠才算 pass，避免部分成功灌水。</p></div><div><span>05</span><strong>remove grader</strong><p>評完即移除，保留 target repo 邊界。</p></div>
+  </div>
+      </div>
+    
+      </div>
+    </section>
+
+    <section class="slide light" data-screen-label="14 Trace Schema">
+      <div class="page-top">
+        <span>工具路徑歸因研究</span>
+        <span>14 / 28</span>
+      </div>
+      <div class="slide-body ">
+        
+      
+    <div>
+      <p class="kicker">Trace schema 與證據強度</p>
+      <h1 class="title">四家 log 正規化成同一組可比欄位，並標證據強度</h1>
+      <p class="lead">normalized trace 對齊 identity、tool path、outcome、replay refs 與 evidence boundary；每個欄位標示 direct、source-derived、inferred 或 unknown。</p>
+    </div>
+      <div class="schema-grid">
+        <div><strong>Identity</strong><p>config、task、repeat、route</p></div><div><strong>Tool path</strong><p>canonical tool family + sequence</p></div><div><strong>Outcome</strong><p>hidden grader pass/fail</p></div><div><strong>Replay refs</strong><p>raw/private/public trace pointer</p></div><div><strong>Boundary</strong><p>direct / source-derived / inferred / unknown</p></div>
+      </div>
+      <p class="boundary">原始 log 長相不同，schema 的角色是保留可比性，同時標出不可見處。</p>
+    
+      </div>
+    </section>
+
+    <section class="slide light" data-screen-label="15 Execution Screenshots">
+      <div class="page-top">
+        <span>工具路徑歸因研究</span>
+        <span>15 / 28</span>
+      </div>
+      <div class="slide-body ">
+        
+      
+    <div>
+      <p class="kicker">執行實況</p>
+      <h1 class="title">runner CLI 與 claude-trace 的擷取畫面</h1>
+      <p class="lead">runner CLI 與 claude-trace 展示執行現場；公開層去敏，原始材料保留在可追溯 audit path。</p>
+    </div>
+      <div class="screenshot-grid">
+        <figure><div class="screenshot-frame"><img class="screenshot-img" src="assets/screenshots/runner-cli-execution.png" alt="Runner CLI execution screenshot" /></div><figcaption>Runner CLI 執行畫面</figcaption></figure>
+        <figure><div class="screenshot-frame"><img class="screenshot-img" src="assets/screenshots/claude-trace-system-prompt.png" alt="Claude trace system prompt screenshot" /></div><figcaption>claude-trace request 擷取</figcaption></figure>
+      </div>
+    
+      </div>
+    </section>
+
+    <section class="slide light" data-screen-label="16 Data Scale">
+      <div class="page-top">
+        <span>工具路徑歸因研究</span>
+        <span>16 / 28</span>
+      </div>
+      <div class="slide-body ">
+        
+      
+    <div>
+      <p class="kicker">資料規模</p>
+      <h1 class="title">360 條 formal trace 是結果區的母體</h1>
+      <p class="lead">pilot 與 counterfactual 不混入 baseline；public inventory 另保留非 baseline trace，方便方法與案例追溯。</p>
+    </div>
+      <div class="split">
+        <div class="chart-panel"><img class="chart-img contain" src="assets/charts/trace-inventory.svg" alt="Trace inventory chart" /></div>
+        <div class="stacked-metrics">
+          <div class="metric">
+    <div class="metric-value">360 條 formal trace</div>
+    <div class="metric-label">正式 trace 數</div>
+    <div class="metric-note">baseline 統計母體</div>
+  </div>
+          <div class="metric">
+    <div class="metric-value">295/360 (81.9%)</div>
+    <div class="metric-label">整體成功率</div>
+    <div class="metric-note">295 條 pass trace</div>
+  </div>
+          <div class="metric">
+    <div class="metric-value">20 個高分歧決策點</div>
+    <div class="metric-label">案例重跑</div>
+    <div class="metric-note">M3 反事實重跑，收束 6 組案例</div>
+  </div>
+        </div>
+      </div>
+    
+      </div>
+    </section>
+
+    <section class="slide light" data-screen-label="17 Controlled Benchmark Split">
+      <div class="page-top">
+        <span>工具路徑歸因研究</span>
+        <span>17 / 28</span>
+      </div>
+      <div class="slide-body ">
+        
+      
+    <div>
+      <p class="kicker">任務分流</p>
+      <h1 class="title">controlled 與 benchmark 混在一起平均會誤導</h1>
+      <p class="lead">controlled 與 benchmark 的來源、難度與失敗型態都不同，必須先分流再讀。</p>
+    </div>
+      <div class="two-charts">
+        <div class="chart-panel"><img class="chart-img contain" src="assets/charts/controlled-vs-benchmark.svg" alt="Controlled versus benchmark chart" /></div>
+        <div class="chart-panel"><img class="chart-img contain" src="assets/charts/factorial-by-split.svg" alt="Factorial by split chart" /></div>
+      </div>
+      <div class="conclusion-bar">結論：controlled 的高成功率不能沖淡 benchmark 的低成功率；兩種任務要分開讀，才不會把難度差異誤讀成 harness 優劣。</div>
+    
+      </div>
+    </section>
+
+    <section class="slide light" data-screen-label="18 RQ3 Jaccard">
+      <div class="page-top">
+        <span>工具路徑歸因研究</span>
+        <span>18 / 28</span>
+      </div>
+      <div class="slide-body ">
+        
+      
+    <div>
+      <p class="kicker">RQ3：路徑分歧</p>
+      <h1 class="title">工具集合重疊低，代表分歧有結構</h1>
+      <p class="lead">tool name 先 canonicalize 成 tool family，再用 Jaccard 與 sequence disagreement 觀察。Codex anchor 與其他 config 的工具集合重疊偏低，這個差異不像隨機噪音。</p>
+    </div>
+      <div class="chart-panel wide-chart"><img class="chart-img contain" src="assets/charts/jaccard-matrix.svg" alt="Jaccard matrix chart" /></div>
+    
+      </div>
+    </section>
+
+    <section class="slide light" data-screen-label="19 RQ3 Factorial">
+      <div class="page-top">
+        <span>工具路徑歸因研究</span>
+        <span>19 / 28</span>
+      </div>
+      <div class="slide-body ">
+        
+      
+    <div>
+      <p class="kicker">RQ3：Factorial 對比</p>
+      <h1 class="title">mixed 對比的 sequence disagreement 較高</h1>
+      <p class="lead">同 model 換 harness、同 harness 換 model+provider route、兩者同時改變，三種 contrast family 只做描述性對照；交互訊號來自 crossed cells。</p>
+    </div>
+      <div class="split">
+        <div class="chart-panel"><img class="chart-img contain" src="assets/charts/factorial-contrast-bars.svg" alt="Factorial contrast chart" /></div>
+        <div class="factorial-cards">
+    <article>
+      <h3>同 model 換 harness</h3>
+      <div class="factorial-metrics">
+        <span class="pill metric-pill"><strong>0.439</strong><span>sequence</span></span>
+        <span class="pill metric-pill"><strong>0.333</strong><span>tool-set</span></span>
+        <span class="pill metric-pill"><strong>0.056</strong><span>success gap</span></span>
+      </div>
+      <p>n=120</p>
+    </article><article>
+      <h3>harness 與 route 同時改</h3>
+      <div class="factorial-metrics">
+        <span class="pill metric-pill"><strong>0.533</strong><span>sequence</span></span>
+        <span class="pill metric-pill"><strong>0.394</strong><span>tool-set</span></span>
+        <span class="pill metric-pill"><strong>0.067</strong><span>success gap</span></span>
+      </div>
+      <p>n=140</p>
+    </article><article>
+      <h3>同 harness 換 model route</h3>
+      <div class="factorial-metrics">
+        <span class="pill metric-pill"><strong>0.420</strong><span>sequence</span></span>
+        <span class="pill metric-pill"><strong>0.254</strong><span>tool-set</span></span>
+        <span class="pill metric-pill"><strong>0.092</strong><span>success gap</span></span>
+      </div>
+      <p>n=40</p>
+    </article>
+  </div>
+      </div>
+    
+      </div>
+    </section>
+
+    <section class="slide light" data-screen-label="20 RQ2 Association">
+      <div class="page-top">
+        <span>工具路徑歸因研究</span>
+        <span>20 / 28</span>
+      </div>
+      <div class="slide-body ">
+        
+      
+    <div>
+      <p class="kicker">RQ2：分歧與成敗</p>
+      <h1 class="title">路徑分歧高，未必能直接當 failure trigger</h1>
+      <p class="lead">在 300 個 config-pair × task observation 中，sequence disagreement 與 success gap 的 Pearson r ≈ 0.003。治理訊號需要結合 evidence path、任務類型與 case diagnosis。</p>
+    </div>
+      <div class="split">
+        <div class="chart-panel"><img class="chart-img contain" src="assets/charts/disagreement-success-scatter.svg" alt="Disagreement success scatter chart" /></div>
+        <div class="callout-panel">
+          <strong>解讀</strong>
+          <p>分歧本身值得被揭露；但這份 task suite 裡，單一 disagreement threshold 無法替代證據鏈。</p>
+          <p class="metric-inline">r ≈ 0.003</p>
+        </div>
+      </div>
+    
+      </div>
+    </section>
+
+    <section class="slide light" data-screen-label="21 RQ1 Consistency">
+      <div class="page-top">
+        <span>工具路徑歸因研究</span>
+        <span>21 / 28</span>
+      </div>
+      <div class="slide-body ">
+        
+      
+    <div>
+      <p class="kicker">RQ1：M1–M4 一致性</p>
+      <h1 class="title">一致性只到一半，交互成為關鍵解釋</h1>
+      <p class="lead">在 20 個高分歧 decision labels 中，M1–M4 完全一致 10/20；label 分布為 harness_main_effect=6、interaction=8、model_main_effect=6。</p>
+    </div>
+      <div class="two-charts">
+        <div class="chart-panel"><img class="chart-img contain" src="assets/charts/method-consistency.svg" alt="Method consistency chart" /></div>
+        <div class="chart-panel"><img class="chart-img contain" src="assets/charts/phase3-label-summary.svg" alt="Phase 3 label summary chart" /></div>
+      </div>
+      <p class="boundary">邊界：這是 high-divergence subset，支撐解釋品質評估，不能外推成全體 prevalence。</p>
+    
+      </div>
+    </section>
+
+    <section class="slide light" data-screen-label="22 Case Gallery">
+      <div class="page-top">
+        <span>工具路徑歸因研究</span>
+        <span>22 / 28</span>
+      </div>
+      <div class="slide-body ">
+        
+      
+    <div>
+      <p class="kicker">案例分析總覽</p>
+      <h1 class="title">6 組高分歧案例：挑了什麼、左右各做了什麼、得到什麼</h1>
+      <p class="lead">從 20 個高分歧 decision point 收束成 6 組 XAI 案例。每組固定一個變因、只改另一個，對照工具路徑與成敗，再由 M1–M4 給出歸因標籤。</p>
+    </div>
+      <div class="case-gallery">
+    <article class="gallery-card">
+      <header>
+        <span class="gc-id">XAI-C01</span>
+        <span class="gc-task">addtests-t2-04 · add_tests</span>
+        <span class="pill accent">harness 主效應</span>
+      </header>
+      <div class="gc-side">
+        <span class="gc-cfg">c2 opencode / Haiku 4.5</span>
+        <span class="gc-succ">3/3</span>
+        <span class="gc-path">read<span class="path-arrow">→</span>shell<span class="path-arrow">→</span>read<span class="path-arrow">→</span>read<span class="path-arrow">→</span>plan<span class="path-arrow">→</span>edit<span class="path-arrow">→</span>shell<span class="path-arrow">→</span>shell<span class="path-arrow">→</span>plan</span>
+      </div>
+      <div class="gc-side">
+        <span class="gc-cfg">c3 hermes / Haiku 4.5</span>
+        <span class="gc-succ">3/3</span>
+        <span class="gc-path">read<span class="path-arrow">→</span>search<span class="path-arrow">→</span>edit</span>
+      </div>
+      <p class="gc-find">同 Haiku 4.5：OpenCode 走 9 步、Hermes 走 3 步，皆 3/3 通過 → 路徑長短由 harness 決定，與成敗無關。</p>
+      <div class="gc-meta">M1–M4 4/4 · high confidence</div>
+    </article><article class="gallery-card">
+      <header>
+        <span class="gc-id">XAI-C02</span>
+        <span class="gc-task">bench-bottle-song · benchmark</span>
+        <span class="pill accent">model 主效應</span>
+      </header>
+      <div class="gc-side">
+        <span class="gc-cfg">c2 opencode / Haiku 4.5</span>
+        <span class="gc-succ">1/3</span>
+        <span class="gc-path">shell<span class="path-arrow">→</span>read<span class="path-arrow">→</span>read<span class="path-arrow">→</span>read<span class="path-arrow">→</span>shell<span class="path-arrow">→</span>shell<span class="path-arrow">→</span>shell<span class="path-arrow">→</span>shell<span class="path-arrow">→</span>shell</span>
+      </div>
+      <div class="gc-side">
+        <span class="gc-cfg">c4 opencode / GPT-5.4-mini</span>
+        <span class="gc-succ">3/3</span>
+        <span class="gc-path">plan<span class="path-arrow">→</span>search<span class="path-arrow">→</span>search<span class="path-arrow">→</span>search<span class="path-arrow">→</span>read<span class="path-arrow">→</span>search<span class="path-arrow">→</span>search<span class="path-arrow">→</span>search<span class="path-arrow">→</span>edit<span class="path-arrow">→</span>edit<span class="path-arrow">→</span>shell<span class="path-arrow">→</span>shell<span class="path-arrow">→</span>plan</span>
+      </div>
+      <p class="gc-find">同 OpenCode：Haiku 1/3、GPT-5.4-mini 3/3 → 換 model route 同時改變了路徑與成敗。</p>
+      <div class="gc-meta">M1–M4 3/4 · high confidence</div>
+    </article><article class="gallery-card">
+      <header>
+        <span class="gc-id">XAI-C03</span>
+        <span class="gc-task">bugfix-t2-03 · bug_fix</span>
+        <span class="pill accent">交互</span>
+      </header>
+      <div class="gc-side">
+        <span class="gc-cfg">c2 opencode / Haiku 4.5</span>
+        <span class="gc-succ">0/3</span>
+        <span class="gc-path">shell<span class="path-arrow">→</span>read<span class="path-arrow">→</span>read<span class="path-arrow">→</span>read<span class="path-arrow">→</span>plan<span class="path-arrow">→</span>edit<span class="path-arrow">→</span>read<span class="path-arrow">→</span>shell<span class="path-arrow">→</span>shell<span class="path-arrow">→</span>shell<span class="path-arrow">→</span>plan</span>
+      </div>
+      <div class="gc-side">
+        <span class="gc-cfg">c3 hermes / Haiku 4.5</span>
+        <span class="gc-succ">0/3</span>
+        <span class="gc-path">read<span class="path-arrow">→</span>edit</span>
+      </div>
+      <p class="gc-find">同 Haiku 4.5：OpenCode 11 步、Hermes 2 步，皆 0/3 → 兩邊都誤判輸出 convention，分歧×失敗屬交互。</p>
+      <div class="gc-meta">M1–M4 4/4 · high confidence</div>
+    </article><article class="gallery-card">
+      <header>
+        <span class="gc-id">XAI-C04</span>
+        <span class="gc-task">addtests-t2-02 · add_tests</span>
+        <span class="pill accent">交互</span>
+      </header>
+      <div class="gc-side">
+        <span class="gc-cfg">c3 hermes / Haiku 4.5</span>
+        <span class="gc-succ">3/3</span>
+        <span class="gc-path">read<span class="path-arrow">→</span>search<span class="path-arrow">→</span>search<span class="path-arrow">→</span>read<span class="path-arrow">→</span>edit</span>
+      </div>
+      <div class="gc-side">
+        <span class="gc-cfg">c5 hermes / GPT-5.4-mini</span>
+        <span class="gc-succ">1/3</span>
+        <span class="gc-path">search<span class="path-arrow">→</span>search<span class="path-arrow">→</span>read<span class="path-arrow">→</span>read<span class="path-arrow">→</span>edit<span class="path-arrow">→</span>shell<span class="path-arrow">→</span>edit<span class="path-arrow">→</span>shell</span>
+      </div>
+      <p class="gc-find">同 Hermes：Haiku 3/3、GPT-5.4-mini 1/3 → harness 固定、換 model 就出現 success gap。</p>
+      <div class="gc-meta">M1–M4 2/4 · medium confidence</div>
+    </article><article class="gallery-card">
+      <header>
+        <span class="gc-id">XAI-C05</span>
+        <span class="gc-task">bench-bottle-song · benchmark</span>
+        <span class="pill accent">交互</span>
+      </header>
+      <div class="gc-side">
+        <span class="gc-cfg">c2 opencode / Haiku 4.5</span>
+        <span class="gc-succ">1/3</span>
+        <span class="gc-path">shell<span class="path-arrow">→</span>read<span class="path-arrow">→</span>read<span class="path-arrow">→</span>read<span class="path-arrow">→</span>shell<span class="path-arrow">→</span>shell<span class="path-arrow">→</span>shell<span class="path-arrow">→</span>shell<span class="path-arrow">→</span>shell</span>
+      </div>
+      <div class="gc-side">
+        <span class="gc-cfg">c4 opencode / GPT-5.4-mini</span>
+        <span class="gc-succ">3/3</span>
+        <span class="gc-path">plan<span class="path-arrow">→</span>search<span class="path-arrow">→</span>search<span class="path-arrow">→</span>search<span class="path-arrow">→</span>read<span class="path-arrow">→</span>search<span class="path-arrow">→</span>search<span class="path-arrow">→</span>search<span class="path-arrow">→</span>edit<span class="path-arrow">→</span>edit<span class="path-arrow">→</span>shell<span class="path-arrow">→</span>shell<span class="path-arrow">→</span>plan</span>
+      </div>
+      <p class="gc-find">同 OpenCode／benchmark：Haiku 1/3、GPT-5.4-mini 3/3 → success gap 來自 model×task 交互。</p>
+      <div class="gc-meta">M1–M4 2/4 · medium confidence</div>
+    </article><article class="gallery-card">
+      <header>
+        <span class="gc-id">XAI-C06</span>
+        <span class="gc-task">addlog-t2-03 · add_logging</span>
+        <span class="pill accent">harness 主效應</span>
+      </header>
+      <div class="gc-side">
+        <span class="gc-cfg">c5 hermes / GPT-5.4-mini</span>
+        <span class="gc-succ">3/3</span>
+        <span class="gc-path">search<span class="path-arrow">→</span>search<span class="path-arrow">→</span>read<span class="path-arrow">→</span>edit</span>
+      </div>
+      <div class="gc-side">
+        <span class="gc-cfg">c6 codex / GPT-5.4-mini</span>
+        <span class="gc-succ">3/3</span>
+        <span class="gc-path">shell<span class="path-arrow">→</span>shell<span class="path-arrow">→</span>edit<span class="path-arrow">→</span>shell<span class="path-arrow">→</span>shell</span>
+      </div>
+      <p class="gc-find">同 GPT-5.4-mini：Hermes 走 search、Codex 走 shell，皆 3/3 → 工具面差異純由 harness。</p>
+      <div class="gc-meta">M1–M4 4/4 · high confidence</div>
+    </article>
+  </div>
+    
+      </div>
+    </section>
+
+    <section class="slide light" data-screen-label="23 XAI C03 Case">
+      <div class="page-top">
+        <span>工具路徑歸因研究</span>
+        <span>23 / 28</span>
+      </div>
+      <div class="slide-body ">
+        
+      
+    <div>
+      <p class="kicker">XAI-C03 深入</p>
+      <h1 class="title">OpenCode vs Hermes：同 Haiku 4.5、同為 0/3，路徑與輸出 convention 分岔</h1>
+      <p class="lead">bugfix-t2-03 · semantic_output_convention · interaction · 4/4 agreement · high confidence</p>
+    </div>
+      <p class="case-context">任務：修正 calckit/money.py 的 format_amount 讓負數保留負號。兩邊都動手改了，卻都 0/3——卡在輸出 convention 的判讀。</p>
+      <div class="case-deep tight">
+        <article class="case-card large">
+          <div class="case-head"><span class="big-tag">c2 opencode / Haiku 4.5</span><strong>0/3</strong></div>
+          <p class="path-line">shell<span class="path-arrow">→</span>read<span class="path-arrow">→</span>read<span class="path-arrow">→</span>read<span class="path-arrow">→</span>plan<span class="path-arrow">→</span>edit<span class="path-arrow">→</span>read<span class="path-arrow">→</span>shell<span class="path-arrow">→</span>shell<span class="path-arrow">→</span>shell<span class="path-arrow">→</span>plan</p>
+          <p>tool surface 小，先 shell 探查、反覆 read/edit 驗證，11 步仍未過。</p>
+        </article>
+        <article class="case-card large">
+          <div class="case-head"><span class="big-tag">c3 hermes / Haiku 4.5</span><strong>0/3</strong></div>
+          <p class="path-line">read<span class="path-arrow">→</span>edit</p>
+          <p>三層 prompt/memory 可讀；起始策略更短，2 步就改完——同樣誤判 convention。</p>
+        </article>
+      </div>
+      <div class="thinking-reveal">
+        <span class="tr-label">擷取到的 thinking 揭露失敗原因（pass/fail 與 tool path 都看不到）</span>
+        <div class="tr-grid">
+          <div><strong>hidden grader 期望</strong><code>format_amount(-12.5) == "$-12.50"</code></div>
+          <div><strong>OpenCode 的 thinking（proxy 擷取）</strong><p>選定 <code>-$12.50</code> 慣例，再用「只測正數」的可見測試自我驗證、宣告完成 → 慣例選錯，0/3。原因只在擷取到的 reasoning 裡看得到。</p></div>
+        </div>
+      </div>
+    
+      </div>
+    </section>
+
+    <section class="slide light" data-screen-label="24 RQ4 Agent Card">
+      <div class="page-top">
+        <span>工具路徑歸因研究</span>
+        <span>24 / 28</span>
+      </div>
+      <div class="slide-body ">
+        
+      
+    <div>
+      <p class="kicker">RQ4：Agent-card 五維</p>
+      <h1 class="title">Agent-card：五維 descriptive proxy（附 caveat）</h1>
+      <p class="lead">fidelity、stability、robustness、actionability、governability 都是此 suite 的 descriptive proxy；其中 actionability/governability 目前是 coverage gate，不能讀成能力排名。</p>
+    </div>
+      <div class="split">
+        <div class="chart-panel"><img class="chart-img contain" src="assets/charts/agent-card-matrix.svg" alt="Agent card matrix chart" /></div>
+        <div class="agent-proxy-list">
+    <article>
+      <h3>c1 Claude Code / Haiku</h3>
+      <div class="proxy-metrics">
+        <span class="proxy-metric"><em>Fid.</em><strong>80.0%</strong></span>
+        <span class="proxy-metric"><em>Stab.</em><strong>78.1%</strong></span>
+        <span class="proxy-metric"><em>Rob.</em><strong>25.0%</strong></span>
+      </div>
+      <p>0–1 描述性 proxy</p>
+    </article><article>
+      <h3>c2 OpenCode / Haiku</h3>
+      <div class="proxy-metrics">
+        <span class="proxy-metric"><em>Fid.</em><strong>80.0%</strong></span>
+        <span class="proxy-metric"><em>Stab.</em><strong>79.9%</strong></span>
+        <span class="proxy-metric"><em>Rob.</em><strong>25.0%</strong></span>
+      </div>
+      <p>0–1 描述性 proxy</p>
+    </article><article>
+      <h3>c3 Hermes / Haiku</h3>
+      <div class="proxy-metrics">
+        <span class="proxy-metric"><em>Fid.</em><strong>83.3%</strong></span>
+        <span class="proxy-metric"><em>Stab.</em><strong>81.7%</strong></span>
+        <span class="proxy-metric"><em>Rob.</em><strong>41.7%</strong></span>
+      </div>
+      <p>0–1 描述性 proxy</p>
+    </article><article>
+      <h3>c4 OpenCode / GPT-mini</h3>
+      <div class="proxy-metrics">
+        <span class="proxy-metric"><em>Fid.</em><strong>85.0%</strong></span>
+        <span class="proxy-metric"><em>Stab.</em><strong>78.6%</strong></span>
+        <span class="proxy-metric"><em>Rob.</em><strong>66.7%</strong></span>
+      </div>
+      <p>0–1 描述性 proxy</p>
+    </article><article>
+      <h3>c5 Hermes / GPT-mini</h3>
+      <div class="proxy-metrics">
+        <span class="proxy-metric"><em>Fid.</em><strong>76.7%</strong></span>
+        <span class="proxy-metric"><em>Stab.</em><strong>85.7%</strong></span>
+        <span class="proxy-metric"><em>Rob.</em><strong>25.0%</strong></span>
+      </div>
+      <p>0–1 描述性 proxy</p>
+    </article><article>
+      <h3>c6 Codex / GPT-mini</h3>
+      <div class="proxy-metrics">
+        <span class="proxy-metric"><em>Fid.</em><strong>86.7%</strong></span>
+        <span class="proxy-metric"><em>Stab.</em><strong>89.6%</strong></span>
+        <span class="proxy-metric"><em>Rob.</em><strong>50.0%</strong></span>
+      </div>
+      <p>0–1 描述性 proxy</p>
+    </article>
+  </div>
+      </div>
+    
+      </div>
+    </section>
+
+    <section class="slide light" data-screen-label="25 Action Map">
+      <div class="page-top">
+        <span>工具路徑歸因研究</span>
+        <span>25 / 28</span>
+      </div>
+      <div class="slide-body ">
+        
+      
+    <div>
+      <p class="kicker">從歸因到行動</p>
+      <h1 class="title">歸因結果要落到可操作的揭露與檢查</h1>
+      <p class="lead">治理重點從「報一個分數」轉向「保留 evidence path、標準化初始探索、分流高風險任務、給 agent-card confidence」。</p>
+    </div>
+      <table class="od-table action">
+    <thead><tr><th>歸因發現</th><th>治理動作</th></tr></thead>
+    <tbody><tr><td>成功相同時，tool path 仍會分岔</td><td>揭露 evidence path，避免只報 pass/fail。</td></tr><tr><td>first-tool strategy 隨 harness 改變</td><td>治理情境要揭露或標準化初始探索 affordance。</td></tr><tr><td>benchmark failure 會按 task category 聚集</td><td>高風險 task class 分流，並要求 replay inspection。</td></tr><tr><td>M1–M4 agreement 只有部分一致</td><td>agent-card 加上 confidence label 與 caveat。</td></tr></tbody>
+  </table>
+    
+      </div>
+    </section>
+
+    <section class="slide light" data-screen-label="26 Limitations">
+      <div class="page-top">
+        <span>工具路徑歸因研究</span>
+        <span>26 / 28</span>
+      </div>
+      <div class="slide-body ">
+        
+      <div>
+        <p class="kicker">研究限制</p>
+        <h1 class="title tight-title">研究限制：外推、交叉、effort、因果語氣</h1>
+        <p class="lead tight-lead">把外推範圍、交叉設計、effort 對齊與因果語氣四類限制集中列出。</p>
+      </div>
+      <div class="limit-groups">
+    <article class="limit-group g1">
+      <span class="limit-nb">01</span>
+      <h3>外推範圍</h3>
+      <p>本研究只用 20 題 Python suite，結論不外推到所有 coding-agent 工作。</p>
+      <div><span class="pill accent">Python suite</span><span class="pill accent">controlled/benchmark 分流</span><span class="pill accent">專用/通用 harness</span></div>
+    </article><article class="limit-group g2">
+      <span class="limit-nb">02</span>
+      <h3>實驗設計</h3>
+      <p>交互證據有邊界，route 與 effort 也要精準命名。</p>
+      <div><span class="pill warn">anchor 未完全交叉</span><span class="pill warn">model+provider route</span><span class="pill warn">effort 非完全等價</span></div>
+    </article><article class="limit-group g3">
+      <span class="limit-nb">03</span>
+      <h3>證據來源</h3>
+      <p>可見面（prompt、工具面、tool path）支持歸因；Anthropic thinking 已擷取，OpenAI reasoning 加密。</p>
+      <div><span class="pill accent">Anthropic thinking 可讀</span><span class="pill accent">OpenAI reasoning 加密</span><span class="pill accent">Phase 3 高分歧選樣</span></div>
+    </article><article class="limit-group g4">
+      <span class="limit-nb">04</span>
+      <h3>解讀語氣</h3>
+      <p>結果定位為描述性統計與案例歸因，治理卡只負責標示可用邊界。</p>
+      <div><span class="pill accent">agent-card coverage gate</span><span class="pill accent">描述性統計</span><span class="pill accent">HCI 尚未執行</span></div>
+    </article>
+  </div>
+    
+      </div>
+    </section>
+
+    <section class="slide light" data-screen-label="27 Future Work">
+      <div class="page-top">
+        <span>工具路徑歸因研究</span>
+        <span>27 / 28</span>
+      </div>
+      <div class="slide-body ">
+        
+      
+    <div>
+      <p class="kicker">未來展望</p>
+      <h1 class="title">未來工作：擴任務、擴 repo、拆解機制開關</h1>
+      <p class="lead">擴任務、擴 repo，把 /goal、memory、plan mode 拆成可控開關，並讓 agent-card 治理維度更可區分；HCI study 另行建立 human evidence。</p>
+    </div>
+      <table class="od-table future">
+    <thead><tr><th>下一步</th><th>為何重要</th></tr></thead>
+    <tbody><tr><td>完成 XAI deck 後執行 HCI human study</td><td>量測 clarity、trust calibration、verification choice、safety/control 與 cognitive load。</td></tr><tr><td>擴到非 Python 與更大型 repo</td><td>檢查語言、framework、repo size 的 robust 程度。</td></tr><tr><td>拆解 /goal、memory、plan mode 開關</td><td>區分 default harness behavior 與 optional feature 的影響。</td></tr><tr><td>讓 agent-card 治理維度更可區分</td><td>把 coverage gate 換成 visibility、patchability、intervention-support 等指標。</td></tr></tbody>
+  </table>
+    
+      </div>
+    </section>
+
+    <section class="slide light" data-screen-label="28 Closing">
+      <div class="page-top">
+        <span>工具路徑歸因研究</span>
+        <span>28 / 28</span>
+      </div>
+      <div class="slide-body centered">
+        
+      <div class="closing">
+        <p class="kicker">收束</p>
+        <h2>同任務下，harness 與 model route 會系統性改變工具路徑；本研究以 360 條 trace、M1–M4 與 6 組案例重跑，把分歧歸因到 harness、model 或兩者交互。</h2>
+        <div class="closing-grid">
+          <div><strong>01</strong><h3>工具路徑</h3><p>harness 會系統性塑造 tool path。</p></div>
+          <div><strong>02</strong><h3>治理訊號</h3><p>分歧未必等於失敗，治理要看 evidence path。</p></div>
+          <div><strong>03</strong><h3>證據邊界</h3><p>agent-card 可以收束結果，但必須帶 confidence 與 caveat。</p></div>
+        </div>
+      </div>
+    
+      </div>
+    </section>
+  </div>
+  <nav class="deck-counter" role="navigation" aria-label="Deck navigation">
+    <button type="button" id="deck-prev" aria-label="Previous slide">‹</button>
+    <span class="deck-count"><span id="deck-cur">01</span> <span class="total">/ <span id="deck-total">28</span></span></span>
+    <button type="button" id="deck-next" aria-label="Next slide">›</button>
+  </nav>
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+      var prev = document.getElementById('deck-prev');
+      var next = document.getElementById('deck-next');
+      var cur = document.getElementById('deck-cur');
+      var total = document.getElementById('deck-total');
+      var idx = 0;
+      function fit() {
+        var sw = window.innerWidth;
+        var sh = window.innerHeight;
+        if (sw <= 0 || sh <= 0) return;
+        var pad = 24;
+        var s = Math.min((sw - pad) / 1920, (sh - pad) / 1080);
+        if (!isFinite(s) || s <= 0) s = 1;
+        root.style.setProperty('--deck-scale', String(s));
+      }
+      function pad2(n) { return (n < 10 ? '0' : '') + n; }
+      function paint() {
+        slides.forEach(function (el, i) { el.classList.toggle('active', i === idx); });
+        if (cur) cur.textContent = pad2(idx + 1);
+        if (total) total.textContent = pad2(slides.length);
+        if (prev) prev.toggleAttribute('disabled', idx <= 0);
+        if (next) next.toggleAttribute('disabled', idx >= slides.length - 1);
+      }
+      function go(i) {
+        idx = Math.max(0, Math.min(slides.length - 1, i));
+        paint();
+      }
+      function onKey(e) {
+        if (e.__deckHandled) return;
+        e.__deckHandled = true;
+        var t = e.target;
+        if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable)) return;
+        if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') { e.preventDefault(); go(idx + 1); }
+        else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); go(idx - 1); }
+        else if (e.key === 'Home') { e.preventDefault(); go(0); }
+        else if (e.key === 'End') { e.preventDefault(); go(slides.length - 1); }
+      }
+      window.addEventListener('keydown', onKey, true);
+      document.addEventListener('keydown', onKey, true);
+      if (prev) prev.addEventListener('click', function () { go(idx - 1); });
+      if (next) next.addEventListener('click', function () { go(idx + 1); });
+      document.body.setAttribute('tabindex', '-1');
+      document.body.style.outline = 'none';
+      function focusDeck() { try { window.focus(); document.body.focus({ preventScroll: true }); } catch (_) {} }
+      document.addEventListener('mousedown', focusDeck);
+      window.addEventListener('load', focusDeck);
+      window.addEventListener('resize', fit);
+      if (typeof ResizeObserver === 'function') {
+        try { new ResizeObserver(fit).observe(document.documentElement); } catch (_) {}
+      }
+      fit();
+      paint();
+      focusDeck();
+    })();
+  </script>
+</body>
+</html>
