@@ -1,0 +1,5 @@
+harness,vendor,version,openness,white_box_visibility,native_provider
+Claude Code,Anthropic,2.1.88,closed-source CLI,restored source tree (same 2.1.88) + claude-trace API capture,Anthropic native
+Codex CLI,OpenAI,0.136.0,Node wrapper + native Rust core,observable black box (CLI help / session JSONL / trace),OpenAI native
+OpenCode,opencode-ai,1.15.13,npm layer readable + native aarch64 core,metadata + session export (full prompt not exposed),multi-provider
+Hermes,Nous Research,0.13.0,open-source Python,full source readable,multi-provider

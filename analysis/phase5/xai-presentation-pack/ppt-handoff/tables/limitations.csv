@@ -1,0 +1,13 @@
+limitation,consequence,slide
+20-task Python suite only,Do not generalize to all coding-agent work.,25
+Benchmark and controlled tasks differ,Interpret low benchmark success separately.,25
+Specialized and general-purpose harnesses are mixed,"Hermes is not coding-specialized in the same way Claude Code/Codex are, so comparisons need caveats.",25
+Anchor cells are not fully crossed,Interaction claims use OpenCode/Hermes overlap only.,19
+Model effect includes provider route,"Haiku uses Anthropic and GPT-mini uses OpenAI, so model contrasts are model+provider-route contrasts.",25
+Reasoning effort is aligned only within each harness' controls,"High effort is not a perfectly equivalent knob across Claude Code, OpenCode, Hermes, and Codex.",25
+Phase 3 labels are selected high-divergence cases,"They support explanation, not prevalence estimates.",21
+M1/M2 are not uniform runtime ablations,"They use source, dossier, captured prompt, and tool-surface evidence according to each harness' visibility.",25
+Hidden chain-of-thought omitted,"Trace evidence uses visible tool path, prompts, metadata, and replay refs.",3
+Agent-card actionability/governability are coverage gates,Current all-1.0 values should not be treated as discriminative capability rankings.,23
+Correlation and factorial summaries are descriptive,They do not prove broad causal independence or general agent quality.,20
+No HCI human responses yet,Trust/clarity/calibration claims wait for HCI phase.,25

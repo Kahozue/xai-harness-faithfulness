@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="538.92pt" height="191.808pt" viewBox="0 0 538.92 191.808" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.9, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 191.808
+L 538.92 191.808
+L 538.92 0
+L 0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 21.88656 114.709248
+L 170.85024 114.709248
+Q 181.34064 114.709248 181.34064 112.935168
+L 181.34064 61.132032
+Q 181.34064 59.357952 170.85024 59.357952
+L 21.88656 59.357952
+Q 11.39616 59.357952 11.39616 61.132032
+L 11.39616 112.935168
+Q 11.39616 114.709248 21.88656 114.709248
+z
+" clip-path="url(#p928308741a)" style="fill: #f4f7fa; stroke: #c8d3e0; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 193.92912 114.709248
+L 342.8928 114.709248
+Q 353.3832 114.709248 353.3832 112.935168
+L 353.3832 61.132032
+Q 353.3832 59.357952 342.8928 59.357952
+L 193.92912 59.357952
+Q 183.43872 59.357952 183.43872 61.132032
+L 183.43872 112.935168
+Q 183.43872 114.709248 193.92912 114.709248
+z
+" clip-path="url(#p928308741a)" style="fill: #f4f7fa; stroke: #c8d3e0; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 365.97168 114.709248
+L 514.93536 114.709248
+Q 525.42576 114.709248 525.42576 112.935168
+L 525.42576 61.132032
+Q 525.42576 59.357952 514.93536 59.357952
+L 365.97168 59.357952
+Q 355.48128 59.357952 355.48128 61.132032
+L 355.48128 112.935168
+Q 355.48128 114.709248 365.97168 114.709248
+z
+" clip-path="url(#p928308741a)" style="fill: #f4f7fa; stroke: #c8d3e0; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 21.88656 178.576128
+L 170.85024 178.576128
+Q 181.34064 178.576128 181.34064 176.802048
+L 181.34064 124.998912
+Q 181.34064 123.224832 170.85024 123.224832
+L 21.88656 123.224832
+Q 11.39616 123.224832 11.39616 124.998912
+L 11.39616 176.802048
+Q 11.39616 178.576128 21.88656 178.576128
+z
+" clip-path="url(#p928308741a)" style="fill: #f4f7fa; stroke: #c8d3e0; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 193.92912 178.576128
+L 342.8928 178.576128
+Q 353.3832 178.576128 353.3832 176.802048
+L 353.3832 124.998912
+Q 353.3832 123.224832 342.8928 123.224832
+L 193.92912 123.224832
+Q 183.43872 123.224832 183.43872 124.998912
+L 183.43872 176.802048
+Q 183.43872 178.576128 193.92912 178.576128
+z
+" clip-path="url(#p928308741a)" style="fill: #f4f7fa; stroke: #c8d3e0; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="7.2" y="19.61856" transform="rotate(-0 7.2 19.61856)">Normalized trace schema</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 9.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #5a6573" x="7.2" y="37.35936" transform="rotate(-0 7.2 37.35936)">Four harnesses become comparable through one sanitized JSON shape.</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 10.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="27.13176" y="78.518016" transform="rotate(-0 27.13176 78.518016)">identity</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 8.2px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #5a6573" x="27.13176" y="95.549184" transform="rotate(-0 27.13176 95.549184)">config_id · harness · model · task</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 8.2px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #5a6573" x="27.13176" y="113.289984" transform="rotate(-0 27.13176 113.289984)">· repeat</text>
+   </g>
+   <g id="text_6">
+    <text style="font-weight: 700; font-size: 10.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="199.17432" y="78.518016" transform="rotate(-0 199.17432 78.518016)">tool path</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 8.2px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #5a6573" x="199.17432" y="95.549184" transform="rotate(-0 199.17432 95.549184)">tool_calls · turns · wall_time_s</text>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 10.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="371.21688" y="78.518016" transform="rotate(-0 371.21688 78.518016)">outcome</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 8.2px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #5a6573" x="371.21688" y="95.549184" transform="rotate(-0 371.21688 95.549184)">success · grader_detail · final</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 8.2px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #5a6573" x="371.21688" y="113.289984" transform="rotate(-0 371.21688 113.289984)">diff</text>
+   </g>
+   <g id="text_11">
+    <text style="font-weight: 700; font-size: 10.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="27.13176" y="142.384896" transform="rotate(-0 27.13176 142.384896)">replay refs</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 8.2px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #5a6573" x="27.13176" y="159.416064" transform="rotate(-0 27.13176 159.416064)">raw_log_path · private_audit_path</text>
+   </g>
+   <g id="text_13">
+    <text style="font-weight: 700; font-size: 10.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="199.17432" y="142.384896" transform="rotate(-0 199.17432 142.384896)">boundary</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 8.2px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #5a6573" x="199.17432" y="159.416064" transform="rotate(-0 199.17432 159.416064)">runtime_budget · hidden CoT</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 8.2px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #5a6573" x="199.17432" y="177.156864" transform="rotate(-0 199.17432 177.156864)">omitted</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p928308741a">
+   <rect x="7.2" y="7.2" width="524.52" height="177.408"/>
+  </clipPath>
+ </defs>
+</svg>

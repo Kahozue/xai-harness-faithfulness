@@ -1,0 +1,10 @@
+decision,reason,slide
+Use formal repeats 1-3 only,Avoid pilot/counterfactual leakage into baseline statistics.,16
+Separate controlled and benchmark tasks,Benchmark rows have much lower success and different provenance.,17
+Use OpenCode/Hermes as crossed interaction cells,"Claude Code and Codex are anchor cells, not fully crossed across both models.",19
+Use M1-M4 instead of success-only scoring,Success cannot identify prompt/tool/model interaction causes.,6
+Keep HCI human study out of XAI deck,"Phase 4 metrics are evidence materials, not human response data.",25
+Use the 27-slide content draft as the only canonical deck basis,The old 24-slide HTML deck is deprecated and should not drive PPT production.,1
+Exclude Antigravity CLI,Its release timing and harness maturity would add unstable variables to this baseline.,9
+Avoid reverse-proxy route rewriting,Official route behavior is part of each agent product; translation layers would add format confounds.,9
+Use Aider/Exercism Python benchmarks instead of SWE-bench Verified,"They are provenance-backed, runnable on the aarch64 host, and better aligned with tool-path divergence analysis.",9

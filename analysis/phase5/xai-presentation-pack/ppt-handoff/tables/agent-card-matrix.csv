@@ -1,0 +1,7 @@
+config_id,config_label,harness,model_role,model_snapshot,dimension_scale,actionability,fidelity,governability,robustness,stability
+1,c1 Claude Code / Haiku,claude_code,haiku,claude-haiku-4-5-20251001,0-1; descriptive proxies for this controlled suite only,1.0,0.8,1.0,0.25,0.780874
+2,c2 OpenCode / Haiku,opencode,haiku,claude-haiku-4-5-20251001,0-1; descriptive proxies for this controlled suite only,1.0,0.8,1.0,0.25,0.798965
+3,c3 Hermes / Haiku,hermes,haiku,claude-haiku-4-5-20251001,0-1; descriptive proxies for this controlled suite only,1.0,0.833333,1.0,0.416667,0.817331
+4,c4 OpenCode / GPT-mini,opencode,gptmini,gpt-5.4-mini-2026-03-17,0-1; descriptive proxies for this controlled suite only,1.0,0.85,1.0,0.666667,0.786065
+5,c5 Hermes / GPT-mini,hermes,gptmini,gpt-5.4-mini-2026-03-17,0-1; descriptive proxies for this controlled suite only,1.0,0.766667,1.0,0.25,0.856735
+6,c6 Codex / GPT-mini,codex,gptmini,gpt-5.4-mini-2026-03-17,0-1; descriptive proxies for this controlled suite only,1.0,0.866667,1.0,0.5,0.896479

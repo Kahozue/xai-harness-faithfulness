@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="516.6pt" height="269.424pt" viewBox="0 0 516.6 269.424" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.9, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 269.424
+L 516.6 269.424
+L 516.6 0
+L 0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 21.2616 248.452704
+L 244.2384 248.452704
+Q 254.2824 248.452704 254.2824 245.902464
+L 254.2824 79.626816
+Q 254.2824 77.076576 244.2384 77.076576
+L 21.2616 77.076576
+Q 11.2176 77.076576 11.2176 79.626816
+L 11.2176 245.902464
+Q 11.2176 248.452704 21.2616 248.452704
+z
+" clip-path="url(#p9f80d76a4f)" style="fill: #f6f8fb; stroke: #cdd8e4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 272.3616 248.452704
+L 495.3384 248.452704
+Q 505.3824 248.452704 505.3824 245.902464
+L 505.3824 79.626816
+Q 505.3824 77.076576 495.3384 77.076576
+L 272.3616 77.076576
+Q 262.3176 77.076576 262.3176 79.626816
+L 262.3176 245.902464
+Q 262.3176 248.452704 272.3616 248.452704
+z
+" clip-path="url(#p9f80d76a4f)" style="fill: #f6f8fb; stroke: #cdd8e4; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="7.2" y="19.9512" transform="rotate(-0 7.2 19.9512)">Case 1: addtests-t2-04 · harness main effect</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 9.2px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #5a6573" x="7.2" y="42.90336" transform="rotate(-0 7.2 42.90336)">initial tool strategy · high confidence · M1–M4 agreement 4/4</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 10.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="27.288" y="93.90816" transform="rotate(-0 27.288 93.90816)">Left: c2 opencode</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 8.4px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #5a6573" x="27.288" y="109.2096" transform="rotate(-0 27.288 109.2096)">claude-haiku-4-5-20251001</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 9.2px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="27.288" y="129.61152" transform="rotate(-0 27.288 129.61152)">Outcome: 3/3 successful repeats</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 8.4px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #5a6573" x="27.288" y="147.4632" transform="rotate(-0 27.288 147.4632)">Dominant tool-family path</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 8.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #1a1a1a" x="27.288" y="162.76464" transform="rotate(-0 27.288 162.76464)">read → shell → read → read → plan → edit</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 8.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #1a1a1a" x="27.288" y="176.79096" transform="rotate(-0 27.288 176.79096)">→ shell → shell → plan</text>
+   </g>
+   <g id="text_9">
+    <text style="font-weight: 700; font-size: 10.5px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="278.388" y="93.90816" transform="rotate(-0 278.388 93.90816)">Right: c3 hermes</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 8.4px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #5a6573" x="278.388" y="109.2096" transform="rotate(-0 278.388 109.2096)">claude-haiku-4-5-20251001</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 9.2px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="278.388" y="129.61152" transform="rotate(-0 278.388 129.61152)">Outcome: 3/3 successful repeats</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 8.4px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #5a6573" x="278.388" y="147.4632" transform="rotate(-0 278.388 147.4632)">Dominant tool-family path</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 8.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #1a1a1a" x="278.388" y="162.76464" transform="rotate(-0 278.388 162.76464)">read → search → edit</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p9f80d76a4f">
+   <rect x="7.2" y="7.2" width="502.2" height="255.024"/>
+  </clipPath>
+ </defs>
+</svg>

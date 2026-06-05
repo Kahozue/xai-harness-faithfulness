@@ -1,0 +1,5 @@
+harness,system_prompt_scale,tool_count_and_kind,planning_style,memory_mechanism
+Claude Code,~4 blocks / ~26.8k chars (carries 23 tool defs),22-23 named rich tools (Read/Edit/Bash/Glob/Grep/TodoWrite/Write/...),query loop + plan-mode tools (EnterPlanMode/ExitPlanMode),directory auto-memory (MEMORY.md) + in-conversation state
+Codex CLI,layered base instructions (opens "You are Codex..."),2 agent tools (exec_command / apply_patch),inline commentary micro-plan,sqlite memory DBs (memories/goals/state)
+OpenCode,full prompt not exposed (metadata + permission policy only),4 tools (glob / read / edit / apply_patch),step_start -> step_finish narration,sqlite session/part store
+Hermes,3 tiers stable/context/volatile (~3.5k chars Haiku / ~7k chars GPT-mini),18 tools toolset-filtered (incl. search_files / patch / execute_code),3-tier prompt + tool loop,curated frozen snapshot (MEMORY.md/USER.md) + external memory provider + context compression (richest)
