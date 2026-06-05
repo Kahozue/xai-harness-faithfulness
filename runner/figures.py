@@ -48,6 +48,31 @@ SEQ = "Blues"
 CFG_LABEL = {1: "c1 Claude Code", 2: "c2 OpenCode", 3: "c3 Hermes",
              4: "c4 OpenCode", 5: "c5 Hermes", 6: "c6 Codex"}
 
+# Backfilled to match the 2026-06-05 thinking-capture correction.
+CORRECTED_RUNTIME_BUDGET = {
+    1: {"max_output_tokens": 64000, "thinking_budget_tokens": 63999, "context_window_tokens": 200000},
+    2: {"max_output_tokens": 64000, "thinking_budget_tokens": 16000, "context_window_tokens": 200000},
+    3: {"max_output_tokens": 64000, "thinking_budget_tokens": 16000, "context_window_tokens": 200000},
+    4: {"max_output_tokens": 128000, "thinking_budget_tokens": None, "context_window_tokens": 400000},
+    5: {"max_output_tokens": 128000, "thinking_budget_tokens": None, "context_window_tokens": 400000},
+    6: {"max_output_tokens": None, "thinking_budget_tokens": None, "context_window_tokens": 258400},
+}
+
+
+def _runtime_budget(c: dict[str, Any]) -> dict[str, Any]:
+    variants = c.get("runtime_budget_variants") or []
+    budget = ((variants[0] if variants else {}) or {}).get("budget") or {}
+    corrected = CORRECTED_RUNTIME_BUDGET.get(int(c["config_id"]), {})
+    return {
+        "max_output_tokens": corrected.get("max_output_tokens", budget.get("max_output_tokens")),
+        "thinking_budget_tokens": corrected.get("thinking_budget_tokens", budget.get("thinking_budget_tokens")),
+        "context_window_tokens": corrected.get("context_window_tokens", budget.get("context_window_tokens")),
+    }
+
+
+def _token_text(value: Any, suffix: str = "") -> str:
+    return "n/a" if value is None else f"{value}{suffix}"
+
 
 def _setup() -> None:
     plt.rcParams.update({
@@ -589,13 +614,29 @@ def fig_environment_controls(m) -> None:
     for c in cfgs:
         ver = ", ".join(c.get("harness_versions_observed", []))[:22]
         eff = ", ".join(c.get("reasoning_efforts_observed", []))
-        rows.append([f"c{c['config_id']}", c["harness"], c["model_role"], c["provider"], ver, eff, str(c["n"])])
-    cols = ["Config", "Harness", "Model", "Provider", "Version", "Effort", "n"]
-    fig, ax = _blank((9.6, 3.0))
+        budget = _runtime_budget(c)
+        thinking_suffix = "*" if int(c["config_id"]) == 3 else ""
+        rows.append([
+            f"c{c['config_id']}",
+            c["harness"],
+            f"{c['model_role']}/{c['provider']}",
+            ver,
+            eff,
+            _token_text(budget["max_output_tokens"]),
+            _token_text(budget["thinking_budget_tokens"], thinking_suffix),
+            _token_text(budget["context_window_tokens"]),
+            str(c["n"]),
+        ])
+    cols = ["Config", "Harness", "Model/provider", "Version", "Effort", "Output", "Thinking", "Context", "n"]
+    fig, ax = _blank((10.8, 3.4))
     ax.text(0.0, 0.95, "Environment locks per config", fontsize=13, fontweight="bold", color=INK)
-    tb = ax.table(cellText=rows, colLabels=cols, loc="center", cellLoc="left", bbox=[0, 0, 1, 0.82])
+    ax.text(0.0, 0.88, "Output, thinking, and context budgets are corrected to the repeat-11 Hermes proxy rerun baseline.",
+            fontsize=9.2, color="#5a6573")
+    tb = ax.table(cellText=rows, colLabels=cols, loc="center", cellLoc="left",
+                  colWidths=[0.055, 0.13, 0.16, 0.11, 0.075, 0.10, 0.105, 0.105, 0.05],
+                  bbox=[0, 0.12, 0.96, 0.70])
     tb.auto_set_font_size(False)
-    tb.set_fontsize(9)
+    tb.set_fontsize(7.8)
     for (r, c), cell in tb.get_celld().items():
         cell.set_edgecolor("#dde3ea")
         cell.set_linewidth(0.8)
@@ -604,6 +645,8 @@ def fig_environment_controls(m) -> None:
             cell.set_text_props(color="white", fontweight="bold")
         else:
             cell.set_facecolor("#ffffff" if r % 2 else "#f5f8fb")
+    ax.text(0.0, 0.04, "* c3 Hermes/Haiku native request omitted extended thinking; 16000 is the forced proxy rerun baseline.",
+            fontsize=8.3, color="#5a6573")
     _save(fig, PACK_CHARTS, "environment-controls-matrix.svg")
 
 

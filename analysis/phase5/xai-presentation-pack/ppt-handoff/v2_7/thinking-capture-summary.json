@@ -1,0 +1,70 @@
+{
+  "generated": "2026-06-05",
+  "purpose": "Corrected model-reasoning (thinking/CoT) baseline for the Haiku configs. Hermes/Haiku native did not request Anthropic extended thinking, so v2_7 treats that native 0 as a control failure and uses the forced proxy rerun as the c3 thinking baseline. Full raw thinking is kept private on the VPS (/data/harness-lab/thinking-capture/, not committed); this summary is the public/pack-level artifact.",
+  "method": "Logging reverse-proxy on the Anthropic endpoint captures the full request + SSE response (including thinking blocks). Production Hermes source was never touched; Hermes extended thinking was enabled via proxy-side request injection (thinking budget 16000, temperature=1). OpenCode used repeat 10; Hermes corrected thinking baseline uses repeat 11. Formal behavior traces (repeats 1-3) remain separate.",
+  "captured": {
+    "claude_code_haiku": {
+      "thinking_budget": 63999,
+      "source": "claude-trace (already in baseline raw)",
+      "verdict": "ALREADY CAPTURED. Full signed thinking blocks sit in /data/harness-lab/runs/1/.../raw/log-*.jsonl. The v2 deck's 'hidden CoT omitted' was a wording/policy gap, not a capture failure."
+    },
+    "opencode_haiku": {
+      "thinking_budget": 16000,
+      "repeat": 10,
+      "tasks_with_thinking": 20,
+      "total_chars": 97560,
+      "verdict": "CAPTURABLE, was not captured before. The prior run used `opencode export`, which strips thinking. The logging proxy captured all 20 tasks."
+    },
+    "hermes_haiku_native_diagnostic_failure": {
+      "thinking_budget": 0,
+      "verdict": "CONTROL FAILURE / DIAGNOSTIC ONLY. Hermes native did not enable Anthropic extended thinking (reasoning_effort:high only wires OpenAI); its request carried no `thinking` field, so Anthropic returned no thinking blocks. v2_7 no longer treats this as the c3 thinking baseline."
+    },
+    "hermes_haiku_corrected_baseline": {
+      "thinking_budget": 16000,
+      "repeat": 11,
+      "tasks_with_thinking": 20,
+      "total_chars": 6393,
+      "verdict": "CORRECTED BASELINE. After forcing Anthropic extended thinking on via proxy injection, Hermes reasoning is capturable but thin (~first turn only; Hermes does not preserve thinking blocks across tool turns)."
+    }
+  },
+  "openai_gpt54mini_configs_4_5_6": {
+    "raw_cot": "encrypted (encrypted_content blobs ~1000-3200 chars, not decodable)",
+    "plaintext_available": "reasoning summary + token counts only",
+    "verdict": "GENUINELY NOT OBTAINABLE. OpenAI encrypts the raw reasoning; only a short plaintext summary is returned (sampled below).",
+    "summary_samples": [
+      "**Editing the repository**: I need to edit a file, which means I'll start by inspecting the repository... I'll probably use the search_files function to locate the specific file I want to change.",
+      "**Reading the file**: I need to access the file now. It's essential to gather the content and understand what information is inside..."
+    ]
+  },
+  "non_uniform_effort_finding": {
+    "claim_in_v2": "all configs ran at effort=high (uniform)",
+    "reality": "Anthropic thinking budgets in the corrected baseline differ: Claude Code 63999, OpenCode 16000, Hermes forced rerun 16000. Hermes native 0 is retained only as a failed-control diagnostic.",
+    "supports": "slide 11 boundary; slide 25/26 'effort 非完全等價'."
+  },
+  "xai_c03_case_finding": {
+    "task": "bugfix-t2-03",
+    "decision_kind": "semantic_output_convention",
+    "factorial_label": "interaction (M1-M4 4/4)",
+    "grader_expects": "format_amount(-12.5) == \"$-12.50\"  (sign AFTER the $)",
+    "opencode_chose": "-$12.50  (sign BEFORE the $)",
+    "opencode_reasoning_excerpt": "...负数：保留负号和 $ 符号，格式为 -$1,234.50 ✓ ... 完美！修复成功了。现在所有的测试都通过了 ...",
+    "takeaway": "OpenCode committed to the wrong output convention and self-'verified' against the visible test (which only checks positives), declaring success. The failure cause is visible ONLY in the captured reasoning, not in pass/fail or the tool path. This is the core XAI argument that reasoning capture adds over success-only scoring."
+  },
+  "per_task_thinking_chars": {
+    "opencode_haiku_repeat10": {
+      "addlog-t2-01": 2101, "addlog-t2-02": 3978, "addlog-t2-03": 572, "addlog-t2-04": 4215,
+      "addtests-t2-01": 3590, "addtests-t2-02": 2561, "addtests-t2-03": 3111, "addtests-t2-04": 3142,
+      "bench-bottle-song": 6656, "bench-grade-school": 10235, "bench-phone-number": 11252, "bench-pig-latin": 3916,
+      "bugfix-t2-01": 4065, "bugfix-t2-02": 6012, "bugfix-t2-03": 8580, "bugfix-t2-04": 978,
+      "rename-t2-01": 9940, "rename-t2-02": 3508, "rename-t2-03": 5839, "rename-t2-04": 3309
+    },
+    "hermes_haiku_forced_repeat11": {
+      "addlog-t2-01": 231, "addlog-t2-02": 225, "addlog-t2-03": 190, "addlog-t2-04": 185,
+      "addtests-t2-01": 264, "addtests-t2-02": 179, "addtests-t2-03": 219, "addtests-t2-04": 297,
+      "bench-bottle-song": 333, "bench-grade-school": 883, "bench-phone-number": 1133, "bench-pig-latin": 348,
+      "bugfix-t2-01": 171, "bugfix-t2-02": 143, "bugfix-t2-03": 435, "bugfix-t2-04": 171,
+      "rename-t2-01": 204, "rename-t2-02": 205, "rename-t2-03": 336, "rename-t2-04": 241
+    }
+  },
+  "private_artifacts_on_vps": "/data/harness-lab/thinking-capture/{2,3}/<task>.txt (full reconstructed thinking, NOT committed); proxy flows at /data/harness-lab/proxy/logs/."
+}

@@ -1,12 +1,21 @@
 # PPT 製作交付包（handoff）
 
-給 AI 簡報工具用的完整素材包。內容對應唯一基準稿 `content-outline.md`（= 27 頁 v3），所有圖表/資料檔名與該稿一致。
+本目錄的唯一正確簡報來源是 `v2_7/`。舊版 HTML deck 已從 GitHub 移除，避免把中間修正版誤當成最終稿。
+
+Canonical deck:
+- `v2_7/xAI-faithfulness-harness-v2_7.html`
+- `v2_7/build-v2_7.mjs`
+- `v2_7/MANIFEST-v2_7.md`
+- `v2_7/preview/slide-01.png` 到 `v2_7/preview/slide-28.png`
+
+`content-outline.md` 保留為早期素材索引，不再作為簡報文字的唯一來源。
 
 ## 資料夾
-- `content-outline.md` — 唯一內容來源（27 頁逐頁講稿 + 每頁圖表 + 理由）。
+- `content-outline.md` — 早期 27 頁素材索引，僅供查表與追溯。
 - `charts/` — 21 張向量圖（SVG，matplotlib publication 風格；含 phase4 5 張）。
 - `tables/` — 14 個資料表（CSV）。
 - `screenshots/` — 2 張真實去敏截圖（PNG）。
+- `v2_7/` — 最終 HTML deck、生成程式、copied assets、28 張 preview。
 
 ## headline 數字（給標題/big-stat 用）
 - formal traces：360（6 config × 20 task × 3 repeat）；整體成功率 295/360 = 81.9%。

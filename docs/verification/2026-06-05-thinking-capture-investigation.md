@@ -33,8 +33,10 @@ into the request at the proxy. Re-runs used repeat indices 10/11 so the formal
 ## Non-uniform effort
 
 The deck's "all configs at high effort" is not uniform on the Anthropic path:
-actual thinking budgets sent were Claude Code 63999, OpenCode 16000, Hermes 0.
-This supports the "effort is not perfectly equivalent across harnesses" caveat.
+actual thinking budgets in the corrected baseline are Claude Code 63999,
+OpenCode 16000, and Hermes forced-proxy 16000. The Hermes native 0 result is
+kept only as a failed-control diagnostic. This supports the "effort is not
+perfectly equivalent across harnesses" caveat.
 
 ## XAI-C03 case (bugfix-t2-03)
 
@@ -49,8 +51,8 @@ visible only in the captured reasoning, not in pass/fail or the tool path.
 - Full reconstructed thinking (private, not committed):
   `/data/harness-lab/thinking-capture/{2,3}/<task>.txt`.
 - Pack-level summary (committed):
-  `analysis/phase5/xai-presentation-pack/ppt-handoff/v2_5/thinking-capture-summary.json`.
-- Deck reflecting these facts: slide 3 boundary, slide 11 Thinking column / boundary,
+  `analysis/phase5/xai-presentation-pack/ppt-handoff/v2_7/thinking-capture-summary.json`.
+- Deck reflecting these facts: slide 3 provider visibility, slide 11 Thinking column,
   slide 23 (XAI-C03) captured-thinking reveal.
 
 ## Baseline integrity
