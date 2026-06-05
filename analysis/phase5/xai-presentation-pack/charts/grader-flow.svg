@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="583.56pt" height="175.176pt" viewBox="0 0 583.56 175.176" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.9, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 175.176
+L 583.56 175.176
+L 583.56 0
+L 0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 23.13648 120.707856
+L 110.78712 120.707856
+Q 122.17032 120.707856 122.17032 119.100096
+L 122.17032 52.860384
+Q 122.17032 51.252624 110.78712 51.252624
+L 23.13648 51.252624
+Q 11.75328 51.252624 11.75328 52.860384
+L 11.75328 119.100096
+Q 11.75328 120.707856 23.13648 120.707856
+z
+" clip-path="url(#pa9666711f8)" style="fill: #eef2f7; stroke: #c4d0de; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 119.046749 85.98024
+Q 123.024743 85.98024 125.43749 85.98024
+" clip-path="url(#pa9666711f8)" style="fill: none; stroke: #8794a3; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 120.63749 83.58024
+L 125.43749 85.98024
+L 120.63749 88.38024
+z
+" clip-path="url(#pa9666711f8)" style="fill: #8794a3; stroke: #8794a3; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 135.261 120.707856
+L 222.91164 120.707856
+Q 234.29484 120.707856 234.29484 119.100096
+L 234.29484 52.860384
+Q 234.29484 51.252624 222.91164 51.252624
+L 135.261 51.252624
+Q 123.8778 51.252624 123.8778 52.860384
+L 123.8778 119.100096
+Q 123.8778 120.707856 135.261 120.707856
+z
+" clip-path="url(#pa9666711f8)" style="fill: #eef2f7; stroke: #c4d0de; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 231.171269 85.98024
+Q 235.149263 85.98024 237.56201 85.98024
+" clip-path="url(#pa9666711f8)" style="fill: none; stroke: #8794a3; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 232.76201 83.58024
+L 237.56201 85.98024
+L 232.76201 88.38024
+z
+" clip-path="url(#pa9666711f8)" style="fill: #8794a3; stroke: #8794a3; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 247.38552 120.707856
+L 335.03616 120.707856
+Q 346.41936 120.707856 346.41936 119.100096
+L 346.41936 52.860384
+Q 346.41936 51.252624 335.03616 51.252624
+L 247.38552 51.252624
+Q 236.00232 51.252624 236.00232 52.860384
+L 236.00232 119.100096
+Q 236.00232 120.707856 247.38552 120.707856
+z
+" clip-path="url(#pa9666711f8)" style="fill: #eef2f7; stroke: #c4d0de; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 343.295789 85.98024
+Q 347.273783 85.98024 349.68653 85.98024
+" clip-path="url(#pa9666711f8)" style="fill: none; stroke: #8794a3; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 344.88653 83.58024
+L 349.68653 85.98024
+L 344.88653 88.38024
+z
+" clip-path="url(#pa9666711f8)" style="fill: #8794a3; stroke: #8794a3; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 359.51004 120.707856
+L 447.16068 120.707856
+Q 458.54388 120.707856 458.54388 119.100096
+L 458.54388 52.860384
+Q 458.54388 51.252624 447.16068 51.252624
+L 359.51004 51.252624
+Q 348.12684 51.252624 348.12684 52.860384
+L 348.12684 119.100096
+Q 348.12684 120.707856 359.51004 120.707856
+z
+" clip-path="url(#pa9666711f8)" style="fill: #eef2f7; stroke: #c4d0de; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 455.420309 85.98024
+Q 459.398303 85.98024 461.81105 85.98024
+" clip-path="url(#pa9666711f8)" style="fill: none; stroke: #8794a3; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 457.01105 83.58024
+L 461.81105 85.98024
+L 457.01105 88.38024
+z
+" clip-path="url(#pa9666711f8)" style="fill: #8794a3; stroke: #8794a3; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 471.63456 120.707856
+L 559.2852 120.707856
+Q 570.6684 120.707856 570.6684 119.100096
+L 570.6684 52.860384
+Q 570.6684 51.252624 559.2852 51.252624
+L 471.63456 51.252624
+Q 460.25136 51.252624 460.25136 52.860384
+L 460.25136 119.100096
+Q 460.25136 120.707856 471.63456 120.707856
+z
+" clip-path="url(#pa9666711f8)" style="fill: #eef2f7; stroke: #c4d0de; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="7.2" y="18.45432" transform="rotate(-0 7.2 18.45432)">Grading — deterministic hidden pytest (no LLM judge)</text>
+   </g>
+   <g id="text_2">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="25.41312" y="69.774019" transform="rotate(-0 25.41312 69.774019)">Hidden test</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 7.6px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #5a6573" x="25.41312" y="88.681277" transform="rotate(-0 25.41312 88.681277)">tasks/graders/&lt;task&gt;_test.py</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 7.6px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #5a6573" x="25.41312" y="106.366637" transform="rotate(-0 25.41312 106.366637)">kept out of workdir</text>
+   </g>
+   <g id="text_5">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="137.53764" y="69.774019" transform="rotate(-0 137.53764 69.774019)">Copy in</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 7.6px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #5a6573" x="137.53764" y="88.681277" transform="rotate(-0 137.53764 88.681277)">as _hidden_grader_test.py</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 7.6px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #5a6573" x="137.53764" y="106.366637" transform="rotate(-0 137.53764 106.366637)">into the run workdir</text>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="249.66216" y="69.774019" transform="rotate(-0 249.66216 69.774019)">Run pytest</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 7.6px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #5a6573" x="249.66216" y="88.681277" transform="rotate(-0 249.66216 88.681277)">python -m pytest -q</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 7.6px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #5a6573" x="249.66216" y="106.366637" transform="rotate(-0 249.66216 106.366637)">(runner venv)</text>
+   </g>
+   <g id="text_11">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="361.78668" y="69.774019" transform="rotate(-0 361.78668 69.774019)">All green?</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 7.6px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #5a6573" x="361.78668" y="88.681277" transform="rotate(-0 361.78668 88.681277)">returncode 0 = pass</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 7.6px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #5a6573" x="361.78668" y="106.366637" transform="rotate(-0 361.78668 106.366637)">else = fail</text>
+   </g>
+   <g id="text_14">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1a1a1a" x="473.9112" y="69.774019" transform="rotate(-0 473.9112 69.774019)">Clean up</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 7.6px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #5a6573" x="473.9112" y="88.681277" transform="rotate(-0 473.9112 88.681277)">delete hidden test</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 7.6px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #5a6573" x="473.9112" y="106.366637" transform="rotate(-0 473.9112 106.366637)">after grading</text>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 8.8px; font-family: 'Helvetica', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #5a6573" x="7.2" y="158.32944" transform="rotate(-0 7.2 158.32944)">Tier 1: Exercism unittest    ·    Tier 2: behavior verifier (property, not patch text)</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pa9666711f8">
+   <rect x="7.2" y="7.2" width="569.16" height="160.776"/>
+  </clipPath>
+ </defs>
+</svg>

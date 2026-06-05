@@ -101,6 +101,20 @@
       "use": "Harness first-action style comparison."
     },
     {
+      "chart_id": "grader-flow",
+      "path": "analysis/phase5/xai-presentation-pack/charts/grader-flow.svg",
+      "recommended_slide": "",
+      "status": "generated_phase5_pack",
+      "use": "Deterministic hidden-pytest grading flow (no LLM judge)."
+    },
+    {
+      "chart_id": "isolation-hierarchy",
+      "path": "analysis/phase5/xai-presentation-pack/charts/isolation-hierarchy.svg",
+      "recommended_slide": "",
+      "status": "generated_phase5_pack",
+      "use": "Per-run clean HOME and Hermes isolation from production."
+    },
+    {
       "chart_id": "method-evidence-ladder",
       "path": "analysis/phase5/xai-presentation-pack/charts/method-evidence-ladder.svg",
       "recommended_slide": "",
@@ -113,6 +127,13 @@
       "recommended_slide": "",
       "status": "generated_phase5_pack",
       "use": "Attribution label and agreement distributions."
+    },
+    {
+      "chart_id": "pipeline-flow",
+      "path": "analysis/phase5/xai-presentation-pack/charts/pipeline-flow.svg",
+      "recommended_slide": "",
+      "status": "generated_phase5_pack",
+      "use": "Per-run pipeline: provision to immutable persist (8 steps)."
     },
     {
       "chart_id": "research-design-pipeline",

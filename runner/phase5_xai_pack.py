@@ -1109,6 +1109,9 @@ def _chart_manifest(generated: dict[str, str]) -> list[dict[str, Any]]:
         "trace-schema-evidence.svg": "Normalized trace schema evidence model.",
         "config-routing-grid.svg": "Harness x model routing grid: anchor vs crossed interaction cells.",
         "attribution-action-map.svg": "Map XAI findings to prompt/tool-surface governance actions.",
+        "pipeline-flow.svg": "Per-run pipeline: provision to immutable persist (8 steps).",
+        "isolation-hierarchy.svg": "Per-run clean HOME and Hermes isolation from production.",
+        "grader-flow.svg": "Deterministic hidden-pytest grading flow (no LLM judge).",
     }
     for name, path in sorted(generated.items()):
         rows.append({
@@ -1163,6 +1166,9 @@ def write_phase5_xai_pack(data: dict[str, Any], output_dir: str | Path = DEFAULT
         "trace-schema-evidence.svg": charts_dir / "trace-schema-evidence.svg",
         "config-routing-grid.svg": charts_dir / "config-routing-grid.svg",
         "attribution-action-map.svg": charts_dir / "attribution-action-map.svg",
+        "pipeline-flow.svg": charts_dir / "pipeline-flow.svg",
+        "isolation-hierarchy.svg": charts_dir / "isolation-hierarchy.svg",
+        "grader-flow.svg": charts_dir / "grader-flow.svg",
     }
     # Publication-quality rendering delegated to runner.figures (matplotlib).
     # The legacy hand-rolled _chart_* SVG helpers are kept for reference only.

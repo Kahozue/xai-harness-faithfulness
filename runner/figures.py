@@ -608,6 +608,95 @@ def fig_environment_controls(m) -> None:
 
 
 # ── CASE CARDS ────────────────────────────────────────────────────────────
+def fig_pipeline_flow() -> None:
+    steps = [
+        ("1  Provision", "clean target repo;\nstrip hidden graders"),
+        ("2  Fresh HOME", "new isolated HOME\nfor this run"),
+        ("3  Launch", "inject model / route /\neffort=high; timeout 900s"),
+        ("4  Capture", "raw + private +\npublic trace"),
+        ("5  Repo guard", "detect & revert\nbaseline mutation"),
+        ("6  Grade", "hidden pytest;\nall-green = pass"),
+        ("7  Normalize", "unified trace +\nevidence levels"),
+        ("8  Persist", "immutable trace +\nprivate audit"),
+    ]
+    fig, ax = _blank((10.4, 4.2))
+    ax.text(0.0, 0.95, "Per-run pipeline — one (harness, model, task) run", fontsize=13, fontweight="bold", color=INK)
+    w, h = 0.215, 0.30
+    xs = [0.02 + i * 0.247 for i in range(4)]
+    row_y = [0.50, 0.08]
+
+    def place(i):
+        return (xs[i], row_y[0]) if i < 4 else (xs[7 - i], row_y[1])
+
+    for i, (head, sub) in enumerate(steps):
+        x, y = place(i)
+        _box(ax, x, y, w, h, "", "", fill="#eef2f7", edge="#c4d0de")
+        ax.text(x + 0.014, y + h * 0.66, head, fontsize=10.5, fontweight="bold", color=INK)
+        for j, line in enumerate(sub.split("\n")[:2]):
+            ax.text(x + 0.014, y + h * 0.36 - j * 0.105, line, fontsize=8.0, color="#5a6573")
+    for i in range(3):
+        x0, y0 = place(i)
+        x1, y1 = place(i + 1)
+        _arrow(ax, x0 + w + 0.004, y0 + h / 2, x1 - 0.004, y1 + h / 2)
+    x3, y3 = place(3)
+    x4, y4 = place(4)
+    _arrow(ax, x3 + w / 2, y3 - 0.004, x4 + w / 2, y4 + h + 0.004)
+    for i in range(4, 7):
+        x0, y0 = place(i)
+        x1, y1 = place(i + 1)
+        _arrow(ax, x0 - 0.004, y0 + h / 2, x1 + w + 0.004, y1 + h / 2)
+    _save(fig, PACK_CHARTS, "pipeline-flow.svg")
+
+
+def fig_isolation_hierarchy() -> None:
+    fig, ax = _blank((9.6, 4.2))
+    ax.text(0.0, 0.95, "Isolation: clean per-run environment, production untouched", fontsize=13, fontweight="bold", color=INK)
+    ax.add_patch(FancyBboxPatch((0.02, 0.10), 0.62, 0.74, boxstyle="round,pad=0.008,rounding_size=0.02",
+                                linewidth=1.2, edgecolor="#9fb2c8", facecolor="#f4f7fa"))
+    ax.text(0.05, 0.785, "Execution root  /data/harness-lab", fontsize=11, fontweight="bold", color=INK)
+    ax.text(0.05, 0.735, "all 4 harnesses installed, versions pinned", fontsize=8.4, color="#5a6573")
+    _box(ax, 0.05, 0.45, 0.56, 0.21, "", "")
+    ax.text(0.07, 0.605, "Per-run fresh HOME", fontsize=10, fontweight="bold", color=INK)
+    for j, line in enumerate(["runs/<config>/<task>/<repeat>/home — reset every run;", "no shared session / memory / log / cache"]):
+        ax.text(0.07, 0.555 - j * 0.046, line, fontsize=8.2, color="#5a6573")
+    _box(ax, 0.05, 0.15, 0.56, 0.22, "", "", fill="#eef3ee", edge="#bcd0c2")
+    ax.text(0.07, 0.325, "Hermes: independent HERMES_HOME", fontsize=10, fontweight="bold", color=INK)
+    for j, line in enumerate(["clean instance, same v0.13.0 as production,", "but separate state — never writes production dir"]):
+        ax.text(0.07, 0.275 - j * 0.046, line, fontsize=8.2, color="#5a6573")
+    ax.plot([0.68, 0.68], [0.12, 0.82], color="#c0392b", linewidth=1.4, linestyle=(0, (5, 4)))
+    ax.text(0.69, 0.85, "no-touch barrier", fontsize=8, color="#c0392b")
+    ax.add_patch(FancyBboxPatch((0.72, 0.33), 0.26, 0.32, boxstyle="round,pad=0.008,rounding_size=0.02",
+                                linewidth=1.2, edgecolor="#e0b4ad", facecolor="#fbf0ee"))
+    ax.text(0.745, 0.585, "Production Hermes", fontsize=10, fontweight="bold", color=INK)
+    for j, line in enumerate(["/home/opc/.hermes", "(production Discord bot)", "config frozen,", "service undisturbed"]):
+        ax.text(0.745, 0.525 - j * 0.05, line, fontsize=8.2, color="#5a6573")
+    _save(fig, PACK_CHARTS, "isolation-hierarchy.svg")
+
+
+def fig_grader_flow() -> None:
+    steps = [
+        ("Hidden test", "tasks/graders/<task>_test.py\nkept out of workdir"),
+        ("Copy in", "as _hidden_grader_test.py\ninto the run workdir"),
+        ("Run pytest", "python -m pytest -q\n(runner venv)"),
+        ("All green?", "returncode 0 = pass\nelse = fail"),
+        ("Clean up", "delete hidden test\nafter grading"),
+    ]
+    fig, ax = _blank((10.2, 2.9))
+    ax.text(0.0, 0.93, "Grading — deterministic hidden pytest (no LLM judge)", fontsize=13, fontweight="bold", color=INK)
+    w, h = 0.17, 0.42
+    xs = [0.02 + i * 0.197 for i in range(5)]
+    for i, (head, sub) in enumerate(steps):
+        x, y = xs[i], 0.30
+        _box(ax, x, y, w, h, "", "")
+        ax.text(x + 0.012, y + h * 0.74, head, fontsize=10, fontweight="bold", color=INK)
+        for j, line in enumerate(sub.split("\n")[:2]):
+            ax.text(x + 0.012, y + h * 0.46 - j * 0.11, line, fontsize=7.6, color="#5a6573")
+        if i < 4:
+            _arrow(ax, x + w + 0.003, y + h / 2, xs[i + 1] - 0.003, y + h / 2)
+    ax.text(0.0, 0.06, "Tier 1: Exercism unittest    ·    Tier 2: behavior verifier (property, not patch text)", fontsize=8.8, color="#5a6573")
+    _save(fig, PACK_CHARTS, "grader-flow.svg")
+
+
 def _case_panel(ax, x, side, title):
     _box(ax, x, 0.06, 0.46, 0.66, "", "", fill="#f6f8fb", edge="#cdd8e4")
     ax.text(x + 0.02, 0.66, f"{title}: c{side['config']} {side['harness']}", fontsize=10.5, fontweight="bold", color=INK)
@@ -672,6 +761,7 @@ def render_phase5_charts(m=None, out_dir=None) -> None:
     fig_first_tool_stacked(m); fig_phase3_label_summary(m); fig_factorial_by_split(m); fig_task_suite(m)
     fig_research_design_pipeline(); fig_method_ladder(); fig_trace_schema()
     fig_config_routing_grid(); fig_attribution_action_map(); fig_environment_controls(m)
+    fig_pipeline_flow(); fig_isolation_hierarchy(); fig_grader_flow()
     fig_case_cards()
 
 

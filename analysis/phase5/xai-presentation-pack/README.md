@@ -46,8 +46,11 @@ Canonical deck basis: `analysis/phase5/xai-presentation-pack/deck/content-draft.
 | `analysis/phase5/xai-presentation-pack/charts/environment-controls-matrix.svg` | generated_phase5_pack | Environment lock table as chart. |
 | `analysis/phase5/xai-presentation-pack/charts/factorial-by-split.svg` | generated_phase5_pack | Contrast metrics separated by controlled/benchmark split. |
 | `analysis/phase5/xai-presentation-pack/charts/first-tool-family-stacked-by-config.svg` | generated_phase5_pack | Harness first-action style comparison. |
+| `analysis/phase5/xai-presentation-pack/charts/grader-flow.svg` | generated_phase5_pack | Deterministic hidden-pytest grading flow (no LLM judge). |
+| `analysis/phase5/xai-presentation-pack/charts/isolation-hierarchy.svg` | generated_phase5_pack | Per-run clean HOME and Hermes isolation from production. |
 | `analysis/phase5/xai-presentation-pack/charts/method-evidence-ladder.svg` | generated_phase5_pack | M1-M4 method evidence boundary. |
 | `analysis/phase5/xai-presentation-pack/charts/phase3-label-summary.svg` | generated_phase5_pack | Attribution label and agreement distributions. |
+| `analysis/phase5/xai-presentation-pack/charts/pipeline-flow.svg` | generated_phase5_pack | Per-run pipeline: provision to immutable persist (8 steps). |
 | `analysis/phase5/xai-presentation-pack/charts/research-design-pipeline.svg` | generated_phase5_pack | Method pipeline overview. |
 | `analysis/phase5/xai-presentation-pack/charts/task-difficulty-ranked.svg` | generated_phase5_pack | Task-level difficulty ranking. |
 | `analysis/phase5/xai-presentation-pack/charts/task-success-heatmap.svg` | generated_phase5_pack | Task/config success matrix. |
