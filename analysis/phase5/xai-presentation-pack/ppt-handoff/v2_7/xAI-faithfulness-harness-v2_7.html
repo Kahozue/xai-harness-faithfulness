@@ -1122,13 +1122,13 @@
     }
     .limit-groups {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 24px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
     }
     .limit-group {
       position: relative;
-      min-height: 235px;
-      padding: 28px 30px;
+      min-height: 224px;
+      padding: 22px 24px;
       border: 1px solid var(--border);
       border-radius: 10px;
       background: var(--surface);
@@ -1144,6 +1144,8 @@
     .limit-group.g2::before { background: var(--warn); }
     .limit-group.g3::before { background: var(--success); }
     .limit-group.g4::before { background: var(--accent-2); }
+    .limit-group.g5::before { background: var(--accent); }
+    .limit-group.g6::before { background: var(--warn); }
     .limit-nb {
       font-family: var(--font-mono);
       color: var(--accent);
@@ -1151,16 +1153,16 @@
       font-weight: 800;
     }
     .limit-group h3 {
-      margin: 8px 0 10px;
-      font-size: 34px;
-      line-height: 1.05;
+      margin: 6px 0 10px;
+      font-size: 27px;
+      line-height: 1.1;
     }
     .limit-group p {
       color: var(--fg);
-      font-size: 22px;
-      line-height: 1.38;
+      font-size: 19px;
+      line-height: 1.36;
       font-weight: 680;
-      margin-bottom: 18px;
+      margin-bottom: 12px;
     }
     .closing {
       max-width: 1540px;
@@ -2296,8 +2298,8 @@
         
       <div>
         <p class="kicker">研究限制</p>
-        <h1 class="title tight-title">研究限制：外推、交叉、effort、因果語氣</h1>
-        <p class="lead tight-lead">把外推範圍、交叉設計、effort 對齊與因果語氣四類限制集中列出。</p>
+        <h1 class="title tight-title">研究限制：外推、任務適配、單次環境、交叉、effort、語氣</h1>
+        <p class="lead tight-lead">把外推範圍、任務取向適配、單次乾淨環境、交叉設計、effort 對齊與因果語氣六類限制集中列出。</p>
       </div>
       <div class="limit-groups">
     <article class="limit-group g1">
@@ -2320,6 +2322,16 @@
       <h3>解讀語氣</h3>
       <p>結果定位為描述性統計與案例歸因，治理卡只負責標示可用邊界。</p>
       <div><span class="pill accent">agent card coverage gate</span><span class="pill accent">描述性統計</span><span class="pill accent">HCI 尚未執行</span></div>
+    </article><article class="limit-group g5">
+      <span class="limit-nb">05</span>
+      <h3>任務取向不一定對齊</h3>
+      <p>受測 harness 並非都專精 coding，部分走通用日常取向；這組偏 coding 的 task 對它們較不利，成績不應直接讀成 harness 能力高低。</p>
+      <div><span class="pill accent">通用 vs 專用取向</span><span class="pill accent">任務偏 coding</span><span class="pill accent">非能力排名</span></div>
+    </article><article class="limit-group g6">
+      <span class="limit-nb">06</span>
+      <h3>單次乾淨環境，無跨 session 累積</h3>
+      <p>每個 run 都用全新 HOME 單次執行（近似 one-shot）；會累積經驗的機制因此吃虧，例如 Hermes 把經驗自動沉澱成 skill 與記憶檔案的自我學習在此無法發揮。</p>
+      <div><span class="pill warn">fresh HOME 單次</span><span class="pill warn">近似 one-shot</span><span class="pill warn">Hermes 自我學習被抑制</span></div>
     </article>
   </div>
     
