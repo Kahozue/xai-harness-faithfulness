@@ -59,3 +59,7 @@ stdout trace：`/data/harness-lab/smoke/codex/codex.log`。事件序列為 `thre
 session trace：`/data/harness-lab/home/.codex/sessions/2026/06/03/rollout-2026-06-03T20-42-51-019e8d82-0f4e-74d3-9de7-07c0cc9e6cd7.jsonl`。它比 stdout trace 更完整，包含 base instructions、developer/environment context、function call arguments、custom patch input、tool output、token_count 與 final answer。兩份 trace 對同一輪 smoke 的結論一致：`hello.py` 從 `return a - b` 被修正為 `return a + b`。
 
 結論：Codex CLI 在本實驗中的可控點是 npm/native binary 版本、`$LAB_HOME/.codex/config.toml` 的 model/effort、`codex login --with-api-key` 的隔離 auth、以及 `codex exec --json` trace；可觀察點是 stdout JSONL 與 session JSONL。相較 Claude Code，Codex 的完整 Rust agent loop 不在 npm wrapper 內展開，因此本 dossier 把 native 內部 prompt/工具實作視為可觀察黑箱，並用 session JSONL 作為 Phase 1 trace schema 的主證據。
+
+## 模型推理可見性補正（2026-06-05）
+
+Codex/GPT-5.4-mini 的 reasoning 由 OpenAI 加密：session JSONL 的 reasoning item 帶 `encrypted_content`（~1000-3200 字、不可解碼）＋ `reasoning_output_tokens`，原始 CoT 無法還原；可讀的只有 reasoning summary（部分 provider 才回）與 token 數。Codex model_family 的 context window 為 258400，與 OpenAI 對 GPT-5.4-mini 的 400000、OpenCode catalog 的 400000 不同（屬 harness 端設定）。詳見 `docs/verification/2026-06-05-thinking-capture-investigation.md`。

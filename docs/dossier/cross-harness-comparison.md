@@ -89,3 +89,13 @@ M4 建議把 evidence 分成四級：
 ## 結論
 
 四個 harness 都能在 smoke 中完成簡單修補，但可解釋性資料面不同。Claude Code 與 Codex CLI 的 trace 對 instruction stack 較直接；OpenCode 對 tool path 可觀察但 prompt 有缺口；Hermes 的 source-level observability 最完整，尤其 memory、provider transport、compression 與 session lineage。後續 M1-M4 應避免把「trace 不可見」與「模型未接收」混為一談，並在比較表中明確標註 evidence level。
+
+## 模型推理可見性補正（2026-06-05 實 trace + proxy 徹查）
+
+「hidden CoT omitted」並非對所有 harness 一致，須依 provider 與 harness 分述：
+
+- Anthropic／Haiku：thinking 可讀。Claude Code 經 claude-trace 已存完整原文；OpenCode 以 `--variant high` 送 budget 16000、可由 logging proxy 補抓（export 會 strip）；Hermes native 不送 thinking（budget 0），強制注入後可抓但偏薄。
+- OpenAI／GPT-5.4-mini（Codex／OpenCode／Hermes）：reasoning 由 OpenAI 加密，只剩 summary＋token。
+- 連帶發現：所謂「effort 全 high」在 Anthropic 路徑的 thinking budget 並不一致（63999／16000／0）。
+
+詳見 `docs/verification/2026-06-05-thinking-capture-investigation.md`。

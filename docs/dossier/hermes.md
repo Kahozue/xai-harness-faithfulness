@@ -139,3 +139,7 @@ GPT mini trace：
 - lab request dumps 存在於 isolated `$HERMES_HOME/sessions/request_dump_*.json` 時可做更細核對；本章不引用 dump 內容，以免誤曝 headers 或 credentials。
 - 沒有 formal experiment；本章只總結既有 smoke 與來源碼白箱路徑。
 - production Hermes 僅讀取來源碼，未做 process 操作。
+
+## 可觀察限制補正（2026-06-05 thinking 擷取）
+
+native Hermes 走 Anthropic（Haiku）時 request **不含 `thinking` 欄**——`reasoning_effort: high` 只接到 OpenAI 路徑，未轉成 Anthropic 的 `thinking.budget_tokens`，故 Anthropic 不回 thinking blocks（thinking budget 實質為 0）。`agent/transports/anthropic.py:101-102` 讀得到 thinking block，但 native 不主動要求。以 proxy 在 request 注入 `thinking={enabled, budget_tokens:16000}`（temperature=1，不改生產 Hermes 原始碼）後可擷取，但偏薄（20 題共 6,393 字、多為首輪，Hermes 不跨 tool turn 保留 thinking block）。Haiku 路徑實際送出 `max_tokens=64000`。詳見 `docs/verification/2026-06-05-thinking-capture-investigation.md`。

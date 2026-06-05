@@ -761,10 +761,30 @@ def _aggregate_first_tools(cell_summaries: list[dict[str, Any]]) -> list[dict[st
     return rows
 
 
+# Runtime budgets that the standard harness traces do not expose for OpenCode/Hermes.
+# Backfilled from the 2026-06-05 thinking-capture investigation (logging proxy on the
+# Anthropic endpoint + OpenCode model catalog). See
+# docs/verification/2026-06-05-thinking-capture-investigation.md.
+#   thinking_budget_tokens: actual budget sent on the Anthropic path (Claude Code 63999,
+#     OpenCode 16000, Hermes 0 = native does not enable extended thinking). None on the
+#     OpenAI path (reasoning is effort-based and encrypted, no thinking-token budget).
+#   max_output / context: model/catalog windows (Haiku 64000/200000; GPT-5.4-mini
+#     128000/400000 per OpenCode catalog; Codex context 258400 per its model_family).
+_INVESTIGATED_BUDGET = {
+    1: {"max_output_tokens": 64000, "thinking_budget_tokens": 63999, "context_window_tokens": 200000},
+    2: {"max_output_tokens": 64000, "thinking_budget_tokens": 16000, "context_window_tokens": 200000},
+    3: {"max_output_tokens": 64000, "thinking_budget_tokens": 0, "context_window_tokens": 200000},
+    4: {"max_output_tokens": 128000, "thinking_budget_tokens": None, "context_window_tokens": 400000},
+    5: {"max_output_tokens": 128000, "thinking_budget_tokens": None, "context_window_tokens": 400000},
+    6: {"max_output_tokens": None, "thinking_budget_tokens": None, "context_window_tokens": 258400},
+}
+
+
 def _environment_rows(metrics: dict[str, Any]) -> list[dict[str, Any]]:
     rows = []
     for item in metrics["environment_controls"]["configs"]:
         budget = (item["runtime_budget_variants"][0] or {}).get("budget", {})
+        _inv = _INVESTIGATED_BUDGET.get(item["config_id"], {})
         rows.append({
             "config_id": item["config_id"],
             "harness": item["harness"],
@@ -774,9 +794,9 @@ def _environment_rows(metrics: dict[str, Any]) -> list[dict[str, Any]]:
             "harness_versions": "; ".join(item["harness_versions_observed"]),
             "reasoning_efforts": "; ".join(item["reasoning_efforts_observed"]),
             "effort_source": budget.get("effort_source"),
-            "max_output_tokens": budget.get("max_output_tokens"),
-            "thinking_budget_tokens": budget.get("thinking_budget_tokens"),
-            "context_window_tokens": budget.get("context_window_tokens"),
+            "max_output_tokens": _inv.get("max_output_tokens", budget.get("max_output_tokens")),
+            "thinking_budget_tokens": _inv.get("thinking_budget_tokens", budget.get("thinking_budget_tokens")),
+            "context_window_tokens": _inv.get("context_window_tokens", budget.get("context_window_tokens")),
             "raw_log_paths_present": item["raw_log_paths_present"],
             "private_audit_paths_present": item["private_audit_paths_present"],
             "n": item["n"],

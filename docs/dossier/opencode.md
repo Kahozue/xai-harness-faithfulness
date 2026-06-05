@@ -59,3 +59,7 @@ Haiku trace：`/data/harness-lab/smoke/opencode-haiku/oc.log`。工具序列是 
 GPT mini trace：`/data/harness-lab/smoke/opencode-gptmini/oc.log`。工具序列是 `glob -> glob -> read -> apply_patch -> read`。第一次 step 用兩個 glob 找到 `hello.py`；第二步 read 確認 bug；第三步 apply_patch 更新一行；第四步 read 驗證 line 2 為 `return a + b`；第五步 final answer。`/data/harness-lab/smoke/opencode-gptmini/hello.py` 最終為 `a + b`。
 
 結論：OpenCode 在本實驗中的可控點是 npm/native binary 版本、`opencode.json` 的 provider/model 宣告、`run --model provider/model` 與 `--variant high`、以及 `--format json` trace。可觀察點是 step/text/reasoning/tool_use/step_finish JSON event、session export、SQLite session/message/part storage。相較 Codex，OpenCode 的 trace 對 tool input/output/diff metadata 更直接；相較 Claude Code，它沒有在本 trace 中直接暴露完整 system prompt 文字。
+
+## 9. 模型推理（thinking）擷取補正（2026-06-05）
+
+Phase 0 dossier 與正式 trace 使用 `opencode run --format json` / `opencode export`，而 export 會 strip 掉模型 thinking。2026-06-05 於 Anthropic endpoint 前架 logging proxy（OpenCode 走 `opencode.json` 的 anthropic `options.baseURL`）後確認：OpenCode/Haiku 以 `--variant high` 實際向 Anthropic 送出 `thinking={type:enabled, budget_tokens:16000}`，模型 thinking 原文完整回傳，全 20 題補抓共 97,560 字（私有存 `/data/harness-lab/thinking-capture/2/`）。亦即 OpenCode/Haiku 的 reasoning 一直可擷取，只是 export 漏掉。模型/catalog 視窗（OpenCode 自家 `models.json`）：Haiku context 200000 / output 64000；GPT-5.4-mini context 400000 / output 128000（與 Codex 的 258400 不同）。詳見 `docs/verification/2026-06-05-thinking-capture-investigation.md`。

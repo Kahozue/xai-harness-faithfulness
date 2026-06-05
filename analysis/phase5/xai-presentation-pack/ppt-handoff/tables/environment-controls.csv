@@ -1,7 +1,7 @@
 config_id,harness,model_role,model_snapshots,provider,harness_versions,reasoning_efforts,effort_source,max_output_tokens,thinking_budget_tokens,context_window_tokens,raw_log_paths_present,private_audit_paths_present,n
 1,claude_code,haiku,claude-haiku-4-5-20251001,anthropic,2.1.88,high,cli --effort high + env budgets,64000,63999,200000,60,60,60
-2,opencode,haiku,claude-haiku-4-5-20251001,anthropic,1.15.13,high,opencode run --variant high,,,,60,60,60
-3,hermes,haiku,claude-haiku-4-5-20251001,anthropic,0.13.0,high,hermes -z -m MODEL --provider PROVIDER --yolo; no explicit effort flag,,,,60,60,60
-4,opencode,gptmini,gpt-5.4-mini-2026-03-17,openai,1.15.13,high,opencode run --variant high,,,,60,60,60
-5,hermes,gptmini,gpt-5.4-mini-2026-03-17,openai,0.13.0,high,hermes -z -m MODEL --provider PROVIDER --yolo; no explicit effort flag,,,,60,60,60
+2,opencode,haiku,claude-haiku-4-5-20251001,anthropic,1.15.13,high,opencode run --variant high,64000,16000,200000,60,60,60
+3,hermes,haiku,claude-haiku-4-5-20251001,anthropic,0.13.0,high,hermes -z -m MODEL --provider PROVIDER --yolo; no explicit effort flag,64000,0,200000,60,60,60
+4,opencode,gptmini,gpt-5.4-mini-2026-03-17,openai,1.15.13,high,opencode run --variant high,128000,,400000,60,60,60
+5,hermes,gptmini,gpt-5.4-mini-2026-03-17,openai,0.13.0,high,hermes -z -m MODEL --provider PROVIDER --yolo; no explicit effort flag,128000,,400000,60,60,60
 6,codex,gptmini,gpt-5.4-mini-2026-03-17,openai,0.136.0,high,$LAB_HOME/.codex/config.toml reasoning_effort=high,,,258400,60,60,60
